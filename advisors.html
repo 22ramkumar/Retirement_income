@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Our Fiduciary Advisors - RetireWell</title>
+  <meta name="description" content="Meet our certified fiduciary retirement advisors. Average of 19+ years experience in guaranteed lifetime income and annuity architecture.">
+
+  <!-- Tailwind CSS & Bootstrap Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          colors: {
+            navy: { 950: '#070D1B', 900: '#0A192F', 800: '#112240', 700: '#1D3557' },
+            teal: { 50: '#F0FDFA', 600: '#0D9488', 700: '#0F766E' },
+            amber: { 500: '#F59E0B', 600: '#D97706', 700: '#B45309' }
+          },
+          fontFamily: {
+            serif: ['Lora', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 dark:bg-navy-950 text-slate-800 dark:text-slate-100 transition-colors duration-300 antialiased">
+
+  <!-- Universal Header -->
+  <div id="navbar"></div>
+
+  <!-- Hero Header -->
+  <section class="py-16 lg:py-24 bg-white dark:bg-navy-900 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <span class="rw-badge-teal">100% INDEPENDENT FIDUCIARIES</span>
+      <h1 class="text-4xl sm:text-5xl font-bold font-serif text-slate-900 dark:text-white">
+        Meet Our Senior Advisory Partners
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+        Credentialed retirement income specialists bound by legal fiduciary oath. No proprietary sales quotas—just objective mathematical planning for your longevity.
+      </p>
+
+      <!-- Live Search & Specialization Filter -->
+      <div class="max-w-xl mx-auto pt-6">
+        <div class="relative">
+          <i class="bi bi-search absolute left-4 top-3.5 text-slate-400 text-lg"></i>
+          <input type="text" id="advisorSearchInput" placeholder="Search by name, credential, or specialty..." 
+            class="rw-input pl-11 pr-4 py-3 rounded-2xl shadow-sm text-sm"
+            oninput="filterAdvisors()">
+        </div>
+      </div>
+
+      <!-- Specialization Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-2 pt-4" id="advisorFilterButtons">
+        <button onclick="setAdvisorSpecialty('all', this)" class="px-4 py-2 rounded-xl text-xs font-bold transition bg-teal-600 text-white shadow-sm adv-tab active">
+          All Advisors (6)
+        </button>
+        <button onclick="setAdvisorSpecialty('annuities', this)" class="px-4 py-2 rounded-xl text-xs font-bold transition bg-slate-100 dark:bg-navy-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-navy-700 adv-tab">
+          Annuity Specialists
+        </button>
+        <button onclick="setAdvisorSpecialty('rollovers', this)" class="px-4 py-2 rounded-xl text-xs font-bold transition bg-slate-100 dark:bg-navy-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-navy-700 adv-tab">
+          401(k) & Rollovers
+        </button>
+        <button onclick="setAdvisorSpecialty('portfolio', this)" class="px-4 py-2 rounded-xl text-xs font-bold transition bg-slate-100 dark:bg-navy-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-navy-700 adv-tab">
+          Portfolio & Economics
+        </button>
+        <button onclick="setAdvisorSpecialty('estate', this)" class="px-4 py-2 rounded-xl text-xs font-bold transition bg-slate-100 dark:bg-navy-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-navy-700 adv-tab">
+          Estate & Healthcare
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6 Detailed Advisor Cards Grid -->
+  <section class="py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="advisorsGrid">
+        
+        <!-- Advisor 1: David Vance -->
+        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between advisor-card" data-specialty="annuities" data-keywords="david vance managing partner cfp ricp annuities glwb boston">
+          <div>
+            <div class="h-72 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" alt="David Vance CFP" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 text-[10px]">
+                MANAGING PARTNER
+              </span>
+              <span class="absolute bottom-4 left-4 rw-badge-gold text-[10px] bg-slate-900/80 text-amber-300 border-amber-500/30">
+                <i class="bi bi-circle-fill text-[8px] text-emerald-400 mr-1"></i> Accepting 2 Clients
+              </span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-teal-700 dark:text-teal-400">Fixed Indexed & Longevity</span>
+                <span class="text-xs text-amber-500 flex items-center gap-1 font-bold"><i class="bi bi-star-fill"></i> 5.0 (64 Reviews)</span>
+              </div>
+              <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white">David Vance, CFP®, RICP®</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mb-3">Senior Fiduciary Partner • 24 Years Experience</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Specializes in designing unbreakable guaranteed income floors for corporate managers and retirees with over $500k in savings. Master of indexed cap renewal negotiation.
+              </p>
+              <div class="flex flex-wrap gap-2 text-[11px] text-slate-500 mb-2">
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-navy-800">English</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-navy-800">CFP® Board #10492</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-navy-800">RICP® Longevity</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3">
+            <button onclick="openAdvisorModal('david')" class="btn-outline-navy py-2 px-3 text-xs w-1/2 text-center">
+              View Bio
+            </button>
+            <button onclick="RetireWellApp.openBookingModal('Consultation with David Vance', 'David Vance, CFP®, RICP®')" class="btn-primary-gold py-2 px-3 text-xs w-1/2 text-center font-bold">
+              Book Consult
+            </button>
+          </div>
+        </div>
+
+        <!-- Advisor 2: Elena Rostova -->
+        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between advisor-card" data-specialty="annuities" data-keywords="elena rostova chfc clu annuities dia longevity riders">
+          <div>
+            <div class="h-72 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Elena Rostova ChFC" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 rw-badge-gold bg-white/90 dark:bg-navy-900/90 text-[10px]">
+                SENIOR STRATEGIST
+              </span>
+              <span class="absolute bottom-4 left-4 rw-badge-teal text-[10px] bg-slate-900/80 text-teal-300 border-teal-500/30">
+                <i class="bi bi-circle-fill text-[8px] text-emerald-400 mr-1"></i> Available This Week
+              </span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-amber-700 dark:text-amber-400">Immediate & Spousal Riders</span>
+                <span class="text-xs text-amber-500 flex items-center gap-1 font-bold"><i class="bi bi-star-fill"></i> 4.9 (51 Reviews)</span>
+              </div>
+              <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white">Elena Rostova, ChFC®, CLU®</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mb-3">Chartered Financial Consultant • 18 Years Experience</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Nationally recognized authority on spousal continuation guarantees, deferred longevity annuities (DIA), and structuring survivorship protections for couples.
+              </p>
+              <div class="flex flex-wrap gap-2 text-[11px] text-slate-500 mb-2">
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-navy-800">English, Russian</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-navy-800">ChFC® Certified</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-navy-800">CLU® Underwriting</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3">
+            <button onclick="openAdvisorModal('elena')" class="btn-outline-navy py-2 px-3 text-xs w-1/2 text-center">
+              View Bio
+            </button>
+            <button onclick="RetireWellApp.openBookingModal('Consultation with Elena Rostova', 'Elena Rostova, ChFC®, CLU®')" class="btn-primary-gold py-2 px-3 text-xs w-1/2 text-center font-bold">
+              Book Consult
+            </button>
+          </div>
+        </div>
+
+        <!-- Advisor 3: Marcus Sterling -->
+        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between advisor-card" data-specialty="portfolio" data-keywords="marcus sterling cfa cfp portfolio economics allocation treasuries">
+          <div>
+            <div class="h-72 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Marcus Sterling CFA" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 text-[10px]">
+                PORTFOLIO DIRECTOR
+              </span>
+              <span class="absolute bottom-4 left-4 rw-badge-teal text-[10px] bg-slate-900/80 text-teal-300 border-teal-500/30">
+                <i class="bi bi-circle-fill text-[8px] text-emerald-400 mr-1"></i> Available Next Week
+              </span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-teal-700 dark:text-teal-400">Multi-Asset Fiduciary Allocation</span>
+                <span class="text-xs text-amber-500 flex items-center gap-1 font-bold"><i class="bi bi-star-fill"></i> 5.0 (48 Reviews)</span>
+              </div>
+              <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white">Marcus Sterling, CFA, CFP®</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mb-3">Chartered Financial Analyst • 21 Years Experience</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Coordinates our institutional asset allocation. Blends fixed indexed guarantees with short-duration Treasuries and blue-chip dividend aristocrats for balanced portfolios.
+              </p>
+              <div class="flex flex-wrap gap-2 text-[11px] text-slate-500 mb-2">
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-navy-800">English</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-navy-800">CFA Charterholder</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-navy-800">CFP® Professional</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3">
+            <button onclick="openAdvisorModal('marcus')" class="btn-outline-navy py-2 px-3 text-xs w-1/2 text-center">
+              View Bio
+            </button>
+            <button onclick="RetireWellApp.openBookingModal('Consultation with Marcus Sterling', 'Marcus Sterling, CFA, CFP®')" class="btn-primary-gold py-2 px-3 text-xs w-1/2 text-center font-bold">
+              Book Consult
+            </button>
+          </div>
+        </div>
+
+        <!-- Advisor 4: Sarah Jenkins -->
+        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between advisor-card" data-specialty="rollovers" data-keywords="sarah jenkins cfp ricp rollovers 401k 403b pension teachers">
+          <div>
+            <div class="h-72 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=600&q=80" alt="Sarah Jenkins CFP" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 text-[10px]">
+                ROLLOVER DIRECTOR
+              </span>
+              <span class="absolute bottom-4 left-4 rw-badge-teal text-[10px] bg-slate-900/80 text-teal-300 border-teal-500/30">
+                <i class="bi bi-circle-fill text-[8px] text-emerald-400 mr-1"></i> Available This Week
+              </span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-teal-700 dark:text-teal-400">401(k) / 403(b) Rollovers</span>
+                <span class="text-xs text-amber-500 flex items-center gap-1 font-bold"><i class="bi bi-star-fill"></i> 4.9 (42 Reviews)</span>
+              </div>
+              <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white">Sarah Jenkins, CFP®, RICP®</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mb-3">Rollover Concierge Director • 16 Years Experience</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Dedicated to helping retiring professionals roll over employer retirement plans into personalized IRA and annuity vaults without taxes or custodian delays.
+              </p>
+              <div class="flex flex-wrap gap-2 text-[11px] text-slate-500 mb-2">
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-navy-800">English, Spanish</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-navy-800">CFP® Certified</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-navy-800">RICP® Specialist</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3">
+            <button onclick="openAdvisorModal('sarah')" class="btn-outline-navy py-2 px-3 text-xs w-1/2 text-center">
+              View Bio
+            </button>
+            <button onclick="RetireWellApp.openBookingModal('Consultation with Sarah Jenkins', 'Sarah Jenkins, CFP®, RICP®')" class="btn-primary-gold py-2 px-3 text-xs w-1/2 text-center font-bold">
+              Book Consult
+            </button>
+          </div>
+        </div>
+
+        <!-- Advisor 5: Raymond Scott -->
+        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between advisor-card" data-specialty="estate" data-keywords="raymond scott chfc cltc long term care estate beneficiary probate">
+          <div>
+            <div class="h-72 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80" alt="Raymond Scott ChFC" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 text-[10px]">
+                ESTATE SPECIALIST
+              </span>
+              <span class="absolute bottom-4 left-4 rw-badge-teal text-[10px] bg-slate-900/80 text-teal-300 border-teal-500/30">
+                <i class="bi bi-circle-fill text-[8px] text-emerald-400 mr-1"></i> Available Next Week
+              </span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-teal-700 dark:text-teal-400">Long-Term Care & Trusts</span>
+                <span class="text-xs text-amber-500 flex items-center gap-1 font-bold"><i class="bi bi-star-fill"></i> 4.9 (39 Reviews)</span>
+              </div>
+              <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white">Raymond Scott, ChFC®, CLTC®</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mb-3">Long-Term Care Principal • 22 Years Experience</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Pioneers asset-based long-term care contracts that guarantee 100% principal refund to children if care is never needed, protecting family wealth from nursing spend-downs.
+              </p>
+              <div class="flex flex-wrap gap-2 text-[11px] text-slate-500 mb-2">
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-navy-800">English</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-navy-800">CLTC® Certified</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-navy-800">ChFC® Consultant</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3">
+            <button onclick="openAdvisorModal('raymond')" class="btn-outline-navy py-2 px-3 text-xs w-1/2 text-center">
+              View Bio
+            </button>
+            <button onclick="RetireWellApp.openBookingModal('Consultation with Raymond Scott', 'Raymond Scott, ChFC®, CLTC®')" class="btn-primary-gold py-2 px-3 text-xs w-1/2 text-center font-bold">
+              Book Consult
+            </button>
+          </div>
+        </div>
+
+        <!-- Advisor 6: Dr. Miriam Patel -->
+        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between advisor-card" data-specialty="portfolio" data-keywords="miriam patel phd cfp economics monte carlo simulation social security">
+          <div>
+            <div class="h-72 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80" alt="Dr Miriam Patel" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 text-[10px]">
+                ANALYTICAL DIRECTOR
+              </span>
+              <span class="absolute bottom-4 left-4 rw-badge-gold text-[10px] bg-slate-900/80 text-amber-300 border-amber-500/30">
+                <i class="bi bi-circle-fill text-[8px] text-emerald-400 mr-1"></i> Accepting 1 Client
+              </span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-teal-700 dark:text-teal-400">Longevity Economics</span>
+                <span class="text-xs text-amber-500 flex items-center gap-1 font-bold"><i class="bi bi-star-fill"></i> 5.0 (57 Reviews)</span>
+              </div>
+              <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white">Dr. Miriam Patel, Ph.D., CFP®</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mb-3">Retirement Economics Fellow • 20 Years Experience</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Former university economics faculty specializing in Monte Carlo stress-testing, inflation indexation modeling, and lifetime tax-bracket minimization.
+              </p>
+              <div class="flex flex-wrap gap-2 text-[11px] text-slate-500 mb-2">
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-navy-800">English, Gujarati</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-navy-800">Ph.D. Economics</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-navy-800">CFP® Board</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3">
+            <button onclick="openAdvisorModal('miriam')" class="btn-outline-navy py-2 px-3 text-xs w-1/2 text-center">
+              View Bio
+            </button>
+            <button onclick="RetireWellApp.openBookingModal('Consultation with Dr. Miriam Patel', 'Dr. Miriam Patel, Ph.D., CFP®')" class="btn-primary-gold py-2 px-3 text-xs w-1/2 text-center font-bold">
+              Book Consult
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       HOW WE CHOOSE & VET OUR FIDUCIARY ADVISORS
+       ========================================================================= -->
+  <section class="py-20 lg:py-28 bg-white dark:bg-navy-900 border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="rw-badge-teal mb-3">OUR CREDENTIALING PROTOCOL</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-serif text-slate-900 dark:text-white">
+          How We Choose & Vet Our Advisors
+        </h2>
+        <p class="text-base text-slate-600 dark:text-slate-300 mt-4 leading-relaxed">
+          Fewer than 3% of applicants meet our standards. Every RetireWell partner must meet four stringent criteria before guiding client retirement wealth.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800">
+          <div class="w-12 h-12 rounded-xl bg-teal-600 text-white flex items-center justify-center font-bold text-xl mb-4">
+            <i class="bi bi-file-earmark-check"></i>
+          </div>
+          <h4 class="text-lg font-bold font-serif text-slate-900 dark:text-white mb-2">Legal Fiduciary Oath</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            Every advisor signs an annual notarized fiduciary pledge. They are legally barred from taking undisclosed perks, sales contests, or carrier incentives.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800">
+          <div class="w-12 h-12 rounded-xl bg-amber-600 text-white flex items-center justify-center font-bold text-xl mb-4">
+            <i class="bi bi-mortarboard"></i>
+          </div>
+          <h4 class="text-lg font-bold font-serif text-slate-900 dark:text-white mb-2">Elite Credentials</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            Must hold one or more rigorous designations: CFP® (Certified Financial Planner), RICP® (Retirement Income Certified Professional), or CFA Charter.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800">
+          <div class="w-12 h-12 rounded-xl bg-teal-600 text-white flex items-center justify-center font-bold text-xl mb-4">
+            <i class="bi bi-shield-fill-check"></i>
+          </div>
+          <h4 class="text-lg font-bold font-serif text-slate-900 dark:text-white mb-2">15+ Years Median Exp</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            Our advisors have successfully steered client nest eggs through the 2000 Dot-com crash, the 2008 Great Financial Crisis, and the 2020 pandemic.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800">
+          <div class="w-12 h-12 rounded-xl bg-teal-600 text-white flex items-center justify-center font-bold text-xl mb-4">
+            <i class="bi bi-search"></i>
+          </div>
+          <h4 class="text-lg font-bold font-serif text-slate-900 dark:text-white mb-2">Spotless Regulatory Record</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            Zero customer disclosures or disciplinary events on FINRA BrokerCheck or the SEC Investment Adviser Public Disclosure (IAPD) database.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Advisor Bio Modal (Dynamic) -->
+  <div id="advisorBioModal" class="rw-modal-backdrop" role="dialog" aria-modal="true">
+    <div class="rw-modal-dialog max-w-2xl">
+      <div class="p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-navy-950/50 rounded-t-2xl">
+        <div class="flex items-center gap-4">
+          <img id="bioAvatar" src="" alt="Advisor" class="w-14 h-14 rounded-2xl object-cover border-2 border-teal-600">
+          <div>
+            <h3 id="bioName" class="text-lg font-bold font-serif text-slate-900 dark:text-white"></h3>
+            <p id="bioTitle" class="text-xs text-teal-600 dark:text-teal-400 font-semibold"></p>
+          </div>
+        </div>
+        <button onclick="RetireWellApp.closeModal('advisorBioModal')" class="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg transition" aria-label="Close dialog">
+          <i class="bi bi-x-lg text-lg"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed" id="bioContent">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-navy-950/50 flex items-center justify-between rounded-b-2xl">
+        <button onclick="RetireWellApp.closeModal('advisorBioModal')" class="btn-outline-navy py-2 px-4 text-xs">
+          Close
+        </button>
+        <button id="bioBookBtn" class="btn-primary-gold py-2 px-5 text-xs font-bold">
+          Book Consultation
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Universal Footer -->
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/footer.js"></script>
+
+  <!-- Filter & Modal Logic -->
+  <script>
+    const ADVISOR_PROFILES = {
+      david: {
+        name: "David Vance, CFP®, RICP®",
+        title: "Senior Fiduciary Partner & Longevity Strategist",
+        avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
+        bio: `
+          <p>David Vance founded RetireWell's Annuity Fiduciary Division in 2004 following a ten-year career managing institutional retirement plans. He specializes in designing guaranteed lifetime floors that allow clients to spend comfortably in retirement without fear of market crashes or outliving their capital.</p>
+          <div class="p-4 rounded-xl bg-teal-50 dark:bg-teal-950/30 border border-teal-500/20 space-y-1">
+            <h5 class="font-bold text-teal-800 dark:text-teal-300">Advisory Philosophy:</h5>
+            <p>"If you don't have your non-negotiable living expenses guaranteed by contract, you aren't really retired—you're just gambling on the stock market."</p>
+          </div>
+          <h5 class="font-bold text-slate-900 dark:text-white">Education & Credentials:</h5>
+          <ul class="list-disc pl-5 space-y-1 text-xs">
+            <li>B.S. in Finance, Boston College (Magna Cum Laude)</li>
+            <li>Certified Financial Planner (CFP®) since 2001</li>
+            <li>Retirement Income Certified Professional (RICP®), The American College</li>
+          </ul>
+        `
+      },
+      elena: {
+        name: "Elena Rostova, ChFC®, CLU®",
+        title: "Chartered Financial Consultant & Annuity Strategist",
+        avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
+        bio: `
+          <p>Elena has guided over 1,200 families through spousal survivorship guarantees and deferred longevity planning. She brings deep technical insight into life insurance and annuity contractual fine-print, having served as a former actuarial analyst.</p>
+          <div class="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-500/20 space-y-1">
+            <h5 class="font-bold text-amber-800 dark:text-amber-300">Specialty Focus:</h5>
+            <p>Spousal Continuation Riders, Joint Lifetime Withdrawal Payouts, and Deferred Income Annuities (DIA).</p>
+          </div>
+        `
+      },
+      marcus: {
+        name: "Marcus Sterling, CFA, CFP®",
+        title: "Chartered Financial Analyst & Portfolio Director",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+        bio: `
+          <p>Marcus oversees portfolio construction and macro-economic stress testing for RetireWell. He blends contractually guaranteed annuities with short-duration Treasury ladders and high-conviction dividend portfolios.</p>
+        `
+      },
+      sarah: {
+        name: "Sarah Jenkins, CFP®, RICP®",
+        title: "Director of 401(k) & Pension Rollover Guidance",
+        avatar: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=600&q=80",
+        bio: `
+          <p>Sarah leads our rollover concierge desk. She helps retiring executives, teachers, and municipal employees transition their retirement plans into high-yielding, penalty-free rollover IRAs and annuity vaults.</p>
+        `
+      },
+      raymond: {
+        name: "Raymond Scott, ChFC®, CLTC®",
+        title: "Long-Term Care Principal & Estate Planner",
+        avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
+        bio: `
+          <p>Raymond is a master of asset-based long term care architectures that eliminate the use-it-or-lose-it risk of obsolete insurance policies, ensuring client wealth transfers safely to heirs.</p>
+        `
+      },
+      miriam: {
+        name: "Dr. Miriam Patel, Ph.D., CFP®",
+        title: "Director of Longevity Economics & Monte Carlo Analytics",
+        avatar: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80",
+        bio: `
+          <p>Dr. Patel brings advanced economic modeling to retirement decumulation. Her research focuses on dynamic withdrawal guardrails and sequence-of-returns mathematical immunizations.</p>
+        `
+      }
+    };
+
+    function setAdvisorSpecialty(specialty, btn) {
+      document.querySelectorAll('.adv-tab').forEach(b => {
+        b.className = 'px-4 py-2 rounded-xl text-xs font-bold transition bg-slate-100 dark:bg-navy-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-navy-700 adv-tab';
+      });
+      btn.className = 'px-4 py-2 rounded-xl text-xs font-bold transition bg-teal-600 text-white shadow-sm adv-tab active';
+
+      const cards = document.querySelectorAll('.advisor-card');
+      cards.forEach(card => {
+        if (specialty === 'all' || card.getAttribute('data-specialty') === specialty) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function filterAdvisors() {
+      const q = document.getElementById('advisorSearchInput').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.advisor-card');
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase() + " " + card.getAttribute('data-keywords');
+        if (!q || text.includes(q)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function openAdvisorModal(key) {
+      const p = ADVISOR_PROFILES[key];
+      if (!p) return;
+
+      document.getElementById('bioAvatar').src = p.avatar;
+      document.getElementById('bioName').textContent = p.name;
+      document.getElementById('bioTitle').textContent = p.title;
+      document.getElementById('bioContent').innerHTML = p.bio;
+
+      const bookBtn = document.getElementById('bioBookBtn');
+      bookBtn.onclick = () => {
+        RetireWellApp.closeModal('advisorBioModal');
+        RetireWellApp.openBookingModal('Consultation with ' + p.name, p.name);
+      };
+
+      RetireWellApp.openModal('advisorBioModal');
+    }
+  </script>
+</body>
+</html>

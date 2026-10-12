@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Client Portal Sign In - RetireWell Fiduciary Advisory</title>
+  <meta name="description" content="Secure client login for RetireWell Fiduciary Advisory. Access retirement projections, annuity accounts, statements, and advisor messaging.">
+
+  <!-- Tailwind CSS & Bootstrap Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          colors: {
+            navy: { 950: '#070D1B', 900: '#0A192F', 800: '#112240', 700: '#1D3557' },
+            teal: { 50: '#F0FDFA', 600: '#0D9488', 700: '#0F766E' },
+            amber: { 500: '#F59E0B', 600: '#D97706', 700: '#B45309' }
+          },
+          fontFamily: {
+            serif: ['Lora', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 dark:bg-navy-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col justify-between transition-colors duration-300 antialiased">
+
+  <!-- Universal Header -->
+  <div id="navbar"></div>
+
+  <!-- Main Login Section -->
+  <main class="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-6">
+      
+      <!-- Top Brand Badge -->
+      <div class="text-center space-y-2">
+        <div class="inline-flex w-14 h-14 rounded-2xl bg-teal-600 text-white items-center justify-center text-3xl shadow-lg shadow-teal-600/20">
+          <i class="bi bi-shield-lock-fill"></i>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold font-serif text-slate-900 dark:text-white">
+          Secure Client Portal
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+          Access your annuity portfolios, projections, and fiduciary vault
+        </p>
+      </div>
+
+      <!-- Demo Credentials Quick-Fill Card -->
+      <div class="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-500/30 text-amber-900 dark:text-amber-200 text-xs shadow-sm space-y-2">
+        <div class="flex items-center justify-between font-bold">
+          <span class="flex items-center gap-1.5"><i class="bi bi-key-fill text-amber-600 dark:text-amber-400"></i> Demo Client Credentials</span>
+          <span class="rw-badge-gold text-[9px]">SAMPLE ACCOUNT</span>
+        </div>
+        <div class="grid grid-cols-2 gap-2 text-[11px] font-mono bg-white/60 dark:bg-navy-900/60 p-2 rounded-lg border border-amber-500/20">
+          <div><span class="text-slate-400">Email:</span> client@retirewell.com</div>
+          <div><span class="text-slate-400">Password:</span> Client@123</div>
+        </div>
+        <button type="button" onclick="fillDemoCredentials()" 
+          class="w-full py-1.5 px-3 rounded-lg bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs transition flex items-center justify-center gap-1 cursor-pointer">
+          <i class="bi bi-box-arrow-in-right"></i> One-Click Fill Demo Credentials
+        </button>
+      </div>
+
+      <!-- Auth Card Container with Tabs -->
+      <div class="rw-card p-6 sm:p-8 rounded-3xl shadow-xl bg-white dark:bg-navy-900 border-slate-200 dark:border-slate-800">
+        
+        <!-- Tab Switches -->
+        <div class="flex border-b border-slate-200 dark:border-slate-800 mb-6 text-sm font-semibold">
+          <button id="tabBtnLogin" onclick="switchAuthTab('login')" class="flex-1 pb-3 text-center border-b-2 border-teal-600 text-teal-600 font-bold transition">
+            Sign In
+          </button>
+          <button id="tabBtnRegister" onclick="switchAuthTab('register')" class="flex-1 pb-3 text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-white transition">
+            Register Client
+          </button>
+          <button id="tabBtnForgot" onclick="switchAuthTab('forgot')" class="flex-1 pb-3 text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-white transition text-xs">
+            Recovery
+          </button>
+        </div>
+
+        <!-- 1. LOGIN FORM -->
+        <form id="formLogin" onsubmit="handleLoginSubmit(event)" class="space-y-4">
+          <div>
+            <label for="loginEmail" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Email Address</label>
+            <div class="relative">
+              <span class="absolute left-3 top-2.5 text-slate-400"><i class="bi bi-envelope"></i></span>
+              <input type="email" id="loginEmail" required class="rw-input pl-9 text-sm" placeholder="client@retirewell.com">
+            </div>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <label for="loginPassword" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">Password</label>
+              <button type="button" onclick="switchAuthTab('forgot')" class="text-xs text-teal-600 hover:underline">Forgot?</button>
+            </div>
+            <div class="relative">
+              <span class="absolute left-3 top-2.5 text-slate-400"><i class="bi bi-shield-lock"></i></span>
+              <input type="password" id="loginPassword" required class="rw-input pl-9 pr-10 text-sm" placeholder="••••••••">
+              <button type="button" onclick="togglePasswordVisibility('loginPassword', this)" 
+                class="absolute right-3 top-2.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" title="Toggle password view">
+                <i class="bi bi-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between text-xs">
+            <label class="flex items-center gap-2 text-slate-600 dark:text-slate-300 cursor-pointer">
+              <input type="checkbox" id="rememberMe" checked class="rounded text-teal-600 focus:ring-teal-500">
+              <span>Remember this device</span>
+            </label>
+            <span class="text-slate-400"><i class="bi bi-lock-fill"></i> TLS 1.3 Active</span>
+          </div>
+
+          <button type="submit" id="loginSubmitBtn" class="btn-primary-gold w-full py-3 text-sm font-bold uppercase tracking-wider shadow-lg">
+            <span>Sign In to Dashboard</span>
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </form>
+
+        <!-- 2. REGISTER FORM -->
+        <form id="formRegister" onsubmit="handleRegisterSubmit(event)" class="space-y-4 hidden">
+          <div>
+            <label for="regName" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Full Name</label>
+            <input type="text" id="regName" required class="rw-input text-sm" placeholder="e.g. Robert Vance">
+          </div>
+
+          <div>
+            <label for="regEmail" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Email Address</label>
+            <input type="email" id="regEmail" required class="rw-input text-sm" placeholder="client@example.com">
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label for="regPhone" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Phone</label>
+              <input type="tel" id="regPhone" required class="rw-input text-sm" placeholder="(617) 555-0199">
+            </div>
+            <div>
+              <label for="regTargetAge" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Target Age</label>
+              <input type="number" id="regTargetAge" min="50" max="80" value="63" class="rw-input text-sm">
+            </div>
+          </div>
+
+          <div>
+            <label for="regPassword" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Create Password</label>
+            <div class="relative">
+              <input type="password" id="regPassword" required minlength="6" class="rw-input pr-10 text-sm" placeholder="Minimum 6 characters">
+              <button type="button" onclick="togglePasswordVisibility('regPassword', this)" class="absolute right-3 top-2.5 text-slate-400">
+                <i class="bi bi-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <label class="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-400 cursor-pointer">
+            <input type="checkbox" required class="mt-0.5 rounded text-teal-600">
+            <span>I acknowledge the SEC Form CRS and Fiduciary Terms of Advisory.</span>
+          </label>
+
+          <button type="submit" class="btn-primary-gold w-full py-3 text-sm font-bold uppercase tracking-wider shadow-lg">
+            <span>Create Demo Client Vault</span>
+            <i class="bi bi-check2-circle"></i>
+          </button>
+        </form>
+
+        <!-- 3. FORGOT PASSWORD FORM -->
+        <form id="formForgot" onsubmit="handleForgotSubmit(event)" class="space-y-4 hidden">
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            Enter your registered fiduciary email. We will dispatch a 2FA temporary verification code to your email and registered mobile device.
+          </p>
+
+          <div>
+            <label for="forgotEmail" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Registered Email</label>
+            <input type="email" id="forgotEmail" required class="rw-input text-sm" placeholder="client@retirewell.com">
+          </div>
+
+          <button type="submit" class="btn-primary-gold w-full py-3 text-sm font-bold uppercase tracking-wider shadow-lg">
+            <span>Send Security Reset Token</span>
+            <i class="bi bi-shield-check"></i>
+          </button>
+
+          <div class="text-center pt-2">
+            <button type="button" onclick="switchAuthTab('login')" class="text-xs text-teal-600 font-semibold hover:underline">
+              ← Return to Sign In
+            </button>
+          </div>
+        </form>
+
+      </div>
+
+      <!-- Security Trust Bar -->
+      <div class="p-4 rounded-2xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="flex items-center gap-1.5 text-teal-600 font-semibold"><i class="bi bi-shield-fill-check"></i> AES 256-Bit Financial Vault</span>
+          <span>SOC 2 Type II Certified</span>
+        </div>
+        <p class="text-[10px] text-slate-400 leading-tight">
+          Session security auto-locks after 15 minutes of inactivity to protect sensitive annuity balance data and beneficiary social security records.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Universal Footer -->
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/footer.js"></script>
+
+  <script>
+    function togglePasswordVisibility(fieldId, btn) {
+      const field = document.getElementById(fieldId);
+      const icon = btn.querySelector('i');
+      if (field.type === 'password') {
+        field.type = 'text';
+        icon.className = 'bi bi-eye-slash';
+      } else {
+        field.type = 'password';
+        icon.className = 'bi bi-eye';
+      }
+    }
+
+    function switchAuthTab(tab) {
+      const fLogin = document.getElementById('formLogin');
+      const fReg = document.getElementById('formRegister');
+      const fForgot = document.getElementById('formForgot');
+      const bLogin = document.getElementById('tabBtnLogin');
+      const bReg = document.getElementById('tabBtnRegister');
+      const bForgot = document.getElementById('tabBtnForgot');
+
+      fLogin.classList.add('hidden');
+      fReg.classList.add('hidden');
+      fForgot.classList.add('hidden');
+
+      bLogin.className = 'flex-1 pb-3 text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-white transition';
+      bReg.className = 'flex-1 pb-3 text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-white transition';
+      bForgot.className = 'flex-1 pb-3 text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-white transition text-xs';
+
+      if (tab === 'login') {
+        fLogin.classList.remove('hidden');
+        bLogin.className = 'flex-1 pb-3 text-center border-b-2 border-teal-600 text-teal-600 font-bold transition';
+      } else if (tab === 'register') {
+        fReg.classList.remove('hidden');
+        bReg.className = 'flex-1 pb-3 text-center border-b-2 border-teal-600 text-teal-600 font-bold transition';
+      } else if (tab === 'forgot') {
+        fForgot.classList.remove('hidden');
+        bForgot.className = 'flex-1 pb-3 text-center border-b-2 border-teal-600 text-teal-600 font-bold transition text-xs';
+      }
+    }
+
+    function fillDemoCredentials() {
+      document.getElementById('loginEmail').value = 'client@retirewell.com';
+      document.getElementById('loginPassword').value = 'Client@123';
+      switchAuthTab('login');
+      RetireWellApp.toast('Demo credentials populated. Click Sign In!', 'info', 2500);
+    }
+
+    function handleLoginSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      const pwd = document.getElementById('loginPassword').value;
+
+      const res = window.RetireWellDB.login(email, pwd);
+      if (res.success) {
+        RetireWellApp.toast(`Welcome back, ${res.user.name}! Accessing portfolio...`, 'success', 2000);
+        setTimeout(() => {
+          window.location.href = 'user.html';
+        }, 800);
+      } else {
+        RetireWellApp.toast(res.message, 'error', 4000);
+      }
+    }
+
+    function handleRegisterSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('regName').value;
+      const email = document.getElementById('regEmail').value;
+      const pwd = document.getElementById('regPassword').value;
+      const phone = document.getElementById('regPhone').value;
+      const targetAge = document.getElementById('regTargetAge').value;
+
+      const res = window.RetireWellDB.register({
+        name, email, password: pwd, phone, targetAge
+      });
+
+      if (res.success) {
+        RetireWellApp.toast(`Account created for ${res.user.name}! Redirecting to portal...`, 'success', 2000);
+        setTimeout(() => {
+          window.location.href = 'user.html';
+        }, 900);
+      }
+    }
+
+    function handleForgotSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('forgotEmail').value;
+      RetireWellApp.toast(`Security token generated for ${email}. Check demo inbox or use demo login.`, 'info', 4000);
+      setTimeout(() => {
+        fillDemoCredentials();
+      }, 1500);
+    }
+  </script>
+</body>
+</html>

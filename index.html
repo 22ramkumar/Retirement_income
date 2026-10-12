@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>RetireWell - Fiduciary Annuity & Retirement Income Planning</title>
+  <meta name="description" content="Secure your retirement with fiduciary annuity and guaranteed lifetime income planning. Built around your family, your goals, and your future.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="RetireWell - Guaranteed Lifetime Retirement Income Planning">
+  <meta property="og:description" content="Institutional annuity brokerage and fiduciary wealth advisory. Safeguard your principal with A+ rated carrier solutions.">
+  <meta property="og:type" content="website">
+
+  <!-- Tailwind CSS & Bootstrap Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              950: '#070D1B',
+              900: '#0A192F',
+              800: '#112240',
+              700: '#1D3557'
+            },
+            teal: {
+              50: '#F0FDFA',
+              100: '#CCFBF1',
+              500: '#14B8A6',
+              600: '#0D9488',
+              700: '#0F766E',
+              800: '#115E59',
+              900: '#134E4A'
+            },
+            amber: {
+              50: '#FFFBEB',
+              100: '#FEF3C7',
+              500: '#F59E0B',
+              600: '#D97706',
+              700: '#B45309'
+            }
+          },
+          fontFamily: {
+            serif: ['Lora', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Theme Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 dark:bg-navy-950 text-slate-800 dark:text-slate-100 transition-colors duration-300 antialiased">
+
+  <!-- Universal Header -->
+  <div id="navbar"></div>
+
+  <!-- =========================================================================
+       HERO SECTION: REASSURING RETIREMENT CONFIDENCE
+       ========================================================================= -->
+  <section class="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden bg-gradient-to-b from-white via-slate-50 to-teal-50/20 dark:from-navy-950 dark:via-navy-900 dark:to-navy-950">
+    <!-- Subtle architectural background glow -->
+    <div class="absolute -top-40 right-0 w-[600px] h-[600px] bg-teal-500/10 dark:bg-teal-500/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 -left-40 w-[500px] h-[500px] bg-amber-500/10 dark:bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Hero Text & Value Proposition (7 cols) -->
+        <div class="lg:col-span-7 space-y-8">
+          
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800/80 text-teal-800 dark:text-teal-300 text-xs font-bold tracking-wide">
+            <span class="w-2 h-2 rounded-full bg-teal-600 animate-pulse"></span>
+            <span>SEC-REGISTERED FIDUCIARY ADVISORY</span>
+            <span class="text-slate-300 dark:text-slate-700">|</span>
+            <span class="text-amber-600 dark:text-amber-400 font-semibold">100% INDEPENDENT</span>
+          </div>
+
+          <div class="space-y-4">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-serif text-slate-900 dark:text-white leading-[1.15] tracking-tight">
+              Retire With Confidence. <br>
+              <span class="text-teal-700 dark:text-teal-400 italic">Income That Lasts</span> As Long As You Do.
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl font-normal">
+              Personalised annuity and guaranteed retirement income planning, built mathematically around your goals, your family, and your peace of mind.
+            </p>
+          </div>
+
+          <!-- Hero CTAs -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+            <button onclick="RetireWellApp.openBookingModal('Comprehensive Retirement Income Plan')" 
+              class="btn-primary-gold text-base py-3.5 px-7 shadow-lg shadow-amber-600/20">
+              <i class="bi bi-calendar2-check-fill text-lg"></i>
+              <span>Plan My Retirement</span>
+            </button>
+            <a href="login.html" 
+              class="btn-outline-navy text-base py-3.5 px-7">
+              <i class="bi bi-person-lock text-lg"></i>
+              <span>Client Portal Login</span>
+            </a>
+          </div>
+
+          <!-- Fiduciary Trust Badges -->
+          <div class="pt-6 border-t border-slate-200 dark:border-slate-800 grid grid-cols-3 gap-4">
+            <div class="flex items-center gap-3">
+              <i class="bi bi-shield-check text-2xl text-teal-600 dark:text-teal-400"></i>
+              <div>
+                <p class="text-xs font-bold text-slate-900 dark:text-white">Strict Fiduciary Oath</p>
+                <p class="text-[11px] text-slate-500">Legal duty to put you first</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="bi bi-bank2 text-2xl text-teal-600 dark:text-teal-400"></i>
+              <div>
+                <p class="text-xs font-bold text-slate-900 dark:text-white">A+ Rated Insurers</p>
+                <p class="text-[11px] text-slate-500">Top-tier institutional carriers</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="bi bi-cash-stack text-2xl text-teal-600 dark:text-teal-400"></i>
+              <div>
+                <p class="text-xs font-bold text-slate-900 dark:text-white">Zero Hidden Fees</p>
+                <p class="text-[11px] text-slate-500">100% transparent fee disclosure</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Hero Visual: Photographic Anchor & Floating Income Card (5 cols) -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <!-- Main Hero Image Frame -->
+            <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-navy-800 bg-slate-100 dark:bg-navy-900 aspect-[4/5] relative">
+              <img src="images/hero-retired-couple.jpg" 
+                alt="Mature retired couple enjoying peaceful morning on the beach" 
+                class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+              <div class="absolute bottom-6 left-6 right-6 text-white">
+                <span class="rw-badge-teal text-[10px] mb-2 bg-teal-900/80 text-teal-200 border-teal-500/40">CLIENT STORY</span>
+                <p class="font-serif italic text-sm text-slate-100">"Having a predictable $6,850 direct-deposited every single month changed how we sleep at night."</p>
+                <p class="text-xs text-amber-300 font-bold mt-1">— Robert & Margaret V., Retired 2023</p>
+              </div>
+            </div>
+
+            <!-- Floating Guaranteed Income Badge (Top Right) -->
+            <div class="rw-card p-4 rounded-2xl shadow-xl absolute -top-6 -right-4 sm:-right-6 max-w-[240px] border-amber-500/30 bg-white/95 dark:bg-navy-900/95 backdrop-blur-md animate-fade-in">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl font-bold">
+                  <i class="bi bi-shield-fill-check"></i>
+                </div>
+                <div>
+                  <p class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider">Lifetime Floor</p>
+                  <p class="text-lg font-bold font-serif text-slate-900 dark:text-white">$4,800 <span class="text-xs font-sans font-normal text-slate-500">/mo</span></p>
+                </div>
+              </div>
+              <div class="mt-2 text-[10px] text-teal-700 dark:text-teal-400 font-semibold flex items-center gap-1">
+                <i class="bi bi-lock-fill"></i> 100% Principal Protection
+              </div>
+            </div>
+
+            <!-- Floating Readiness Score Ring (Bottom Left) -->
+            <div class="rw-card p-4 rounded-2xl shadow-xl absolute -bottom-6 -left-4 sm:-left-6 max-w-[220px] bg-white/95 dark:bg-navy-900/95 backdrop-blur-md border-teal-500/30">
+              <div class="flex items-center gap-3">
+                <div class="relative w-12 h-12 flex items-center justify-center">
+                  <svg class="w-12 h-12 transform -rotate-90" viewBox="0 0 36 36">
+                    <path class="text-slate-200 dark:text-slate-800" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="text-teal-600" stroke-dasharray="88, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                  </svg>
+                  <span class="absolute text-xs font-bold text-slate-900 dark:text-white">88%</span>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-slate-900 dark:text-white">Retirement Score</p>
+                  <p class="text-[10px] text-emerald-600 font-semibold">Ready to Retire</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       TRUST METRICS & ANIMATED STATS BAR
+       ========================================================================= -->
+  <section class="py-12 bg-white dark:bg-navy-900 border-y border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-y lg:divide-y-0 lg:divide-x divide-slate-200 dark:divide-slate-800">
+        
+        <div class="pt-4 lg:pt-0">
+          <p class="text-3xl sm:text-4xl font-bold font-serif text-teal-700 dark:text-teal-400 stat-counter" data-target="28" data-suffix="+">28+</p>
+          <p class="text-sm font-semibold text-slate-900 dark:text-white mt-1">Years Fiduciary Service</p>
+          <p class="text-xs text-slate-500">Established Boston, 1998</p>
+        </div>
+
+        <div class="pt-4 lg:pt-0">
+          <p class="text-3xl sm:text-4xl font-bold font-serif text-teal-700 dark:text-teal-400 stat-counter" data-target="2.4" data-prefix="$" data-suffix="B+" data-decimals="1">$2.4B+</p>
+          <p class="text-sm font-semibold text-slate-900 dark:text-white mt-1">Assets Under Advisory</p>
+          <p class="text-xs text-slate-500">Safeguarded through all market cycles</p>
+        </div>
+
+        <div class="pt-4 lg:pt-0">
+          <p class="text-3xl sm:text-4xl font-bold font-serif text-teal-700 dark:text-teal-400 stat-counter" data-target="14800" data-suffix="+">14,800+</p>
+          <p class="text-sm font-semibold text-slate-900 dark:text-white mt-1">Retirement Plans Delivered</p>
+          <p class="text-xs text-slate-500">Across 48 US states</p>
+        </div>
+
+        <div class="pt-4 lg:pt-0">
+          <p class="text-3xl sm:text-4xl font-bold font-serif text-amber-600 dark:text-amber-400 stat-counter" data-target="99.4" data-suffix="%" data-decimals="1">99.4%</p>
+          <p class="text-sm font-semibold text-slate-900 dark:text-white mt-1">Client Retention Rate</p>
+          <p class="text-xs text-slate-500">Multi-generational trust</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       INTERACTIVE RETIREMENT INCOME ESTIMATOR WIDGET
+       ========================================================================= -->
+  <section id="estimator" class="py-20 lg:py-28 bg-slate-50 dark:bg-navy-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="rw-badge-teal mb-3">MATHEMATICAL LONGEVITY TOOL</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-serif text-slate-900 dark:text-white">
+          Interactive Retirement Income Estimator
+        </h2>
+        <p class="text-base text-slate-600 dark:text-slate-300 mt-4 leading-relaxed">
+          See how your current nest egg translates into guaranteed monthly cash flow with institutional annuity riders versus traditional market withdrawals.
+        </p>
+      </div>
+
+      <div class="rw-card p-6 sm:p-10 shadow-xl border-slate-200 dark:border-slate-800 bg-white dark:bg-navy-900">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Estimator Inputs (7 cols) -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="homeCurrentAge" class="flex justify-between text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-2">
+                  <span>Current Age</span>
+                  <span id="labelHomeCurrentAge" class="text-teal-600 font-bold">55 years</span>
+                </label>
+                <input type="range" id="homeCurrentAge" min="40" max="70" value="55" class="rw-slider" 
+                  oninput="document.getElementById('labelHomeCurrentAge').textContent = this.value + ' years'; RetireWellProjections.updateHomeWidget();">
+              </div>
+
+              <div>
+                <label for="homeRetireAge" class="flex justify-between text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-2">
+                  <span>Target Retirement Age</span>
+                  <span id="labelHomeRetireAge" class="text-teal-600 font-bold">65 years</span>
+                </label>
+                <input type="range" id="homeRetireAge" min="55" max="75" value="65" class="rw-slider" 
+                  oninput="document.getElementById('labelHomeRetireAge').textContent = this.value + ' years'; RetireWellProjections.updateHomeWidget();">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="homeSavings" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">
+                  Current Retirement Savings ($)
+                </label>
+                <div class="relative">
+                  <span class="absolute left-3 top-2.5 text-slate-400 font-bold">$</span>
+                  <input type="number" id="homeSavings" value="500000" step="25000" class="rw-input pl-8" 
+                    oninput="RetireWellProjections.updateHomeWidget()">
+                </div>
+              </div>
+
+              <div>
+                <label for="homeMonthlyContrib" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">
+                  Monthly Ongoing Savings ($)
+                </label>
+                <div class="relative">
+                  <span class="absolute left-3 top-2.5 text-slate-400 font-bold">$</span>
+                  <input type="number" id="homeMonthlyContrib" value="1200" step="100" class="rw-input pl-8" 
+                    oninput="RetireWellProjections.updateHomeWidget()">
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400 flex items-center justify-between">
+              <span class="flex items-center gap-2">
+                <i class="bi bi-shield-shaded text-teal-600 text-base"></i>
+                Includes 6.2% Index Cap with Guaranteed Lifetime Floor Rider (GLWB)
+              </span>
+              <span class="font-bold text-slate-800 dark:text-slate-200">10-Yr Horizon</span>
+            </div>
+
+          </div>
+
+          <!-- Estimator Output Cards (5 cols) -->
+          <div class="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-slate-900 to-navy-900 text-white space-y-6 shadow-xl relative overflow-hidden">
+            <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-teal-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+            <div>
+              <p class="text-xs uppercase font-bold tracking-widest text-teal-400">Illustrative Results</p>
+              <h3 class="text-xl font-bold font-serif text-white mt-1">Projected Monthly Income</h3>
+            </div>
+
+            <div class="space-y-4">
+              <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex justify-between items-center">
+                <div>
+                  <p class="text-xs text-slate-400">Total Nest Egg at Retirement</p>
+                  <p id="homeResultPot" class="text-2xl font-bold font-serif text-white">$1,104,800</p>
+                </div>
+                <i class="bi bi-piggy-bank text-2xl text-teal-400"></i>
+              </div>
+
+              <div class="p-4 rounded-xl bg-teal-500/10 border border-teal-500/30 flex justify-between items-center">
+                <div>
+                  <p class="text-xs text-teal-300 font-medium">Guaranteed Annuity Floor</p>
+                  <p id="homeResultFloor" class="text-3xl font-bold font-serif text-teal-400">$4,850/mo</p>
+                </div>
+                <div class="text-right">
+                  <span class="rw-badge-teal text-[10px]">LIFETIME GUARANTEE</span>
+                  <p class="text-[10px] text-slate-400 mt-1">Protected from down markets</p>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex justify-between items-center">
+                <div>
+                  <p class="text-xs text-slate-400">Total Monthly (With SS Estimate)</p>
+                  <p id="homeResultIncome" class="text-2xl font-bold font-serif text-amber-400">$7,250/mo</p>
+                </div>
+                <i class="bi bi-wallet2 text-2xl text-amber-400"></i>
+              </div>
+            </div>
+
+            <button onclick="RetireWellApp.openBookingModal('Personalized Income Simulation Review')" 
+              class="btn-primary-gold w-full text-center py-3 text-xs uppercase tracking-wider font-bold">
+              <i class="bi bi-clipboard-data-fill"></i> Lock In Your Custom Blueprint
+            </button>
+
+            <p class="text-[10px] text-slate-400 text-center leading-normal">
+              *Illustrative hypothetical result based on historical index caps. Guarantees subject to claims-paying ability of issuing insurers.
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       WHY CHOOSE US: THE FIDUCIARY DIFFERENCE
+       ========================================================================= -->
+  <section class="py-20 lg:py-28 bg-white dark:bg-navy-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="rw-badge-teal mb-3">OUR CORE PROMISE</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-serif text-slate-900 dark:text-white">
+          Why Fiduciary Planning Matters
+        </h2>
+        <p class="text-base text-slate-600 dark:text-slate-300 mt-4 leading-relaxed">
+          Unlike traditional insurance salespeople, our advisors are legally and ethically bound as fiduciaries. We work for you, not the insurance carriers.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Card 1 -->
+        <div class="rw-card p-8 rounded-2xl rw-card-hover-up flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-400 flex items-center justify-center text-2xl mb-6 shadow-sm border border-teal-500/20">
+              <i class="bi bi-award-fill"></i>
+            </div>
+            <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white mb-3">Legal Fiduciary Duty</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              We hold ourselves to the highest legal standard of care under the Investment Advisers Act. Your financial safety always precedes any product selection.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 text-xs font-bold text-teal-600 dark:text-teal-400 flex items-center gap-1">
+            <span>Fiduciary Oath</span> <i class="bi bi-check2"></i>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="rw-card p-8 rounded-2xl rw-card-hover-up flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-2xl mb-6 shadow-sm border border-amber-500/20">
+              <i class="bi bi-eye-fill"></i>
+            </div>
+            <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white mb-3">100% Fee Transparency</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              No hidden surrender surprises or opaque fee structures. Every rider cost, cap rate, and surrender schedule is mapped in plain English before you commit.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 text-xs font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1">
+            <span>Zero Surprises</span> <i class="bi bi-check2"></i>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="rw-card p-8 rounded-2xl rw-card-hover-up flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-400 flex items-center justify-center text-2xl mb-6 shadow-sm border border-teal-500/20">
+              <i class="bi bi-buildings-fill"></i>
+            </div>
+            <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white mb-3">Institutional Carrier Access</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              We survey over 40+ leading institutional insurance carriers (A.M. Best A and A+ minimum) to negotiate superior cap rates and lower administrative overhead.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 text-xs font-bold text-teal-600 dark:text-teal-400 flex items-center gap-1">
+            <span>40+ Top Insurers</span> <i class="bi bi-check2"></i>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="rw-card p-8 rounded-2xl rw-card-hover-up flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 flex items-center justify-center text-2xl mb-6 shadow-sm border border-blue-500/20">
+              <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+            <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white mb-3">Ongoing Annual Reviews</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Retirement isn’t a one-time product; it’s a decades-long relationship. We conduct yearly stress tests, beneficiary audits, and required distribution (RMD) checks.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 text-xs font-bold text-blue-600 dark:text-blue-400 flex items-center gap-1">
+            <span>Lifetime Partnership</span> <i class="bi bi-check2"></i>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       ANNUITY SOLUTIONS OVERVIEW (4 CORE PILLARS)
+       ========================================================================= -->
+  <section class="py-20 lg:py-28 bg-slate-50 dark:bg-navy-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <span class="rw-badge-teal mb-3">INSTITUTIONAL PRODUCT ARCHITECTURE</span>
+          <h2 class="text-3xl sm:text-4xl font-bold font-serif text-slate-900 dark:text-white">
+            Core Annuity Solutions
+          </h2>
+        </div>
+        <a href="services.html" class="inline-flex items-center gap-2 text-teal-700 dark:text-teal-400 font-bold hover:underline">
+          <span>Explore All 12 Advisory Services</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Annuity 1: Fixed Multi-Year (MYGA) -->
+        <div class="rw-card p-6 rounded-2xl rw-card-hover-up flex flex-col justify-between">
+          <div>
+            <div class="h-44 rounded-xl overflow-hidden mb-5">
+              <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" 
+                alt="Fixed Annuity Security" class="w-full h-full object-cover">
+            </div>
+            <span class="rw-badge-teal text-[10px] mb-2">GUARANTEED RATE</span>
+            <h3 class="text-lg font-bold font-serif text-slate-900 dark:text-white mb-2">Fixed Annuities (MYGA)</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+              Lock in guaranteed 5.25% - 5.85% annual yield for 3, 5, or 7 years. 100% immune to market volatility and CD-like security with tax-deferred compounding.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-[11px] font-bold text-slate-500">Risk: Ultra-Low</span>
+            <button onclick="RetireWellApp.openBookingModal('Fixed Annuities (MYGA)')" class="text-xs font-bold text-teal-600 dark:text-teal-400 hover:underline">
+              Learn More →
+            </button>
+          </div>
+        </div>
+
+        <!-- Annuity 2: Fixed Indexed Annuity (FIA) -->
+        <div class="rw-card p-6 rounded-2xl rw-card-hover-up flex flex-col justify-between">
+          <div>
+            <div class="h-44 rounded-xl overflow-hidden mb-5">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" 
+                alt="Indexed Growth with Floor" class="w-full h-full object-cover">
+            </div>
+            <span class="rw-badge-gold text-[10px] mb-2">INDEXED UPSIDE</span>
+            <h3 class="text-lg font-bold font-serif text-slate-900 dark:text-white mb-2">Fixed Indexed (FIA)</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+              Capture market growth based on S&P 500 index gains with an ironclad 0% floor—never lose a single dollar of principal when markets decline.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-[11px] font-bold text-slate-500">Risk: Zero Loss Floor</span>
+            <button onclick="RetireWellApp.openBookingModal('Fixed Indexed Annuities (FIA)')" class="text-xs font-bold text-amber-600 dark:text-amber-400 hover:underline">
+              Learn More →
+            </button>
+          </div>
+        </div>
+
+        <!-- Annuity 3: Single Premium Immediate (SPIA) -->
+        <div class="rw-card p-6 rounded-2xl rw-card-hover-up flex flex-col justify-between">
+          <div>
+            <div class="h-44 rounded-xl overflow-hidden mb-5">
+              <img src="https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=600&q=80" 
+                alt="Immediate Cash Flow" class="w-full h-full object-cover">
+            </div>
+            <span class="rw-badge-teal text-[10px] mb-2">INSTANT CASH FLOW</span>
+            <h3 class="text-lg font-bold font-serif text-slate-900 dark:text-white mb-2">Immediate Income (SPIA)</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+              Convert a lump sum (or 401k rollover) into immediate monthly paychecks starting in 30 days. Replaces corporate pensions with guaranteed lifetime checks.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-[11px] font-bold text-slate-500">Payout: Day 30+</span>
+            <button onclick="RetireWellApp.openBookingModal('Immediate Income Annuities (SPIA)')" class="text-xs font-bold text-teal-600 dark:text-teal-400 hover:underline">
+              Learn More →
+            </button>
+          </div>
+        </div>
+
+        <!-- Annuity 4: Deferred Income / Longevity (DIA) -->
+        <div class="rw-card p-6 rounded-2xl rw-card-hover-up flex flex-col justify-between">
+          <div>
+            <div class="h-44 rounded-xl overflow-hidden mb-5">
+              <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80" 
+                alt="Longevity Insurance" class="w-full h-full object-cover">
+            </div>
+            <span class="rw-badge-teal text-[10px] mb-2">LONGEVITY SHIELD</span>
+            <h3 class="text-lg font-bold font-serif text-slate-900 dark:text-white mb-2">Deferred Longevity (DIA)</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+              Allocate a smaller allocation today to lock in massive guaranteed cash flow starting at age 75 or 80. Completely eliminates fear of outliving your wealth.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <span class="text-[11px] font-bold text-slate-500">Payout: Age 75-85</span>
+            <button onclick="RetireWellApp.openBookingModal('Deferred Longevity Annuities (DIA)')" class="text-xs font-bold text-teal-600 dark:text-teal-400 hover:underline">
+              Learn More →
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       HOW IT WORKS: 5-STEP FIDUCIARY ROADMAP
+       ========================================================================= -->
+  <section class="py-20 lg:py-28 bg-white dark:bg-navy-900 border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="rw-badge-teal mb-3">OUR METHODOLOGY</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-serif text-slate-900 dark:text-white">
+          How We Build Your Lifetime Income Floor
+        </h2>
+        <p class="text-base text-slate-600 dark:text-slate-300 mt-4 leading-relaxed">
+          A disciplined 5-phase fiduciary process engineered to replace financial uncertainty with mathematical predictability.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-6 relative">
+        
+        <!-- Step 1 -->
+        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800 relative">
+          <span class="text-3xl font-serif font-bold text-teal-600/30 dark:text-teal-400/20 block mb-2">01</span>
+          <div class="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
+            <i class="bi bi-compass"></i>
+          </div>
+          <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white mb-2">Discovery & Audit</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            We inventory your 401(k)s, IRAs, Social Security projections, and required lifestyle expenses.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800 relative">
+          <span class="text-3xl font-serif font-bold text-teal-600/30 dark:text-teal-400/20 block mb-2">02</span>
+          <div class="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
+            <i class="bi bi-graph-down-arrow"></i>
+          </div>
+          <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white mb-2">Gap & Risk Analysis</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            Stress-test your portfolio against sequence of returns risk, market crashes, and hyper-inflation.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800 relative">
+          <span class="text-3xl font-serif font-bold text-teal-600/30 dark:text-teal-400/20 block mb-2">03</span>
+          <div class="w-10 h-10 rounded-xl bg-amber-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
+            <i class="bi bi-pencil-square"></i>
+          </div>
+          <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white mb-2">Plan Design</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            Select optimal A+ rated annuity riders to fund 100% of non-negotiable living expenses for life.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800 relative">
+          <span class="text-3xl font-serif font-bold text-teal-600/30 dark:text-teal-400/20 block mb-2">04</span>
+          <div class="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white mb-2">Implementation</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            Seamless institutional rollover execution with zero tax penalties and full paperwork concierge.
+          </p>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800 relative">
+          <span class="text-3xl font-serif font-bold text-teal-600/30 dark:text-teal-400/20 block mb-2">05</span>
+          <div class="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
+            <i class="bi bi-arrow-repeat"></i>
+          </div>
+          <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white mb-2">Annual Reviews</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            Yearly face-to-face or video strategy sessions to rebalance growth assets and verify beneficiary designations.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       RETIREMENT READINESS CHECKLIST (INTERACTIVE WIDGET)
+       ========================================================================= -->
+  <section class="py-20 lg:py-28 bg-slate-50 dark:bg-navy-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="rw-card p-8 sm:p-12 rounded-3xl shadow-xl bg-white dark:bg-navy-900 border-slate-200 dark:border-slate-800">
+        <div class="text-center max-w-xl mx-auto mb-8">
+          <span class="rw-badge-teal mb-3">SELF-ASSESSMENT</span>
+          <h2 class="text-2xl sm:text-3xl font-bold font-serif text-slate-900 dark:text-white">
+            6-Point Retirement Readiness Checklist
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2">
+            Check off each milestone you have completed to calculate your household readiness score.
+          </p>
+        </div>
+
+        <div class="space-y-3" id="checklistContainer">
+          <label class="flex items-start gap-3 p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-navy-950/40 cursor-pointer transition">
+            <input type="checkbox" checked class="mt-1 w-4 h-4 text-teal-600 rounded cursor-pointer checklist-item" onchange="updateChecklistScore()">
+            <div>
+              <p class="text-sm font-bold text-slate-900 dark:text-white">Non-Negotiable Living Expense Floor Calculated</p>
+              <p class="text-xs text-slate-500">You know the exact monthly dollar figure required for housing, utilities, food, and healthcare.</p>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-navy-950/40 cursor-pointer transition">
+            <input type="checkbox" checked class="mt-1 w-4 h-4 text-teal-600 rounded cursor-pointer checklist-item" onchange="updateChecklistScore()">
+            <div>
+              <p class="text-sm font-bold text-slate-900 dark:text-white">Protected Against Sequence of Returns Risk</p>
+              <p class="text-xs text-slate-500">Your first 5 to 10 years of retirement income do not depend on the stock market going up.</p>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-navy-950/40 cursor-pointer transition">
+            <input type="checkbox" checked class="mt-1 w-4 h-4 text-teal-600 rounded cursor-pointer checklist-item" onchange="updateChecklistScore()">
+            <div>
+              <p class="text-sm font-bold text-slate-900 dark:text-white">Guaranteed Lifetime Floor Independent of Longevity</p>
+              <p class="text-xs text-slate-500">Income will continue automatically even if you or your spouse live past age 95 or 100.</p>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-navy-950/40 cursor-pointer transition">
+            <input type="checkbox" class="mt-1 w-4 h-4 text-teal-600 rounded cursor-pointer checklist-item" onchange="updateChecklistScore()">
+            <div>
+              <p class="text-sm font-bold text-slate-900 dark:text-white">Social Security Timing Mathematically Optimized</p>
+              <p class="text-xs text-slate-500">You have analyzed whether delaying filing to age 70 yields higher cumulative lifetime security.</p>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-navy-950/40 cursor-pointer transition">
+            <input type="checkbox" class="mt-1 w-4 h-4 text-teal-600 rounded cursor-pointer checklist-item" onchange="updateChecklistScore()">
+            <div>
+              <p class="text-sm font-bold text-slate-900 dark:text-white">Long-Term Care Asset Preservation Strategy in Place</p>
+              <p class="text-xs text-slate-500">A catastrophic medical event will not deplete wealth intended for your surviving spouse or children.</p>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-navy-950/40 cursor-pointer transition">
+            <input type="checkbox" checked class="mt-1 w-4 h-4 text-teal-600 rounded cursor-pointer checklist-item" onchange="updateChecklistScore()">
+            <div>
+              <p class="text-sm font-bold text-slate-900 dark:text-white">Primary & Contingent Beneficiaries Fully Audited</p>
+              <p class="text-xs text-slate-500">Contractual designations on all annuity and IRA accounts align perfectly with your estate plan.</p>
+            </div>
+          </label>
+        </div>
+
+        <!-- Checklist Score Progress Bar -->
+        <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="w-full sm:w-1/2">
+            <div class="flex justify-between text-xs font-bold mb-1">
+              <span class="text-slate-600 dark:text-slate-400">Readiness Score</span>
+              <span id="checklistScoreNumber" class="text-teal-600 font-bold">67% Ready</span>
+            </div>
+            <div class="w-full h-3 bg-slate-200 dark:bg-navy-950 rounded-full overflow-hidden">
+              <div id="checklistProgressBar" class="h-full bg-teal-600 rounded-full transition-all duration-500" style="width: 67%;"></div>
+            </div>
+          </div>
+          <button onclick="RetireWellApp.openBookingModal('Checklist Gap Consultation')" class="btn-primary-gold text-xs py-2.5 px-5">
+            <i class="bi bi-shield-check"></i> Close Your Unchecked Gaps
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FEATURED ADVISORS PREVIEW
+       ========================================================================= -->
+  <section class="py-20 lg:py-28 bg-white dark:bg-navy-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <span class="rw-badge-teal mb-3">FIDUCIARY LEADERSHIP</span>
+          <h2 class="text-3xl sm:text-4xl font-bold font-serif text-slate-900 dark:text-white">
+            Meet Our Senior Advisory Partners
+          </h2>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-2">
+            Every advisor is a credentialed fiduciary with an average of 19+ years of longevity planning expertise.
+          </p>
+        </div>
+        <a href="advisors.html" class="inline-flex items-center gap-2 text-teal-700 dark:text-teal-400 font-bold hover:underline">
+          <span>View All 6 Fiduciary Partners</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Advisor 1 -->
+        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="h-64 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" 
+                alt="David Vance CFP" class="w-full h-full object-cover">
+              <span class="absolute top-4 right-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 backdrop-blur-sm text-[10px]">
+                MANAGING PARTNER
+              </span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white">David Vance, CFP®, RICP®</h3>
+              <p class="text-xs text-teal-700 dark:text-teal-400 font-semibold mb-2">Retirement Income Certified Professional</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Specializes in fixed indexed annuities, sequence-of-returns protection, and creating predictable decumulation cash flow for corporate executives and business owners.
+              </p>
+              <div class="flex items-center gap-4 text-xs text-slate-500">
+                <span><i class="bi bi-clock-history text-teal-600"></i> 24 Yrs Exp</span>
+                <span><i class="bi bi-star-fill text-amber-500"></i> 5.0 Rating</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between mt-4">
+            <button onclick="RetireWellApp.openBookingModal('Consultation with David Vance', 'David Vance, CFP®, RICP®')" 
+              class="btn-primary-gold text-xs py-2 px-4 w-full">
+              Book With David
+            </button>
+          </div>
+        </div>
+
+        <!-- Advisor 2 -->
+        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="h-64 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" 
+                alt="Elena Rostova ChFC" class="w-full h-full object-cover">
+              <span class="absolute top-4 right-4 rw-badge-gold bg-white/90 dark:bg-navy-900/90 backdrop-blur-sm text-[10px]">
+                ANNUITY STRATEGIST
+              </span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white">Elena Rostova, ChFC®, CLU®</h3>
+              <p class="text-xs text-amber-700 dark:text-amber-400 font-semibold mb-2">Chartered Financial Consultant</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Expert in lifetime income riders, deferred longevity annuities (DIA), and structuring spousal continuation guarantees for retired couples.
+              </p>
+              <div class="flex items-center gap-4 text-xs text-slate-500">
+                <span><i class="bi bi-clock-history text-teal-600"></i> 18 Yrs Exp</span>
+                <span><i class="bi bi-star-fill text-amber-500"></i> 4.9 Rating</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between mt-4">
+            <button onclick="RetireWellApp.openBookingModal('Consultation with Elena Rostova', 'Elena Rostova, ChFC®, CLU®')" 
+              class="btn-primary-gold text-xs py-2 px-4 w-full">
+              Book With Elena
+            </button>
+          </div>
+        </div>
+
+        <!-- Advisor 3 -->
+        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="h-64 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" 
+                alt="Marcus Sterling CFA" class="w-full h-full object-cover">
+              <span class="absolute top-4 right-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 backdrop-blur-sm text-[10px]">
+                PORTFOLIO DIRECTOR
+              </span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white">Marcus Sterling, CFA, CFP®</h3>
+              <p class="text-xs text-teal-700 dark:text-teal-400 font-semibold mb-2">Chartered Financial Analyst</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Directs multi-asset fiduciary allocation, integrating fixed index crediting strategies with treasury preservation and dividend portfolios.
+              </p>
+              <div class="flex items-center gap-4 text-xs text-slate-500">
+                <span><i class="bi bi-clock-history text-teal-600"></i> 21 Yrs Exp</span>
+                <span><i class="bi bi-star-fill text-amber-500"></i> 5.0 Rating</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between mt-4">
+            <button onclick="RetireWellApp.openBookingModal('Consultation with Marcus Sterling', 'Marcus Sterling, CFA, CFP®')" 
+              class="btn-primary-gold text-xs py-2 px-4 w-full">
+              Book With Marcus
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       CLIENT TESTIMONIALS & CASE STUDIES
+       ========================================================================= -->
+  <section class="py-20 lg:py-28 bg-slate-50 dark:bg-navy-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="rw-badge-teal mb-3">CLIENT VOICES</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-serif text-slate-900 dark:text-white">
+          Real Stories of Retirement Security
+        </h2>
+        <p class="text-base text-slate-600 dark:text-slate-300 mt-4 leading-relaxed">
+          Read how families transitioned from market anxiety to guaranteed monthly income.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="rw-card p-8 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-500 gap-1 text-sm mb-4">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="text-sm text-slate-700 dark:text-slate-200 italic leading-relaxed mb-6 font-serif">
+              "When the markets dropped 18% a few years back, my colleagues were panicked about retiring. Thanks to our fixed indexed annuity strategy through RetireWell, our principal stayed at 100% and our guaranteed monthly payout never fluctuated a single cent."
+            </p>
+          </div>
+          <div class="flex items-center gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80" 
+              alt="Charles Greene" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <p class="text-sm font-bold text-slate-900 dark:text-white">Charles & Evelyn Greene</p>
+              <p class="text-xs text-slate-500">Retired Aerospace Engineers, Age 66</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rw-card p-8 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-500 gap-1 text-sm mb-4">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="text-sm text-slate-700 dark:text-slate-200 italic leading-relaxed mb-6 font-serif">
+              "David Vance sat down with us and explained the difference between a high-commission salesperson and a legal fiduciary. For the first time, we had complete clarity on our fees, our 401(k) rollover, and our social security timing."
+            </p>
+          </div>
+          <div class="flex items-center gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" 
+              alt="Patricia Miller" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <p class="text-sm font-bold text-slate-900 dark:text-white">Patricia Miller</p>
+              <p class="text-xs text-slate-500">Former Public School Principal, Age 62</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rw-card p-8 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-500 gap-1 text-sm mb-4">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="text-sm text-slate-700 dark:text-slate-200 italic leading-relaxed mb-6 font-serif">
+              "The client portal makes checking our quarterly crediting statements and updating our beneficiary trust allocations completely seamless. We travel 4 months out of the year knowing our income floor is guaranteed."
+            </p>
+          </div>
+          <div class="flex items-center gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+            <img src="images/avatar-thomas-linda.jpg" 
+              alt="Dr. Thomas & Linda Wu" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <p class="text-sm font-bold text-slate-900 dark:text-white">Dr. Thomas & Linda Wu</p>
+              <p class="text-xs text-slate-500">Retired Family Physician & Architect, Age 69</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       INSTITUTIONAL CARRIER RATINGS & CREDENTIALS
+       ========================================================================= -->
+  <section class="py-16 bg-white dark:bg-navy-900 border-y border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-10">
+        <p class="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+          Backed Solely by A.M. Best & S&P 'A' and 'A+' Rated Insurance Carriers
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 items-center">
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800 text-center">
+          <i class="bi bi-shield-check text-2xl text-teal-600 mb-1 block"></i>
+          <p class="text-xs font-bold text-slate-900 dark:text-white">Summit Mutual Life</p>
+          <span class="text-[10px] text-teal-700 dark:text-teal-400 font-semibold">A.M. Best: A+ (Superior)</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800 text-center">
+          <i class="bi bi-building-check text-2xl text-teal-600 mb-1 block"></i>
+          <p class="text-xs font-bold text-slate-900 dark:text-white">Pacific Horizon Life</p>
+          <span class="text-[10px] text-teal-700 dark:text-teal-400 font-semibold">A.M. Best: A++ (Highest)</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800 text-center">
+          <i class="bi bi-safe text-2xl text-teal-600 mb-1 block"></i>
+          <p class="text-xs font-bold text-slate-900 dark:text-white">Keystone Annuity Corp</p>
+          <span class="text-[10px] text-teal-700 dark:text-teal-400 font-semibold">S&P: AA+ (Very Strong)</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800 text-center">
+          <i class="bi bi-award text-2xl text-teal-600 mb-1 block"></i>
+          <p class="text-xs font-bold text-slate-900 dark:text-white">Guardian Apex Capital</p>
+          <span class="text-[10px] text-teal-700 dark:text-teal-400 font-semibold">Moody's: A1 (Strong)</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800 text-center">
+          <i class="bi bi-bank text-2xl text-teal-600 mb-1 block"></i>
+          <p class="text-xs font-bold text-slate-900 dark:text-white">Vanguard Heritage</p>
+          <span class="text-[10px] text-teal-700 dark:text-teal-400 font-semibold">Fitch: A+ (Superior)</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FREQUENTLY ASKED QUESTIONS (ACCORDION)
+       ========================================================================= -->
+  <section class="py-20 lg:py-28 bg-slate-50 dark:bg-navy-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="rw-badge-teal mb-3">COMMON QUESTIONS</span>
+        <h2 class="text-3xl font-bold font-serif text-slate-900 dark:text-white">
+          Frequently Asked Questions
+        </h2>
+        <p class="text-sm text-slate-600 dark:text-slate-300 mt-2">
+          Clear, honest answers to common questions about annuities, guarantees, and our fiduciary fee structure.
+        </p>
+      </div>
+
+      <div class="space-y-4" id="faqAccordion">
+        
+        <!-- FAQ 1 -->
+        <div class="rw-card rounded-2xl overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition cursor-pointer">
+            <span class="font-serif text-base sm:text-lg">What happens if an insurance company goes out of business?</span>
+            <i class="bi bi-chevron-down text-teal-600 transition-transform"></i>
+          </button>
+          <div class="px-6 pb-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed hidden faq-answer">
+            First, RetireWell exclusively brokers carriers with top-tier ratings (A.M. Best 'A' and 'A+' minimum), representing institutions with decades or centuries of solvency and billions in statutory capital reserves. Additionally, every U.S. state operates a State Life and Health Insurance Guaranty Association that protects policyholders up to statutory limits (typically $250,000 to $500,000 per annuity contract).
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="rw-card rounded-2xl overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition cursor-pointer">
+            <span class="font-serif text-base sm:text-lg">Can I still access my money in an emergency?</span>
+            <button class="bi bi-chevron-down text-teal-600 transition-transform"></button>
+          </button>
+          <div class="px-6 pb-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed hidden faq-answer">
+            Yes. Modern Fixed Indexed Annuities generally permit penalty-free annual withdrawals of up to 10% of your account value after year one. Many also include built-in penalty waivers for nursing home confinement, terminal illness, or disability. Furthermore, as fiduciaries, we insist that you keep 6 to 12 months of liquid emergency reserves in cash outside of any annuity.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="rw-card rounded-2xl overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition cursor-pointer">
+            <span class="font-serif text-base sm:text-lg">How is RetireWell compensated? Are there hidden commissions?</span>
+            <i class="bi bi-chevron-down text-teal-600 transition-transform"></i>
+          </button>
+          <div class="px-6 pb-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed hidden faq-answer">
+            As an SEC-registered investment adviser, our fee transparency is legally mandated. For pure advisory and financial planning, we offer flat-fee and percentage-based fiduciary agreements. For institutional insurance placement, any carrier compensation is fully disclosed in your Form CRS and does not reduce your deposited principal—100% of your dollar goes to work from day one.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="rw-card rounded-2xl overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition cursor-pointer">
+            <span class="font-serif text-base sm:text-lg">What happens to the money if I pass away early?</span>
+            <i class="bi bi-chevron-down text-teal-600 transition-transform"></i>
+          </button>
+          <div class="px-6 pb-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed hidden faq-answer">
+            Unlike archaic immediate annuities from decades ago, modern fixed indexed annuities and contracts with Guaranteed Lifetime Withdrawal Benefit (GLWB) riders preserve your remaining account value. Upon death, 100% of the remaining accumulated balance bypasses probate and transfers directly to your named primary or contingent beneficiaries.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       CONSULTATION CALL-TO-ACTION BANNER
+       ========================================================================= -->
+  <section class="py-20 bg-slate-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-teal-900/40 to-slate-900/80 pointer-events-none"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
+      <span class="rw-badge-gold text-amber-300 bg-amber-500/10 border-amber-500/30">COMPLIMENTARY FIDUCIARY AUDIT</span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-serif text-white">
+        Stop Guessing. Start Safeguarding Your Income.
+      </h2>
+      <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Schedule your 45-minute confidential consultation with a senior fiduciary partner. Receive an objective, side-by-side comparison of your annuity options.
+      </p>
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button onclick="RetireWellApp.openBookingModal('General Fiduciary Retirement Plan')" 
+          class="btn-primary-gold text-base py-3.5 px-8 shadow-xl">
+          <i class="bi bi-calendar2-check-fill text-lg"></i>
+          <span>Schedule My Free Consultation</span>
+        </button>
+        <a href="services.html" class="btn-outline-navy border-slate-700 text-slate-200 hover:border-teal-400 text-base py-3.5 px-8">
+          Explore Service Details
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Universal Footer & Global Modals -->
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/projections.js"></script>
+
+  <!-- Inline Helper for Homepage Specific Widgets -->
+  <script>
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const icon = btn.querySelector('.bi-chevron-down');
+      const isHidden = answer.classList.contains('hidden');
+      
+      // Close all other faqs in group
+      document.querySelectorAll('.faq-answer').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.bi-chevron-down').forEach(el => el.classList.remove('rotate-180'));
+
+      if (isHidden) {
+        answer.classList.remove('hidden');
+        if (icon) icon.classList.add('rotate-180');
+      }
+    }
+
+    function updateChecklistScore() {
+      const checkboxes = document.querySelectorAll('.checklist-item');
+      let checked = 0;
+      checkboxes.forEach(cb => { if (cb.checked) checked++; });
+      const pct = Math.round((checked / checkboxes.length) * 100);
+      const label = document.getElementById('checklistScoreNumber');
+      const bar = document.getElementById('checklistProgressBar');
+      if (label) label.textContent = pct + '% Ready';
+      if (bar) bar.style.width = pct + '%';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.RetireWellProjections) {
+        window.RetireWellProjections.updateHomeWidget();
+      }
+    });
+  </script>
+</body>
+</html>
