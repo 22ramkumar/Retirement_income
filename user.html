@@ -6,6 +6,11 @@
   <title>Client Fiduciary Portal - RetireWell</title>
   <meta name="description" content="Secure client portal for RetireWell. Review annuity crediting, portfolio projections, accounts, and beneficiary designations.">
 
+  <!-- Favicon (RetireWell Fiduciary Brand Shield) -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
   <!-- Tailwind CSS & Bootstrap Icons & Chart.js -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -31,64 +36,158 @@
   </script>
 
   <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    // Early Core Navigation Switcher (Immediately available for sidebar & quick links)
+    window.sectionTitles = {
+      'overview': 'Client Portfolio Overview',
+      'projections': 'Retirement Projections & Monte Carlo',
+      'accounts': 'Accounts & Statements Vault',
+      'beneficiaries': 'Beneficiary Designations',
+      'documents': 'Documents Vault & Fiduciary Records',
+      'messages': 'Advisor Messaging Desk',
+      'settings': 'Profile & Security Settings'
+    };
+
+    window.showDashboardSection = function(sectionId, btn) {
+      // 1. Hide all main sections
+      document.querySelectorAll('main > section').forEach(sec => sec.classList.add('hidden'));
+      
+      // 2. Show target section
+      const targetSec = document.getElementById('section-' + sectionId);
+      if (targetSec) {
+        targetSec.classList.remove('hidden');
+      }
+
+      // 3. Reset viewport scroll to top
+      const vp = document.getElementById('dashboardViewport');
+      if (vp) vp.scrollTop = 0;
+
+      // 4. Update top bar title
+      const titleEl = document.getElementById('topBarTitle');
+      if (titleEl && window.sectionTitles[sectionId]) {
+        titleEl.textContent = window.sectionTitles[sectionId];
+      }
+
+      // 5. Update sidebar active styles
+      document.querySelectorAll('#sidebarNav .sidebar-link').forEach(l => {
+        l.classList.remove('bg-teal-50', 'dark:bg-teal-950/40', 'text-teal-700', 'dark:text-teal-300', 'active');
+        l.classList.add('hover:bg-slate-100', 'dark:hover:bg-navy-800');
+        const icon = l.querySelector('i');
+        if (icon) {
+          icon.classList.remove('text-teal-600', 'dark:text-teal-400');
+        }
+      });
+
+      const navBtn = btn || document.querySelector(`#sidebarNav button[data-section="${sectionId}"]`) || document.querySelector(`#sidebarNav button[onclick*="'${sectionId}'"]`);
+      if (navBtn) {
+        navBtn.classList.add('bg-teal-50', 'dark:bg-teal-950/40', 'text-teal-700', 'dark:text-teal-300', 'active');
+        navBtn.classList.remove('hover:bg-slate-100', 'dark:hover:bg-navy-800');
+        const activeIcon = navBtn.querySelector('i');
+        if (activeIcon) {
+          activeIcon.classList.add('text-teal-600', 'dark:text-teal-400');
+        }
+      }
+
+      // 6. Close mobile sidebar if open
+      if (typeof window.toggleSidebar === 'function') {
+        window.toggleSidebar(false);
+      }
+
+      // 7. Trigger projection chart render if entering projections
+      if (sectionId === 'projections') {
+        if (typeof window.triggerProjectionUpdate === 'function') {
+          setTimeout(window.triggerProjectionUpdate, 100);
+        }
+      }
+    };
+
+    window.toggleSidebar = function(open) {
+      const sidebar = document.getElementById('dashboardSidebar');
+      const overlay = document.getElementById('sidebarOverlay');
+      if (!sidebar) return;
+      if (open) {
+        sidebar.classList.remove('-translate-x-full');
+        if (overlay) overlay.classList.remove('hidden');
+      } else {
+        sidebar.classList.add('-translate-x-full');
+        if (overlay) overlay.classList.add('hidden');
+      }
+    };
+
+    window.handleLogout = function() {
+      if (window.RetireWellDB && typeof window.RetireWellDB.logout === 'function') {
+        RetireWellDB.logout();
+      } else {
+        localStorage.removeItem('retirewell_session');
+      }
+      if (window.RetireWellApp && typeof window.RetireWellApp.toast === 'function') {
+        RetireWellApp.toast('Signed out of fiduciary session. Redirecting...', 'info', 1500);
+      }
+      setTimeout(() => {
+        window.location.href = 'login.html';
+      }, 600);
+    };
+  </script>
 </head>
 <body class="bg-slate-50 dark:bg-navy-950 text-slate-800 dark:text-slate-100 transition-colors duration-300 antialiased h-screen overflow-hidden">
 
-  <!-- Mobile Overlay -->
-  <div id="sidebarOverlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 hidden lg:hidden transition-all" onclick="toggleSidebar(false)"></div>
-
-  <div class="flex h-full w-full overflow-hidden">
+  <div class="flex h-full w-full overflow-hidden relative">
     
+    <!-- Mobile Backdrop Overlay (Sibling at z-40, sits underneath z-50 sidebar) -->
+    <div id="sidebarOverlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 hidden lg:hidden transition-all no-print" onclick="toggleSidebar(false)"></div>
+
     <!-- =======================================================================
-         1. DASHBOARD SIDEBAR NAVIGATION
+         1. DASHBOARD SIDEBAR NAVIGATION (z-50, sits above overlay)
          ======================================================================= -->
-    <aside id="dashboardSidebar" class="fixed lg:static inset-y-0 left-0 w-72 bg-white dark:bg-navy-900 border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-50 shadow-xl lg:shadow-none">
+    <aside id="dashboardSidebar" class="fixed lg:static inset-y-0 left-0 w-72 bg-white dark:bg-navy-900 border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-50 shadow-xl lg:shadow-none pointer-events-auto no-print">
       
       <!-- Sidebar Top / Brand -->
       <div>
         <div class="p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
-          <a href="index.html" class="flex items-center gap-2.5">
-            <div class="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center font-bold text-xl shadow-md">
-              <i class="bi bi-shield-lock-fill"></i>
+          <a href="index.html" class="flex items-center gap-2.5 cursor-pointer">
+            <div class="w-11 h-11 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 p-1 flex items-center justify-center shadow-md overflow-hidden">
+              <img src="images/brand-logo.png" alt="RetireWell Logo" class="w-full h-full object-contain">
             </div>
             <div>
               <span class="font-serif font-bold text-xl text-slate-900 dark:text-white">Retire<span class="text-teal-600">Well</span></span>
               <span class="block text-[10px] text-slate-400 uppercase tracking-widest font-semibold">Client Portal</span>
             </div>
           </a>
-          <button onclick="toggleSidebar(false)" class="lg:hidden p-1.5 text-slate-500 hover:text-slate-900 dark:hover:text-white rounded-lg">
+          <button onclick="toggleSidebar(false)" class="lg:hidden p-1.5 text-slate-500 hover:text-slate-900 dark:hover:text-white rounded-lg cursor-pointer" aria-label="Close menu">
             <i class="bi bi-x-lg text-lg"></i>
           </button>
         </div>
 
         <!-- Navigation Menu -->
         <nav class="p-4 space-y-1 text-sm font-semibold text-slate-600 dark:text-slate-300" id="sidebarNav">
-          <button onclick="showDashboardSection('overview', this)" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left cursor-pointer bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 sidebar-link active">
-            <i class="bi bi-speedometer2 text-lg text-teal-600"></i>
+
+          <button data-section="overview" onclick="showDashboardSection('overview', this)" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left cursor-pointer bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 sidebar-link active">
+            <i class="bi bi-speedometer2 text-lg text-teal-600 dark:text-teal-400"></i>
             <span>Overview</span>
           </button>
 
-          <button onclick="showDashboardSection('projections', this)" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
+          <button data-section="projections" onclick="showDashboardSection('projections', this)" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
             <i class="bi bi-graph-up-arrow text-lg"></i>
             <span>Retirement Projections</span>
           </button>
 
-          <button onclick="showDashboardSection('accounts', this)" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
+          <button data-section="accounts" onclick="showDashboardSection('accounts', this)" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
             <i class="bi bi-safe text-lg"></i>
             <span>Accounts & Statements</span>
           </button>
 
-          <button onclick="showDashboardSection('beneficiaries', this)" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
+          <button data-section="beneficiaries" onclick="showDashboardSection('beneficiaries', this)" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
             <i class="bi bi-people-fill text-lg"></i>
             <span>Beneficiaries</span>
           </button>
 
-          <button onclick="showDashboardSection('documents', this)" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
+          <button data-section="documents" onclick="showDashboardSection('documents', this)" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
             <i class="bi bi-folder2-open text-lg"></i>
             <span>Documents Vault</span>
           </button>
 
-          <button onclick="showDashboardSection('messages', this)" class="w-full flex items-center justify-between px-4 py-3 rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
+          <button data-section="messages" onclick="showDashboardSection('messages', this)" class="w-full flex items-center justify-between px-4 py-3 rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
             <div class="flex items-center gap-3">
               <i class="bi bi-chat-dots-fill text-lg"></i>
               <span>Messages / Advisor</span>
@@ -96,7 +195,7 @@
             <span class="w-2 h-2 rounded-full bg-teal-600"></span>
           </button>
 
-          <button onclick="showDashboardSection('settings', this)" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
+          <button data-section="settings" onclick="showDashboardSection('settings', this)" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
             <i class="bi bi-gear-fill text-lg"></i>
             <span>Profile & Settings</span>
           </button>
@@ -106,8 +205,8 @@
       <!-- Sidebar Bottom / Advisor Quick Card & Logout -->
       <div class="p-4 border-t border-slate-200 dark:border-slate-800 space-y-3">
         <!-- Assigned Advisor snippet -->
-        <div class="p-3 rounded-xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800 flex items-center gap-3">
-          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" alt="David Vance" class="w-10 h-10 rounded-full object-cover border border-teal-600">
+        <div onclick="showDashboardSection('messages', null)" title="Chat with David Vance" class="p-3 rounded-xl bg-slate-50 dark:bg-navy-950/60 hover:bg-teal-50/60 dark:hover:bg-navy-800/80 border border-slate-200 dark:border-slate-800 flex items-center gap-3 cursor-pointer transition">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" alt="David Vance" class="w-10 h-10 rounded-full object-cover object-top advisor-img-david border border-teal-600">
           <div class="overflow-hidden">
             <p class="text-xs font-bold text-slate-900 dark:text-white truncate">David Vance, CFP®</p>
             <p class="text-[10px] text-teal-600 truncate font-semibold">Your Assigned Fiduciary</p>
@@ -128,13 +227,21 @@
     <div class="flex-1 flex flex-col h-full overflow-hidden bg-slate-50 dark:bg-navy-950">
       
       <!-- Top Dashboard App Bar -->
-      <header class="h-20 bg-white dark:bg-navy-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 sm:px-8 flex-shrink-0 z-30">
+      <header class="h-20 bg-white dark:bg-navy-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 sm:px-8 flex-shrink-0 z-30 no-print">
         
-        <div class="flex items-center gap-4">
-          <button onclick="toggleSidebar(true)" class="lg:hidden p-2 text-slate-700 dark:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-navy-800">
+        <div class="flex items-center gap-3 sm:gap-4">
+          <button onclick="toggleSidebar(true)" class="lg:hidden p-2 text-slate-700 dark:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-navy-800" aria-label="Open sidebar menu">
             <i class="bi bi-list text-2xl"></i>
           </button>
-          <div class="hidden sm:block">
+
+          <!-- Back to Home Button -->
+          <a href="index.html" onclick="window.location.href='index.html'" class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-teal-700 dark:hover:text-teal-300 bg-slate-100 hover:bg-slate-200/80 dark:bg-navy-800 dark:hover:bg-navy-700/80 border border-slate-200 dark:border-slate-700 transition shadow-xs group cursor-pointer" title="Return to RetireWell Homepage">
+            <i class="bi bi-arrow-left text-teal-600 dark:text-teal-400 group-hover:-translate-x-0.5 transition-transform"></i>
+            <i class="bi bi-house-door-fill text-teal-600 dark:text-teal-400"></i>
+            <span class="hidden sm:inline">Back to </span><span>Home</span>
+          </a>
+
+          <div class="hidden sm:block border-l border-slate-200 dark:border-slate-800 pl-4">
             <h2 id="topBarTitle" class="text-lg font-bold font-serif text-slate-900 dark:text-white">Client Portfolio Overview</h2>
             <p class="text-xs text-slate-500">Welcome, Robert Vance • ID #USR-882910</p>
           </div>
@@ -143,11 +250,6 @@
         <!-- Right Top Bar Actions -->
         <div class="flex items-center gap-3">
           
-          <!-- Text Scale Toggle -->
-          <button onclick="RetireWellApp.cycleTextScale()" class="hidden sm:flex px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 text-xs font-bold text-slate-700 dark:text-slate-300 hover:border-teal-500" title="Text Sizing">
-            <span class="text-scale-label">A (100%)</span>
-          </button>
-
           <!-- Theme Toggle -->
           <button onclick="RetireWellApp.toggleTheme()" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-teal-500 text-sm" title="Toggle Theme">
             <i class="bi bi-moon-stars-fill theme-toggle-icon"></i>
@@ -203,8 +305,8 @@
           <!-- Top Row 5 Stat Cards -->
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
             
-            <!-- Card 1: Total Assets -->
-            <div class="rw-card p-5 rounded-2xl border-l-4 border-l-teal-600">
+            <!-- Card 1: Total Assets (Teal) -->
+            <div class="rw-card rw-card-teal p-5 rounded-2xl shadow-md">
               <p class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Total Retirement Assets</p>
               <p class="text-2xl font-bold font-serif text-slate-900 dark:text-white mt-1">$1,284,500</p>
               <span class="text-[11px] text-emerald-600 font-bold flex items-center gap-1 mt-1">
@@ -212,43 +314,43 @@
               </span>
             </div>
 
-            <!-- Card 2: Projected Monthly Income -->
-            <div class="rw-card p-5 rounded-2xl border-l-4 border-l-amber-600">
+            <!-- Card 2: Projected Monthly Income (Gold) -->
+            <div class="rw-card rw-card-gold p-5 rounded-2xl shadow-md">
               <p class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Projected Monthly Income</p>
               <p class="text-2xl font-bold font-serif text-amber-600 dark:text-amber-400 mt-1">$6,850 <span class="text-xs font-sans font-normal text-slate-500">/mo</span></p>
-              <span class="text-[11px] text-teal-600 font-bold flex items-center gap-1 mt-1">
+              <span class="text-[11px] text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1 mt-1">
                 <i class="bi bi-shield-check"></i> $4,800 Guaranteed Floor
               </span>
             </div>
 
-            <!-- Card 3: Readiness Score Ring -->
-            <div class="rw-card p-5 rounded-2xl flex items-center justify-between">
+            <!-- Card 3: Readiness Score Ring (Sapphire) -->
+            <div class="rw-card rw-card-sapphire p-5 rounded-2xl shadow-md flex items-center justify-between">
               <div>
                 <p class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Readiness Score</p>
-                <p class="text-2xl font-bold font-serif text-teal-700 dark:text-teal-400 mt-1">88%</p>
+                <p class="text-2xl font-bold font-serif text-blue-600 dark:text-blue-400 mt-1">88%</p>
                 <span class="text-[11px] text-emerald-600 font-semibold">Fully Prepared</span>
               </div>
               <div class="relative w-12 h-12 flex items-center justify-center">
                 <svg class="w-12 h-12 transform -rotate-90" viewBox="0 0 36 36">
                   <path class="text-slate-200 dark:text-slate-800" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <path class="text-teal-600" stroke-dasharray="88, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                  <path class="text-blue-600 dark:text-blue-400" stroke-dasharray="88, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
                 </svg>
-                <i class="bi bi-check text-base text-teal-600 absolute"></i>
+                <i class="bi bi-check text-base text-blue-600 dark:text-blue-400 absolute"></i>
               </div>
             </div>
 
-            <!-- Card 4: Years to Retirement -->
-            <div class="rw-card p-5 rounded-2xl">
+            <!-- Card 4: Years to Retirement (Amethyst) -->
+            <div class="rw-card rw-card-amethyst p-5 rounded-2xl shadow-md">
               <p class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Years to Retirement</p>
-              <p class="text-2xl font-bold font-serif text-slate-900 dark:text-white mt-1">4.5 Years</p>
+              <p class="text-2xl font-bold font-serif text-purple-600 dark:text-purple-400 mt-1">4.5 Years</p>
               <span class="text-[11px] text-slate-500">Target Age: 62.5 Yrs</span>
             </div>
 
-            <!-- Card 5: Next Review Meeting -->
-            <div class="rw-card p-5 rounded-2xl">
+            <!-- Card 5: Next Review Meeting (Coral) -->
+            <div class="rw-card rw-card-coral p-5 rounded-2xl shadow-md">
               <p class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Next Fiduciary Review</p>
               <p class="text-sm font-bold text-slate-900 dark:text-white mt-1">Oct 24, 2026</p>
-              <span class="text-[11px] text-teal-600 font-bold flex items-center gap-1 mt-1">
+              <span class="text-[11px] text-rose-600 dark:text-rose-400 font-bold flex items-center gap-1 mt-1">
                 <i class="bi bi-camera-video-fill"></i> 2:00 PM EST (Video)
               </span>
             </div>
@@ -358,23 +460,55 @@
              ===================================================================== -->
         <section id="section-projections" class="space-y-8 hidden animate-fade-in">
           
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <h2 class="text-2xl font-bold font-serif text-slate-900 dark:text-white">Interactive Retirement Projections</h2>
-              <p class="text-xs text-slate-500">Model dynamic decumulation, annuity floors, and safe withdrawal rates</p>
+          <!-- Print-Only Official Fiduciary Report Header (Visible in print) -->
+          <div class="hidden print:block projections-print-header pb-4 mb-4 border-b-2 border-teal-600">
+            <div class="flex items-center justify-between">
+              <!-- Brand Logo & Brand Name -->
+              <div class="flex items-center gap-3.5">
+                <img src="images/brand-logo.png" alt="RetireWell Logo" class="w-12 h-12 object-contain rounded-lg border border-slate-200 p-1 bg-white flex-shrink-0 shadow-xs">
+                <div>
+                  <div class="font-serif font-bold text-2xl text-slate-900 leading-tight">
+                    Retire<span class="text-teal-600">Well</span>
+                  </div>
+                  <div class="text-[11px] text-slate-500 font-semibold tracking-wider uppercase mt-0.5">
+                    Annuity &amp; Longevity Wealth Advisory • Retirement Projections Report
+                  </div>
+                </div>
+              </div>
+
+              <!-- Corporate Registry -->
+              <div class="text-right text-[11px] text-slate-500 leading-snug">
+                <strong class="text-slate-800">RetireWell Advisory Group, LLC</strong><br>
+                SEC Registered Investment Fiduciary • CRD #849201<br>
+                <span id="printReportDate" class="text-teal-700 font-semibold">Generated: October 2026 • Ref #PRJ-8842-FL</span>
+              </div>
             </div>
-            <div class="flex items-center gap-3">
-              <button onclick="RetireWellProjections.saveCurrentScenario()" class="btn-primary-gold text-xs py-2 px-4">
+
+            <!-- Client & Plan Metadata Strip -->
+            <div class="mt-3 pt-2.5 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-600 bg-slate-50 px-3 py-1.5 rounded-lg">
+              <div><strong>Account Holder:</strong> Robert &amp; Margaret Vance (Client ID: RW-8842-FL)</div>
+              <div><strong>Designated Advisor:</strong> David Vance, CFP®, RICP®</div>
+              <div><strong>Contract Classification:</strong> Qualified Wealth Plan &bull; 100% Contractual Floor</div>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 projections-screen-header">
+            <div>
+              <h2 class="text-2xl font-bold font-serif text-slate-900 dark:text-white">Retirement Wealth &amp; Income Trajectory</h2>
+              <p class="text-xs text-slate-500">Model dynamic accumulation, annuity floors, and safe withdrawal rates</p>
+            </div>
+            <div class="flex items-center gap-3 no-print">
+              <button onclick="RetireWellProjections.saveCurrentScenario()" class="btn-primary-gold text-xs py-2 px-4 cursor-pointer">
                 <i class="bi bi-bookmark-plus-fill"></i> Save Scenario
               </button>
-              <button onclick="RetireWellProjections.printProjections()" class="btn-outline-navy text-xs py-2 px-4">
+              <button onclick="RetireWellProjections.printProjections()" class="btn-outline-navy text-xs py-2 px-4 cursor-pointer">
                 <i class="bi bi-printer-fill"></i> Print Report
               </button>
             </div>
           </div>
 
           <!-- Scenario Quick Presets Tabs -->
-          <div class="flex items-center gap-2 p-1.5 rounded-xl bg-slate-200 dark:bg-navy-900 max-w-md text-xs font-bold">
+          <div class="flex items-center gap-2 p-1.5 rounded-xl bg-slate-200 dark:bg-navy-900 max-w-md text-xs font-bold no-print">
             <button onclick="applyScenarioPreset('conservative', this)" class="flex-1 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 preset-tab">
               Conservative (4.0%)
             </button>
@@ -387,7 +521,7 @@
           </div>
 
           <!-- Top Dynamic Metrics Strip -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 projections-metric-grid">
             <div class="rw-card p-5 rounded-2xl">
               <p class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Total Pot at Retirement</p>
               <p id="metricProjectedPot" class="text-2xl font-bold font-serif text-slate-900 dark:text-white mt-1">$1,640,000</p>
@@ -416,14 +550,48 @@
           </div>
 
           <!-- Chart.js Graph Canvas Card -->
-          <div class="rw-card p-6 rounded-2xl">
-            <div class="h-80 sm:h-96 relative">
+          <div class="rw-card p-6 rounded-2xl projection-chart-card">
+            <div class="h-80 sm:h-96 relative projection-chart-wrapper">
               <canvas id="projectionChartCanvas"></canvas>
             </div>
           </div>
 
-          <!-- Interactive Sliders Grid -->
-          <div class="rw-card p-6 sm:p-8 rounded-2xl space-y-6">
+          <!-- Print-Only Simulation Parameters Summary Grid -->
+          <div class="hidden print:block projections-print-params p-3 rounded-lg border border-slate-300 bg-slate-50/70 text-slate-700 text-xs my-2">
+            <div class="font-bold text-slate-800 text-[11px] mb-1.5 flex items-center justify-between">
+              <span>Active Simulation Parameters &amp; Actuarial Assumptions</span>
+              <span class="text-[9.5px] font-semibold text-teal-700 uppercase tracking-wider">Indexed Longevity Engine</span>
+            </div>
+            <div class="grid grid-cols-6 gap-2 text-center text-xs">
+              <div class="p-1.5 bg-white rounded border border-slate-200">
+                <div class="text-[9px] uppercase text-slate-500 font-bold">Current Age</div>
+                <div id="printCurrentAge" class="font-bold text-slate-900 text-xs mt-0.5">58 Yrs</div>
+              </div>
+              <div class="p-1.5 bg-white rounded border border-slate-200">
+                <div class="text-[9px] uppercase text-slate-500 font-bold">Retirement Age</div>
+                <div id="printRetireAge" class="font-bold text-slate-900 text-xs mt-0.5">63 Yrs</div>
+              </div>
+              <div class="p-1.5 bg-white rounded border border-slate-200">
+                <div class="text-[9px] uppercase text-slate-500 font-bold">Current Nest Egg</div>
+                <div id="printCurrentSavings" class="font-bold text-slate-900 text-xs mt-0.5">$1,284,500</div>
+              </div>
+              <div class="p-1.5 bg-white rounded border border-slate-200">
+                <div class="text-[9px] uppercase text-slate-500 font-bold">Monthly Savings</div>
+                <div id="printMonthlyContrib" class="font-bold text-slate-900 text-xs mt-0.5">$1,500/mo</div>
+              </div>
+              <div class="p-1.5 bg-white rounded border border-slate-200">
+                <div class="text-[9px] uppercase text-slate-500 font-bold">Assumed Growth</div>
+                <div id="printAnnualReturn" class="font-bold text-slate-900 text-xs mt-0.5">6.5%</div>
+              </div>
+              <div class="p-1.5 bg-white rounded border border-slate-200">
+                <div class="text-[9px] uppercase text-slate-500 font-bold">Desired Income</div>
+                <div id="printDesiredIncome" class="font-bold text-slate-900 text-xs mt-0.5">$6,500/mo</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Sliders Grid (Hidden in Print) -->
+          <div id="projectionSlidersCard" class="rw-card p-6 sm:p-8 rounded-2xl space-y-6 no-print">
             <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white">Adjust Simulation Parameters</h3>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -497,8 +665,8 @@
 
           </div>
 
-          <!-- Saved Scenarios List -->
-          <div class="rw-card p-6 rounded-2xl space-y-4">
+          <!-- Saved Scenarios List (Hidden in Print) -->
+          <div id="savedScenariosCard" class="rw-card p-6 rounded-2xl space-y-4 no-print">
             <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white">Your Saved Scenarios</h3>
             <div id="savedScenariosList" class="space-y-3">
               <!-- Injected via JavaScript -->
@@ -671,7 +839,7 @@
             <div class="lg:col-span-4 rw-card p-6 rounded-2xl flex flex-col justify-between">
               <div class="space-y-4">
                 <div class="text-center pb-4 border-b border-slate-100 dark:border-slate-800">
-                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80" alt="David Vance" class="w-20 h-20 rounded-2xl object-cover mx-auto mb-3 border-2 border-teal-600">
+                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80" alt="David Vance" class="w-20 h-20 rounded-2xl object-cover object-top advisor-img-david mx-auto mb-3 border-2 border-teal-600">
                   <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white">David Vance, CFP®, RICP®</h3>
                   <p class="text-xs text-teal-600 font-semibold">Managing Fiduciary Partner</p>
                 </div>
@@ -735,15 +903,21 @@
               <div class="space-y-3 text-xs">
                 <div>
                   <label class="block font-bold text-slate-600 dark:text-slate-300 mb-1">Full Legal Name</label>
-                  <input type="text" id="setProfileName" class="rw-input" value="Robert Vance">
+                  <input type="text" id="setProfileName" class="rw-input" value="Robert Vance"
+                    pattern="[A-Za-z .'-]+" title="Please enter alphabets only"
+                    onkeydown="RetireWellApp.filterNameKey(event)"
+                    oninput="RetireWellApp.allowAlphabetsOnly(this)">
                 </div>
                 <div>
                   <label class="block font-bold text-slate-600 dark:text-slate-300 mb-1">Email Address</label>
-                  <input type="email" id="setProfileEmail" class="rw-input" value="client@retirewell.com">
+                  <input type="email" id="setProfileEmail" class="rw-input" value="user@gmail.com">
                 </div>
                 <div>
                   <label class="block font-bold text-slate-600 dark:text-slate-300 mb-1">Phone Number</label>
-                  <input type="tel" id="setProfilePhone" class="rw-input" value="(617) 492-8820">
+                  <input type="tel" id="setProfilePhone" class="rw-input" value="(617) 492-8820"
+                    pattern="[0-9+() -]+" title="Please enter numbers only"
+                    onkeydown="RetireWellApp.filterPhoneKey(event)"
+                    oninput="RetireWellApp.allowNumbersOnly(this)">
                 </div>
                 <div>
                   <label class="block font-bold text-slate-600 dark:text-slate-300 mb-1">Primary Residence</label>
@@ -780,13 +954,7 @@
               </button>
 
               <div class="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-2 text-xs">
-                <span class="font-bold text-slate-900 dark:text-white">Accessibility Preferences</span>
-                <div class="flex items-center justify-between">
-                  <span>Text Sizing:</span>
-                  <button onclick="RetireWellApp.cycleTextScale()" class="btn-outline-navy py-1 px-3 text-xs">
-                    <span class="text-scale-label">A (100%)</span>
-                  </button>
-                </div>
+                <span class="font-bold text-slate-900 dark:text-white">Display Preferences</span>
                 <div class="flex items-center justify-between">
                   <span>Theme:</span>
                   <button onclick="RetireWellApp.toggleTheme()" class="btn-outline-navy py-1 px-3 text-xs">
@@ -812,35 +980,64 @@
        ========================================================================= -->
 
   <!-- 1. Statement Detail Modal -->
-  <div id="statementDetailModal" class="rw-modal-backdrop" role="dialog" aria-modal="true">
+  <div id="statementDetailModal" class="rw-modal-backdrop no-print" role="dialog" aria-modal="true">
     <div class="rw-modal-dialog max-w-lg">
-      <div class="p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-navy-950/50 rounded-t-2xl">
-        <div>
-          <span class="rw-badge-teal text-[10px]">STATEMENT RECORD</span>
-          <h3 id="stmtModalTitle" class="text-lg font-bold font-serif text-slate-900 dark:text-white"></h3>
+      <div class="p-6 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-navy-950/50 rounded-t-2xl">
+        <div class="flex items-start justify-between gap-4">
+          <!-- Brand Logo & Company Title -->
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 p-1 flex items-center justify-center shadow-md shadow-teal-700/10 flex-shrink-0 overflow-hidden">
+              <img src="images/brand-logo.png" alt="RetireWell Logo" class="w-full h-full object-contain">
+            </div>
+            <div class="flex flex-col">
+              <span class="text-xl font-bold font-serif tracking-tight text-slate-900 dark:text-white flex items-center leading-none">
+                Retire<span class="text-teal-600 dark:text-teal-400">Well</span>
+              </span>
+              <span class="text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-medium mt-1">Annuity &amp; Longevity Wealth Advisory</span>
+            </div>
+          </div>
+          <button onclick="RetireWellApp.closeModal('statementDetailModal')" class="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg" aria-label="Close modal">
+            <i class="bi bi-x-lg text-lg"></i>
+          </button>
         </div>
-        <button onclick="RetireWellApp.closeModal('statementDetailModal')" class="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg">
-          <i class="bi bi-x-lg text-lg"></i>
-        </button>
+
+        <!-- Statement Record Sub-Bar -->
+        <div class="mt-4 pt-3 border-t border-slate-200/80 dark:border-slate-800/80 flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="rw-badge-teal text-[10px] font-bold">STATEMENT RECORD</span>
+              <span id="stmtModalIdBadge" class="text-xs font-mono font-bold text-teal-600 dark:text-teal-400"></span>
+            </div>
+            <h3 id="stmtModalTitle" class="text-lg font-bold font-serif text-slate-900 dark:text-white mt-0.5"></h3>
+          </div>
+          <span class="hidden sm:inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">
+            <i class="bi bi-patch-check-fill"></i> SEC-Verified
+          </span>
+        </div>
       </div>
 
       <div class="p-6 space-y-4 text-xs" id="stmtModalBody">
         <!-- Injected via JavaScript -->
       </div>
 
-      <div class="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-navy-950/50 flex justify-between rounded-b-2xl">
+      <div class="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-navy-950/50 flex flex-wrap items-center justify-between gap-3 rounded-b-2xl">
         <button onclick="RetireWellApp.closeModal('statementDetailModal')" class="btn-outline-navy py-2 px-4 text-xs">
           Close
         </button>
-        <button onclick="window.print()" class="btn-primary-gold py-2 px-4 text-xs font-bold">
-          <i class="bi bi-printer"></i> Print Statement
-        </button>
+        <div class="flex items-center gap-2">
+          <button onclick="downloadOfficialStatementFile()" class="btn-outline-navy py-2 px-3 text-xs font-bold flex items-center gap-1.5" title="Download standalone official statement file">
+            <i class="bi bi-file-earmark-arrow-down-fill text-teal-600"></i> Download Statement
+          </button>
+          <button onclick="printOfficialStatement()" class="btn-primary-gold py-2 px-4 text-xs font-bold flex items-center gap-1.5" title="Print or save as official PDF">
+            <i class="bi bi-printer-fill"></i> Print / Save PDF
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- 2. Add / Edit Beneficiary Modal -->
-  <div id="beneficiaryModal" class="rw-modal-backdrop" role="dialog" aria-modal="true">
+  <div id="beneficiaryModal" class="rw-modal-backdrop no-print" role="dialog" aria-modal="true">
     <div class="rw-modal-dialog max-w-md">
       <div class="p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-navy-950/50 rounded-t-2xl">
         <h3 id="benModalTitle" class="text-lg font-bold font-serif text-slate-900 dark:text-white">Add Beneficiary Designation</h3>
@@ -854,7 +1051,10 @@
         
         <div>
           <label class="block font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Full Legal Name *</label>
-          <input type="text" id="benName" required class="rw-input" placeholder="e.g. Margaret Vance">
+          <input type="text" id="benName" required class="rw-input" placeholder="e.g. Margaret Vance"
+            pattern="[A-Za-z .'-]+" title="Please enter alphabets only"
+            onkeydown="RetireWellApp.filterNameKey(event)"
+            oninput="RetireWellApp.allowAlphabetsOnly(this)">
         </div>
 
         <div class="grid grid-cols-2 gap-3">
@@ -900,7 +1100,7 @@
   </div>
 
   <!-- 3. Upload Document Modal -->
-  <div id="uploadDocModal" class="rw-modal-backdrop" role="dialog" aria-modal="true">
+  <div id="uploadDocModal" class="rw-modal-backdrop no-print" role="dialog" aria-modal="true">
     <div class="rw-modal-dialog max-w-md">
       <div class="p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-navy-950/50 rounded-t-2xl">
         <h3 class="text-lg font-bold font-serif text-slate-900 dark:text-white">Upload to Vault</h3>
@@ -955,30 +1155,66 @@
   <!-- Core Scripts -->
   <script src="js/config.js"></script>
   <script src="js/data.js"></script>
+  <script src="js/logo-base64.js"></script>
   <script src="js/app.js"></script>
   <script src="js/projections.js"></script>
   <script src="js/footer.js"></script>
 
   <!-- Complete Dashboard Logic Engine -->
   <script>
-    // 1. Sidebar section switcher
-    function showDashboardSection(sectionId, btn) {
-      document.querySelectorAll('main > section').forEach(sec => sec.classList.add('hidden'));
-      const targetSec = document.getElementById(`section-${sectionId}`);
-      if (targetSec) targetSec.classList.remove('hidden');
+    // Universal Embedded Brand Logo Data URI (guarantees logo renders in downloaded offline documents)
+    function getFiduciaryLogoDataUri() {
+      if (typeof window !== 'undefined' && window.RETIREWELL_LOGO_DATA_URI) {
+        return window.RETIREWELL_LOGO_DATA_URI;
+      }
+      return 'data:image/png;base64,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';
+    }
 
-      // Update sidebar active link
-      document.querySelectorAll('.sidebar-link').forEach(l => {
-        l.className = 'w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link';
-      });
-      if (btn) {
-        btn.className = 'w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left cursor-pointer bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 sidebar-link active';
+    // 1. Sidebar section switcher
+    const sectionTitles = {
+      'overview': 'Client Portfolio Overview',
+      'projections': 'Retirement Projections & Monte Carlo',
+      'accounts': 'Accounts & Statements Vault',
+      'beneficiaries': 'Beneficiary Designations',
+      'documents': 'Documents Vault & Fiduciary Records',
+      'messages': 'Advisor Messaging Desk',
+      'settings': 'Profile & Security Settings'
+    };
+
+    function showDashboardSection(sectionId, btn) {
+      // 1. Hide all main sections
+      document.querySelectorAll('main > section').forEach(sec => sec.classList.add('hidden'));
+      
+      // 2. Show target section
+      const targetSec = document.getElementById(`section-${sectionId}`);
+      if (targetSec) {
+        targetSec.classList.remove('hidden');
       }
 
-      // Close mobile sidebar if open
+      // 3. Reset viewport scroll to top
+      const vp = document.getElementById('dashboardViewport');
+      if (vp) vp.scrollTop = 0;
+
+      // 4. Update top bar title
+      const titleEl = document.getElementById('topBarTitle');
+      if (titleEl && sectionTitles[sectionId]) {
+        titleEl.textContent = sectionTitles[sectionId];
+      }
+
+      // 5. Update sidebar active styles
+      document.querySelectorAll('#sidebarNav .sidebar-link').forEach(l => {
+        l.classList.remove('bg-teal-50', 'dark:bg-teal-950/40', 'text-teal-700', 'dark:text-teal-300', 'active');
+        l.classList.add('hover:bg-slate-100', 'dark:hover:bg-navy-800');
+      });
+      if (btn) {
+        btn.classList.add('bg-teal-50', 'dark:bg-teal-950/40', 'text-teal-700', 'dark:text-teal-300', 'active');
+        btn.classList.remove('hover:bg-slate-100', 'dark:hover:bg-navy-800');
+      }
+
+      // 6. Close mobile sidebar if open
       toggleSidebar(false);
 
-      // Trigger projection chart render if entering projections
+      // 7. Trigger projection chart render if entering projections
       if (sectionId === 'projections') {
         setTimeout(triggerProjectionUpdate, 100);
       }
@@ -987,14 +1223,19 @@
     function toggleSidebar(open) {
       const sidebar = document.getElementById('dashboardSidebar');
       const overlay = document.getElementById('sidebarOverlay');
+      if (!sidebar) return;
       if (open) {
         sidebar.classList.remove('-translate-x-full');
-        overlay.classList.remove('hidden');
+        if (overlay) overlay.classList.remove('hidden');
       } else {
         sidebar.classList.add('-translate-x-full');
-        overlay.classList.add('hidden');
+        if (overlay) overlay.classList.add('hidden');
       }
     }
+
+    // Expose globally to window
+    window.showDashboardSection = showDashboardSection;
+    window.toggleSidebar = toggleSidebar;
 
     // 2. Notifications Management
     function toggleNotificationPanel() {
@@ -1082,36 +1323,370 @@
       `).join('');
     }
 
+    let currentStatementData = null;
+
     function openStatementModal(id) {
       const stmts = RetireWellDB.get('statements') || [];
-      const s = stmts.find(item => item.id === id) || stmts[0];
+      const s = stmts.find(item => item.id === id || item.accountId === id) || stmts[0];
       if (!s) return;
 
+      currentStatementData = s;
       document.getElementById('stmtModalTitle').textContent = s.type;
+      const idBadge = document.getElementById('stmtModalIdBadge');
+      if (idBadge) idBadge.textContent = s.id;
+
       document.getElementById('stmtModalBody').innerHTML = `
-        <div class="p-3 rounded-xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800 space-y-2">
-          <div class="flex justify-between"><span>Account:</span><strong>${s.accountName}</strong></div>
-          <div class="flex justify-between"><span>Reporting Period:</span><strong>${s.period}</strong></div>
-          <div class="flex justify-between"><span>Effective Date:</span><strong>${s.statementDate}</strong></div>
-        </div>
-        <div class="space-y-2 border-t border-slate-200 dark:border-slate-800 pt-3">
-          <div class="flex justify-between text-slate-500"><span>Beginning Balance:</span><span>$${s.startingBalance.toLocaleString()}</span></div>
-          <div class="flex justify-between text-emerald-600 font-bold"><span>Indexed Interest Credits:</span><span>+$${s.credits.toLocaleString()}</span></div>
-          <div class="flex justify-between text-slate-400"><span>Advisory / Rider Fee:</span><span>$${s.fees.toLocaleString()}</span></div>
-          <div class="flex justify-between text-base font-bold text-teal-600 pt-2 border-t border-slate-100 dark:border-slate-800">
-            <span>Ending Value:</span><span>$${s.endingBalance.toLocaleString()}</span>
+        <!-- Institutional Letterhead Header Box -->
+        <div class="p-3.5 rounded-xl bg-slate-100 dark:bg-navy-950/80 border border-slate-200 dark:border-slate-800">
+          <div class="flex items-center justify-between pb-2.5 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center gap-2">
+              <span class="text-teal-600 dark:text-teal-400 font-bold"><i class="bi bi-bank2"></i> Fiduciary Custody</span>
+              <span class="text-slate-400">•</span>
+              <span class="text-slate-500 font-mono text-[11px]">CRD #849201</span>
+            </div>
+            <span class="text-[11px] text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
+              <i class="bi bi-shield-check"></i> 100% Principal Protected
+            </span>
           </div>
-          <div class="flex justify-between text-[11px] text-slate-400"><span>Contract Surrender Value:</span><span>$${s.surrenderValue.toLocaleString()}</span></div>
+          <div class="grid grid-cols-2 gap-2 pt-2.5 text-[11px]">
+            <div><span class="text-slate-400 block">Primary Account Holder:</span><strong class="text-slate-800 dark:text-slate-200">Robert &amp; Margaret Vance</strong></div>
+            <div><span class="text-slate-400 block">Designated Fiduciary:</span><strong class="text-slate-800 dark:text-slate-200">David Vance, CFP®, RICP®</strong></div>
+            <div><span class="text-slate-400 block">Issuing Carrier / Custodian:</span><strong class="text-slate-800 dark:text-slate-200">Pacific Horizon Life (A+ Superior)</strong></div>
+            <div><span class="text-slate-400 block">Account Reference:</span><strong class="text-teal-600 font-mono">${s.accountId || 'ACC-FIA-8842'}</strong></div>
+          </div>
+        </div>
+
+        <!-- Period & Account Info -->
+        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-navy-950/50 border border-slate-200 dark:border-slate-800 space-y-2">
+          <div class="flex justify-between">
+            <span class="text-slate-500">Account Name:</span>
+            <strong class="text-slate-900 dark:text-white">${s.accountName}</strong>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">Reporting Period:</span>
+            <strong>${s.period}</strong>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">Effective Valuation Date:</span>
+            <strong class="font-mono">${s.statementDate}</strong>
+          </div>
+        </div>
+
+        <!-- Financial Ledger Breakdown -->
+        <div class="space-y-2 border-t border-slate-200 dark:border-slate-800 pt-3">
+          <div class="flex justify-between text-slate-500">
+            <span>Beginning Contract Balance:</span>
+            <span class="font-mono font-medium">$${s.startingBalance.toLocaleString()}</span>
+          </div>
+          <div class="flex justify-between text-emerald-600 font-bold">
+            <span class="flex items-center gap-1"><i class="bi bi-graph-up-arrow"></i> Indexed Interest Credits (Protected):</span>
+            <span class="font-mono">+$${s.credits.toLocaleString()}</span>
+          </div>
+          <div class="flex justify-between text-slate-400">
+            <span>Advisory &amp; Rider Maintenance Fee:</span>
+            <span class="font-mono">$${s.fees.toLocaleString()}</span>
+          </div>
+          <div class="flex justify-between text-base font-bold text-teal-600 pt-2 border-t border-slate-200 dark:border-slate-800">
+            <span>Net Ending Value:</span>
+            <span class="font-mono text-lg">$${s.endingBalance.toLocaleString()}</span>
+          </div>
+          <div class="flex justify-between text-[11px] text-slate-400">
+            <span>Contract Surrender Value:</span>
+            <span class="font-mono">$${s.surrenderValue.toLocaleString()}</span>
+          </div>
+          <div class="flex justify-between text-[11px] text-slate-400">
+            <span>Guaranteed Principal Floor:</span>
+            <span class="font-mono">$${(s.guaranteedValue || s.startingBalance).toLocaleString()}</span>
+          </div>
+        </div>
+
+        <!-- Fiduciary Protection & Security Verification Note -->
+        <div class="p-3 rounded-xl bg-teal-50/80 dark:bg-teal-950/30 border border-teal-500/20 text-[11px] text-teal-900 dark:text-teal-200 flex items-start gap-2.5">
+          <i class="bi bi-shield-lock-fill text-teal-600 text-base flex-shrink-0 mt-0.5"></i>
+          <div class="space-y-1">
+            <p class="font-bold">RetireWell Fiduciary Principal Guarantee</p>
+            <p class="text-slate-600 dark:text-slate-300 leading-snug">
+              Contractually shielded with 0% index floor. All annual index credits are locked in and can never decline due to future market corrections.
+            </p>
+            <p class="text-[10px] text-slate-400 font-mono pt-1">
+              Verification Hash: #RW-${s.id}-SEC849 • Certified Fiduciary Ledger
+            </p>
+          </div>
         </div>
       `;
       RetireWellApp.openModal('statementDetailModal');
     }
 
     function downloadDemoStatement(id) {
-      RetireWellApp.toast(`Generated demo statement ${id}. Opening print layout...`, 'success', 2500);
-      setTimeout(() => {
-        openStatementModal(id);
-      }, 500);
+      const stmts = RetireWellDB.get('statements') || [];
+      const s = stmts.find(item => item.id === id) || stmts[0];
+      if (!s) return;
+      currentStatementData = s;
+      openStatementModal(s.id);
+      RetireWellApp.toast(`Generated official statement ${s.id} with RetireWell Fiduciary letterhead. Ready to view, download, or print.`, 'success', 3500);
+    }
+
+    function generateStatementDocumentHTML(s, autoPrint = false) {
+      if (!s) return '';
+      const origin = (typeof window !== 'undefined' && window.location) ? window.location.origin : '';
+      return `<!DOCTYPE html>
+<${'html'} lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RetireWell Official Statement - ${s.id}</title>
+  ${origin ? `<base href="${origin}/">` : ''}
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    @page {
+      size: letter portrait;
+      margin: 8mm 12mm;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #0f172a;
+      background: #ffffff;
+      padding: 24px;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+    .statement-container {
+      max-width: 800px;
+      margin: 0 auto;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px 28px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid #0d9488;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+    .brand-col { display: flex; align-items: center; gap: 12px; }
+    .brand-logo { width: 42px; height: 42px; flex-shrink: 0; }
+    .brand-name { font-size: 22px; font-weight: 700; font-family: Georgia, serif; color: #0a192f; letter-spacing: -0.5px; }
+    .brand-name span { color: #0d9488; }
+    .brand-badge { display: inline-block; font-size: 9px; font-weight: bold; color: #b45309; background: #fef3c7; border: 1px solid #fde68a; padding: 1px 6px; border-radius: 4px; vertical-align: middle; margin-left: 6px; letter-spacing: 0.5px; }
+    .brand-sub { font-size: 10.5px; text-transform: uppercase; color: #64748b; letter-spacing: 0.8px; font-weight: 600; margin-top: 1px; }
+    .corp-details { text-align: right; font-size: 10.5px; color: #64748b; line-height: 1.35; }
+    
+    .statement-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+    }
+    .meta-title { font-size: 14.5px; font-weight: 700; font-family: Georgia, serif; color: #0f172a; }
+    .meta-id { font-family: monospace; font-size: 11.5px; font-weight: 700; color: #0d9488; background: #ccfbf1; padding: 2px 7px; border-radius: 5px; }
+    
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+    .info-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; font-size: 11.5px; }
+    .info-card h4 { font-size: 10.5px; text-transform: uppercase; color: #64748b; margin-bottom: 6px; font-weight: 700; letter-spacing: 0.5px; border-bottom: 1px solid #e2e8f0; padding-bottom: 3px; }
+    .info-card p { display: flex; justify-content: space-between; margin-bottom: 3px; color: #334155; }
+    .info-card p strong { color: #0f172a; }
+    
+    table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 11.5px; }
+    th { text-align: left; padding: 8px 12px; background: #0a192f; color: #ffffff; font-weight: 600; font-size: 11px; }
+    td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) { background: #f8fafc; }
+    .text-right { text-align: right; }
+    .text-emerald { color: #059669; font-weight: 700; }
+    .total-row { font-size: 13px; font-weight: 700; background: #ccfbf1 !important; color: #0f766e; }
+    
+    .guarantee-box { border: 1px solid #99f6e4; background: #f0fdfa; border-radius: 8px; padding: 10px 14px; font-size: 10.5px; color: #115e59; margin-bottom: 14px; line-height: 1.4; }
+    .guarantee-box strong { font-size: 11.5px; color: #0f766e; display: block; margin-bottom: 3px; }
+    
+    .signature-row { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 14px; border-top: 1px dashed #cbd5e1; font-size: 10.5px; color: #475569; page-break-inside: avoid; break-inside: avoid; }
+    .sig-line { border-top: 1px solid #0f172a; width: 190px; padding-top: 3px; font-weight: 600; text-align: center; }
+    .footer-note { text-align: center; font-size: 9.5px; color: #94a3b8; margin-top: 12px; line-height: 1.35; page-break-inside: avoid; break-inside: avoid; }
+    
+    @media print {
+      @page {
+        size: letter portrait;
+        margin: 8mm 10mm;
+      }
+      html, body {
+        padding: 0 !important;
+        margin: 0 !important;
+        background: #ffffff !important;
+        height: auto !important;
+      }
+      .statement-container {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .no-print { display: none !important; }
+      table, tr, td, th { page-break-inside: avoid !important; break-inside: avoid !important; }
+      .signature-row { page-break-inside: avoid !important; break-inside: avoid !important; }
+      .footer-note { page-break-inside: avoid !important; break-inside: avoid !important; }
+    }
+  </style>
+</head>
+<${'body'}>
+  <div class="statement-container">
+    <div class="header">
+      <div class="brand-col">
+        <img class="brand-logo" src="${getFiduciaryLogoDataUri()}" alt="RetireWell Logo" style="width:42px;height:42px;border-radius:8px;object-fit:contain;background:#ffffff;border:1px solid #e2e8f0;padding:2px;flex-shrink:0;">
+        <div>
+          <div class="brand-name">Retire<span>Well</span></div>
+          <div class="brand-sub">Annuity &amp; Longevity Wealth Advisory</div>
+        </div>
+      </div>
+      <div class="corp-details">
+        <strong>RetireWell Advisory Group, LLC</strong><br>
+        SEC Registered Investment Fiduciary • CRD #849201<br>
+        One Financial Plaza, Suite 2400 • Miami, FL 33131<br>
+        Member FINRA / SIPC • Tel: (800) 555-RETIRE
+      </div>
+    </div>
+
+    <div class="statement-meta">
+      <div>
+        <div class="meta-title">${s.type}</div>
+        <div style="font-size: 10.5px; color: #64748b; margin-top: 1px;">Official Fiduciary Ledger Record • Generated for Client Vault</div>
+      </div>
+      <div class="text-right">
+        <span class="meta-id">${s.id}</span>
+        <div style="font-size: 10.5px; color: #64748b; margin-top: 3px;">Effective: ${s.statementDate}</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="info-card">
+        <h4>Account Owner Information</h4>
+        <p><span>Account Holder:</span> <strong>Robert &amp; Margaret Vance</strong></p>
+        <p><span>Client Identifier:</span> <strong>RW-8842-FL</strong></p>
+        <p><span>Designated Advisor:</span> <strong>David Vance, CFP®, RICP®</strong></p>
+        <p><span>Tax Classification:</span> <strong>Qualified Retirement Asset</strong></p>
+      </div>
+      <div class="info-card">
+        <h4>Custodial Account Details</h4>
+        <p><span>Product / Account:</span> <strong>${s.accountName}</strong></p>
+        <p><span>Contract Reference:</span> <strong>${s.accountId || 'ACC-FIA-8842'}</strong></p>
+        <p><span>Reporting Period:</span> <strong>${s.period}</strong></p>
+        <p><span>Carrier / Custodian:</span> <strong>Pacific Horizon Life (A.M. Best A+)</strong></p>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Transaction / Ledger Item</th>
+          <th>Effective Date</th>
+          <th>Allocation / Notes</th>
+          <th class="text-right">Amount (USD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Beginning Contract Value</strong></td>
+          <td>${s.statementDate}</td>
+          <td>Contract Balance at Period Start</td>
+          <td class="text-right">$${s.startingBalance.toLocaleString()}</td>
+        </tr>
+        <tr>
+          <td class="text-emerald"><strong>Indexed Interest Credits</strong></td>
+          <td>${s.statementDate}</td>
+          <td>Annual Reset Guaranteed Growth</td>
+          <td class="text-right text-emerald">+$${s.credits.toLocaleString()}</td>
+        </tr>
+        <tr>
+          <td><strong>Fiduciary Advisory &amp; Rider Maintenance</strong></td>
+          <td>${s.statementDate}</td>
+          <td>Contract Administration &amp; GLWB Protection</td>
+          <td class="text-right">$${s.fees.toLocaleString()}</td>
+        </tr>
+        <tr class="total-row">
+          <td><strong>Ending Contract Value</strong></td>
+          <td>${s.statementDate}</td>
+          <td>Total Market Protected Assets</td>
+          <td class="text-right">$${s.endingBalance.toLocaleString()}</td>
+        </tr>
+        <tr>
+          <td>Contract Surrender Value</td>
+          <td>${s.statementDate}</td>
+          <td>Net Available After Standard Surrender Scale</td>
+          <td class="text-right">$${s.surrenderValue.toLocaleString()}</td>
+        </tr>
+        <tr>
+          <td>Guaranteed Minimum Contract Floor</td>
+          <td>${s.statementDate}</td>
+          <td>100% Guaranteed Principal Protection Floor</td>
+          <td class="text-right">$${(s.guaranteedValue || s.startingBalance).toLocaleString()}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="guarantee-box">
+      <strong>Fiduciary Standard of Care &amp; Principal Protection Certification</strong>
+      RetireWell Advisory Group certifies that this annuity statement reflects contractual guarantees backed by the issuing carrier. Principal and locked-in interest earnings are protected against index declines. Your lifetime income floor is preserved pursuant to contractual riders.
+    </div>
+
+    <div class="signature-row">
+      <div>
+        <div style="font-weight: 700; color: #0f172a;">RetireWell Advisory Group, LLC</div>
+        <div style="font-size: 10px; color: #64748b; margin-top: 1px;">SEC Registration #849201 • State of Florida</div>
+      </div>
+      <div>
+        <div class="sig-line">David Vance, CFP®, RICP®</div>
+        <div style="font-size: 10px; color: #64748b; text-align: center; margin-top: 1px;">Fiduciary Annuity Specialist</div>
+      </div>
+      <div>
+        <div class="sig-line">Marcus Sterling, CFP®</div>
+        <div style="font-size: 10px; color: #64748b; text-align: center; margin-top: 1px;">Chief Fiduciary Officer</div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      Confidential Financial Document. Issued strictly for Robert &amp; Margaret Vance. RetireWell Advisory Group is an independent SEC-registered investment fiduciary. Annuity guarantees are subject to the claims-paying ability of the issuing insurer.
+    </div>
+  </div>
+  ${autoPrint ? '<' + 'script>window.addEventListener("load", () => { setTimeout(() => { window.print(); }, 400); });<' + '/script>' : ''}
+<${'/body'}>
+<${'/html'}>`;
+    }
+
+    function printOfficialStatement() {
+      const s = currentStatementData || (RetireWellDB.get('statements') || [])[0];
+      if (!s) return;
+      const printHtml = generateStatementDocumentHTML(s, true);
+      const printWindow = window.open('', '_blank', 'width=900,height=800');
+      if (printWindow) {
+        printWindow.document.open();
+        printWindow.document.write(printHtml);
+        printWindow.document.close();
+      } else {
+        window.print();
+      }
+    }
+
+    function downloadOfficialStatementFile() {
+      const s = currentStatementData || (RetireWellDB.get('statements') || [])[0];
+      if (!s) return;
+      const htmlContent = generateStatementDocumentHTML(s, false);
+      const blob = new Blob([htmlContent], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `RetireWell_Statement_${s.id}.html`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      RetireWellApp.toast(`Downloaded official statement file: RetireWell_Statement_${s.id}.html`, 'success', 3500);
     }
 
     function filterStatementsTable() {
@@ -1233,6 +1808,11 @@
       const dob = document.getElementById('benDOB').value;
       const contact = document.getElementById('benContact').value.trim();
 
+      if (!/^[a-zA-Z\s\.\'\-]+$/.test(name)) {
+        RetireWellApp.toast('Beneficiary Full Name must contain alphabets only.', 'error');
+        return;
+      }
+
       let list = RetireWellDB.get('beneficiaries') || [];
 
       if (id) {
@@ -1319,7 +1899,69 @@
     }
 
     function downloadDemoDoc(title) {
-      RetireWellApp.toast(`Downloading encrypted copy of "${title}"...`, 'info', 3000);
+      RetireWellApp.toast(`Downloading encrypted copy of "${title}" from RetireWell Fiduciary Vault...`, 'info', 2500);
+      const docHtml = `<!DOCTYPE html>
+<${'html'} lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RetireWell Vault Document - ${title}</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #0f172a; padding: 40px; background: #ffffff; }
+    .doc-box { max-width: 760px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; padding: 36px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #0d9488; padding-bottom: 20px; margin-bottom: 24px; }
+    .brand-col { display: flex; align-items: center; gap: 14px; }
+    .brand-logo { width: 44px; height: 44px; }
+    .brand-name { font-size: 22px; font-weight: 700; font-family: Georgia, serif; color: #0a192f; }
+    .brand-name span { color: #0d9488; }
+    .corp-details { text-align: right; font-size: 11px; color: #64748b; line-height: 1.4; }
+    .doc-title { font-size: 20px; font-weight: 700; font-family: Georgia, serif; color: #0a192f; margin-bottom: 12px; }
+    .doc-badge { display: inline-block; font-size: 11px; font-weight: bold; background: #ccfbf1; color: #0f766e; padding: 3px 10px; border-radius: 6px; margin-bottom: 18px; }
+    .card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; font-size: 13px; line-height: 1.6; margin-bottom: 20px; }
+    .seal { border-top: 1px dashed #cbd5e1; padding-top: 18px; margin-top: 24px; display: flex; justify-content: space-between; font-size: 11px; color: #64748b; }
+  </style>
+</head>
+<${'body'}>
+  <div class="doc-box">
+    <div class="header">
+      <div class="brand-col">
+        <img class="brand-logo" src="${getFiduciaryLogoDataUri()}" alt="RetireWell Logo" style="width:44px;height:44px;border-radius:8px;object-fit:contain;background:#ffffff;border:1px solid #e2e8f0;padding:2px;flex-shrink:0;">
+        <div>
+          <div class="brand-name">Retire<span>Well</span></div>
+          <div style="font-size: 11px; text-transform: uppercase; color: #64748b; font-weight: 600; letter-spacing: 0.5px;">Fiduciary Annuity Vault</div>
+        </div>
+      </div>
+      <div class="corp-details">
+        <strong>RetireWell Advisory Group, LLC</strong><br>
+        SEC Registered Investment Fiduciary • CRD #849201<br>
+        Encrypted Vault Archive ID: #VAULT-2026-FL
+      </div>
+    </div>
+    <div class="doc-title">${title}</div>
+    <div class="doc-badge">FIDUCIARY ENCRYPTED RECORD • 256-BIT AES</div>
+    <div class="card">
+      <p><strong>Account Holder:</strong> Robert &amp; Margaret Vance (Client ID: RW-8842-FL)</p>
+      <p><strong>Designated Fiduciary:</strong> David Vance, CFP®, RICP®</p>
+      <p><strong>Document Verification:</strong> Certified archive document retrieved from RetireWell Secure Custodial Vault.</p>
+    </div>
+    <div class="seal">
+      <span>Verified by RetireWell Compliance Department</span>
+      <span>Timestamp: ${new Date().toLocaleDateString()}</span>
+    </div>
+  </div>
+<${'/body'}>
+<${'/html'}>`;
+      setTimeout(() => {
+        const blob = new Blob([docHtml], { type: 'text/html' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        const cleanName = title.replace(/[^a-zA-Z0-9_-]/g, '_');
+        a.download = `RetireWell_Vault_${cleanName}.html`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }, 400);
     }
 
     // 7. Advisor Chat
@@ -1370,6 +2012,20 @@
       const monthlyContribution = parseFloat(document.getElementById('sliderMonthlyContrib')?.value || 1500);
       const annualReturn = parseFloat(document.getElementById('sliderAnnualReturn')?.value || 6.5);
       const desiredMonthlyIncome = parseFloat(document.getElementById('sliderDesiredIncome')?.value || 6500);
+
+      // Keep print-only simulation parameters synced in real time
+      const elCurrentAge = document.getElementById('printCurrentAge');
+      const elRetireAge = document.getElementById('printRetireAge');
+      const elSavings = document.getElementById('printCurrentSavings');
+      const elContrib = document.getElementById('printMonthlyContrib');
+      const elReturn = document.getElementById('printAnnualReturn');
+      const elIncome = document.getElementById('printDesiredIncome');
+      if (elCurrentAge) elCurrentAge.textContent = currentAge + ' Yrs';
+      if (elRetireAge) elRetireAge.textContent = retirementAge + ' Yrs';
+      if (elSavings) elSavings.textContent = '$' + parseInt(currentSavings).toLocaleString();
+      if (elContrib) elContrib.textContent = '$' + parseInt(monthlyContribution).toLocaleString() + '/mo';
+      if (elReturn) elReturn.textContent = annualReturn + '%';
+      if (elIncome) elIncome.textContent = '$' + parseInt(desiredMonthlyIncome).toLocaleString() + '/mo';
 
       RetireWellProjections.updateDashboardChart({
         currentAge,
@@ -1441,10 +2097,19 @@
 
     // 9. Profile Settings Save
     function saveProfileSettings() {
-      const name = document.getElementById('setProfileName').value;
-      const email = document.getElementById('setProfileEmail').value;
-      const phone = document.getElementById('setProfilePhone').value;
-      const address = document.getElementById('setProfileAddress').value;
+      const name = document.getElementById('setProfileName').value.trim();
+      const email = document.getElementById('setProfileEmail').value.trim();
+      const phone = document.getElementById('setProfilePhone').value.trim();
+      const address = document.getElementById('setProfileAddress').value.trim();
+
+      if (name && !/^[a-zA-Z\s\.\'\-]+$/.test(name)) {
+        RetireWellApp.toast('Full Legal Name must contain alphabets only.', 'error');
+        return;
+      }
+      if (phone && (!/^[0-9\+\-\s\(\)]+$/.test(phone) || phone.replace(/\D/g, '').length < 7)) {
+        RetireWellApp.toast('Phone Number must contain numbers only (at least 7 digits).', 'error');
+        return;
+      }
 
       const user = RetireWellDB.get('user') || {};
       user.name = name;
@@ -1488,14 +2153,35 @@
 
     // Initialize Dashboard on load
     document.addEventListener('DOMContentLoaded', () => {
-      renderNotifications();
-      renderAccounts();
-      renderStatements();
-      renderBeneficiaries();
-      renderDocuments();
-      renderChat();
-      renderSavedScenarios();
-      triggerProjectionUpdate();
+      // 1. Redundant explicit event listeners for sidebar buttons
+      document.querySelectorAll('#sidebarNav button[data-section]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const sec = btn.getAttribute('data-section');
+          if (sec && window.showDashboardSection) {
+            window.showDashboardSection(sec, btn);
+          }
+        });
+      });
+
+      // 2. Safe rendering of widgets
+      const initializers = [
+        ['Notifications', renderNotifications],
+        ['Accounts', renderAccounts],
+        ['Statements', renderStatements],
+        ['Beneficiaries', renderBeneficiaries],
+        ['Documents', renderDocuments],
+        ['Chat', renderChat],
+        ['SavedScenarios', renderSavedScenarios],
+        ['Projections', triggerProjectionUpdate]
+      ];
+
+      initializers.forEach(([name, fn]) => {
+        try {
+          if (typeof fn === 'function') fn();
+        } catch (err) {
+          console.warn(`[RetireWell Init] Error initializing ${name}:`, err);
+        }
+      });
     });
   </script>
 </body>

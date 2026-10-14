@@ -71,39 +71,11 @@ const RetireWellApp = {
   },
 
   // --------------------------------------------------------------------------
-  // 3. Accessible Text-Scaling Controller (A / A+ / A++)
+  // 3. Accessibility & Layout Resets
   // --------------------------------------------------------------------------
-  initTextScale() {
-    const savedScale = localStorage.getItem("retirewell_text_scale") || "normal";
-    this.applyTextScale(savedScale, false);
-  },
-
-  cycleTextScale() {
-    const scales = ["normal", "lg", "xl"];
-    const current = localStorage.getItem("retirewell_text_scale") || "normal";
-    const nextIdx = (scales.indexOf(current) + 1) % scales.length;
-    const nextScale = scales[nextIdx];
-    this.applyTextScale(nextScale, true);
-  },
-
-  applyTextScale(scale, notify = true) {
-    const html = document.documentElement;
-    html.classList.remove("text-scale-lg", "text-scale-xl");
-    if (scale === "lg") html.classList.add("text-scale-lg");
-    if (scale === "xl") html.classList.add("text-scale-xl");
-    localStorage.setItem("retirewell_text_scale", scale);
-
-    // Update label on buttons if any
-    document.querySelectorAll(".text-scale-label").forEach(el => {
-      if (scale === "normal") el.textContent = "A (100%)";
-      if (scale === "lg") el.textContent = "A+ (112%)";
-      if (scale === "xl") el.textContent = "A++ (125%)";
-    });
-
-    if (notify) {
-      const label = scale === "normal" ? "Standard Size (100%)" : scale === "lg" ? "Large Sizing (112%)" : "Extra Large (125%)";
-      this.toast(`Text scaling adjusted: ${label}`, "info", 1800);
-    }
+  cleanupTextScale() {
+    localStorage.removeItem("retirewell_text_scale");
+    document.documentElement.classList.remove("text-scale-lg", "text-scale-xl");
   },
 
   // --------------------------------------------------------------------------
@@ -148,6 +120,33 @@ const RetireWellApp = {
   },
 
   // --------------------------------------------------------------------------
+  // 5b. Input Character Restriction Helpers
+  // --------------------------------------------------------------------------
+  filterNameKey(e) {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.key && e.key.length === 1 && !/[a-zA-Z\s.'-]/.test(e.key)) {
+      e.preventDefault();
+    }
+  },
+
+  filterPhoneKey(e) {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.key && e.key.length === 1 && !/[0-9+()\s-]/.test(e.key)) {
+      e.preventDefault();
+    }
+  },
+
+  allowAlphabetsOnly(input) {
+    if (!input) return;
+    input.value = input.value.replace(/[^a-zA-Z\s.'-]/g, '');
+  },
+
+  allowNumbersOnly(input) {
+    if (!input) return;
+    input.value = input.value.replace(/[^0-9+()\s-]/g, '');
+  },
+
+  // --------------------------------------------------------------------------
   // 6. Consultation Booking Engine
   // --------------------------------------------------------------------------
   openBookingModal(preselectedTopic = "", preselectedAdvisor = "") {
@@ -160,12 +159,54 @@ const RetireWellApp = {
     // Prefill form if elements exist
     const topicSelect = document.getElementById("bookingTopic");
     if (topicSelect && preselectedTopic) {
-      topicSelect.value = preselectedTopic;
+      const trimmedTopic = preselectedTopic.trim();
+      const options = Array.from(topicSelect.options);
+      let match = options.find(opt => opt.value === trimmedTopic);
+      if (!match) {
+        const lower = trimmedTopic.toLowerCase();
+        match = options.find(opt => 
+          opt.value.toLowerCase() === lower ||
+          opt.text.toLowerCase() === lower ||
+          opt.value.toLowerCase().includes(lower) ||
+          lower.includes(opt.value.toLowerCase())
+        );
+      }
+      if (match) {
+        topicSelect.value = match.value;
+      } else {
+        const newOpt = document.createElement("option");
+        newOpt.value = trimmedTopic;
+        newOpt.textContent = trimmedTopic;
+        newOpt.selected = true;
+        topicSelect.appendChild(newOpt);
+        topicSelect.value = trimmedTopic;
+      }
     }
 
     const advisorSelect = document.getElementById("bookingAdvisor");
     if (advisorSelect && preselectedAdvisor) {
-      advisorSelect.value = preselectedAdvisor;
+      const trimmedAdv = preselectedAdvisor.trim();
+      const options = Array.from(advisorSelect.options);
+      let match = options.find(opt => opt.value === trimmedAdv);
+      if (!match) {
+        const lower = trimmedAdv.toLowerCase();
+        match = options.find(opt =>
+          opt.value.toLowerCase() === lower ||
+          opt.text.toLowerCase() === lower ||
+          opt.value.toLowerCase().includes(lower) ||
+          lower.includes(opt.value.toLowerCase())
+        );
+      }
+      if (match) {
+        advisorSelect.value = match.value;
+      } else {
+        const newOpt = document.createElement("option");
+        newOpt.value = trimmedAdv;
+        newOpt.textContent = trimmedAdv;
+        newOpt.selected = true;
+        advisorSelect.appendChild(newOpt);
+        advisorSelect.value = trimmedAdv;
+      }
     }
 
     // Set minimum date to tomorrow
@@ -205,6 +246,18 @@ const RetireWellApp = {
 
     if (!name || !email || !phone || !date || !time) {
       this.toast("Please fill in all required contact and schedule fields.", "error");
+      return;
+    }
+
+    // Name alphabet validation
+    if (!/^[a-zA-Z\s\.\'\-]+$/.test(name)) {
+      this.toast("Full Name must contain alphabets only.", "error");
+      return;
+    }
+
+    // Phone numbers validation
+    if (!/^[0-9\+\-\s\(\)]+$/.test(phone) || phone.replace(/\D/g, '').length < 7) {
+      this.toast("Phone Number must contain numbers only (at least 7 digits).", "error");
       return;
     }
 
@@ -298,7 +351,7 @@ const RetireWellApp = {
   // --------------------------------------------------------------------------
   init() {
     this.initTheme();
-    this.initTextScale();
+    this.cleanupTextScale();
     this.initRTL();
     this.animateCounters();
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <title>RTL Test</title>
+  <style>
+    body { margin: 20px; font-family: sans-serif; }
+    .box { display: flex; width: 300px; padding: 10px; margin: 10px 0; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <!-- Case A: span then icon (as was written in cards: <span>Fiduciary Oath</span> <i>✓</i>) -->
+  <div id="caseA" class="box" style="justify-content: flex-start; gap: 8px;">
+    <span id="spanA">Fiduciary Oath</span>
+    <i id="iconA">✓</i>
+  </div>
+
+  <!-- Case B: span then icon with row-reverse in RTL -->
+  <div id="caseB" class="box" style="flex-direction: row-reverse; justify-content: flex-end; gap: 8px;">
+    <span id="spanB">Fiduciary Oath</span>
+    <i id="iconB">✓</i>
+  </div>
+
+  <!-- Case C: icon then span (<i>✓</i> <span>Fiduciary Oath</span>) -->
+  <div id="caseC" class="box" style="justify-content: flex-start; gap: 8px;">
+    <i id="iconC">✓</i>
+    <span id="spanC">Fiduciary Oath</span>
+  </div>
+</body>
+</html>

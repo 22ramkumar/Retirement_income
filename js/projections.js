@@ -149,9 +149,13 @@ const RetireWellProjections = {
         },
         plugins: {
           legend: {
+            position: 'top',
+            align: 'center',
             labels: {
               color: textColor,
-              font: { family: "'Plus Jakarta Sans', sans-serif", weight: 600 }
+              boxWidth: 12,
+              padding: 14,
+              font: { family: "'Plus Jakarta Sans', sans-serif", weight: 600, size: 11 }
             }
           },
           tooltip: {
@@ -293,12 +297,64 @@ const RetireWellProjections = {
     }
   },
 
+  // Prepare simulation data for print preview
+  prepareForPrint() {
+    const age = document.getElementById("sliderCurrentAge")?.value || "58";
+    const retAge = document.getElementById("sliderRetireAge")?.value || "63";
+    const savings = document.getElementById("sliderCurrentSavings")?.value || "1284500";
+    const contrib = document.getElementById("sliderMonthlyContrib")?.value || "1500";
+    const annualRet = document.getElementById("sliderAnnualReturn")?.value || "6.5";
+    const inc = document.getElementById("sliderDesiredIncome")?.value || "6500";
+
+    const elCurrentAge = document.getElementById("printCurrentAge");
+    const elRetireAge = document.getElementById("printRetireAge");
+    const elSavings = document.getElementById("printCurrentSavings");
+    const elContrib = document.getElementById("printMonthlyContrib");
+    const elReturn = document.getElementById("printAnnualReturn");
+    const elIncome = document.getElementById("printDesiredIncome");
+    const elDate = document.getElementById("printReportDate");
+
+    if (elCurrentAge) elCurrentAge.textContent = age + " Yrs";
+    if (elRetireAge) elRetireAge.textContent = retAge + " Yrs";
+    if (elSavings) elSavings.textContent = "$" + parseInt(savings).toLocaleString();
+    if (elContrib) elContrib.textContent = "$" + parseInt(contrib).toLocaleString() + "/mo";
+    if (elReturn) elReturn.textContent = annualRet + "%";
+    if (elIncome) elIncome.textContent = "$" + parseInt(inc).toLocaleString() + "/mo";
+
+    if (elDate) {
+      const now = new Date();
+      elDate.textContent = "Generated: " + now.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) + " • Ref #PRJ-8842-FL";
+    }
+
+    const elPrintLogo = document.querySelector(".projections-print-header img");
+    if (elPrintLogo && typeof window.getFiduciaryLogoDataUri === "function") {
+      elPrintLogo.src = window.getFiduciaryLogoDataUri();
+    }
+
+    if (this.chartInstance) {
+      this.chartInstance.resize();
+    }
+  },
+
   // Print projection summary
   printProjections() {
-    window.print();
+    this.prepareForPrint();
+    setTimeout(() => {
+      window.print();
+    }, 150);
   }
 };
 
 if (typeof window !== "undefined") {
   window.RetireWellProjections = RetireWellProjections;
+  window.addEventListener("beforeprint", () => {
+    if (window.RetireWellProjections && typeof window.RetireWellProjections.prepareForPrint === "function") {
+      window.RetireWellProjections.prepareForPrint();
+    }
+  });
+  window.addEventListener("afterprint", () => {
+    if (window.RetireWellProjections && window.RetireWellProjections.chartInstance) {
+      window.RetireWellProjections.chartInstance.resize();
+    }
+  });
 }

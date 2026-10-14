@@ -8,99 +8,209 @@ document.addEventListener("DOMContentLoaded", () => {
   const mountEl = document.getElementById("footer");
   if (!mountEl) return;
 
+  const currentPath = window.location.pathname.toLowerCase();
+  const isDashboard = currentPath.includes("user.html");
+  const isLogin = currentPath.includes("login.html");
+  const hideFooter = isDashboard || isLogin;
+
   mountEl.innerHTML = `
+    ${!hideFooter ? `
     <!-- Global Compliance Footer -->
-    <footer class="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800">
+    <footer class="rw-footer bg-slate-100/95 dark:bg-navy-950 text-slate-600 dark:text-slate-300 pt-16 pb-12 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-12 border-b border-slate-200 dark:border-slate-800">
           
-          <!-- Column 1: Fiduciary Brand & Contact -->
-          <div class="lg:col-span-2 space-y-4">
+          <!-- Column 1: Brand & Social Media (lg:col-span-3) -->
+          <div class="lg:col-span-3 space-y-4">
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-teal-600 flex items-center justify-center text-white font-bold text-xl shadow-md">
-                <i class="bi bi-shield-lock-fill"></i>
+              <div class="w-11 h-11 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 p-1 flex items-center justify-center shadow-xs overflow-hidden flex-shrink-0">
+                <img src="images/brand-logo.png" alt="RetireWell Logo" class="w-full h-full object-contain">
               </div>
-              <span class="font-serif font-bold text-2xl text-white tracking-tight">Retire<span class="text-teal-400">Well</span></span>
+              <div>
+                <span class="font-serif font-bold text-xl text-slate-900 dark:text-white tracking-tight block leading-tight">Retire<span class="text-teal-600 dark:text-teal-400">Well</span></span>
+                <span class="text-[9.5px] uppercase font-bold tracking-wider text-slate-500 dark:text-slate-400 block">Fiduciary &amp; Annuity Advisory</span>
+              </div>
             </div>
-            <p class="text-sm text-slate-400 leading-relaxed max-w-sm">
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed pr-2">
               An independent fiduciary wealth advisory and institutional annuity brokerage. Dedicated exclusively to safeguarding hard-earned capital and creating guaranteed lifetime retirement income.
             </p>
-            <div class="pt-2 space-y-2 text-xs text-slate-400">
-              <p class="flex items-center gap-2"><i class="bi bi-geo-alt-fill text-teal-400"></i> One Financial Center, 34th Floor, Boston, MA 02111</p>
-              <p class="flex items-center gap-2"><i class="bi bi-telephone-fill text-teal-400"></i> Fiduciary Desk: (800) 584-9210</p>
-              <p class="flex items-center gap-2"><i class="bi bi-envelope-fill text-teal-400"></i> advisory@retirewell.com</p>
+            <!-- Social Media Rounded Square Icon Buttons -->
+            <div class="pt-1 flex items-center gap-2.5">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:border-teal-500 shadow-2xs transition" title="Instagram">
+                <i class="bi bi-instagram text-sm"></i>
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:border-teal-500 shadow-2xs transition" title="Facebook">
+                <i class="bi bi-facebook text-sm"></i>
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:border-teal-500 shadow-2xs transition" title="TikTok / X">
+                <i class="bi bi-twitter-x text-sm"></i>
+              </a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:border-teal-500 shadow-2xs transition" title="YouTube">
+                <i class="bi bi-youtube text-sm"></i>
+              </a>
             </div>
           </div>
 
-          <!-- Column 2: Annuity Solutions -->
-          <div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Annuity Solutions</h4>
-            <ul class="space-y-2.5 text-sm text-slate-400">
-              <li><a href="services.html#fixed" class="hover:text-teal-400 transition">Fixed Multi-Year (MYGA)</a></li>
-              <li><a href="services.html#indexed" class="hover:text-teal-400 transition">Fixed Indexed (FIA)</a></li>
-              <li><a href="services.html#immediate" class="hover:text-teal-400 transition">Immediate Income (SPIA)</a></li>
-              <li><a href="services.html#deferred" class="hover:text-teal-400 transition">Deferred Longevity (DIA)</a></li>
-              <li><a href="services.html#riders" class="hover:text-teal-400 transition">Lifetime Income Riders</a></li>
-              <li><a href="services.html#compare" class="hover:text-teal-400 transition">Compare All 4 Types</a></li>
+          <!-- Column 2: Quick Links with chevron arrows (lg:col-span-2) -->
+          <div class="lg:col-span-2 space-y-4">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-amber-500 flex-shrink-0"></span>
+              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">Quick Links</h4>
+            </div>
+            <ul class="space-y-3 text-xs text-slate-600 dark:text-slate-400">
+              <li>
+                <a href="index.html" class="hover:text-teal-600 dark:hover:text-teal-400 transition flex items-center gap-2">
+                  <span class="text-slate-400 text-xs font-semibold">›</span>
+                  <span>Home</span>
+                </a>
+              </li>
+              <li>
+                <a href="about.html" class="hover:text-teal-600 dark:hover:text-teal-400 transition flex items-center gap-2">
+                  <span class="text-slate-400 text-xs font-semibold">›</span>
+                  <span>About</span>
+                </a>
+              </li>
+              <li>
+                <a href="services.html" class="hover:text-teal-600 dark:hover:text-teal-400 transition flex items-center gap-2">
+                  <span class="text-slate-400 text-xs font-semibold">›</span>
+                  <span>Services</span>
+                </a>
+              </li>
+              <li>
+                <a href="advisors.html" class="hover:text-teal-600 dark:hover:text-teal-400 transition flex items-center gap-2">
+                  <span class="text-slate-400 text-xs font-semibold">›</span>
+                  <span>Packages</span>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" onclick="RetireWellApp.openBookingModal('General Consultation')" class="hover:text-teal-600 dark:hover:text-teal-400 transition flex items-center gap-2">
+                  <span class="text-slate-400 text-xs font-semibold">›</span>
+                  <span>Contact</span>
+                </a>
+              </li>
             </ul>
           </div>
 
-          <!-- Column 3: Fiduciary Planning -->
-          <div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Retirement Planning</h4>
-            <ul class="space-y-2.5 text-sm text-slate-400">
-              <li><a href="services.html#rollover" class="hover:text-teal-400 transition">401(k) / IRA Rollovers</a></li>
-              <li><a href="services.html#socialsecurity" class="hover:text-teal-400 transition">Social Security Timing</a></li>
-              <li><a href="services.html#legacy" class="hover:text-teal-400 transition">Legacy & Beneficiaries</a></li>
-              <li><a href="services.html#longtermcare" class="hover:text-teal-400 transition">Asset-Based Long Term Care</a></li>
-              <li><a href="advisors.html" class="hover:text-teal-400 transition">Our Fiduciary Advisors</a></li>
-              <li><a href="user.html" class="hover:text-teal-400 transition">Client Portal Dashboard</a></li>
-            </ul>
+          <!-- Column 3: Contact Info (lg:col-span-3) -->
+          <div class="lg:col-span-3 space-y-4">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-teal-500 flex-shrink-0"></span>
+              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">Contact Info</h4>
+            </div>
+            <div class="space-y-3.5 text-xs">
+              <!-- Phone -->
+              <div class="flex items-start gap-3">
+                <div class="w-9 h-9 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-teal-600 dark:text-teal-400 flex-shrink-0 shadow-2xs mt-0.5">
+                  <i class="bi bi-telephone-fill text-xs"></i>
+                </div>
+                <div>
+                  <a href="tel:5557297428" class="font-bold text-slate-800 dark:text-slate-200 hover:text-teal-600 dark:hover:text-teal-400 transition block leading-tight">
+                    (555) 729–7428
+                  </a>
+                  <span class="text-[11px] text-slate-500 dark:text-slate-400 block mt-0.5">
+                    (555) RETIRE-WELL
+                  </span>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="flex items-start gap-3">
+                <div class="w-9 h-9 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-teal-600 dark:text-teal-400 flex-shrink-0 shadow-2xs mt-0.5">
+                  <i class="bi bi-envelope-fill text-xs"></i>
+                </div>
+                <div>
+                  <a href="mailto:concierge@retirewell.com" class="font-bold text-slate-800 dark:text-slate-200 hover:text-teal-600 dark:hover:text-teal-400 transition block leading-tight">
+                    concierge@retirewell.com
+                  </a>
+                  <span class="text-[11px] text-slate-500 dark:text-slate-400 block mt-0.5">
+                    Inquiries &amp; Support
+                  </span>
+                </div>
+              </div>
+
+              <!-- Address -->
+              <div class="flex items-start gap-3">
+                <div class="w-9 h-9 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-amber-600 dark:text-amber-400 flex-shrink-0 shadow-2xs mt-0.5">
+                  <i class="bi bi-geo-alt-fill text-xs"></i>
+                </div>
+                <div>
+                  <span class="font-bold text-slate-800 dark:text-slate-200 block leading-tight">
+                    4820 Wealth Harbor Blvd,
+                  </span>
+                  <span class="text-[11px] text-slate-500 dark:text-slate-400 block mt-0.5">
+                    Boston, MA 02111
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <!-- Column 4: Institutional Trust & Security -->
-          <div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Fiduciary Security</h4>
-            <div class="space-y-3 text-xs text-slate-400">
-              <div class="p-3 rounded-lg bg-slate-800/80 border border-slate-700/60 flex items-center gap-3">
-                <i class="bi bi-shield-check text-2xl text-teal-400 flex-shrink-0"></i>
-                <span>100% Fiduciary Standard. Legally bound to put your interests first.</span>
+          <!-- Column 4: VIP Community Card (lg:col-span-4) -->
+          <div class="lg:col-span-4 space-y-4">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-amber-500 flex-shrink-0"></span>
+              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">VIP Community</h4>
+            </div>
+
+            <!-- Elevated VIP Card Box (rw-card-gold luxury styling) -->
+            <div class="rw-card rw-card-gold rounded-2xl p-5 shadow-lg space-y-3.5">
+              <!-- Top Badges Row -->
+              <div class="flex items-center justify-between gap-2">
+                <span class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-navy-800 border border-slate-200/80 dark:border-slate-700/80 text-[10px] font-bold text-slate-700 dark:text-slate-300 tracking-wider uppercase">
+                  Safe Stay Promise
+                </span>
+                <span class="rw-badge-gold text-[10px]">
+                  $25 Welcome Gift
+                </span>
               </div>
-              <div class="p-3 rounded-lg bg-slate-800/80 border border-slate-700/60 flex items-center gap-3">
-                <i class="bi bi-patch-check-fill text-2xl text-amber-400 flex-shrink-0"></i>
-                <span>Carrier Rating Minimum: A.M. Best 'A' (Excellent) or higher.</span>
+
+              <!-- Title & Description -->
+              <div>
+                <h4 class="text-sm font-bold font-serif text-slate-900 dark:text-white leading-snug">
+                  Join our VIP Community
+                </h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mt-1">
+                  Weekly vet wellness advice, holiday priority, and special member perks.
+                </p>
               </div>
-              <button onclick="RetireWellApp.openDisclaimersModal()" class="text-teal-400 hover:text-teal-300 font-semibold underline text-xs">
-                View Full Regulatory Disclosures →
-              </button>
+
+              <!-- Subscription Form -->
+              <form onsubmit="event.preventDefault(); RetireWellApp.toast('Welcome to our VIP Community! Your welcome gift has been emailed.', 'success'); this.reset();" class="space-y-2.5">
+                <input type="email" required placeholder="Enter your email address..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/70 dark:bg-navy-950 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 transition">
+                <button type="submit" class="btn-primary-gold w-full py-2.5 px-4 rounded-xl text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-1.5 cursor-pointer">
+                  <span>Subscribe Free</span>
+                  <i class="bi bi-arrow-right text-xs"></i>
+                </button>
+              </form>
+
+              <!-- Privacy Reassurance Note -->
+              <div class="flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400 pt-0.5">
+                <i class="bi bi-shield-check text-slate-500 dark:text-slate-400 text-xs"></i>
+                <span>We cherish your privacy. Zero spam.</span>
+              </div>
             </div>
           </div>
 
         </div>
 
-        <!-- Compliance & Regulatory Disclaimers Body -->
-        <div class="pt-8 text-xs text-slate-500 leading-relaxed space-y-3">
-          <p>
-            <strong class="text-slate-400">Regulatory & Annuity Guarantee Notice:</strong> Annuities are long-term insurance contracts designed for retirement savings and guaranteed income. Annuity guarantees and principal protections are backed solely by the financial strength and claims-paying ability of the issuing insurance carrier. They are not FDIC-insured, not bank-guaranteed, and may be subject to surrender charges, market value adjustments, and a 10% IRS penalty if withdrawn prior to age 59½.
+        <!-- Bottom Copyright & Links (Guaranteed Single Straight Line Layout) -->
+        <div class="pt-8 w-full flex flex-col lg:flex-row items-center justify-between text-xs text-slate-500 dark:text-slate-400 gap-4">
+          <p class="whitespace-nowrap text-center lg:text-left">
+            © 2026 RetireWell Fiduciary Partners LLC. All rights reserved. Member FINRA / SIPC.
           </p>
-          <p>
-            <strong class="text-slate-400">Fiduciary Advisory Disclaimer:</strong> Advisory services provided through RetireWell Advisory Group, an SEC-registered investment adviser. Registration does not imply a certain level of skill or training. Past performance does not guarantee future results. Projections, calculators, and illustrations are hypothetical and intended solely for educational illustration.
-          </p>
-        </div>
-
-        <!-- Bottom Copyright & Links -->
-        <div class="pt-8 mt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
-          <p>© 2026 RetireWell Fiduciary Partners LLC. All rights reserved. Member FINRA / SIPC.</p>
-          <div class="flex items-center gap-6">
-            <button onclick="RetireWellApp.openDisclaimersModal()" class="hover:text-white transition">Form CRS (Customer Relationship)</button>
-            <button onclick="RetireWellApp.openDisclaimersModal()" class="hover:text-white transition">Privacy & 256-Bit Security</button>
-            <button onclick="RetireWellApp.openDisclaimersModal()" class="hover:text-white transition">Terms of Advisory</button>
+          <div class="flex items-center justify-center gap-3 sm:gap-5 whitespace-nowrap">
+            <button onclick="RetireWellApp.openDisclaimersModal()" class="whitespace-nowrap hover:text-slate-900 dark:hover:text-white transition cursor-pointer">Form CRS (Customer Relationship)</button>
+            <span class="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
+            <button onclick="RetireWellApp.openDisclaimersModal()" class="whitespace-nowrap hover:text-slate-900 dark:hover:text-white transition cursor-pointer">Privacy &amp; 256-Bit Security</button>
+            <span class="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
+            <button onclick="RetireWellApp.openDisclaimersModal()" class="whitespace-nowrap hover:text-slate-900 dark:hover:text-white transition cursor-pointer">Terms of Advisory</button>
           </div>
         </div>
 
       </div>
     </footer>
+    ` : ''}
 
     <!-- =========================================================================
          GLOBAL MODAL 1: CONSULTATION BOOKING MODAL
@@ -131,11 +241,17 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label for="bookingName" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Full Name *</label>
-                <input type="text" id="bookingName" required class="rw-input" placeholder="e.g. Margaret & Robert Vance">
+                <input type="text" id="bookingName" required class="rw-input" placeholder="e.g. Margaret Vance"
+                  pattern="[A-Za-z .'-]+" title="Please enter alphabets only"
+                  onkeydown="RetireWellApp.filterNameKey(event)"
+                  oninput="RetireWellApp.allowAlphabetsOnly(this)">
               </div>
               <div>
                 <label for="bookingPhone" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Phone Number *</label>
-                <input type="tel" id="bookingPhone" required class="rw-input" placeholder="(617) 555-0199">
+                <input type="tel" id="bookingPhone" required class="rw-input" placeholder="(617) 555-0199"
+                  pattern="[0-9+() -]+" title="Please enter numbers only"
+                  onkeydown="RetireWellApp.filterPhoneKey(event)"
+                  oninput="RetireWellApp.allowNumbersOnly(this)">
               </div>
             </div>
 
@@ -163,6 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   <option value="Elena Rostova, ChFC®, CLU®">Elena Rostova, ChFC® (Annuity Strategist)</option>
                   <option value="Marcus Sterling, CFA, CFP®">Marcus Sterling, CFA (Portfolio Director)</option>
                   <option value="Sarah Jenkins, CFP®, RICP®">Sarah Jenkins, CFP® (Rollover Specialist)</option>
+                  <option value="Raymond Scott, ChFC®, CLTC®">Raymond Scott, ChFC®, CLTC® (Tax & Estate)</option>
                   <option value="Dr. Miriam Patel, Ph.D., CFP®">Dr. Miriam Patel, CFP® (Longevity Economics)</option>
                   <option value="First Available Senior Fiduciary">First Available Senior Fiduciary</option>
                 </select>

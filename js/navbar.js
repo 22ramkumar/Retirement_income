@@ -8,12 +8,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const mountEl = document.getElementById("navbar");
   if (!mountEl) return;
 
-  const currentPath = window.location.pathname;
-  const isHome = currentPath.endsWith("index.html") || currentPath.endsWith("/") || currentPath.endsWith("retirewell") || currentPath.endsWith("retirewell/");
+  const currentPath = window.location.pathname.toLowerCase();
+  const isHome1 = currentPath.endsWith("index.html") || currentPath.endsWith("/") || currentPath.endsWith("retirewell") || currentPath.endsWith("retirewell/");
+  const isHome2 = currentPath.includes("index-2.html") || currentPath.includes("home-2.html");
+  const isHome = isHome1 || isHome2;
+  const isAbout = currentPath.includes("about.html");
   const isServices = currentPath.includes("services.html");
   const isAdvisors = currentPath.includes("advisors.html");
   const isLogin = currentPath.includes("login.html");
   const isDashboard = currentPath.includes("user.html");
+
+  // Suppress website header when in client portal login or sign up
+  if (isLogin || isDashboard) {
+    mountEl.innerHTML = "";
+    return;
+  }
 
   // Check auth session
   const session = window.RetireWellDB ? window.RetireWellDB.getSession() : null;
@@ -21,92 +30,103 @@ document.addEventListener("DOMContentLoaded", () => {
   const userName = session && session.user ? session.user.name : "Client Portal";
 
   mountEl.innerHTML = `
-    <header id="mainNavbar" class="sticky top-0 z-50 w-full transition-all duration-300 bg-white/95 dark:bg-navy-950/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-20">
+    <header id="mainNavbar" class="sticky top-0 z-50 w-full transition-all duration-300 bg-white/95 dark:bg-navy-950/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-xs">
+      <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20 gap-4">
           
-          <!-- Brand Logo -->
-          <div class="flex-shrink-0">
-            <a href="index.html" class="flex items-center gap-3 group" aria-label="RetireWell Homepage">
-              <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center text-white shadow-md shadow-teal-700/20 group-hover:scale-105 transition-transform">
-                <i class="bi bi-shield-lock-fill text-2xl"></i>
+          <!-- Left: Brand Logo & Desktop Navigation Links -->
+          <div class="flex items-center gap-4 xl:gap-7 min-w-0">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-2.5 xl:gap-3 group flex-shrink-0" aria-label="RetireWell Homepage">
+              <div class="w-10 h-10 xl:w-11 xl:h-11 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 p-1 flex items-center justify-center shadow-md shadow-teal-700/10 group-hover:scale-105 transition-transform flex-shrink-0 overflow-hidden">
+                <img src="images/brand-logo.png" alt="RetireWell Logo" class="w-full h-full object-contain">
               </div>
               <div class="flex flex-col">
-                <span class="text-xl font-bold font-serif tracking-tight text-slate-900 dark:text-white flex items-center gap-1">
+                <span class="text-lg xl:text-xl font-bold font-serif tracking-tight text-slate-900 dark:text-white flex items-center leading-none">
                   Retire<span class="text-teal-600 dark:text-teal-400">Well</span>
-                  <span class="text-xs bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 px-1.5 py-0.5 rounded font-sans font-semibold">FIDUCIARY</span>
                 </span>
-                <span class="text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-medium">Annuity & Longevity Planning</span>
+                <span class="text-[9px] xl:text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-medium mt-1">Annuity &amp; Longevity Planning</span>
               </div>
             </a>
+
+            <!-- Desktop Center Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-1 xl:gap-1.5 flex-shrink-0">
+              
+              <!-- Home Dropdown (Home 1 & Home 2) -->
+              <div class="relative group">
+                <a href="index.html" class="h-9 xl:h-10 inline-flex items-center gap-1 px-2.5 xl:px-3 rounded-xl text-xs xl:text-sm font-semibold transition whitespace-nowrap relative ${isHome ? 'text-teal-700 dark:text-teal-300 bg-teal-500/10 dark:bg-teal-500/15 border border-teal-500/30 dark:border-teal-500/40 shadow-xs font-bold after:absolute after:bottom-1 after:left-2.5 after:right-2.5 after:h-0.5 after:bg-teal-600 dark:after:bg-teal-400 after:rounded-full' : 'text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-slate-100/70 dark:hover:bg-slate-800/60 border border-transparent'}">
+                  <span>Home</span> <i class="bi bi-chevron-down text-[10px] opacity-70 group-hover:rotate-180 transition-transform"></i>
+                </a>
+                <div class="absolute top-full left-0 mt-1 w-56 p-1.5 bg-white dark:bg-navy-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 hidden group-hover:block z-50">
+                  <a href="index.html" class="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold hover:bg-slate-100 dark:hover:bg-navy-800 transition ${isHome1 ? 'text-teal-700 dark:text-teal-300 bg-teal-50/70 dark:bg-navy-800 font-bold' : 'text-slate-700 dark:text-slate-300'}">
+                    <span class="flex items-center gap-2"><i class="bi bi-house-door-fill text-teal-600"></i> Home 1 (Standard)</span>
+                    ${isHome1 ? '<i class="bi bi-check2 text-teal-600 font-bold"></i>' : ''}
+                  </a>
+                  <a href="index-2.html" class="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold hover:bg-slate-100 dark:hover:bg-navy-800 transition ${isHome2 ? 'text-teal-700 dark:text-teal-300 bg-teal-50/70 dark:bg-navy-800 font-bold' : 'text-slate-700 dark:text-slate-300'}">
+                    <span class="flex items-center gap-2"><i class="bi bi-stars text-amber-500"></i> Home 2 (Executive)</span>
+                    ${isHome2 ? '<i class="bi bi-check2 text-teal-600 font-bold"></i>' : ''}
+                  </a>
+                </div>
+              </div>
+
+              <a href="services.html" class="h-9 xl:h-10 inline-flex items-center px-2.5 xl:px-3 rounded-xl text-xs xl:text-sm font-semibold transition whitespace-nowrap relative ${isServices ? 'text-teal-700 dark:text-teal-300 bg-teal-500/10 dark:bg-teal-500/15 border border-teal-500/30 dark:border-teal-500/40 shadow-xs font-bold after:absolute after:bottom-1 after:left-2.5 after:right-2.5 after:h-0.5 after:bg-teal-600 dark:after:bg-teal-400 after:rounded-full' : 'text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-slate-100/70 dark:hover:bg-slate-800/60 border border-transparent'}">
+                Annuities & Services
+              </a>
+              <a href="advisors.html" class="h-9 xl:h-10 inline-flex items-center px-2.5 xl:px-3 rounded-xl text-xs xl:text-sm font-semibold transition whitespace-nowrap relative ${isAdvisors ? 'text-teal-700 dark:text-teal-300 bg-teal-500/10 dark:bg-teal-500/15 border border-teal-500/30 dark:border-teal-500/40 shadow-xs font-bold after:absolute after:bottom-1 after:left-2.5 after:right-2.5 after:h-0.5 after:bg-teal-600 dark:after:bg-teal-400 after:rounded-full' : 'text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-slate-100/70 dark:hover:bg-slate-800/60 border border-transparent'}">
+                Fiduciary Advisors
+              </a>
+              <!-- 4th Option: About -->
+              <a href="about.html" class="h-9 xl:h-10 inline-flex items-center px-2.5 xl:px-3 rounded-xl text-xs xl:text-sm font-semibold transition whitespace-nowrap relative ${isAbout ? 'text-teal-700 dark:text-teal-300 bg-teal-500/10 dark:bg-teal-500/15 border border-teal-500/30 dark:border-teal-500/40 shadow-xs font-bold after:absolute after:bottom-1 after:left-2.5 after:right-2.5 after:h-0.5 after:bg-teal-600 dark:after:bg-teal-400 after:rounded-full' : 'text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-slate-100/70 dark:hover:bg-slate-800/60 border border-transparent'}">
+                About
+              </a>
+              <a href="user.html" class="h-9 xl:h-10 hidden 2xl:inline-flex items-center gap-1 px-2.5 xl:px-3 rounded-xl text-xs xl:text-sm font-semibold transition whitespace-nowrap relative ${isDashboard ? 'text-teal-700 dark:text-teal-300 bg-teal-500/10 dark:bg-teal-500/15 border border-teal-500/30 dark:border-teal-500/40 shadow-xs font-bold after:absolute after:bottom-1 after:left-2.5 after:right-2.5 after:h-0.5 after:bg-teal-600 dark:after:bg-teal-400 after:rounded-full' : 'text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-slate-100/70 dark:hover:bg-slate-800/60 border border-transparent'}">
+                <i class="bi bi-speedometer2 text-teal-600 dark:text-teal-400"></i> Client Dashboard
+              </a>
+            </nav>
           </div>
 
-          <!-- Desktop Center Navigation -->
-          <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-700 dark:text-slate-200">
-            <a href="index.html" class="transition hover:text-teal-600 dark:hover:text-teal-400 py-1 border-b-2 ${isHome ? 'text-teal-600 dark:text-teal-400 border-teal-600 dark:border-teal-400' : 'border-transparent'}">
-              Home
-            </a>
-            <a href="services.html" class="transition hover:text-teal-600 dark:hover:text-teal-400 py-1 border-b-2 ${isServices ? 'text-teal-600 dark:text-teal-400 border-teal-600 dark:border-teal-400' : 'border-transparent'}">
-              Annuities & Services
-            </a>
-            <a href="advisors.html" class="transition hover:text-teal-600 dark:hover:text-teal-400 py-1 border-b-2 ${isAdvisors ? 'text-teal-600 dark:text-teal-400 border-teal-600 dark:border-teal-400' : 'border-transparent'}">
-              Fiduciary Advisors
-            </a>
-            <a href="user.html" class="transition hover:text-teal-600 dark:hover:text-teal-400 py-1 border-b-2 ${isDashboard ? 'text-teal-600 dark:text-teal-400 border-teal-600 dark:border-teal-400' : 'border-transparent'} flex items-center gap-1.5">
-              <i class="bi bi-speedometer2 text-teal-600"></i> Client Dashboard
-            </a>
-          </nav>
-
-          <!-- Desktop Actions & Accessibility Bar -->
-          <div class="hidden lg:flex items-center gap-4">
+          <!-- Right: Desktop Actions & Accessibility Bar -->
+          <div class="hidden lg:flex items-center gap-3 flex-shrink-0">
             
-            <!-- Accessibility: Text Size Toggle -->
-            <button onclick="RetireWellApp.cycleTextScale()" 
-              class="px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 text-xs font-bold transition flex items-center gap-1 cursor-pointer" 
-              title="Toggle Font Sizing (Normal / Large / Extra Large)">
-              <span class="text-scale-label">A (100%)</span>
-            </button>
+            <!-- Grouped Accessibility Controls Pill -->
+            <div class="flex items-center h-10 bg-slate-100/80 dark:bg-navy-900/80 p-1 rounded-xl border border-slate-200 dark:border-slate-800 text-xs shadow-xs">
+              <!-- Theme Toggle -->
+              <button onclick="RetireWellApp.toggleTheme()" 
+                class="w-8 h-8 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-white dark:hover:bg-navy-800 hover:text-teal-600 transition flex items-center justify-center cursor-pointer" 
+                title="Toggle Light / Dark Navy Theme">
+                <i class="bi bi-moon-stars-fill theme-toggle-icon"></i>
+              </button>
 
-            <!-- Accessibility: Theme Toggle -->
-            <button onclick="RetireWellApp.toggleTheme()" 
-              class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:border-teal-500 hover:text-teal-600 text-base transition flex items-center justify-center cursor-pointer" 
-              title="Toggle Light / Dark Navy Theme">
-              <i class="bi bi-moon-stars-fill theme-toggle-icon"></i>
-            </button>
+              <span class="w-px h-4 bg-slate-300/80 dark:bg-slate-700 mx-0.5"></span>
 
-            <!-- Accessibility: RTL Toggle -->
-            <button onclick="RetireWellApp.toggleRTL()" 
-              class="rtl-toggle-btn px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:border-teal-500 text-xs font-bold transition cursor-pointer" 
-              title="Toggle RTL (Right-to-Left)">
-              ⇄ RTL
-            </button>
+              <!-- RTL Toggle -->
+              <button onclick="RetireWellApp.toggleRTL()" 
+                class="rtl-toggle-btn h-8 px-2.5 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-white dark:hover:bg-navy-800 hover:text-teal-600 font-bold transition flex items-center cursor-pointer" 
+                title="Toggle RTL (Right-to-Left)">
+                ⇄ RTL
+              </button>
+            </div>
 
             <!-- Client Login / Portal Link -->
             ${isLoggedIn ? `
-              <a href="user.html" class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-teal-600/30 bg-teal-500/10 text-teal-700 dark:text-teal-300 font-semibold text-xs transition hover:bg-teal-500/20">
+              <a href="user.html" class="h-10 flex items-center gap-2 px-3.5 rounded-xl border border-teal-600/30 bg-teal-500/10 text-teal-700 dark:text-teal-300 font-semibold text-xs transition hover:bg-teal-500/20 whitespace-nowrap">
                 <i class="bi bi-person-check-fill text-sm"></i>
                 <span class="max-w-[100px] truncate">${userName}</span>
               </a>
             ` : `
-              <a href="login.html" class="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-700 font-semibold text-xs text-slate-800 dark:text-slate-200 hover:border-teal-600 hover:text-teal-600 transition">
-                <i class="bi bi-lock-fill mr-1"></i> Client Login
+              <a href="login.html" class="h-10 inline-flex items-center gap-1.5 px-3.5 rounded-xl border border-slate-300 dark:border-slate-700 font-semibold text-xs text-slate-800 dark:text-slate-200 hover:border-teal-600 hover:text-teal-600 dark:hover:border-teal-400 dark:hover:text-teal-400 transition bg-white dark:bg-navy-900 shadow-xs whitespace-nowrap">
+                <i class="bi bi-lock-fill text-xs"></i> Client Login
               </a>
             `}
-
-            <!-- Primary CTA Button: Book Consultation -->
-            <button onclick="RetireWellApp.openBookingModal('Comprehensive Retirement Income Plan')" 
-              class="btn-primary-gold text-xs uppercase tracking-wider py-2.5 px-4 rounded-xl shadow-md cursor-pointer">
-              <i class="bi bi-calendar2-check-fill mr-1"></i> Plan My Retirement
-            </button>
           </div>
 
-          <!-- Mobile Hamburger -->
-          <div class="flex items-center gap-3 lg:hidden">
-            <button onclick="RetireWellApp.toggleTheme()" class="p-2 rounded-lg text-slate-700 dark:text-slate-200" title="Theme">
+          <!-- Mobile Hamburger & Compact Theme Toggle -->
+          <div class="flex items-center gap-2 lg:hidden">
+            <button onclick="RetireWellApp.toggleTheme()" class="w-10 h-10 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-700 dark:text-slate-200 transition hover:bg-slate-100 dark:hover:bg-slate-800" title="Theme">
               <i class="bi bi-moon-stars-fill theme-toggle-icon"></i>
             </button>
-            <button id="mobileMenuBtn" class="p-2 rounded-xl text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition" aria-label="Open Navigation Menu">
-              <i class="bi bi-list text-3xl"></i>
+            <button id="mobileMenuBtn" class="w-10 h-10 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition" aria-label="Open Navigation Menu">
+              <i class="bi bi-list text-2xl"></i>
             </button>
           </div>
 
@@ -121,9 +141,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <div>
           <!-- Drawer Header -->
           <div class="flex items-center justify-between pb-6 border-b border-slate-200 dark:border-slate-800">
-            <div class="flex items-center gap-2">
-              <div class="w-9 h-9 rounded-lg bg-teal-600 text-white flex items-center justify-center font-bold">
-                <i class="bi bi-shield-lock-fill"></i>
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 rounded-lg bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 p-0.5 flex items-center justify-center overflow-hidden">
+                <img src="images/brand-logo.png" alt="RetireWell Logo" class="w-full h-full object-contain">
               </div>
               <span class="font-serif font-bold text-lg text-slate-900 dark:text-white">Retire<span class="text-teal-600">Well</span></span>
             </div>
@@ -134,8 +154,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
           <!-- Drawer Navigation Links -->
           <nav class="py-6 space-y-3 font-semibold text-slate-800 dark:text-slate-100">
-            <a href="index.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition ${isHome ? 'bg-teal-50 dark:bg-teal-900/30 text-teal-600' : ''}">
-              <span>Home</span> <i class="bi bi-chevron-right text-xs opacity-50"></i>
+            <a href="index.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition ${isHome1 ? 'bg-teal-50 dark:bg-teal-900/30 text-teal-600 font-bold' : ''}">
+              <span class="flex items-center gap-2"><i class="bi bi-house-door-fill text-xs text-teal-600"></i> Home 1 (Standard)</span> <i class="bi bi-chevron-right text-xs opacity-50"></i>
+            </a>
+            <a href="index-2.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition ${isHome2 ? 'bg-teal-50 dark:bg-teal-900/30 text-teal-600 font-bold' : ''}">
+              <span class="flex items-center gap-2"><i class="bi bi-stars text-xs text-amber-500"></i> Home 2 (Executive)</span> <i class="bi bi-chevron-right text-xs opacity-50"></i>
             </a>
             <a href="services.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition ${isServices ? 'bg-teal-50 dark:bg-teal-900/30 text-teal-600' : ''}">
               <span>Annuities & Services</span> <i class="bi bi-chevron-right text-xs opacity-50"></i>
@@ -143,30 +166,38 @@ document.addEventListener("DOMContentLoaded", () => {
             <a href="advisors.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition ${isAdvisors ? 'bg-teal-50 dark:bg-teal-900/30 text-teal-600' : ''}">
               <span>Fiduciary Advisors</span> <i class="bi bi-chevron-right text-xs opacity-50"></i>
             </a>
-            <a href="user.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition ${isDashboard ? 'bg-teal-50 dark:bg-teal-900/30 text-teal-600' : ''}">
-              <span>Client Dashboard</span> <i class="bi bi-chevron-right text-xs opacity-50"></i>
+            <a href="about.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition ${isAbout ? 'bg-teal-50 dark:bg-teal-900/30 text-teal-600 font-bold' : ''}">
+              <span class="flex items-center gap-2"><i class="bi bi-info-circle-fill text-xs text-teal-600"></i> About Us</span> <i class="bi bi-chevron-right text-xs opacity-50"></i>
             </a>
+            <a href="user.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition ${isDashboard ? 'bg-teal-50 dark:bg-teal-900/30 text-teal-600' : ''}">
+              <span class="flex items-center gap-2"><i class="bi bi-speedometer2 text-teal-600 dark:text-teal-400"></i> Client Dashboard</span> <i class="bi bi-chevron-right text-xs opacity-50"></i>
+            </a>
+            ${isLoggedIn ? `
+            <div class="px-3 py-2 rounded-xl bg-teal-50 dark:bg-teal-950/40 border border-teal-200/60 dark:border-teal-800/60 flex items-center justify-between text-xs">
+              <span class="flex items-center gap-1.5 font-semibold text-teal-800 dark:text-teal-200">
+                <i class="bi bi-person-check-fill text-teal-600"></i> ${userName}
+              </span>
+              <a href="user.html" class="font-bold text-teal-700 dark:text-teal-300 hover:underline">Portfolio</a>
+            </div>
+            ` : `
             <a href="login.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition ${isLogin ? 'bg-teal-50 dark:bg-teal-900/30 text-teal-600' : ''}">
               <span>Client Portal Login</span> <i class="bi bi-chevron-right text-xs opacity-50"></i>
             </a>
+            `}
+
           </nav>
         </div>
 
         <!-- Drawer Footer Controls -->
         <div class="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-4">
           <div class="flex items-center justify-between gap-2">
-            <button onclick="RetireWellApp.cycleTextScale()" class="flex-1 py-2 px-3 rounded-lg border border-slate-200 dark:border-slate-800 text-xs font-bold text-center">
-              Text: <span class="text-scale-label">100%</span>
+            <button onclick="RetireWellApp.toggleTheme()" class="flex-1 py-2 px-3 rounded-lg border border-slate-200 dark:border-slate-800 text-xs font-bold text-center flex items-center justify-center gap-1.5 text-slate-700 dark:text-slate-200">
+              <i class="bi bi-moon-stars-fill theme-toggle-icon"></i> <span>Theme</span>
             </button>
-            <button onclick="RetireWellApp.toggleRTL()" class="flex-1 py-2 px-3 rounded-lg border border-slate-200 dark:border-slate-800 text-xs font-bold text-center">
+            <button onclick="RetireWellApp.toggleRTL()" class="flex-1 py-2 px-3 rounded-lg border border-slate-200 dark:border-slate-800 text-xs font-bold text-center text-slate-700 dark:text-slate-200">
               ⇄ RTL Flip
             </button>
           </div>
-
-          <button onclick="RetireWellApp.openBookingModal('Comprehensive Retirement Income Plan'); document.getElementById('closeMobileDrawer').click();" 
-            class="btn-primary-gold w-full text-center py-3 text-xs uppercase tracking-wider font-bold">
-            <i class="bi bi-calendar-check mr-1"></i> Plan My Retirement
-          </button>
         </div>
 
       </div>

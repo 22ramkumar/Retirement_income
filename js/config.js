@@ -13,13 +13,24 @@ const RETIREWELL_CONFIG = {
     phone: "(800) 584-9210",
     email: "advisory@retirewell.com",
     address: "One Financial Center, 34th Floor, Boston, MA 02111",
+    logo: "images/brand-logo.png",
+    favicon: "favicon.svg",
     fiduciaryNotice: "RetireWell Advisory Group is an SEC-registered investment adviser and independent fiduciary annuity brokerage."
   },
 
-  // Centralized photography assets
+  // Centralized media assets
+  videos: {
+    heroCoastalWaves: "videos/coastal-waves-pin.mp4",
+    heroPoster: "images/hero-coastal-pin-poster.jpg"
+  },
   images: {
+    backgrounds: {
+      architecture: "images/hero-bg-architecture.jpg", // Institutional glass skyscraper architectural backdrop
+      coastal: "images/hero-bg-coastal.jpg",            // Serene golden ocean horizon backdrop
+      retirementPlanning: "images/hero-bg-retirement-planning.jpg" // Warm golden sunset retirement planning backdrop
+    },
     hero: {
-      coupleBeach: "images/hero-retired-couple.jpg", // Happy mature couple walking on beach
+      coupleBeach: "images/hero-retirement-planning.jpg", // Retirement planning savings jar, calculator, and senior couple enjoying beach sunset
       planningMeeting: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80", // Advisor consultation in bright office
       relaxedHome: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&w=1200&q=80", // Happy senior couple enjoying home
       familyGathering: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1200&q=80" // Multi-generational family
@@ -43,7 +54,7 @@ const RETIREWELL_CONFIG = {
       variableAnnuity: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80",
       indexedAnnuity: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
       immediateIncome: "https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=800&q=80",
-      deferredAnnuity: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80",
+      deferredAnnuity: "images/deferred-longevity.jpg",
       incomeRider: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
       incomeRoadmap: "https://images.unsplash.com/photo-1434626881859-194d67b2b86f?auto=format&fit=crop&w=800&q=80",
       rollover: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80",

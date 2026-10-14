@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <title>Test RTL Punctuation</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; direction: rtl; }
+    .box { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; width: 400px; text-align: right; }
+    
+    /* Method 1: Default RTL */
+    .default-rtl { }
+
+    /* Method 2: unicode-bidi: plaintext */
+    .bidi-plaintext {
+      unicode-bidi: plaintext;
+      text-align: right;
+    }
+
+    /* Method 3: direction: ltr with text-align: right */
+    .dir-ltr-align-right {
+      direction: ltr;
+      text-align: right;
+    }
+
+    /* Method 4: LRM (Left-to-Right Mark \u200E) or CSS ::after / isolation */
+  </style>
+</head>
+<body>
+  <h3>Method 1: Default RTL</h3>
+  <div class="box default-rtl">
+    <div id="m1_dot">We are fiduciary advisors.</div>
+    <div id="m1_colon">Email Address:</div>
+    <div id="m1_star">Full Name *</div>
+    <div id="m1_hash">Fatal Risk #1</div>
+    <div id="m1_comma">Annuities, 401k, IRAs,</div>
+    <div id="m1_stars">Rating: 5.0 ★★★★★</div>
+  </div>
+
+  <h3>Method 2: unicode-bidi: plaintext + text-align: right</h3>
+  <div class="box bidi-plaintext">
+    <div id="m2_dot">We are fiduciary advisors.</div>
+    <div id="m2_colon">Email Address:</div>
+    <div id="m2_star">Full Name *</div>
+    <div id="m2_hash">Fatal Risk #1</div>
+    <div id="m2_comma">Annuities, 401k, IRAs,</div>
+    <div id="m2_stars">Rating: 5.0 ★★★★★</div>
+  </div>
+
+  <h3>Method 3: direction: ltr + text-align: right</h3>
+  <div class="box dir-ltr-align-right">
+    <div id="m3_dot">We are fiduciary advisors.</div>
+    <div id="m3_colon">Email Address:</div>
+    <div id="m3_star">Full Name *</div>
+    <div id="m3_hash">Fatal Risk #1</div>
+    <div id="m3_comma">Annuities, 401k, IRAs,</div>
+    <div id="m3_stars">Rating: 5.0 ★★★★★</div>
+  </div>
+</body>
+</html>

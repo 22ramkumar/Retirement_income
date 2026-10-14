@@ -6,6 +6,11 @@
   <title>Annuities & Fiduciary Services - RetireWell</title>
   <meta name="description" content="Explore institutional annuity products and fiduciary retirement income services. Compare fixed, indexed, immediate, and deferred annuities.">
 
+  <!-- Favicon (RetireWell Fiduciary Brand Shield) -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
   <!-- Tailwind CSS & Bootstrap Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -82,12 +87,16 @@
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="servicesGrid">
         
-        <!-- 1. Fixed Annuities -->
-        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between service-card" data-category="annuities" data-keywords="fixed myga multi year guaranteed cd alternative principal protection">
+        <!-- 1. Fixed Annuities (MYGA) - Gold -->
+        <div class="rw-card rw-card-gold overflow-hidden rounded-2xl flex flex-col justify-between service-card rw-card-hover-up shadow-md" data-category="annuities" data-keywords="fixed myga multi year guaranteed cd alternative principal protection">
           <div>
             <div class="h-48 overflow-hidden relative">
-              <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" alt="Fixed Annuity" class="w-full h-full object-cover">
-              <span class="absolute top-4 left-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 text-[10px]">ANNUITY</span>
+              <a href="https://in.pinterest.com/pin/114208540547126715/" target="_blank" rel="noopener noreferrer" class="block w-full h-full group" title="View Fixed Annuity Guide on Pinterest">
+                <img src="images/fixed-annuity-myga.jpg" alt="Fixed Annuities (MYGA) Guide" 
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  onerror="this.onerror=null; this.src='https://i.pinimg.com/originals/5f/06/67/5f06679785b82c23818688c7646e865f.jpg';">
+              </a>
+              <span class="absolute top-4 left-4 rw-badge-gold bg-white/95 dark:bg-navy-900/95 text-[10px] shadow-sm">ANNUITY</span>
             </div>
             <div class="p-6">
               <div class="mb-3">
@@ -98,9 +107,9 @@
                 Multi-Year Guaranteed Annuities lock in an ironclad annual yield (typically 5.2% - 5.8%) for 3 to 10 years with 100% tax-deferred compounding and zero stock market exposure.
               </p>
               <ul class="space-y-1.5 text-xs text-slate-500 dark:text-slate-400 mb-6">
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> Guaranteed fixed compounding rate</li>
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> 100% principal insulation from crashes</li>
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> 10% annual penalty-free liquidity access</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-amber-500 text-xs"></i> Guaranteed fixed compounding rate</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-amber-500 text-xs"></i> 100% principal insulation from crashes</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-amber-500 text-xs"></i> 10% annual penalty-free liquidity access</li>
               </ul>
             </div>
           </div>
@@ -114,25 +123,25 @@
           </div>
         </div>
 
-        <!-- 2. Variable Annuities -->
-        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between service-card" data-category="annuities" data-keywords="variable structured buffer equity growth downside protection">
+        <!-- 2. Variable Annuities - Sapphire -->
+        <div class="rw-card rw-card-sapphire overflow-hidden rounded-2xl flex flex-col justify-between service-card rw-card-hover-up shadow-md" data-category="annuities" data-keywords="variable structured buffer equity growth downside protection">
           <div>
             <div class="h-48 overflow-hidden relative">
               <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=600&q=80" alt="Variable Annuity" class="w-full h-full object-cover">
-              <span class="absolute top-4 left-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 text-[10px]">ANNUITY</span>
+              <span class="absolute top-4 left-4 rw-badge-sapphire bg-white/95 dark:bg-navy-900/95 text-[10px] shadow-sm">ANNUITY</span>
             </div>
             <div class="p-6">
               <div class="mb-3">
-                <span class="rw-badge-gold text-[10px]">Best For: Growth Investors Wanting Downside Buffers</span>
+                <span class="rw-badge-sapphire text-[10px]">Best For: Growth Investors Wanting Downside Buffers</span>
               </div>
               <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white mb-2">Variable & Buffered Annuities</h3>
               <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
                 Structured Registered Index-Linked Annuities (RILAs) provide higher growth ceilings with institutional downside loss buffers (e.g., insurer absorbs the first 10% - 20% of market drops).
               </p>
               <ul class="space-y-1.5 text-xs text-slate-500 dark:text-slate-400 mb-6">
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> High equity participation rates (S&P/Nasdaq)</li>
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> 10% to 20% downside barrier or buffer</li>
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> Tax-deferred rebalancing between subaccounts</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-blue-500 text-xs"></i> High equity participation rates (S&P/Nasdaq)</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-blue-500 text-xs"></i> 10% to 20% downside barrier or buffer</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-blue-500 text-xs"></i> Tax-deferred rebalancing between subaccounts</li>
               </ul>
             </div>
           </div>
@@ -146,16 +155,16 @@
           </div>
         </div>
 
-        <!-- 3. Fixed Indexed Annuities -->
-        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between service-card" data-category="annuities" data-keywords="fixed indexed fia sp500 cap rate zero loss floor">
+        <!-- 3. Fixed Indexed Annuities - Imperial Emerald (Teal) -->
+        <div class="rw-card rw-card-teal overflow-hidden rounded-2xl flex flex-col justify-between service-card rw-card-hover-up shadow-md" data-category="annuities" data-keywords="fixed indexed fia sp500 cap rate zero loss floor">
           <div>
             <div class="h-48 overflow-hidden relative">
               <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Fixed Indexed Annuity" class="w-full h-full object-cover">
-              <span class="absolute top-4 left-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 text-[10px]">ANNUITY</span>
+              <span class="absolute top-4 left-4 rw-badge-teal bg-white/95 dark:bg-navy-900/95 text-[10px] shadow-sm">ANNUITY</span>
             </div>
             <div class="p-6">
               <div class="mb-3">
-                <span class="rw-badge-gold text-[10px]">Best For: Pre-Retirees Wanting Growth with 0% Floor</span>
+                <span class="rw-badge-teal text-[10px]">Best For: Pre-Retirees Wanting Growth with 0% Floor</span>
               </div>
               <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white mb-2">Fixed Indexed Annuities (FIA)</h3>
               <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
@@ -178,25 +187,25 @@
           </div>
         </div>
 
-        <!-- 4. Immediate Income Annuities (SPIA) -->
-        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between service-card" data-category="annuities" data-keywords="immediate spia personal pension direct monthly check">
+        <!-- 4. Immediate Income Annuities (SPIA) - Regal Amethyst -->
+        <div class="rw-card rw-card-amethyst overflow-hidden rounded-2xl flex flex-col justify-between service-card rw-card-hover-up shadow-md" data-category="annuities" data-keywords="immediate spia personal pension direct monthly check">
           <div>
             <div class="h-48 overflow-hidden relative">
               <img src="https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=600&q=80" alt="Immediate Income" class="w-full h-full object-cover">
-              <span class="absolute top-4 left-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 text-[10px]">ANNUITY</span>
+              <span class="absolute top-4 left-4 rw-badge-purple bg-white/95 dark:bg-navy-900/95 text-[10px] shadow-sm">ANNUITY</span>
             </div>
             <div class="p-6">
               <div class="mb-3">
-                <span class="rw-badge-gold text-[10px]">Best For: Immediate Monthly Retirement Paychecks</span>
+                <span class="rw-badge-purple text-[10px]">Best For: Immediate Monthly Retirement Paychecks</span>
               </div>
               <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white mb-2">Immediate Annuities (SPIA)</h3>
               <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
                 Single Premium Immediate Annuities convert a lump sum into guaranteed monthly direct deposits starting within 30 days. Perfect substitute for a vanishing company pension.
               </p>
               <ul class="space-y-1.5 text-xs text-slate-500 dark:text-slate-400 mb-6">
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> Income starts immediately (month 1)</li>
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> Joint-and-survivor options for married couples</li>
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> Exclusion ratio tax benefits on non-qualified funds</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-purple-600 text-xs"></i> Income starts immediately (month 1)</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-purple-600 text-xs"></i> Joint-and-survivor options for married couples</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-purple-600 text-xs"></i> Exclusion ratio tax benefits on non-qualified funds</li>
               </ul>
             </div>
           </div>
@@ -210,25 +219,25 @@
           </div>
         </div>
 
-        <!-- 5. Deferred Income Annuities (DIA) -->
-        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between service-card" data-category="annuities" data-keywords="deferred dia longevity insurance age 75 80 qlac">
+        <!-- 5. Deferred Income Annuities (DIA) - Rose Coral -->
+        <div class="rw-card rw-card-coral overflow-hidden rounded-2xl flex flex-col justify-between service-card rw-card-hover-up shadow-md" data-category="annuities" data-keywords="deferred dia longevity insurance age 75 80 qlac">
           <div>
             <div class="h-48 overflow-hidden relative">
-              <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80" alt="Deferred Income" class="w-full h-full object-cover">
-              <span class="absolute top-4 left-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 text-[10px]">ANNUITY</span>
+              <img src="images/deferred-longevity.jpg" alt="Deferred Longevity Annuity" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 rw-badge-coral bg-white/95 dark:bg-navy-900/95 text-[10px] shadow-sm">ANNUITY</span>
             </div>
             <div class="p-6">
               <div class="mb-3">
-                <span class="rw-badge-gold text-[10px]">Best For: Longevity Insurance & QLAC Tax Shields</span>
+                <span class="rw-badge-coral text-[10px]">Best For: Longevity Insurance & QLAC Tax Shields</span>
               </div>
               <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white mb-2">Deferred Longevity (DIA / QLAC)</h3>
               <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
                 Commit funds today to turn on massive guaranteed payments decades later (ages 75–85). Qualified Longevity Annuity Contracts (QLACs) also defer IRS Required Minimum Distributions.
               </p>
               <ul class="space-y-1.5 text-xs text-slate-500 dark:text-slate-400 mb-6">
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> Massive payout rate due to mortality pooling</li>
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> Defers RMD taxes up to $200,000 to age 85</li>
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> Solves the "what if I live to 98" risk completely</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-rose-500 text-xs"></i> Massive payout rate due to mortality pooling</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-rose-500 text-xs"></i> Defers RMD taxes up to $200,000 to age 85</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-rose-500 text-xs"></i> Solves the "what if I live to 98" risk completely</li>
               </ul>
             </div>
           </div>
@@ -242,12 +251,12 @@
           </div>
         </div>
 
-        <!-- 6. Lifetime Income Riders (GLWB) -->
-        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between service-card" data-category="annuities" data-keywords="glwb lifetime income rider contract benefit spousal payout">
+        <!-- 6. Lifetime Income Riders (GLWB) - Sovereign Gold -->
+        <div class="rw-card rw-card-gold overflow-hidden rounded-2xl flex flex-col justify-between service-card rw-card-hover-up shadow-md" data-category="annuities" data-keywords="glwb lifetime income rider contract benefit spousal payout">
           <div>
             <div class="h-48 overflow-hidden relative">
               <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Income Riders" class="w-full h-full object-cover">
-              <span class="absolute top-4 left-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 text-[10px]">ANNUITY</span>
+              <span class="absolute top-4 left-4 rw-badge-gold bg-white/95 dark:bg-navy-900/95 text-[10px] shadow-sm">ANNUITY</span>
             </div>
             <div class="p-6">
               <div class="mb-3">
@@ -258,9 +267,9 @@
                 Guaranteed Lifetime Withdrawal Benefits allow you to take lifetime income without annuitizing (surrendering control of your account balance). If you pass away, remaining funds go to heirs.
               </p>
               <ul class="space-y-1.5 text-xs text-slate-500 dark:text-slate-400 mb-6">
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> Retain account balance and principal ownership</li>
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> Roll-up bonus rates (often 7% - 10% during deferral)</li>
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> Continued spousal checks after primary death</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-amber-500 text-xs"></i> Retain account balance and principal ownership</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-amber-500 text-xs"></i> Roll-up bonus rates (often 7% - 10% during deferral)</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-amber-500 text-xs"></i> Continued spousal checks after primary death</li>
               </ul>
             </div>
           </div>
@@ -274,12 +283,12 @@
           </div>
         </div>
 
-        <!-- 7. Retirement Income Planning -->
-        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between service-card" data-category="planning" data-keywords="retirement income planning cash flow budgeting tax bracket sequencing">
+        <!-- 7. Retirement Income Planning - Imperial Emerald (Teal) -->
+        <div class="rw-card rw-card-teal overflow-hidden rounded-2xl flex flex-col justify-between service-card rw-card-hover-up shadow-md" data-category="planning" data-keywords="retirement income planning cash flow budgeting tax bracket sequencing">
           <div>
             <div class="h-48 overflow-hidden relative">
               <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?auto=format&fit=crop&w=600&q=80" alt="Income Roadmap" class="w-full h-full object-cover">
-              <span class="absolute top-4 left-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 text-[10px]">FIDUCIARY</span>
+              <span class="absolute top-4 left-4 rw-badge-teal bg-white/95 dark:bg-navy-900/95 text-[10px] shadow-sm">FIDUCIARY</span>
             </div>
             <div class="p-6">
               <div class="mb-3">
@@ -306,25 +315,25 @@
           </div>
         </div>
 
-        <!-- 8. Pension & 401(k) Rollover Guidance -->
-        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between service-card" data-category="planning" data-keywords="rollover 401k 403b pension lump sum custodian transfer">
+        <!-- 8. Pension & 401(k) Rollover Guidance - Royal Sapphire -->
+        <div class="rw-card rw-card-sapphire overflow-hidden rounded-2xl flex flex-col justify-between service-card rw-card-hover-up shadow-md" data-category="planning" data-keywords="rollover 401k 403b pension lump sum custodian transfer">
           <div>
             <div class="h-48 overflow-hidden relative">
               <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=600&q=80" alt="401k Rollover" class="w-full h-full object-cover">
-              <span class="absolute top-4 left-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 text-[10px]">FIDUCIARY</span>
+              <span class="absolute top-4 left-4 rw-badge-sapphire bg-white/95 dark:bg-navy-900/95 text-[10px] shadow-sm">FIDUCIARY</span>
             </div>
             <div class="p-6">
               <div class="mb-3">
-                <span class="rw-badge-teal text-[10px]">Best For: Executives Leaving Employers or Retiring</span>
+                <span class="rw-badge-sapphire text-[10px]">Best For: Executives Leaving Employers or Retiring</span>
               </div>
               <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white mb-2">Pension & 401(k) Rollovers</h3>
               <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
                 Execute direct institutional custodian-to-custodian transfers with zero tax penalties. Evaluate whether taking a lump sum or monthly company pension yields greater lifetime math.
               </p>
               <ul class="space-y-1.5 text-xs text-slate-500 dark:text-slate-400 mb-6">
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> 100% tax-free direct rollover processing</li>
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> Elimination of limited 401(k) menu restrictions</li>
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> Objective pension vs. rollover buyout analysis</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-blue-500 text-xs"></i> 100% tax-free direct rollover processing</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-blue-500 text-xs"></i> Elimination of limited 401(k) menu restrictions</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-blue-500 text-xs"></i> Objective pension vs. rollover buyout analysis</li>
               </ul>
             </div>
           </div>
@@ -338,25 +347,25 @@
           </div>
         </div>
 
-        <!-- 9. Social Security Optimisation -->
-        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between service-card" data-category="planning" data-keywords="social security timing age 62 67 70 spousal benefit delay">
+        <!-- 9. Social Security Optimisation - Regal Amethyst -->
+        <div class="rw-card rw-card-amethyst overflow-hidden rounded-2xl flex flex-col justify-between service-card rw-card-hover-up shadow-md" data-category="planning" data-keywords="social security timing age 62 67 70 spousal benefit delay">
           <div>
             <div class="h-48 overflow-hidden relative">
               <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=600&q=80" alt="Social Security" class="w-full h-full object-cover">
-              <span class="absolute top-4 left-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 text-[10px]">FIDUCIARY</span>
+              <span class="absolute top-4 left-4 rw-badge-purple bg-white/95 dark:bg-navy-900/95 text-[10px] shadow-sm">FIDUCIARY</span>
             </div>
             <div class="p-6">
               <div class="mb-3">
-                <span class="rw-badge-teal text-[10px]">Best For: Married Couples Maximizing Lifetime Payout</span>
+                <span class="rw-badge-purple text-[10px]">Best For: Married Couples Maximizing Lifetime Payout</span>
               </div>
               <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white mb-2">Social Security Optimization</h3>
               <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
                 Filing at age 62 vs. 67 vs. 70 results in up to a 77% higher monthly guaranteed check. We calculate optimal claiming sequencing to maximize survivor protections.
               </p>
               <ul class="space-y-1.5 text-xs text-slate-500 dark:text-slate-400 mb-6">
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> 8% annual delayed retirement credits to age 70</li>
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> Spousal and survivor benefit harmonization</li>
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> Using fixed annuities as an income bridge to age 70</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-purple-600 text-xs"></i> 8% annual delayed retirement credits to age 70</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-purple-600 text-xs"></i> Spousal and survivor benefit harmonization</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-purple-600 text-xs"></i> Using fixed annuities as an income bridge to age 70</li>
               </ul>
             </div>
           </div>
@@ -370,25 +379,25 @@
           </div>
         </div>
 
-        <!-- 10. Legacy & Beneficiary Planning -->
-        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between service-card" data-category="protection" data-keywords="legacy estate beneficiary trust probate avoidance inheritance">
+        <!-- 10. Legacy & Beneficiary Planning - Rose Coral -->
+        <div class="rw-card rw-card-coral overflow-hidden rounded-2xl flex flex-col justify-between service-card rw-card-hover-up shadow-md" data-category="protection" data-keywords="legacy estate beneficiary trust probate avoidance inheritance">
           <div>
             <div class="h-48 overflow-hidden relative">
               <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&q=80" alt="Legacy Planning" class="w-full h-full object-cover">
-              <span class="absolute top-4 left-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 text-[10px]">LEGACY</span>
+              <span class="absolute top-4 left-4 rw-badge-coral bg-white/95 dark:bg-navy-900/95 text-[10px] shadow-sm">LEGACY</span>
             </div>
             <div class="p-6">
               <div class="mb-3">
-                <span class="rw-badge-teal text-[10px]">Best For: Passing Wealth to Family Bypassing Probate</span>
+                <span class="rw-badge-coral text-[10px]">Best For: Passing Wealth to Family Bypassing Probate</span>
               </div>
               <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white mb-2">Legacy & Beneficiary Design</h3>
               <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
                 Annuities pass directly to named beneficiaries by contract operation, completely avoiding costly and public probate courts. We align contracts with your family trusts.
               </p>
               <ul class="space-y-1.5 text-xs text-slate-500 dark:text-slate-400 mb-6">
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> Complete probate avoidance on annuity accounts</li>
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> Primary and contingent 100% allocation audits</li>
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> Multi-generational stretch distribution strategies</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-rose-500 text-xs"></i> Complete probate avoidance on annuity accounts</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-rose-500 text-xs"></i> Primary and contingent 100% allocation audits</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-rose-500 text-xs"></i> Multi-generational stretch distribution strategies</li>
               </ul>
             </div>
           </div>
@@ -402,25 +411,25 @@
           </div>
         </div>
 
-        <!-- 11. Long-Term Care Planning -->
-        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between service-card" data-category="protection" data-keywords="long term care ltc asset based nursing home medical insurance">
+        <!-- 11. Long-Term Care Planning - Sovereign Gold -->
+        <div class="rw-card rw-card-gold overflow-hidden rounded-2xl flex flex-col justify-between service-card rw-card-hover-up shadow-md" data-category="protection" data-keywords="long term care ltc asset based nursing home medical insurance">
           <div>
             <div class="h-48 overflow-hidden relative">
               <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=600&q=80" alt="Long Term Care" class="w-full h-full object-cover">
-              <span class="absolute top-4 left-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 text-[10px]">PROTECTION</span>
+              <span class="absolute top-4 left-4 rw-badge-gold bg-white/95 dark:bg-navy-900/95 text-[10px] shadow-sm">PROTECTION</span>
             </div>
             <div class="p-6">
               <div class="mb-3">
-                <span class="rw-badge-teal text-[10px]">Best For: Shielding Retirement Wealth from Nursing Costs</span>
+                <span class="rw-badge-gold text-[10px]">Best For: Shielding Retirement Wealth from Nursing Costs</span>
               </div>
               <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white mb-2">Asset-Based Long-Term Care</h3>
               <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
                 Avoid "use-it-or-lose-it" traditional policies. Hybrid annuity/LTC contracts multiply your benefit 2x to 3x for healthcare, but return 100% of unused principal to heirs if care is never needed.
               </p>
               <ul class="space-y-1.5 text-xs text-slate-500 dark:text-slate-400 mb-6">
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> 100% principal return if care is never required</li>
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> 200% to 300% tax-free healthcare benefit pool</li>
-                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-teal-600 text-xs"></i> Protection against Medicaid spend-down rules</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-amber-500 text-xs"></i> 100% principal return if care is never required</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-amber-500 text-xs"></i> 200% to 300% tax-free healthcare benefit pool</li>
+                <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-amber-500 text-xs"></i> Protection against Medicaid spend-down rules</li>
               </ul>
             </div>
           </div>
@@ -434,12 +443,12 @@
           </div>
         </div>
 
-        <!-- 12. Annual Portfolio & Plan Review -->
-        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between service-card" data-category="planning" data-keywords="annual review fiduciary audit rmd required distribution rebalancing">
+        <!-- 12. Annual Portfolio & Plan Review - Imperial Emerald (Teal) -->
+        <div class="rw-card rw-card-teal overflow-hidden rounded-2xl flex flex-col justify-between service-card rw-card-hover-up shadow-md" data-category="planning" data-keywords="annual review fiduciary audit rmd required distribution rebalancing">
           <div>
             <div class="h-48 overflow-hidden relative">
               <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80" alt="Annual Review" class="w-full h-full object-cover">
-              <span class="absolute top-4 left-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 text-[10px]">FIDUCIARY</span>
+              <span class="absolute top-4 left-4 rw-badge-teal bg-white/95 dark:bg-navy-900/95 text-[10px] shadow-sm">FIDUCIARY</span>
             </div>
             <div class="p-6">
               <div class="mb-3">
@@ -613,6 +622,11 @@
         title: "Multi-Year Guaranteed Annuities (MYGA)",
         badge: "FIXED GUARANTEE",
         html: `
+          <div class="mb-4 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800">
+            <a href="https://in.pinterest.com/pin/114208540547126715/" target="_blank" rel="noopener noreferrer" class="block group" title="View Guide on Pinterest">
+              <img src="images/fixed-annuity-myga.jpg" alt="Fixed Annuity Guide - Pinterest" class="w-full h-44 object-cover transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null; this.src='https://i.pinimg.com/originals/5f/06/67/5f06679785b82c23818688c7646e865f.jpg';">
+            </a>
+          </div>
           <p>A MYGA functions similarly to a high-yield bank CD, but issued by an A+ rated insurance carrier with full tax-deferred accumulation. You lock in a contractually guaranteed interest rate for a specific term (commonly 3, 5, or 7 years).</p>
           <div class="p-4 rounded-xl bg-teal-50 dark:bg-teal-950/30 border border-teal-500/20 space-y-1">
             <h5 class="font-bold text-teal-800 dark:text-teal-300">Key Fiduciary Takeaway:</h5>

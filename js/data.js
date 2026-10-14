@@ -9,8 +9,8 @@ const SEED_DATA = {
   user: {
     id: "usr_882910",
     name: "Robert Vance",
-    email: "client@retirewell.com",
-    password: "Client@123",
+    email: "user@gmail.com",
+    password: "1234",
     phone: "(617) 492-8820",
     currentAge: 58,
     targetRetirementAge: 63,
@@ -338,7 +338,7 @@ const SEED_DATA = {
     {
       id: "RW-2026-8824",
       clientName: "Robert Vance",
-      email: "client@retirewell.com",
+      email: "user@gmail.com",
       phone: "(617) 492-8820",
       advisor: "David Vance, CFP®, RICP®",
       topic: "Fiduciary Longevity & 401(k) Rollover Bridge",
@@ -366,6 +366,20 @@ const RetireWellDB = {
       localStorage.setItem("retirewell_consultations", JSON.stringify(SEED_DATA.consultations));
       localStorage.setItem("retirewell_session", JSON.stringify({ isLoggedIn: true, user: SEED_DATA.user }));
       localStorage.setItem("retirewell_initialized", "true");
+    } else {
+      // Migrate legacy demo credentials to new default user@gmail.com / 1234
+      const existingUser = this.get("user");
+      if (existingUser && (existingUser.email === "client@retirewell.com" || !existingUser.email)) {
+        existingUser.email = "user@gmail.com";
+        existingUser.password = "1234";
+        this.set("user", existingUser);
+        const session = this.get("session");
+        if (session && session.user && session.user.email === "client@retirewell.com") {
+          session.user.email = "user@gmail.com";
+          session.user.password = "1234";
+          this.set("session", session);
+        }
+      }
     }
   },
 
@@ -390,12 +404,21 @@ const RetireWellDB = {
 
   login(email, password) {
     const storedUser = this.get("user") || SEED_DATA.user;
-    if (email.trim().toLowerCase() === storedUser.email.toLowerCase() && password === storedUser.password) {
+    const cleanEmail = (email || "").trim().toLowerCase();
+    const isDefault = (cleanEmail === "user@gmail.com" && password === "1234");
+    const isStored = (cleanEmail === (storedUser.email || "").toLowerCase() && password === storedUser.password);
+
+    if (isDefault || isStored) {
+      if (isDefault && storedUser.email !== "user@gmail.com") {
+        storedUser.email = "user@gmail.com";
+        storedUser.password = "1234";
+        this.set("user", storedUser);
+      }
       const session = { isLoggedIn: true, user: storedUser };
       this.set("session", session);
       return { success: true, user: storedUser };
     }
-    return { success: false, message: "Invalid email or password. Use demo credentials client@retirewell.com / Client@123" };
+    return { success: false, message: "Invalid email or password. Please verify your credentials and try again." };
   },
 
   register(userData) {

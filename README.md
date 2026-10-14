@@ -33,7 +33,7 @@ The template includes seeded demo accounts stored automatically in browser `loca
 
 | Role | Email Address | Password | Destination Page |
 | :--- | :--- | :--- | :--- |
-| **Demo Client** | `client@retirewell.com` | `Client@123` | `user.html` (Client Portal) |
+| **Default Client** | `user@gmail.com` | `1234` | `user.html` (Client Portal) |
 
 *Quick Fill: The login page includes a single-click "One-Click Fill Demo Credentials" button for instant testing.*
 
@@ -43,7 +43,8 @@ The template includes seeded demo accounts stored automatically in browser `loca
 
 ```
 retirewell/
-├── index.html              # Home Page: Hero, Trust stats, Calculator, Solutions, Checklist, Advisors, FAQ
+├── index.html              # Home Page 1: Standard Fiduciary Annuity Advisory & Interactive Estimator
+├── index-2.html            # Home Page 2: Executive Wealth & Longevity Architecture (Alternative Hero & Estimator)
 ├── services.html           # Services: All 12 Annuity & Planning Services, Tabs, Comparison Matrix, Detail Modal
 ├── advisors.html           # Advisors: 6 Fiduciary Partner Profiles, Specialty Filters, Bio Modals, Direct Booking
 ├── login.html              # Authentication: Client Sign In, Registration, Password Recovery, 256-Bit Security

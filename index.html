@@ -11,6 +11,11 @@
   <meta property="og:description" content="Institutional annuity brokerage and fiduciary wealth advisory. Safeguard your principal with A+ rated carrier solutions.">
   <meta property="og:type" content="website">
 
+  <!-- Favicon (RetireWell Fiduciary Brand Shield) -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
   <!-- Tailwind CSS & Bootstrap Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -65,69 +70,69 @@
   <!-- =========================================================================
        HERO SECTION: REASSURING RETIREMENT CONFIDENCE
        ========================================================================= -->
-  <section class="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden bg-gradient-to-b from-white via-slate-50 to-teal-50/20 dark:from-navy-950 dark:via-navy-900 dark:to-navy-950">
-    <!-- Subtle architectural background glow -->
-    <div class="absolute -top-40 right-0 w-[600px] h-[600px] bg-teal-500/10 dark:bg-teal-500/5 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute top-1/2 -left-40 w-[500px] h-[500px] bg-amber-500/10 dark:bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
+  <section class="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden">
+    <!-- Hero Section Background: Retirement Wealth Growth & Stock Candlestick Chart -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
+      <img src="images/hero-home1-coins-chart.png" 
+        alt="Retirement wealth growth with stacked coins, hand saving wealth, and financial growth candlestick chart" 
+        class="w-full h-full object-cover object-center scale-105 filter brightness-[0.95] dark:brightness-[0.78] contrast-[1.03]">
+      <!-- Refined ambient overlay for optimal readability in both light & dark themes -->
+      <div class="absolute inset-0 bg-slate-950/20 dark:bg-navy-950/45 pointer-events-none"></div>
+    </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         
-        <!-- Hero Text & Value Proposition (7 cols) -->
-        <div class="lg:col-span-7 space-y-8">
+        <!-- Hero Text & Value Proposition (7 cols) with Frosted Glass Legibility Card -->
+        <div class="lg:col-span-7 p-6 sm:p-8 lg:p-10 rounded-3xl rw-card-glass shadow-2xl space-y-6 relative overflow-hidden">
           
-          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800/80 text-teal-800 dark:text-teal-300 text-xs font-bold tracking-wide">
-            <span class="w-2 h-2 rounded-full bg-teal-600 animate-pulse"></span>
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/80 border border-teal-300 dark:border-teal-700 text-teal-800 dark:text-teal-300 text-xs font-bold tracking-wide shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
             <span>SEC-REGISTERED FIDUCIARY ADVISORY</span>
             <span class="text-slate-300 dark:text-slate-700">|</span>
-            <span class="text-amber-600 dark:text-amber-400 font-semibold">100% INDEPENDENT</span>
+            <span class="text-amber-600 dark:text-amber-400 font-bold">100% INDEPENDENT</span>
           </div>
 
           <div class="space-y-4">
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-serif text-slate-900 dark:text-white leading-[1.15] tracking-tight">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-serif text-slate-950 dark:text-white leading-[1.18] tracking-tight">
               Retire With Confidence. <br>
-              <span class="text-teal-700 dark:text-teal-400 italic">Income That Lasts</span> As Long As You Do.
+              <span class="text-gradient-teal italic">Income That Lasts</span> As Long As You Do.
             </h1>
-            <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl font-normal">
+            <p class="text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed max-w-2xl font-normal">
               Personalised annuity and guaranteed retirement income planning, built mathematically around your goals, your family, and your peace of mind.
             </p>
           </div>
 
-          <!-- Hero CTAs -->
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+          <!-- Hero CTAs: Centered Plan My Retirement Button -->
+          <div class="flex justify-center items-center pt-2">
             <button onclick="RetireWellApp.openBookingModal('Comprehensive Retirement Income Plan')" 
-              class="btn-primary-gold text-base py-3.5 px-7 shadow-lg shadow-amber-600/20">
+              class="btn-primary-gold text-base py-4 px-9 shadow-xl shadow-amber-600/30 font-bold text-center">
               <i class="bi bi-calendar2-check-fill text-lg"></i>
               <span>Plan My Retirement</span>
             </button>
-            <a href="login.html" 
-              class="btn-outline-navy text-base py-3.5 px-7">
-              <i class="bi bi-person-lock text-lg"></i>
-              <span>Client Portal Login</span>
-            </a>
           </div>
 
           <!-- Fiduciary Trust Badges -->
-          <div class="pt-6 border-t border-slate-200 dark:border-slate-800 grid grid-cols-3 gap-4">
-            <div class="flex items-center gap-3">
-              <i class="bi bi-shield-check text-2xl text-teal-600 dark:text-teal-400"></i>
+          <div class="pt-6 border-t border-slate-200/80 dark:border-slate-800 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+            <div class="p-2.5 sm:p-3 rounded-xl bg-teal-50/70 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800/80 flex items-center gap-2.5 shadow-sm">
+              <i class="bi bi-shield-check text-2xl text-teal-600 dark:text-teal-400 flex-shrink-0"></i>
               <div>
-                <p class="text-xs font-bold text-slate-900 dark:text-white">Strict Fiduciary Oath</p>
-                <p class="text-[11px] text-slate-500">Legal duty to put you first</p>
+                <p class="text-xs font-bold text-slate-950 dark:text-white">Strict Fiduciary Oath</p>
+                <p class="text-[11px] text-slate-600 dark:text-slate-400">Legal duty to put you first</p>
               </div>
             </div>
-            <div class="flex items-center gap-3">
-              <i class="bi bi-bank2 text-2xl text-teal-600 dark:text-teal-400"></i>
+            <div class="p-2.5 sm:p-3 rounded-xl bg-amber-50/70 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/80 flex items-center gap-2.5 shadow-sm">
+              <i class="bi bi-bank2 text-2xl text-amber-600 dark:text-amber-400 flex-shrink-0"></i>
               <div>
-                <p class="text-xs font-bold text-slate-900 dark:text-white">A+ Rated Insurers</p>
-                <p class="text-[11px] text-slate-500">Top-tier institutional carriers</p>
+                <p class="text-xs font-bold text-slate-950 dark:text-white">A+ Rated Insurers</p>
+                <p class="text-[11px] text-slate-600 dark:text-slate-400">Top-tier institutional carriers</p>
               </div>
             </div>
-            <div class="flex items-center gap-3">
-              <i class="bi bi-cash-stack text-2xl text-teal-600 dark:text-teal-400"></i>
+            <div class="p-2.5 sm:p-3 rounded-xl bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800/80 flex items-center gap-2.5 shadow-sm">
+              <i class="bi bi-cash-stack text-2xl text-blue-600 dark:text-blue-400 flex-shrink-0"></i>
               <div>
-                <p class="text-xs font-bold text-slate-900 dark:text-white">Zero Hidden Fees</p>
-                <p class="text-[11px] text-slate-500">100% transparent fee disclosure</p>
+                <p class="text-xs font-bold text-slate-950 dark:text-white">Zero Hidden Fees</p>
+                <p class="text-[11px] text-slate-600 dark:text-slate-400">100% transparent fee disclosure</p>
               </div>
             </div>
           </div>
@@ -137,23 +142,64 @@
         <!-- Hero Visual: Photographic Anchor & Floating Income Card (5 cols) -->
         <div class="lg:col-span-5 relative">
           <div class="relative mx-auto max-w-md lg:max-w-none">
-            <!-- Main Hero Image Frame -->
-            <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-navy-800 bg-slate-100 dark:bg-navy-900 aspect-[4/5] relative">
-              <img src="images/hero-retired-couple.jpg" 
-                alt="Mature retired couple enjoying peaceful morning on the beach" 
-                class="w-full h-full object-cover">
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
-              <div class="absolute bottom-6 left-6 right-6 text-white">
-                <span class="rw-badge-teal text-[10px] mb-2 bg-teal-900/80 text-teal-200 border-teal-500/40">CLIENT STORY</span>
-                <p class="font-serif italic text-sm text-slate-100">"Having a predictable $6,850 direct-deposited every single month changed how we sleep at night."</p>
-                <p class="text-xs text-amber-300 font-bold mt-1">— Robert & Margaret V., Retired 2023</p>
+            <!-- Main Hero Visual Card Container with Pinterest Wealth Video (https://in.pinterest.com/pin/14214555070355018/) -->
+            <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-navy-800 bg-slate-900 aspect-[4/5] relative group">
+              <!-- Background Ambient Video from Pinterest Pin (https://in.pinterest.com/pin/14214555070355018/) -->
+              <video id="heroStoryVideo" 
+                class="w-full h-full object-cover object-center" 
+                autoplay 
+                muted 
+                loop 
+                playsinline 
+                preload="auto"
+                poster="images/pin-14214555070355018-poster.jpg">
+                <source src="videos/pin-14214555070355018.mp4" type="video/mp4">
+                <source src="https://v1.pinimg.com/videos/iht/expMp4/e5/d9/e2/e5d9e27b453af4260d55cffef1a81a05_540w.mp4" type="video/mp4">
+                <img src="images/pin-14214555070355018-poster.jpg" alt="Retirement wealth security celebration" class="w-full h-full object-cover object-center">
+              </video>
+              
+              <!-- Subtle Vignette / Gradient Overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/20 pointer-events-none"></div>
+
+              <!-- Top Left Badge: Lifetime Wealth & Live Play/Pause Toggle -->
+              <div class="absolute top-4 left-4 z-20 flex items-center gap-2">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-950/75 backdrop-blur-md border border-white/20 text-white text-[11px] font-bold shadow-lg">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span class="tracking-wide">LIFETIME WEALTH</span>
+                </div>
+                <button id="heroVideoToggleBtn" 
+                  onclick="toggleHeroVideoPlay()" 
+                  class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-950/75 hover:bg-slate-900 backdrop-blur-md border border-white/20 text-white flex items-center justify-center text-xs shadow-lg transition cursor-pointer" 
+                  title="Pause / Play Video"
+                  aria-label="Pause / Play Video">
+                  <i id="heroVideoPlayIcon" class="bi bi-pause-fill"></i>
+                </button>
+              </div>
+
+              <!-- Client Story Glassmorphic Card (Elevated to prevent bottom clipping and badge overlap) -->
+              <div class="absolute bottom-20 sm:bottom-22 left-4 right-4 sm:left-6 sm:right-6 p-4 rounded-2xl bg-slate-950/80 dark:bg-navy-950/85 backdrop-blur-md border border-white/15 text-white shadow-2xl z-10">
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-teal-500/20 text-teal-300 border border-teal-400/40">
+                    Client Story
+                  </span>
+                  <div class="flex text-amber-400 text-xs gap-0.5" aria-label="5 out of 5 stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                </div>
+                <p class="font-serif italic text-xs sm:text-sm text-slate-100 leading-relaxed">
+                  "Having a predictable $6,850 direct-deposited every single month changed how we sleep at night."
+                </p>
+                <p class="text-xs text-amber-300 font-bold mt-2 flex items-center justify-between flex-wrap gap-1">
+                  <span>— Robert & Margaret V.</span>
+                  <span class="text-[11px] text-slate-300 font-normal">Retired 2023</span>
+                </p>
               </div>
             </div>
 
             <!-- Floating Guaranteed Income Badge (Top Right) -->
-            <div class="rw-card p-4 rounded-2xl shadow-xl absolute -top-6 -right-4 sm:-right-6 max-w-[240px] border-amber-500/30 bg-white/95 dark:bg-navy-900/95 backdrop-blur-md animate-fade-in">
+            <div class="rw-card rw-card-gold p-4 rounded-2xl shadow-2xl absolute -top-6 -right-4 sm:-right-6 max-w-[240px] bg-white/95 dark:bg-navy-900/95 backdrop-blur-md animate-fade-in z-20">
               <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl font-bold">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl font-bold shadow-inner">
                   <i class="bi bi-shield-fill-check"></i>
                 </div>
                 <div>
@@ -167,18 +213,18 @@
             </div>
 
             <!-- Floating Readiness Score Ring (Bottom Left) -->
-            <div class="rw-card p-4 rounded-2xl shadow-xl absolute -bottom-6 -left-4 sm:-left-6 max-w-[220px] bg-white/95 dark:bg-navy-900/95 backdrop-blur-md border-teal-500/30">
+            <div class="rw-card rw-card-teal p-4 rounded-2xl shadow-2xl absolute -bottom-6 -left-4 sm:-left-6 max-w-[220px] bg-white/95 dark:bg-navy-900/95 backdrop-blur-md z-20">
               <div class="flex items-center gap-3">
                 <div class="relative w-12 h-12 flex items-center justify-center">
                   <svg class="w-12 h-12 transform -rotate-90" viewBox="0 0 36 36">
                     <path class="text-slate-200 dark:text-slate-800" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                    <path class="text-teal-600" stroke-dasharray="88, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="text-teal-500" stroke-dasharray="88, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
                   </svg>
                   <span class="absolute text-xs font-bold text-slate-900 dark:text-white">88%</span>
                 </div>
                 <div>
                   <p class="text-xs font-bold text-slate-900 dark:text-white">Retirement Score</p>
-                  <p class="text-[10px] text-emerald-600 font-semibold">Ready to Retire</p>
+                  <p class="text-[10px] text-teal-600 dark:text-teal-400 font-semibold">Ready to Retire</p>
                 </div>
               </div>
             </div>
@@ -191,34 +237,50 @@
   </section>
 
   <!-- =========================================================================
-       TRUST METRICS & ANIMATED STATS BAR
+       TRUST METRICS & ANIMATED STATS BAR (LUXURY JEWEL SHOWCASE)
        ========================================================================= -->
-  <section class="py-12 bg-white dark:bg-navy-900 border-y border-slate-200 dark:border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-y lg:divide-y-0 lg:divide-x divide-slate-200 dark:divide-slate-800">
+  <section class="py-14 bg-gradient-to-r from-slate-950 via-navy-950 to-slate-950 text-white border-y border-white/10 shadow-2xl relative overflow-hidden">
+    <!-- Atmospheric Ambient Lighting Orbs -->
+    <div class="luxury-glow-teal -top-24 -left-24 opacity-30"></div>
+    <div class="luxury-glow-gold -bottom-24 -right-24 opacity-25"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
         
-        <div class="pt-4 lg:pt-0">
-          <p class="text-3xl sm:text-4xl font-bold font-serif text-teal-700 dark:text-teal-400 stat-counter" data-target="28" data-suffix="+">28+</p>
-          <p class="text-sm font-semibold text-slate-900 dark:text-white mt-1">Years Fiduciary Service</p>
-          <p class="text-xs text-slate-500">Established Boston, 1998</p>
+        <div class="p-4 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md hover:border-teal-500/40 transition duration-300 group">
+          <div class="w-10 h-10 mx-auto rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-lg mb-2 group-hover:scale-110 transition">
+            <i class="bi bi-clock-history"></i>
+          </div>
+          <p class="text-3xl sm:text-4xl font-bold font-serif text-gradient-teal stat-counter" data-target="28" data-suffix="+">28+</p>
+          <p class="text-sm font-semibold text-white mt-1">Years Fiduciary Service</p>
+          <p class="text-xs text-slate-400">Established Boston, 1998</p>
         </div>
 
-        <div class="pt-4 lg:pt-0">
-          <p class="text-3xl sm:text-4xl font-bold font-serif text-teal-700 dark:text-teal-400 stat-counter" data-target="2.4" data-prefix="$" data-suffix="B+" data-decimals="1">$2.4B+</p>
-          <p class="text-sm font-semibold text-slate-900 dark:text-white mt-1">Assets Under Advisory</p>
-          <p class="text-xs text-slate-500">Safeguarded through all market cycles</p>
+        <div class="p-4 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md hover:border-amber-500/40 transition duration-300 group">
+          <div class="w-10 h-10 mx-auto rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg mb-2 group-hover:scale-110 transition">
+            <i class="bi bi-safe2"></i>
+          </div>
+          <p class="text-3xl sm:text-4xl font-bold font-serif text-gradient-gold stat-counter" data-target="2.4" data-prefix="$" data-suffix="B+" data-decimals="1">$2.4B+</p>
+          <p class="text-sm font-semibold text-white mt-1">Assets Under Advisory</p>
+          <p class="text-xs text-slate-400">Safeguarded across market cycles</p>
         </div>
 
-        <div class="pt-4 lg:pt-0">
-          <p class="text-3xl sm:text-4xl font-bold font-serif text-teal-700 dark:text-teal-400 stat-counter" data-target="14800" data-suffix="+">14,800+</p>
-          <p class="text-sm font-semibold text-slate-900 dark:text-white mt-1">Retirement Plans Delivered</p>
-          <p class="text-xs text-slate-500">Across 48 US states</p>
+        <div class="p-4 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md hover:border-blue-500/40 transition duration-300 group">
+          <div class="w-10 h-10 mx-auto rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-lg mb-2 group-hover:scale-110 transition">
+            <i class="bi bi-file-earmark-check"></i>
+          </div>
+          <p class="text-3xl sm:text-4xl font-bold font-serif text-gradient-sapphire stat-counter" data-target="14800" data-suffix="+">14,800+</p>
+          <p class="text-sm font-semibold text-white mt-1">Retirement Plans Delivered</p>
+          <p class="text-xs text-slate-400">Across 48 US states</p>
         </div>
 
-        <div class="pt-4 lg:pt-0">
-          <p class="text-3xl sm:text-4xl font-bold font-serif text-amber-600 dark:text-amber-400 stat-counter" data-target="99.4" data-suffix="%" data-decimals="1">99.4%</p>
-          <p class="text-sm font-semibold text-slate-900 dark:text-white mt-1">Client Retention Rate</p>
-          <p class="text-xs text-slate-500">Multi-generational trust</p>
+        <div class="p-4 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md hover:border-purple-500/40 transition duration-300 group">
+          <div class="w-10 h-10 mx-auto rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-lg mb-2 group-hover:scale-110 transition">
+            <i class="bi bi-trophy"></i>
+          </div>
+          <p class="text-3xl sm:text-4xl font-bold font-serif text-gradient-amethyst stat-counter" data-target="99.4" data-suffix="%" data-decimals="1">99.4%</p>
+          <p class="text-sm font-semibold text-white mt-1">Client Retention Rate</p>
+          <p class="text-xs text-slate-400">Multi-generational trust</p>
         </div>
 
       </div>
@@ -311,7 +373,7 @@
             </div>
 
             <div class="space-y-4">
-              <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex justify-between items-center">
+              <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex justify-between items-center estimator-result-card">
                 <div>
                   <p class="text-xs text-slate-400">Total Nest Egg at Retirement</p>
                   <p id="homeResultPot" class="text-2xl font-bold font-serif text-white">$1,104,800</p>
@@ -330,7 +392,7 @@
                 </div>
               </div>
 
-              <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex justify-between items-center">
+              <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex justify-between items-center estimator-result-card">
                 <div>
                   <p class="text-xs text-slate-400">Total Monthly (With SS Estimate)</p>
                   <p id="homeResultIncome" class="text-2xl font-bold font-serif text-amber-400">$7,250/mo</p>
@@ -374,10 +436,10 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         
-        <!-- Card 1 -->
-        <div class="rw-card p-8 rounded-2xl rw-card-hover-up flex flex-col justify-between">
+        <!-- Card 1: Legal Fiduciary Duty -->
+        <div class="p-8 rounded-2xl rw-card-hover-up flex flex-col justify-between bg-gradient-to-b from-teal-50/80 via-teal-50/30 to-white dark:from-teal-950/40 dark:via-navy-900/70 dark:to-navy-900 border border-teal-500/20 dark:border-teal-500/30 border-t-4 border-t-teal-600 dark:border-t-teal-500 shadow-sm hover:shadow-xl transition-all duration-300">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-400 flex items-center justify-center text-2xl mb-6 shadow-sm border border-teal-500/20">
+            <div class="w-14 h-14 rounded-2xl bg-white dark:bg-navy-900 text-teal-600 dark:text-teal-400 flex items-center justify-center text-2xl mb-6 shadow-sm border border-teal-500/20">
               <i class="bi bi-award-fill"></i>
             </div>
             <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white mb-3">Legal Fiduciary Duty</h3>
@@ -385,15 +447,15 @@
               We hold ourselves to the highest legal standard of care under the Investment Advisers Act. Your financial safety always precedes any product selection.
             </p>
           </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 text-xs font-bold text-teal-600 dark:text-teal-400 flex items-center gap-1">
+          <div class="pt-6 mt-6 border-t border-teal-500/20 dark:border-teal-500/30 text-xs font-bold text-teal-600 dark:text-teal-400 flex items-center gap-1 card-check-pill">
             <span>Fiduciary Oath</span> <i class="bi bi-check2"></i>
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="rw-card p-8 rounded-2xl rw-card-hover-up flex flex-col justify-between">
+        <!-- Card 2: 100% Fee Transparency -->
+        <div class="p-8 rounded-2xl rw-card-hover-up flex flex-col justify-between bg-gradient-to-b from-amber-50/80 via-amber-50/30 to-white dark:from-amber-950/40 dark:via-navy-900/70 dark:to-navy-900 border border-amber-500/20 dark:border-amber-500/30 border-t-4 border-t-amber-500 dark:border-t-amber-400 shadow-sm hover:shadow-xl transition-all duration-300">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-2xl mb-6 shadow-sm border border-amber-500/20">
+            <div class="w-14 h-14 rounded-2xl bg-white dark:bg-navy-900 text-amber-600 dark:text-amber-400 flex items-center justify-center text-2xl mb-6 shadow-sm border border-amber-500/20">
               <i class="bi bi-eye-fill"></i>
             </div>
             <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white mb-3">100% Fee Transparency</h3>
@@ -401,15 +463,15 @@
               No hidden surrender surprises or opaque fee structures. Every rider cost, cap rate, and surrender schedule is mapped in plain English before you commit.
             </p>
           </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 text-xs font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1">
+          <div class="pt-6 mt-6 border-t border-amber-500/20 dark:border-amber-500/30 text-xs font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1 card-check-pill">
             <span>Zero Surprises</span> <i class="bi bi-check2"></i>
           </div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="rw-card p-8 rounded-2xl rw-card-hover-up flex flex-col justify-between">
+        <!-- Card 3: Institutional Carrier Access -->
+        <div class="p-8 rounded-2xl rw-card-hover-up flex flex-col justify-between bg-gradient-to-b from-emerald-50/80 via-emerald-50/30 to-white dark:from-emerald-950/40 dark:via-navy-900/70 dark:to-navy-900 border border-emerald-500/20 dark:border-emerald-500/30 border-t-4 border-t-emerald-600 dark:border-t-emerald-500 shadow-sm hover:shadow-xl transition-all duration-300">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-400 flex items-center justify-center text-2xl mb-6 shadow-sm border border-teal-500/20">
+            <div class="w-14 h-14 rounded-2xl bg-white dark:bg-navy-900 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-2xl mb-6 shadow-sm border border-emerald-500/20">
               <i class="bi bi-buildings-fill"></i>
             </div>
             <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white mb-3">Institutional Carrier Access</h3>
@@ -417,15 +479,15 @@
               We survey over 40+ leading institutional insurance carriers (A.M. Best A and A+ minimum) to negotiate superior cap rates and lower administrative overhead.
             </p>
           </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 text-xs font-bold text-teal-600 dark:text-teal-400 flex items-center gap-1">
+          <div class="pt-6 mt-6 border-t border-emerald-500/20 dark:border-emerald-500/30 text-xs font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1 card-check-pill">
             <span>40+ Top Insurers</span> <i class="bi bi-check2"></i>
           </div>
         </div>
 
-        <!-- Card 4 -->
-        <div class="rw-card p-8 rounded-2xl rw-card-hover-up flex flex-col justify-between">
+        <!-- Card 4: Ongoing Annual Reviews -->
+        <div class="p-8 rounded-2xl rw-card-hover-up flex flex-col justify-between bg-gradient-to-b from-blue-50/80 via-blue-50/30 to-white dark:from-blue-950/40 dark:via-navy-900/70 dark:to-navy-900 border border-blue-500/20 dark:border-blue-500/30 border-t-4 border-t-blue-600 dark:border-t-blue-500 shadow-sm hover:shadow-xl transition-all duration-300">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 flex items-center justify-center text-2xl mb-6 shadow-sm border border-blue-500/20">
+            <div class="w-14 h-14 rounded-2xl bg-white dark:bg-navy-900 text-blue-600 dark:text-blue-400 flex items-center justify-center text-2xl mb-6 shadow-sm border border-blue-500/20">
               <i class="bi bi-heart-pulse-fill"></i>
             </div>
             <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white mb-3">Ongoing Annual Reviews</h3>
@@ -433,7 +495,7 @@
               Retirement isn’t a one-time product; it’s a decades-long relationship. We conduct yearly stress tests, beneficiary audits, and required distribution (RMD) checks.
             </p>
           </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 text-xs font-bold text-blue-600 dark:text-blue-400 flex items-center gap-1">
+          <div class="pt-6 mt-6 border-t border-blue-500/20 dark:border-blue-500/30 text-xs font-bold text-blue-600 dark:text-blue-400 flex items-center gap-1 card-check-pill">
             <span>Lifetime Partnership</span> <i class="bi bi-check2"></i>
           </div>
         </div>
@@ -465,84 +527,88 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         
         <!-- Annuity 1: Fixed Multi-Year (MYGA) -->
-        <div class="rw-card p-6 rounded-2xl rw-card-hover-up flex flex-col justify-between">
+        <div class="rw-card rw-card-gold p-6 rounded-2xl rw-card-hover-up flex flex-col justify-between">
           <div>
             <div class="h-44 rounded-xl overflow-hidden mb-5">
-              <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" 
-                alt="Fixed Annuity Security" class="w-full h-full object-cover">
+              <a href="https://in.pinterest.com/pin/114208540547126715/" target="_blank" rel="noopener noreferrer" class="block w-full h-full group" title="View Fixed Annuity Guide on Pinterest">
+                <img src="images/fixed-annuity-myga.jpg" 
+                  alt="Fixed Annuities (MYGA) Guide" 
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  onerror="this.onerror=null; this.src='https://i.pinimg.com/originals/5f/06/67/5f06679785b82c23818688c7646e865f.jpg';">
+              </a>
             </div>
-            <span class="rw-badge-teal text-[10px] mb-2">GUARANTEED RATE</span>
+            <span class="rw-badge-gold text-[10px] mb-2">GUARANTEED RATE</span>
             <h3 class="text-lg font-bold font-serif text-slate-900 dark:text-white mb-2">Fixed Annuities (MYGA)</h3>
             <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
               Lock in guaranteed 5.25% - 5.85% annual yield for 3, 5, or 7 years. 100% immune to market volatility and CD-like security with tax-deferred compounding.
             </p>
           </div>
           <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-            <span class="text-[11px] font-bold text-slate-500">Risk: Ultra-Low</span>
-            <button onclick="RetireWellApp.openBookingModal('Fixed Annuities (MYGA)')" class="text-xs font-bold text-teal-600 dark:text-teal-400 hover:underline">
+            <span class="text-[11px] font-bold text-amber-600 dark:text-amber-400">Risk: Ultra-Low</span>
+            <button onclick="RetireWellApp.openBookingModal('Fixed Annuities (MYGA)')" class="text-xs font-bold text-amber-600 dark:text-amber-400 hover:underline">
               Learn More →
             </button>
           </div>
         </div>
 
         <!-- Annuity 2: Fixed Indexed Annuity (FIA) -->
-        <div class="rw-card p-6 rounded-2xl rw-card-hover-up flex flex-col justify-between">
+        <div class="rw-card rw-card-teal p-6 rounded-2xl rw-card-hover-up flex flex-col justify-between">
           <div>
             <div class="h-44 rounded-xl overflow-hidden mb-5">
               <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" 
                 alt="Indexed Growth with Floor" class="w-full h-full object-cover">
             </div>
-            <span class="rw-badge-gold text-[10px] mb-2">INDEXED UPSIDE</span>
+            <span class="rw-badge-teal text-[10px] mb-2">INDEXED UPSIDE</span>
             <h3 class="text-lg font-bold font-serif text-slate-900 dark:text-white mb-2">Fixed Indexed (FIA)</h3>
             <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
               Capture market growth based on S&P 500 index gains with an ironclad 0% floor—never lose a single dollar of principal when markets decline.
             </p>
           </div>
           <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-            <span class="text-[11px] font-bold text-slate-500">Risk: Zero Loss Floor</span>
-            <button onclick="RetireWellApp.openBookingModal('Fixed Indexed Annuities (FIA)')" class="text-xs font-bold text-amber-600 dark:text-amber-400 hover:underline">
+            <span class="text-[11px] font-bold text-teal-600 dark:text-teal-400">Risk: Zero Loss Floor</span>
+            <button onclick="RetireWellApp.openBookingModal('Fixed Indexed Annuities (FIA)')" class="text-xs font-bold text-teal-600 dark:text-teal-400 hover:underline">
               Learn More →
             </button>
           </div>
         </div>
 
         <!-- Annuity 3: Single Premium Immediate (SPIA) -->
-        <div class="rw-card p-6 rounded-2xl rw-card-hover-up flex flex-col justify-between">
+        <div class="rw-card rw-card-sapphire p-6 rounded-2xl rw-card-hover-up flex flex-col justify-between">
           <div>
             <div class="h-44 rounded-xl overflow-hidden mb-5">
               <img src="https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=600&q=80" 
                 alt="Immediate Cash Flow" class="w-full h-full object-cover">
             </div>
-            <span class="rw-badge-teal text-[10px] mb-2">INSTANT CASH FLOW</span>
+            <span class="rw-badge-sapphire text-[10px] mb-2">INSTANT CASH FLOW</span>
             <h3 class="text-lg font-bold font-serif text-slate-900 dark:text-white mb-2">Immediate Income (SPIA)</h3>
             <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
               Convert a lump sum (or 401k rollover) into immediate monthly paychecks starting in 30 days. Replaces corporate pensions with guaranteed lifetime checks.
             </p>
           </div>
           <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-            <span class="text-[11px] font-bold text-slate-500">Payout: Day 30+</span>
-            <button onclick="RetireWellApp.openBookingModal('Immediate Income Annuities (SPIA)')" class="text-xs font-bold text-teal-600 dark:text-teal-400 hover:underline">
+            <span class="text-[11px] font-bold text-blue-600 dark:text-blue-400">Payout: Day 30+</span>
+            <button onclick="RetireWellApp.openBookingModal('Immediate Income Annuities (SPIA)')" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">
               Learn More →
             </button>
           </div>
         </div>
 
         <!-- Annuity 4: Deferred Income / Longevity (DIA) -->
-        <div class="rw-card p-6 rounded-2xl rw-card-hover-up flex flex-col justify-between">
+        <div class="rw-card rw-card-amethyst p-6 rounded-2xl rw-card-hover-up flex flex-col justify-between">
           <div>
             <div class="h-44 rounded-xl overflow-hidden mb-5">
-              <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80" 
+              <img src="images/deferred-longevity.jpg" 
                 alt="Longevity Insurance" class="w-full h-full object-cover">
             </div>
-            <span class="rw-badge-teal text-[10px] mb-2">LONGEVITY SHIELD</span>
+            <span class="rw-badge-purple text-[10px] mb-2">LONGEVITY SHIELD</span>
             <h3 class="text-lg font-bold font-serif text-slate-900 dark:text-white mb-2">Deferred Longevity (DIA)</h3>
             <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
               Allocate a smaller allocation today to lock in massive guaranteed cash flow starting at age 75 or 80. Completely eliminates fear of outliving your wealth.
             </p>
           </div>
           <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-            <span class="text-[11px] font-bold text-slate-500">Payout: Age 75-85</span>
-            <button onclick="RetireWellApp.openBookingModal('Deferred Longevity Annuities (DIA)')" class="text-xs font-bold text-teal-600 dark:text-teal-400 hover:underline">
+            <span class="text-[11px] font-bold text-purple-600 dark:text-purple-400">Payout: Age 75-85</span>
+            <button onclick="RetireWellApp.openBookingModal('Deferred Longevity Annuities (DIA)')" class="text-xs font-bold text-purple-600 dark:text-purple-400 hover:underline">
               Learn More →
             </button>
           </div>
@@ -554,9 +620,9 @@
   </section>
 
   <!-- =========================================================================
-       HOW IT WORKS: 5-STEP FIDUCIARY ROADMAP
+       HOW IT WORKS: 5-STEP FIDUCIARY ROADMAP (ABOUT METHODOLOGY)
        ========================================================================= -->
-  <section class="py-20 lg:py-28 bg-white dark:bg-navy-900 border-t border-slate-200 dark:border-slate-800">
+  <section id="about" class="py-20 lg:py-28 bg-white dark:bg-navy-900 border-t border-slate-200 dark:border-slate-800 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16">
@@ -571,11 +637,11 @@
 
       <div class="grid grid-cols-1 md:grid-cols-5 gap-6 relative">
         
-        <!-- Step 1 -->
-        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800 relative">
-          <span class="text-3xl font-serif font-bold text-teal-600/30 dark:text-teal-400/20 block mb-2">01</span>
-          <div class="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
-            <i class="bi bi-compass"></i>
+        <!-- Step 1 (Teal) -->
+        <div class="p-6 rounded-2xl bg-gradient-to-b from-teal-50/60 to-white dark:from-teal-950/30 dark:to-navy-950/60 border border-teal-500/20 border-t-4 border-t-teal-500 relative shadow-sm hover:shadow-lg transition">
+          <span class="text-3xl font-serif font-bold text-teal-600/40 dark:text-teal-400/30 block mb-2">01</span>
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-teal-500 to-teal-700 text-white flex items-center justify-center font-bold mb-4 shadow-md shadow-teal-500/25">
+            <i class="bi bi-compass text-lg"></i>
           </div>
           <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white mb-2">Discovery & Audit</h3>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -583,11 +649,11 @@
           </p>
         </div>
 
-        <!-- Step 2 -->
-        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800 relative">
-          <span class="text-3xl font-serif font-bold text-teal-600/30 dark:text-teal-400/20 block mb-2">02</span>
-          <div class="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
-            <i class="bi bi-graph-down-arrow"></i>
+        <!-- Step 2 (Sapphire) -->
+        <div class="p-6 rounded-2xl bg-gradient-to-b from-blue-50/60 to-white dark:from-blue-950/30 dark:to-navy-950/60 border border-blue-500/20 border-t-4 border-t-blue-500 relative shadow-sm hover:shadow-lg transition">
+          <span class="text-3xl font-serif font-bold text-blue-600/40 dark:text-blue-400/30 block mb-2">02</span>
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 text-white flex items-center justify-center font-bold mb-4 shadow-md shadow-blue-500/25">
+            <i class="bi bi-graph-down-arrow text-lg"></i>
           </div>
           <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white mb-2">Gap & Risk Analysis</h3>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -595,11 +661,11 @@
           </p>
         </div>
 
-        <!-- Step 3 -->
-        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800 relative">
-          <span class="text-3xl font-serif font-bold text-teal-600/30 dark:text-teal-400/20 block mb-2">03</span>
-          <div class="w-10 h-10 rounded-xl bg-amber-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
-            <i class="bi bi-pencil-square"></i>
+        <!-- Step 3 (Gold) -->
+        <div class="p-6 rounded-2xl bg-gradient-to-b from-amber-50/60 to-white dark:from-amber-950/30 dark:to-navy-950/60 border border-amber-500/20 border-t-4 border-t-amber-500 relative shadow-sm hover:shadow-lg transition">
+          <span class="text-3xl font-serif font-bold text-amber-600/40 dark:text-amber-400/30 block mb-2">03</span>
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 text-white flex items-center justify-center font-bold mb-4 shadow-md shadow-amber-500/25">
+            <i class="bi bi-pencil-square text-lg"></i>
           </div>
           <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white mb-2">Plan Design</h3>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -607,11 +673,11 @@
           </p>
         </div>
 
-        <!-- Step 4 -->
-        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800 relative">
-          <span class="text-3xl font-serif font-bold text-teal-600/30 dark:text-teal-400/20 block mb-2">04</span>
-          <div class="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
-            <i class="bi bi-shield-check"></i>
+        <!-- Step 4 (Emerald) -->
+        <div class="p-6 rounded-2xl bg-gradient-to-b from-emerald-50/60 to-white dark:from-emerald-950/30 dark:to-navy-950/60 border border-emerald-500/20 border-t-4 border-t-emerald-500 relative shadow-sm hover:shadow-lg transition">
+          <span class="text-3xl font-serif font-bold text-emerald-600/40 dark:text-emerald-400/30 block mb-2">04</span>
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 text-white flex items-center justify-center font-bold mb-4 shadow-md shadow-emerald-500/25">
+            <i class="bi bi-shield-check text-lg"></i>
           </div>
           <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white mb-2">Implementation</h3>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -619,11 +685,11 @@
           </p>
         </div>
 
-        <!-- Step 5 -->
-        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800 relative">
-          <span class="text-3xl font-serif font-bold text-teal-600/30 dark:text-teal-400/20 block mb-2">05</span>
-          <div class="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center font-bold mb-4 shadow-sm">
-            <i class="bi bi-arrow-repeat"></i>
+        <!-- Step 5 (Purple) -->
+        <div class="p-6 rounded-2xl bg-gradient-to-b from-purple-50/60 to-white dark:from-purple-950/30 dark:to-navy-950/60 border border-purple-500/20 border-t-4 border-t-purple-500 relative shadow-sm hover:shadow-lg transition">
+          <span class="text-3xl font-serif font-bold text-purple-600/40 dark:text-purple-400/30 block mb-2">05</span>
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 text-white flex items-center justify-center font-bold mb-4 shadow-md shadow-purple-500/25">
+            <i class="bi bi-arrow-repeat text-lg"></i>
           </div>
           <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white mb-2">Annual Reviews</h3>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -749,12 +815,12 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <!-- Advisor 1 -->
-        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between">
+        <div class="rw-card rw-card-teal overflow-hidden rounded-2xl flex flex-col justify-between rw-card-hover-up shadow-lg">
           <div>
-            <div class="h-64 overflow-hidden relative">
+            <div class="advisor-card-img-container h-80 overflow-hidden relative">
               <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" 
-                alt="David Vance CFP" class="w-full h-full object-cover">
-              <span class="absolute top-4 right-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 backdrop-blur-sm text-[10px]">
+                alt="David Vance CFP" class="w-full h-full object-cover object-top advisor-img-david">
+              <span class="absolute top-4 right-4 rw-badge-teal bg-white/95 dark:bg-navy-900/95 backdrop-blur-md text-[10px] shadow-sm">
                 MANAGING PARTNER
               </span>
             </div>
@@ -772,19 +838,19 @@
           </div>
           <div class="p-6 pt-0 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between mt-4">
             <button onclick="RetireWellApp.openBookingModal('Consultation with David Vance', 'David Vance, CFP®, RICP®')" 
-              class="btn-primary-gold text-xs py-2 px-4 w-full">
+              class="btn-primary-gold text-xs py-2.5 px-4 w-full">
               Book With David
             </button>
           </div>
         </div>
 
         <!-- Advisor 2 -->
-        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between">
+        <div class="rw-card rw-card-gold overflow-hidden rounded-2xl flex flex-col justify-between rw-card-hover-up shadow-lg">
           <div>
-            <div class="h-64 overflow-hidden relative">
+            <div class="advisor-card-img-container h-80 overflow-hidden relative">
               <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" 
-                alt="Elena Rostova ChFC" class="w-full h-full object-cover">
-              <span class="absolute top-4 right-4 rw-badge-gold bg-white/90 dark:bg-navy-900/90 backdrop-blur-sm text-[10px]">
+                alt="Elena Rostova ChFC" class="w-full h-full object-cover object-top advisor-img-elena">
+              <span class="absolute top-4 right-4 rw-badge-gold bg-white/95 dark:bg-navy-900/95 backdrop-blur-md text-[10px] shadow-sm">
                 ANNUITY STRATEGIST
               </span>
             </div>
@@ -802,25 +868,25 @@
           </div>
           <div class="p-6 pt-0 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between mt-4">
             <button onclick="RetireWellApp.openBookingModal('Consultation with Elena Rostova', 'Elena Rostova, ChFC®, CLU®')" 
-              class="btn-primary-gold text-xs py-2 px-4 w-full">
+              class="btn-primary-gold text-xs py-2.5 px-4 w-full">
               Book With Elena
             </button>
           </div>
         </div>
 
         <!-- Advisor 3 -->
-        <div class="rw-card overflow-hidden rounded-2xl flex flex-col justify-between">
+        <div class="rw-card rw-card-sapphire overflow-hidden rounded-2xl flex flex-col justify-between rw-card-hover-up shadow-lg">
           <div>
-            <div class="h-64 overflow-hidden relative">
+            <div class="advisor-card-img-container h-80 overflow-hidden relative">
               <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" 
-                alt="Marcus Sterling CFA" class="w-full h-full object-cover">
-              <span class="absolute top-4 right-4 rw-badge-teal bg-white/90 dark:bg-navy-900/90 backdrop-blur-sm text-[10px]">
+                alt="Marcus Sterling CFA" class="w-full h-full object-cover object-top advisor-img-marcus">
+              <span class="absolute top-4 right-4 rw-badge-sapphire bg-white/95 dark:bg-navy-900/95 backdrop-blur-md text-[10px] shadow-sm">
                 PORTFOLIO DIRECTOR
               </span>
             </div>
             <div class="p-6">
               <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white">Marcus Sterling, CFA, CFP®</h3>
-              <p class="text-xs text-teal-700 dark:text-teal-400 font-semibold mb-2">Chartered Financial Analyst</p>
+              <p class="text-xs text-blue-700 dark:text-blue-400 font-semibold mb-2">Chartered Financial Analyst</p>
               <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
                 Directs multi-asset fiduciary allocation, integrating fixed index crediting strategies with treasury preservation and dividend portfolios.
               </p>
@@ -832,7 +898,7 @@
           </div>
           <div class="p-6 pt-0 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between mt-4">
             <button onclick="RetireWellApp.openBookingModal('Consultation with Marcus Sterling', 'Marcus Sterling, CFA, CFP®')" 
-              class="btn-primary-gold text-xs py-2 px-4 w-full">
+              class="btn-primary-gold text-xs py-2.5 px-4 w-full">
               Book With Marcus
             </button>
           </div>
@@ -861,60 +927,87 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
+        <!-- Testimonial 1 -->
         <div class="rw-card p-8 rounded-2xl flex flex-col justify-between">
-          <div>
-            <div class="flex text-amber-500 gap-1 text-sm mb-4">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p class="text-sm text-slate-700 dark:text-slate-200 italic leading-relaxed mb-6 font-serif">
-              "When the markets dropped 18% a few years back, my colleagues were panicked about retiring. Thanks to our fixed indexed annuity strategy through RetireWell, our principal stayed at 100% and our guaranteed monthly payout never fluctuated a single cent."
-            </p>
-          </div>
-          <div class="flex items-center gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+          <!-- 1. Profile Name & Avatar -->
+          <div class="flex items-center gap-4 pb-4 border-b border-slate-100 dark:border-slate-800">
             <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80" 
-              alt="Charles Greene" class="w-12 h-12 rounded-full object-cover">
+              alt="Charles Greene" class="w-12 h-12 rounded-full object-cover flex-shrink-0">
             <div>
-              <p class="text-sm font-bold text-slate-900 dark:text-white">Charles & Evelyn Greene</p>
+              <p class="text-sm font-bold text-slate-900 dark:text-white">Charles &amp; Evelyn Greene</p>
               <p class="text-xs text-slate-500">Retired Aerospace Engineers, Age 66</p>
             </div>
           </div>
-        </div>
 
-        <div class="rw-card p-8 rounded-2xl flex flex-col justify-between">
-          <div>
-            <div class="flex text-amber-500 gap-1 text-sm mb-4">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p class="text-sm text-slate-700 dark:text-slate-200 italic leading-relaxed mb-6 font-serif">
-              "David Vance sat down with us and explained the difference between a high-commission salesperson and a legal fiduciary. For the first time, we had complete clarity on our fees, our 401(k) rollover, and our social security timing."
+          <!-- 2. Testimonial Content -->
+          <div class="py-5 flex-1">
+            <p class="text-sm text-slate-700 dark:text-slate-200 italic leading-relaxed font-serif">
+              "When the markets dropped 18% a few years back, my colleagues were panicked about retiring. Thanks to our fixed indexed annuity strategy through RetireWell, our principal stayed at 100% and our guaranteed monthly payout never fluctuated a single cent."
             </p>
           </div>
-          <div class="flex items-center gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+
+          <!-- 3. Rating Stars -->
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <div class="flex text-amber-500 gap-1 text-sm">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">5.0 Rating</span>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="rw-card p-8 rounded-2xl flex flex-col justify-between">
+          <!-- 1. Profile Name & Avatar -->
+          <div class="flex items-center gap-4 pb-4 border-b border-slate-100 dark:border-slate-800">
             <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" 
-              alt="Patricia Miller" class="w-12 h-12 rounded-full object-cover">
+              alt="Patricia Miller" class="w-12 h-12 rounded-full object-cover flex-shrink-0">
             <div>
               <p class="text-sm font-bold text-slate-900 dark:text-white">Patricia Miller</p>
               <p class="text-xs text-slate-500">Former Public School Principal, Age 62</p>
             </div>
           </div>
-        </div>
 
-        <div class="rw-card p-8 rounded-2xl flex flex-col justify-between">
-          <div>
-            <div class="flex text-amber-500 gap-1 text-sm mb-4">
+          <!-- 2. Testimonial Content -->
+          <div class="py-5 flex-1">
+            <p class="text-sm text-slate-700 dark:text-slate-200 italic leading-relaxed font-serif">
+              "David Vance sat down with us and explained the difference between a high-commission salesperson and a legal fiduciary. For the first time, we had complete clarity on our fees, our 401(k) rollover, and our social security timing."
+            </p>
+          </div>
+
+          <!-- 3. Rating Stars -->
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <div class="flex text-amber-500 gap-1 text-sm">
               <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
             </div>
-            <p class="text-sm text-slate-700 dark:text-slate-200 italic leading-relaxed mb-6 font-serif">
+            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">5.0 Rating</span>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="rw-card p-8 rounded-2xl flex flex-col justify-between">
+          <!-- 1. Profile Name & Avatar -->
+          <div class="flex items-center gap-4 pb-4 border-b border-slate-100 dark:border-slate-800">
+            <img src="images/avatar-thomas-linda.jpg" 
+              alt="Dr. Thomas & Linda Wu" class="w-12 h-12 rounded-full object-cover flex-shrink-0">
+            <div>
+              <p class="text-sm font-bold text-slate-900 dark:text-white">Dr. Thomas &amp; Linda Wu</p>
+              <p class="text-xs text-slate-500">Retired Family Physician &amp; Architect, Age 69</p>
+            </div>
+          </div>
+
+          <!-- 2. Testimonial Content -->
+          <div class="py-5 flex-1">
+            <p class="text-sm text-slate-700 dark:text-slate-200 italic leading-relaxed font-serif">
               "The client portal makes checking our quarterly crediting statements and updating our beneficiary trust allocations completely seamless. We travel 4 months out of the year knowing our income floor is guaranteed."
             </p>
           </div>
-          <div class="flex items-center gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
-            <img src="images/avatar-thomas-linda.jpg" 
-              alt="Dr. Thomas & Linda Wu" class="w-12 h-12 rounded-full object-cover">
-            <div>
-              <p class="text-sm font-bold text-slate-900 dark:text-white">Dr. Thomas & Linda Wu</p>
-              <p class="text-xs text-slate-500">Retired Family Physician & Architect, Age 69</p>
+
+          <!-- 3. Rating Stars -->
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <div class="flex text-amber-500 gap-1 text-sm">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
             </div>
+            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">5.0 Rating</span>
           </div>
         </div>
 
@@ -990,7 +1083,7 @@
         
         <!-- FAQ 1 -->
         <div class="rw-card rounded-2xl overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition cursor-pointer">
+          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition cursor-pointer faq-accordion-btn">
             <span class="font-serif text-base sm:text-lg">What happens if an insurance company goes out of business?</span>
             <i class="bi bi-chevron-down text-teal-600 transition-transform"></i>
           </button>
@@ -1001,9 +1094,9 @@
 
         <!-- FAQ 2 -->
         <div class="rw-card rounded-2xl overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition cursor-pointer">
+          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition cursor-pointer faq-accordion-btn">
             <span class="font-serif text-base sm:text-lg">Can I still access my money in an emergency?</span>
-            <button class="bi bi-chevron-down text-teal-600 transition-transform"></button>
+            <i class="bi bi-chevron-down text-teal-600 transition-transform"></i>
           </button>
           <div class="px-6 pb-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed hidden faq-answer">
             Yes. Modern Fixed Indexed Annuities generally permit penalty-free annual withdrawals of up to 10% of your account value after year one. Many also include built-in penalty waivers for nursing home confinement, terminal illness, or disability. Furthermore, as fiduciaries, we insist that you keep 6 to 12 months of liquid emergency reserves in cash outside of any annuity.
@@ -1012,7 +1105,7 @@
 
         <!-- FAQ 3 -->
         <div class="rw-card rounded-2xl overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition cursor-pointer">
+          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition cursor-pointer faq-accordion-btn">
             <span class="font-serif text-base sm:text-lg">How is RetireWell compensated? Are there hidden commissions?</span>
             <i class="bi bi-chevron-down text-teal-600 transition-transform"></i>
           </button>
@@ -1023,7 +1116,7 @@
 
         <!-- FAQ 4 -->
         <div class="rw-card rounded-2xl overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition cursor-pointer">
+          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition cursor-pointer faq-accordion-btn">
             <span class="font-serif text-base sm:text-lg">What happens to the money if I pass away early?</span>
             <i class="bi bi-chevron-down text-teal-600 transition-transform"></i>
           </button>
@@ -1040,14 +1133,13 @@
   <!-- =========================================================================
        CONSULTATION CALL-TO-ACTION BANNER
        ========================================================================= -->
-  <section class="py-20 bg-slate-900 text-white relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-r from-teal-900/40 to-slate-900/80 pointer-events-none"></div>
+  <section class="py-20 bg-gradient-to-b from-slate-50 via-teal-50/50 to-slate-100 dark:from-navy-950 dark:via-navy-900 dark:to-navy-950 border-t border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white relative overflow-hidden transition-colors duration-300">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
-      <span class="rw-badge-gold text-amber-300 bg-amber-500/10 border-amber-500/30">COMPLIMENTARY FIDUCIARY AUDIT</span>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-serif text-white">
+      <span class="rw-badge-gold">COMPLIMENTARY FIDUCIARY AUDIT</span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-serif text-slate-900 dark:text-white">
         Stop Guessing. Start Safeguarding Your Income.
       </h2>
-      <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
         Schedule your 45-minute confidential consultation with a senior fiduciary partner. Receive an objective, side-by-side comparison of your annuity options.
       </p>
       <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -1056,7 +1148,7 @@
           <i class="bi bi-calendar2-check-fill text-lg"></i>
           <span>Schedule My Free Consultation</span>
         </button>
-        <a href="services.html" class="btn-outline-navy border-slate-700 text-slate-200 hover:border-teal-400 text-base py-3.5 px-8">
+        <a href="services.html" class="btn-outline-navy text-base py-3.5 px-8">
           Explore Service Details
         </a>
       </div>
@@ -1077,8 +1169,11 @@
   <!-- Inline Helper for Homepage Specific Widgets -->
   <script>
     function toggleFaq(btn) {
-      const answer = btn.nextElementSibling;
-      const icon = btn.querySelector('.bi-chevron-down');
+      const card = btn.closest('.rw-card');
+      const answer = card ? card.querySelector('.faq-answer') : btn.nextElementSibling;
+      const icon = btn.querySelector('.bi-chevron-down') || (card ? card.querySelector('.bi-chevron-down') : null);
+      if (!answer) return;
+
       const isHidden = answer.classList.contains('hidden');
       
       // Close all other faqs in group
@@ -1102,9 +1197,34 @@
       if (bar) bar.style.width = pct + '%';
     }
 
+    function toggleHeroVideoPlay() {
+      const vid = document.getElementById("heroStoryVideo");
+      const icon = document.getElementById("heroVideoPlayIcon");
+      if (!vid) return;
+      if (vid.paused) {
+        vid.play();
+        if (icon) icon.className = "bi bi-pause-fill";
+      } else {
+        vid.pause();
+        if (icon) icon.className = "bi bi-play-fill";
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       if (window.RetireWellProjections) {
         window.RetireWellProjections.updateHomeWidget();
+      }
+
+      const bgVid = document.getElementById("heroBgVideo");
+      if (bgVid) {
+        bgVid.play().catch(() => {});
+      }
+
+      const vid = document.getElementById("heroStoryVideo");
+      const icon = document.getElementById("heroVideoPlayIcon");
+      if (vid && icon) {
+        vid.addEventListener('play', () => { icon.className = "bi bi-pause-fill"; });
+        vid.addEventListener('pause', () => { icon.className = "bi bi-play-fill"; });
       }
     });
   </script>
