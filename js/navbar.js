@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   <i class="bi bi-person-check-fill text-sm"></i>
                   <span class="max-w-[100px] truncate">${userName}</span>
                 </a>
-                <button onclick="if(window.RetireWellDB){window.RetireWellDB.logout();}else{try{localStorage.removeItem('retirewell_session');}catch(e){}}if(window.RetireWellApp){window.RetireWellApp.toast('Signed out of session.','info');}setTimeout(()=>{window.location.href='login.html?logout=true';},400);" class="h-10 inline-flex items-center gap-1.5 px-2.5 rounded-xl border border-rose-200 dark:border-rose-900/60 bg-rose-50 dark:bg-rose-950/40 text-rose-600 hover:bg-rose-600 hover:text-white dark:hover:bg-rose-600 dark:hover:text-white font-bold text-xs transition shadow-2xs cursor-pointer" title="Sign Out">
+                <button onclick="if(window.RetireWellDB){window.RetireWellDB.logout();}else{try{localStorage.removeItem('retirewell_session');}catch(e){}}if(window.RetireWellApp){window.RetireWellApp.toast('Signed out of session. Returning to home...','info');}setTimeout(()=>{window.location.href='index.html';},400);" class="h-10 inline-flex items-center gap-1.5 px-2.5 rounded-xl border border-rose-200 dark:border-rose-900/60 bg-rose-50 dark:bg-rose-950/40 text-rose-600 hover:bg-rose-600 hover:text-white dark:hover:bg-rose-600 dark:hover:text-white font-bold text-xs transition shadow-2xs cursor-pointer" title="Sign Out">
                   <i class="bi bi-box-arrow-right text-xs"></i>
                   <span>Sign Out</span>
                 </button>
@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </span>
                 <a href="user.html" class="px-2 py-0.5 rounded-md bg-teal-600 text-white font-bold hover:bg-teal-700 text-[10px] shadow-2xs transition">Portfolio</a>
               </div>
-              <button onclick="if(window.RetireWellDB){window.RetireWellDB.logout();}else{try{localStorage.removeItem('retirewell_session');}catch(e){}}if(window.RetireWellApp){window.RetireWellApp.toast('Signed out of session.','info');}setTimeout(()=>{window.location.href='login.html?logout=true';},400);" class="w-full flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg bg-rose-100 hover:bg-rose-200 dark:bg-rose-950/60 dark:hover:bg-rose-900/80 text-rose-700 dark:text-rose-300 font-bold text-xs transition cursor-pointer">
+              <button onclick="if(window.RetireWellDB){window.RetireWellDB.logout();}else{try{localStorage.removeItem('retirewell_session');}catch(e){}}if(window.RetireWellApp){window.RetireWellApp.toast('Signed out of session. Returning to home...','info');}setTimeout(()=>{window.location.href='index.html';},400);" class="w-full flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg bg-rose-100 hover:bg-rose-200 dark:bg-rose-950/60 dark:hover:bg-rose-900/80 text-rose-700 dark:text-rose-300 font-bold text-xs transition cursor-pointer">
                 <i class="bi bi-box-arrow-right"></i> Sign Out
               </button>
             </div>
