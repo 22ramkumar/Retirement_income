@@ -11,29 +11,10 @@
   <link rel="alternate icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
 
-  <!-- Tailwind CSS & Bootstrap Icons & Chart.js -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Production Compiled Tailwind CSS & Bootstrap Icons & Chart.js -->
+  <link rel="stylesheet" href="css/tailwind.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <script>
-    tailwind.config = {
-      darkMode: ['class', '[data-theme="dark"]'],
-      theme: {
-        extend: {
-          colors: {
-            navy: { 950: '#070D1B', 900: '#0A192F', 800: '#112240', 700: '#1D3557' },
-            teal: { 50: '#F0FDFA', 600: '#0D9488', 700: '#0F766E' },
-            amber: { 500: '#F59E0B', 600: '#D97706', 700: '#B45309' }
-          },
-          fontFamily: {
-            serif: ['Lora', 'Georgia', 'serif'],
-            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
 
   <link rel="stylesheet" href="css/style.css">
 
@@ -118,15 +99,31 @@
     window.handleLogout = function() {
       if (window.RetireWellDB && typeof window.RetireWellDB.logout === 'function') {
         RetireWellDB.logout();
-      } else {
-        localStorage.removeItem('retirewell_session');
       }
+      try {
+        localStorage.removeItem('retirewell_session');
+      } catch (e) {}
       if (window.RetireWellApp && typeof window.RetireWellApp.toast === 'function') {
         RetireWellApp.toast('Signed out of fiduciary session. Redirecting...', 'info', 1500);
       }
       setTimeout(() => {
-        window.location.href = 'login.html';
-      }, 600);
+        window.location.href = 'login.html?logout=true';
+      }, 500);
+    };
+
+    window.toggleProfileDropdown = function(forceState) {
+      const dropdown = document.getElementById('profileDropdown');
+      if (!dropdown) return;
+      if (typeof forceState === 'boolean') {
+        if (forceState) dropdown.classList.remove('hidden');
+        else dropdown.classList.add('hidden');
+      } else {
+        dropdown.classList.toggle('hidden');
+      }
+      if (!dropdown.classList.contains('hidden')) {
+        const notifPanel = document.getElementById('notifPanel');
+        if (notifPanel) notifPanel.classList.add('hidden');
+      }
     };
   </script>
 </head>
@@ -160,45 +157,53 @@
         </div>
 
         <!-- Navigation Menu -->
-        <nav class="p-4 space-y-1 text-sm font-semibold text-slate-600 dark:text-slate-300" id="sidebarNav">
+        <nav class="p-3 sm:p-4 space-y-1 text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300" id="sidebarNav">
 
-          <button data-section="overview" onclick="showDashboardSection('overview', this)" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left cursor-pointer bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 sidebar-link active">
-            <i class="bi bi-speedometer2 text-lg text-teal-600 dark:text-teal-400"></i>
+          <button data-section="overview" onclick="showDashboardSection('overview', this)" class="w-full flex items-center gap-2.5 sm:gap-3 px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg sm:rounded-xl transition text-left cursor-pointer bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 sidebar-link active">
+            <i class="bi bi-speedometer2 text-base sm:text-lg text-teal-600 dark:text-teal-400"></i>
             <span>Overview</span>
           </button>
 
-          <button data-section="projections" onclick="showDashboardSection('projections', this)" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
-            <i class="bi bi-graph-up-arrow text-lg"></i>
+          <button data-section="projections" onclick="showDashboardSection('projections', this)" class="w-full flex items-center gap-2.5 sm:gap-3 px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg sm:rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
+            <i class="bi bi-graph-up-arrow text-base sm:text-lg"></i>
             <span>Retirement Projections</span>
           </button>
 
-          <button data-section="accounts" onclick="showDashboardSection('accounts', this)" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
-            <i class="bi bi-safe text-lg"></i>
-            <span>Accounts & Statements</span>
+          <button data-section="accounts" onclick="showDashboardSection('accounts', this)" class="w-full flex items-center gap-2.5 sm:gap-3 px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg sm:rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
+            <i class="bi bi-safe text-base sm:text-lg"></i>
+            <span>Accounts &amp; Statements</span>
           </button>
 
-          <button data-section="beneficiaries" onclick="showDashboardSection('beneficiaries', this)" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
-            <i class="bi bi-people-fill text-lg"></i>
+          <button data-section="beneficiaries" onclick="showDashboardSection('beneficiaries', this)" class="w-full flex items-center gap-2.5 sm:gap-3 px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg sm:rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
+            <i class="bi bi-people-fill text-base sm:text-lg"></i>
             <span>Beneficiaries</span>
           </button>
 
-          <button data-section="documents" onclick="showDashboardSection('documents', this)" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
-            <i class="bi bi-folder2-open text-lg"></i>
+          <button data-section="documents" onclick="showDashboardSection('documents', this)" class="w-full flex items-center gap-2.5 sm:gap-3 px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg sm:rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
+            <i class="bi bi-folder2-open text-base sm:text-lg"></i>
             <span>Documents Vault</span>
           </button>
 
-          <button data-section="messages" onclick="showDashboardSection('messages', this)" class="w-full flex items-center justify-between px-4 py-3 rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
-            <div class="flex items-center gap-3">
-              <i class="bi bi-chat-dots-fill text-lg"></i>
+          <button data-section="messages" onclick="showDashboardSection('messages', this)" class="w-full flex items-center justify-between px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg sm:rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
+            <div class="flex items-center gap-2.5 sm:gap-3">
+              <i class="bi bi-chat-dots-fill text-base sm:text-lg"></i>
               <span>Messages / Advisor</span>
             </div>
             <span class="w-2 h-2 rounded-full bg-teal-600"></span>
           </button>
 
-          <button data-section="settings" onclick="showDashboardSection('settings', this)" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
-            <i class="bi bi-gear-fill text-lg"></i>
-            <span>Profile & Settings</span>
+          <button data-section="settings" onclick="showDashboardSection('settings', this)" class="w-full flex items-center gap-2.5 sm:gap-3 px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg sm:rounded-xl transition text-left cursor-pointer hover:bg-slate-100 dark:hover:bg-navy-800 sidebar-link">
+            <i class="bi bi-gear-fill text-base sm:text-lg"></i>
+            <span>Profile &amp; Settings</span>
           </button>
+
+          <!-- Direct Sign Out Menu Link in Sidebar Navigation -->
+          <div class="pt-2 border-t border-slate-100 dark:border-slate-800/80">
+            <button onclick="handleLogout()" class="w-full flex items-center gap-2.5 sm:gap-3 px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg sm:rounded-xl text-left cursor-pointer text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 hover:text-rose-700 transition font-bold" title="Sign out of account">
+              <i class="bi bi-box-arrow-right text-base sm:text-lg"></i>
+              <span>Sign Out</span>
+            </button>
+          </div>
         </nav>
       </div>
 
@@ -213,8 +218,8 @@
           </div>
         </div>
 
-        <button onclick="handleLogout()" class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl text-xs font-bold text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/30 transition cursor-pointer">
-          <i class="bi bi-box-arrow-left"></i>
+        <button onclick="handleLogout()" class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl text-xs font-bold text-rose-600 hover:text-white bg-rose-50/80 hover:bg-rose-600 dark:bg-rose-950/40 dark:hover:bg-rose-600 border border-rose-200 dark:border-rose-900/40 transition cursor-pointer shadow-2xs">
+          <i class="bi bi-box-arrow-right"></i>
           <span>Secure Sign Out</span>
         </button>
       </div>
@@ -243,20 +248,20 @@
 
           <div class="hidden sm:block border-l border-slate-200 dark:border-slate-800 pl-4">
             <h2 id="topBarTitle" class="text-lg font-bold font-serif text-slate-900 dark:text-white">Client Portfolio Overview</h2>
-            <p class="text-xs text-slate-500">Welcome, Robert Vance • ID #USR-882910</p>
+            <p id="topBarUserWelcome" class="text-xs text-slate-500">Welcome, Robert Vance • ID #USR-882910</p>
           </div>
         </div>
 
         <!-- Right Top Bar Actions -->
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2 sm:gap-3">
           
           <!-- Theme Toggle -->
-          <button onclick="RetireWellApp.toggleTheme()" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-teal-500 text-sm" title="Toggle Theme">
+          <button onclick="RetireWellApp.toggleTheme()" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-teal-500 text-sm cursor-pointer" title="Toggle Theme">
             <i class="bi bi-moon-stars-fill theme-toggle-icon"></i>
           </button>
 
           <!-- RTL Toggle -->
-          <button onclick="RetireWellApp.toggleRTL()" class="rtl-toggle-btn hidden sm:flex px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 text-xs font-bold text-slate-700 dark:text-slate-300 hover:border-teal-500" title="RTL">
+          <button onclick="RetireWellApp.toggleRTL()" class="rtl-toggle-btn hidden sm:flex px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 text-xs font-bold text-slate-700 dark:text-slate-300 hover:border-teal-500 cursor-pointer" title="RTL">
             ⇄ RTL
           </button>
 
@@ -268,7 +273,7 @@
             </button>
 
             <!-- Notifications Drawer Panel -->
-            <div id="notifPanel" class="absolute right-0 mt-3 w-80 sm:w-96 bg-white dark:bg-navy-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 p-4 hidden z-50">
+            <div id="notifPanel" class="fixed sm:absolute right-4 sm:right-0 rtl:right-auto rtl:left-4 sm:rtl:left-0 top-16 sm:top-auto sm:mt-3 w-[calc(100vw-2rem)] max-w-sm sm:w-96 bg-white dark:bg-navy-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 p-4 hidden z-50">
               <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800 mb-3">
                 <span class="font-serif font-bold text-sm text-slate-900 dark:text-white">Fiduciary Alerts</span>
                 <button onclick="markAllNotificationsRead()" class="text-[11px] text-teal-600 font-semibold hover:underline cursor-pointer">
@@ -281,12 +286,63 @@
             </div>
           </div>
 
-          <!-- Client Avatar Profile Dropdown -->
-          <div class="flex items-center gap-3 pl-2 sm:pl-4 border-l border-slate-200 dark:border-slate-800">
-            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80" alt="Robert Vance" class="w-9 h-9 rounded-xl object-cover border border-teal-600">
-            <div class="hidden md:block text-left">
-              <p class="text-xs font-bold text-slate-900 dark:text-white">Robert Vance</p>
-              <p class="text-[10px] text-emerald-600 font-semibold">Fiduciary Active</p>
+          <!-- Direct Sign Out Button on Top Bar -->
+          <button onclick="handleLogout()" id="topBarSignOutBtn" class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-bold text-rose-600 hover:text-white bg-rose-50 hover:bg-rose-600 dark:bg-rose-950/50 dark:hover:bg-rose-600 border border-rose-200 dark:border-rose-900/60 transition shadow-2xs cursor-pointer group" title="Securely Sign Out of Client Portal" aria-label="Sign Out">
+            <i class="bi bi-box-arrow-right text-xs sm:text-sm group-hover:translate-x-0.5 transition-transform"></i>
+            <span class="hidden sm:inline">Sign Out</span>
+          </button>
+
+          <!-- Client Avatar Profile Menu & Dropdown -->
+          <div class="relative pl-1 sm:pl-2 border-l border-slate-200 dark:border-slate-800" id="profileDropdownWrapper">
+            <button onclick="toggleProfileDropdown()" id="profileDropdownBtn" class="flex items-center gap-2 p-1 rounded-xl hover:bg-slate-100 dark:hover:bg-navy-800 transition cursor-pointer text-left focus:outline-hidden" aria-label="Open profile menu" aria-expanded="false">
+              <img id="topBarUserAvatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80" alt="Client Avatar" class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl object-cover border border-teal-600 flex-shrink-0">
+              <div class="hidden md:block text-left pr-0.5">
+                <p id="topBarUserName" class="text-xs font-bold text-slate-900 dark:text-white leading-tight truncate max-w-[110px]">Robert Vance</p>
+                <p class="text-[10px] text-emerald-600 font-semibold leading-tight">Fiduciary Active</p>
+              </div>
+              <i class="bi bi-chevron-down text-[10px] text-slate-400 hidden sm:block"></i>
+            </button>
+
+            <!-- Profile Dropdown Card -->
+            <div id="profileDropdown" class="fixed sm:absolute right-4 sm:right-0 rtl:right-auto rtl:left-4 sm:rtl:left-0 top-16 sm:top-auto sm:mt-2 w-[calc(100vw-2rem)] max-w-[270px] sm:w-64 bg-white dark:bg-navy-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 p-3 hidden z-50">
+              <!-- User Bio Header in Dropdown -->
+              <div class="p-3 bg-slate-50 dark:bg-navy-950/70 rounded-xl mb-2 border border-slate-100 dark:border-slate-800/80">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-xl bg-teal-600 text-white font-bold flex items-center justify-center text-xs shadow-xs" id="dropdownUserInitial">RV</div>
+                  <div class="overflow-hidden min-w-0 flex-1">
+                    <p id="dropdownUserName" class="text-xs font-bold text-slate-900 dark:text-white truncate">Robert Vance</p>
+                    <p id="dropdownUserEmail" class="text-[10.5px] text-slate-500 truncate">user@gmail.com</p>
+                  </div>
+                </div>
+                <div class="mt-2 pt-2 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-400 uppercase tracking-wider font-semibold">Status</span>
+                  <span class="inline-flex items-center gap-1 font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Active Fiduciary</span>
+                </div>
+              </div>
+
+              <!-- Menu Items -->
+              <div class="space-y-1 text-xs">
+                <button onclick="showDashboardSection('settings', null); toggleProfileDropdown(false);" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-navy-800 transition text-left cursor-pointer">
+                  <i class="bi bi-gear-fill text-slate-400 text-xs"></i>
+                  <span>Profile &amp; Settings</span>
+                </button>
+                <button onclick="showDashboardSection('accounts', null); toggleProfileDropdown(false);" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-navy-800 transition text-left cursor-pointer">
+                  <i class="bi bi-safe text-slate-400 text-xs"></i>
+                  <span>Accounts &amp; Statements</span>
+                </button>
+                <button onclick="showDashboardSection('messages', null); toggleProfileDropdown(false);" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-navy-800 transition text-left cursor-pointer">
+                  <i class="bi bi-chat-dots-fill text-slate-400 text-xs"></i>
+                  <span>Advisor Messaging</span>
+                </button>
+              </div>
+
+              <!-- Prominent Red Sign Out Option in Dropdown -->
+              <div class="mt-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+                <button onclick="handleLogout()" class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl text-xs font-bold text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 hover:text-rose-700 transition cursor-pointer bg-rose-50/50 dark:bg-rose-950/20 border border-rose-200/50 dark:border-rose-900/40">
+                  <i class="bi bi-box-arrow-right"></i>
+                  <span>Sign Out of Portal</span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -360,16 +416,16 @@
           <!-- Quick Action Buttons Bar -->
           <div class="flex flex-wrap items-center gap-3 p-4 rounded-2xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800">
             <span class="text-xs font-bold uppercase tracking-wider text-slate-500 mr-2">Quick Fiduciary Actions:</span>
-            <button onclick="RetireWellApp.openBookingModal('Fiduciary Strategy Review', 'David Vance, CFP®, RICP®')" class="btn-primary-gold text-xs py-2 px-4">
+            <button onclick="RetireWellApp.openBookingModal('Fiduciary Strategy Review', 'David Vance, CFP®, RICP®')" class="btn-primary-gold text-xs py-1.5 px-3">
               <i class="bi bi-calendar2-check"></i> Schedule Strategy Review
             </button>
-            <button onclick="showDashboardSection('messages', null)" class="btn-secondary-teal text-xs py-2 px-4">
+            <button onclick="showDashboardSection('messages', null)" class="btn-secondary-teal text-xs py-1.5 px-3">
               <i class="bi bi-chat-dots-fill"></i> Message Advisor David
             </button>
-            <button onclick="downloadDemoStatement('STM-2026-Q3')" class="btn-outline-navy text-xs py-2 px-4">
+            <button onclick="downloadDemoStatement('STM-2026-Q3')" class="btn-outline-navy text-xs py-1.5 px-3">
               <i class="bi bi-file-earmark-arrow-down"></i> Download Q3 Statement
             </button>
-            <button onclick="showDashboardSection('projections', null)" class="btn-outline-navy text-xs py-2 px-4">
+            <button onclick="showDashboardSection('projections', null)" class="btn-outline-navy text-xs py-1.5 px-3">
               <i class="bi bi-sliders"></i> Adjust Longevity Model
             </button>
           </div>
@@ -390,7 +446,7 @@
               <!-- Visual Income Composition Bar -->
               <div class="space-y-4">
                 <div>
-                  <div class="flex justify-between text-xs font-bold mb-1">
+                  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-xs font-bold mb-1">
                     <span>Guaranteed Annuity Floor ($4,800) vs Essential Expenses ($4,200)</span>
                     <span class="text-emerald-600 font-bold">114% Funded</span>
                   </div>
@@ -398,7 +454,7 @@
                     <div class="bg-teal-600 h-full" style="width: 70%;" title="Pacific Horizon FIA ($3,250)"></div>
                     <div class="bg-teal-400 h-full" style="width: 30%;" title="Summit Mutual Longevity DIA ($1,550)"></div>
                   </div>
-                  <div class="flex items-center justify-between text-[11px] text-slate-400 mt-1">
+                  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[11px] text-slate-400 mt-1.5">
                     <span><i class="bi bi-square-fill text-teal-600 text-[10px]"></i> Pacific Horizon FIA: $3,250/mo</span>
                     <span><i class="bi bi-square-fill text-teal-400 text-[10px]"></i> Summit Mutual DIA: $1,550/mo</span>
                   </div>
@@ -498,10 +554,10 @@
               <p class="text-xs text-slate-500">Model dynamic accumulation, annuity floors, and safe withdrawal rates</p>
             </div>
             <div class="flex items-center gap-3 no-print">
-              <button onclick="RetireWellProjections.saveCurrentScenario()" class="btn-primary-gold text-xs py-2 px-4 cursor-pointer">
+              <button onclick="RetireWellProjections.saveCurrentScenario()" class="btn-primary-gold text-xs py-1.5 px-3 cursor-pointer">
                 <i class="bi bi-bookmark-plus-fill"></i> Save Scenario
               </button>
-              <button onclick="RetireWellProjections.printProjections()" class="btn-outline-navy text-xs py-2 px-4 cursor-pointer">
+              <button onclick="RetireWellProjections.printProjections()" class="btn-outline-navy text-xs py-1.5 px-3 cursor-pointer">
                 <i class="bi bi-printer-fill"></i> Print Report
               </button>
             </div>
@@ -695,9 +751,9 @@
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white">Statements History</h3>
               
-              <div class="flex items-center gap-3">
-                <input type="text" id="statementSearchInput" placeholder="Search statements..." class="rw-input py-1.5 px-3 text-xs w-48" oninput="filterStatementsTable()">
-                <select id="statementYearFilter" class="rw-input py-1.5 px-3 text-xs w-28 cursor-pointer" onchange="filterStatementsTable()">
+              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
+                <input type="text" id="statementSearchInput" placeholder="Search statements..." class="rw-input py-1.5 px-3 text-xs w-full sm:w-48" oninput="filterStatementsTable()">
+                <select id="statementYearFilter" class="rw-input py-1.5 px-3 text-xs w-full sm:w-28 cursor-pointer" onchange="filterStatementsTable()">
                   <option value="ALL">All Years</option>
                   <option value="2026">2026</option>
                   <option value="2025">2025</option>
@@ -705,8 +761,8 @@
               </div>
             </div>
 
-            <!-- Table Container -->
-            <div class="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800">
+            <!-- Table Container (Desktop & Tablet) -->
+            <div class="hidden sm:block overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800">
               <table class="w-full text-left text-xs text-slate-700 dark:text-slate-300">
                 <thead class="bg-slate-100 dark:bg-navy-950 text-slate-900 dark:text-white font-bold uppercase tracking-wider text-[11px] border-b border-slate-200 dark:border-slate-800">
                   <tr>
@@ -724,6 +780,11 @@
               </table>
             </div>
 
+            <!-- Mobile Statements Cards (< 640px) -->
+            <div class="sm:hidden space-y-3" id="statementsMobileCards">
+              <!-- Injected via JavaScript -->
+            </div>
+
           </div>
 
         </section>
@@ -738,7 +799,7 @@
               <h2 class="text-2xl font-bold font-serif text-slate-900 dark:text-white">Beneficiary Designations</h2>
               <p class="text-xs text-slate-500">Contractual asset transfer designations that bypass probate court</p>
             </div>
-            <button onclick="openAddBeneficiaryModal()" class="btn-primary-gold text-xs py-2 px-4">
+            <button onclick="openAddBeneficiaryModal()" class="btn-primary-gold text-xs py-1.5 px-3">
               <i class="bi bi-person-plus-fill"></i> Add Beneficiary
             </button>
           </div>
@@ -801,14 +862,14 @@
               <h2 class="text-2xl font-bold font-serif text-slate-900 dark:text-white">Client Documents Vault</h2>
               <p class="text-xs text-slate-500">256-bit encrypted repository of annuity contracts and fiduciary agreements</p>
             </div>
-            <button onclick="openUploadDocModal()" class="btn-primary-gold text-xs py-2 px-4">
+            <button onclick="openUploadDocModal()" class="btn-primary-gold text-xs py-1.5 px-3">
               <i class="bi bi-cloud-arrow-up-fill"></i> Upload Document
             </button>
           </div>
 
           <!-- Documents List -->
-          <div class="rw-card p-6 rounded-2xl">
-            <div class="overflow-x-auto">
+          <div class="rw-card p-4 sm:p-6 rounded-2xl">
+            <div class="hidden sm:block overflow-x-auto">
               <table class="w-full text-left text-xs text-slate-700 dark:text-slate-300">
                 <thead class="bg-slate-100 dark:bg-navy-950 text-slate-900 dark:text-white font-bold uppercase tracking-wider text-[11px] border-b border-slate-200 dark:border-slate-800">
                   <tr>
@@ -824,6 +885,11 @@
                 </tbody>
               </table>
             </div>
+
+            <!-- Mobile Documents Cards (< 640px) -->
+            <div class="sm:hidden space-y-3" id="documentsMobileCards">
+              <!-- Injected via JavaScript -->
+            </div>
           </div>
 
         </section>
@@ -833,7 +899,7 @@
              ===================================================================== -->
         <section id="section-messages" class="space-y-8 hidden animate-fade-in">
           
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 h-[600px]">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-[600px]">
             
             <!-- Advisor Details Left (4 cols) -->
             <div class="lg:col-span-4 rw-card p-6 rounded-2xl flex flex-col justify-between">
@@ -849,13 +915,13 @@
                   <p><i class="bi bi-geo-alt-fill text-teal-600 mr-2"></i> Boston Office (Floor 34)</p>
                 </div>
               </div>
-              <button onclick="RetireWellApp.openBookingModal('Review with David Vance', 'David Vance, CFP®, RICP®')" class="btn-primary-gold w-full text-xs py-2.5">
+              <button onclick="RetireWellApp.openBookingModal('Review with David Vance', 'David Vance, CFP®, RICP®')" class="btn-primary-gold w-full text-xs py-1.5 px-3 mt-4 lg:mt-0">
                 <i class="bi bi-calendar2-check"></i> Book Video Meeting
               </button>
             </div>
 
             <!-- Chat Message Thread Right (8 cols) -->
-            <div class="lg:col-span-8 rw-card rounded-2xl flex flex-col justify-between overflow-hidden">
+            <div class="lg:col-span-8 rw-card rounded-2xl flex flex-col justify-between overflow-hidden min-h-[460px] lg:min-h-0">
               <!-- Chat Header -->
               <div class="p-4 bg-slate-50 dark:bg-navy-950/60 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
                 <div class="flex items-center gap-2">
@@ -866,14 +932,14 @@
               </div>
 
               <!-- Message History Bubble Container -->
-              <div id="chatMessageThread" class="p-4 space-y-4 overflow-y-auto flex-1">
+              <div id="chatMessageThread" class="p-4 space-y-4 overflow-y-auto max-h-[340px] lg:max-h-none flex-1">
                 <!-- Injected via JavaScript -->
               </div>
 
               <!-- Chat Input Bar -->
               <div class="p-3 bg-slate-50 dark:bg-navy-950/60 border-t border-slate-200 dark:border-slate-800 flex items-center gap-2">
                 <input type="text" id="chatInputMessage" placeholder="Type a message to David Vance, CFP®..." class="rw-input py-2 text-xs flex-1" onkeydown="if(event.key==='Enter') sendChatMessage()">
-                <button onclick="sendChatMessage()" class="btn-primary-gold py-2 px-4 text-xs font-bold">
+                <button onclick="sendChatMessage()" class="btn-primary-gold py-1.5 px-3 text-xs font-bold">
                   <i class="bi bi-send-fill"></i> Send
                 </button>
               </div>
@@ -925,7 +991,7 @@
                 </div>
               </div>
 
-              <button onclick="saveProfileSettings()" class="btn-primary-gold text-xs py-2 px-5 font-bold">
+              <button onclick="saveProfileSettings()" class="btn-primary-gold text-xs py-1.5 px-3.5 font-bold">
                 Save Contact Updates
               </button>
             </div>
@@ -949,7 +1015,7 @@
                 </div>
               </div>
 
-              <button onclick="updateClientPassword()" class="btn-outline-navy text-xs py-2 px-5 font-bold">
+              <button onclick="updateClientPassword()" class="btn-outline-navy text-xs py-1.5 px-3.5 font-bold">
                 Update Password
               </button>
 
@@ -963,6 +1029,23 @@
                 </div>
               </div>
 
+            </div>
+
+            <!-- Active Fiduciary Session & Sign Out Card -->
+            <div class="rw-card p-6 rounded-2xl space-y-4 md:col-span-2 border border-rose-200/60 dark:border-rose-900/40 bg-gradient-to-r from-rose-50/40 via-white to-rose-50/20 dark:from-rose-950/20 dark:via-navy-900 dark:to-rose-950/10">
+              <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="space-y-1">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white">Active Fiduciary Session</h3>
+                  </div>
+                  <p class="text-xs text-slate-500">You are securely authenticated into your RetireWell fiduciary portal. Click below to sign out and terminate active tokens.</p>
+                </div>
+                <button onclick="handleLogout()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-rose-600 hover:text-white bg-rose-50 hover:bg-rose-600 dark:bg-rose-950/60 dark:hover:bg-rose-600 border border-rose-300 dark:border-rose-800 transition shadow-2xs cursor-pointer flex-shrink-0">
+                  <i class="bi bi-box-arrow-right text-sm"></i>
+                  <span>Sign Out of Portal</span>
+                </button>
+              </div>
             </div>
 
           </div>
@@ -982,22 +1065,22 @@
   <!-- 1. Statement Detail Modal -->
   <div id="statementDetailModal" class="rw-modal-backdrop no-print" role="dialog" aria-modal="true">
     <div class="rw-modal-dialog max-w-lg">
-      <div class="p-6 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-navy-950/50 rounded-t-2xl">
-        <div class="flex items-start justify-between gap-4">
+      <div class="p-4 sm:p-6 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-navy-950/50 rounded-t-2xl">
+        <div class="flex items-start justify-between gap-3 sm:gap-4">
           <!-- Brand Logo & Company Title -->
           <div class="flex items-center gap-3">
-            <div class="w-11 h-11 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 p-1 flex items-center justify-center shadow-md shadow-teal-700/10 flex-shrink-0 overflow-hidden">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 p-1 flex items-center justify-center shadow-md shadow-teal-700/10 flex-shrink-0 overflow-hidden">
               <img src="images/brand-logo.png" alt="RetireWell Logo" class="w-full h-full object-contain">
             </div>
             <div class="flex flex-col">
-              <span class="text-xl font-bold font-serif tracking-tight text-slate-900 dark:text-white flex items-center leading-none">
+              <span class="text-lg sm:text-xl font-bold font-serif tracking-tight text-slate-900 dark:text-white flex items-center leading-none">
                 Retire<span class="text-teal-600 dark:text-teal-400">Well</span>
               </span>
-              <span class="text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-medium mt-1">Annuity &amp; Longevity Wealth Advisory</span>
+              <span class="text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-medium mt-1">Annuity &amp; Longevity Wealth Advisory</span>
             </div>
           </div>
-          <button onclick="RetireWellApp.closeModal('statementDetailModal')" class="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg" aria-label="Close modal">
-            <i class="bi bi-x-lg text-lg"></i>
+          <button onclick="RetireWellApp.closeModal('statementDetailModal')" class="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg transition" aria-label="Close modal">
+            <i class="bi bi-x-lg text-base sm:text-lg"></i>
           </button>
         </div>
 
@@ -1008,7 +1091,7 @@
               <span class="rw-badge-teal text-[10px] font-bold">STATEMENT RECORD</span>
               <span id="stmtModalIdBadge" class="text-xs font-mono font-bold text-teal-600 dark:text-teal-400"></span>
             </div>
-            <h3 id="stmtModalTitle" class="text-lg font-bold font-serif text-slate-900 dark:text-white mt-0.5"></h3>
+            <h3 id="stmtModalTitle" class="text-base sm:text-lg font-bold font-serif text-slate-900 dark:text-white mt-0.5 leading-tight"></h3>
           </div>
           <span class="hidden sm:inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">
             <i class="bi bi-patch-check-fill"></i> SEC-Verified
@@ -1016,19 +1099,19 @@
         </div>
       </div>
 
-      <div class="p-6 space-y-4 text-xs" id="stmtModalBody">
+      <div class="p-4 sm:p-6 space-y-4 text-xs" id="stmtModalBody">
         <!-- Injected via JavaScript -->
       </div>
 
-      <div class="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-navy-950/50 flex flex-wrap items-center justify-between gap-3 rounded-b-2xl">
-        <button onclick="RetireWellApp.closeModal('statementDetailModal')" class="btn-outline-navy py-2 px-4 text-xs">
+      <div class="p-3.5 sm:p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-navy-950/50 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 rounded-b-2xl">
+        <button onclick="RetireWellApp.closeModal('statementDetailModal')" class="btn-outline-navy py-1.5 px-3 text-xs text-center justify-center">
           Close
         </button>
-        <div class="flex items-center gap-2">
-          <button onclick="downloadOfficialStatementFile()" class="btn-outline-navy py-2 px-3 text-xs font-bold flex items-center gap-1.5" title="Download standalone official statement file">
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="downloadOfficialStatementFile()" class="btn-outline-navy flex-1 sm:flex-initial py-1.5 px-3 text-xs font-bold flex items-center justify-center gap-1.5" title="Download standalone official statement file">
             <i class="bi bi-file-earmark-arrow-down-fill text-teal-600"></i> Download Statement
           </button>
-          <button onclick="printOfficialStatement()" class="btn-primary-gold py-2 px-4 text-xs font-bold flex items-center gap-1.5" title="Print or save as official PDF">
+          <button onclick="printOfficialStatement()" class="btn-primary-gold flex-1 sm:flex-initial py-1.5 px-3.5 text-xs font-bold flex items-center justify-center gap-1.5" title="Print or save as official PDF">
             <i class="bi bi-printer-fill"></i> Print / Save PDF
           </button>
         </div>
@@ -1039,14 +1122,14 @@
   <!-- 2. Add / Edit Beneficiary Modal -->
   <div id="beneficiaryModal" class="rw-modal-backdrop no-print" role="dialog" aria-modal="true">
     <div class="rw-modal-dialog max-w-md">
-      <div class="p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-navy-950/50 rounded-t-2xl">
-        <h3 id="benModalTitle" class="text-lg font-bold font-serif text-slate-900 dark:text-white">Add Beneficiary Designation</h3>
-        <button onclick="RetireWellApp.closeModal('beneficiaryModal')" class="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg">
-          <i class="bi bi-x-lg text-lg"></i>
+      <div class="p-4 sm:p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-navy-950/50 rounded-t-2xl">
+        <h3 id="benModalTitle" class="text-base sm:text-lg font-bold font-serif text-slate-900 dark:text-white leading-tight">Add Beneficiary Designation</h3>
+        <button onclick="RetireWellApp.closeModal('beneficiaryModal')" class="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg transition" aria-label="Close dialog">
+          <i class="bi bi-x-lg text-base sm:text-lg"></i>
         </button>
       </div>
 
-      <form onsubmit="handleBeneficiaryFormSubmit(event)" class="p-6 space-y-4 text-xs">
+      <form onsubmit="handleBeneficiaryFormSubmit(event)" class="p-4 sm:p-6 space-y-4 text-xs">
         <input type="hidden" id="benEditId" value="">
         
         <div>
@@ -1057,7 +1140,7 @@
             oninput="RetireWellApp.allowAlphabetsOnly(this)">
         </div>
 
-        <div class="grid grid-cols-2 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label class="block font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Designation Type *</label>
             <select id="benType" class="rw-input cursor-pointer">
@@ -1071,7 +1154,7 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label class="block font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Relationship</label>
             <input type="text" id="benRelation" class="rw-input" placeholder="e.g. Spouse / Child / Trust">
@@ -1087,11 +1170,11 @@
           <input type="text" id="benContact" class="rw-input" placeholder="contact@example.com">
         </div>
 
-        <div class="pt-2 flex justify-end gap-3">
-          <button type="button" onclick="RetireWellApp.closeModal('beneficiaryModal')" class="btn-outline-navy py-2 px-4 text-xs">
+        <div class="pt-2 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-3">
+          <button type="button" onclick="RetireWellApp.closeModal('beneficiaryModal')" class="btn-outline-navy py-1.5 px-3 text-xs text-center justify-center">
             Cancel
           </button>
-          <button type="submit" class="btn-primary-gold py-2 px-5 text-xs font-bold">
+          <button type="submit" class="btn-primary-gold py-1.5 px-3.5 text-xs font-bold text-center justify-center">
             Save Designation
           </button>
         </div>
@@ -1102,14 +1185,14 @@
   <!-- 3. Upload Document Modal -->
   <div id="uploadDocModal" class="rw-modal-backdrop no-print" role="dialog" aria-modal="true">
     <div class="rw-modal-dialog max-w-md">
-      <div class="p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-navy-950/50 rounded-t-2xl">
-        <h3 class="text-lg font-bold font-serif text-slate-900 dark:text-white">Upload to Vault</h3>
-        <button onclick="RetireWellApp.closeModal('uploadDocModal')" class="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg">
-          <i class="bi bi-x-lg text-lg"></i>
+      <div class="p-4 sm:p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-navy-950/50 rounded-t-2xl">
+        <h3 class="text-base sm:text-lg font-bold font-serif text-slate-900 dark:text-white leading-tight">Upload to Vault</h3>
+        <button onclick="RetireWellApp.closeModal('uploadDocModal')" class="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg transition" aria-label="Close dialog">
+          <i class="bi bi-x-lg text-base sm:text-lg"></i>
         </button>
       </div>
 
-      <form onsubmit="handleDocUploadSubmit(event)" class="p-6 space-y-4 text-xs">
+      <form onsubmit="handleDocUploadSubmit(event)" class="p-4 sm:p-6 space-y-4 text-xs">
         <div>
           <label class="block font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Document Title *</label>
           <input type="text" id="docTitleInput" required class="rw-input" placeholder="e.g. 2026 Roth Conversion Form">
@@ -1126,7 +1209,7 @@
         </div>
 
         <!-- Drag & Drop simulator -->
-        <div class="border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-6 text-center space-y-2">
+        <div class="border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-4 sm:p-6 text-center space-y-2">
           <i class="bi bi-cloud-arrow-up text-3xl text-teal-600"></i>
           <p class="font-bold text-slate-900 dark:text-white">Select or drop PDF document here</p>
           <p class="text-[10px] text-slate-400">Maximum file size: 25 MB (AES-256 encrypted)</p>
@@ -1137,11 +1220,11 @@
           <p id="fileNameDisplay" class="text-xs text-teal-600 font-semibold"></p>
         </div>
 
-        <div class="pt-2 flex justify-end gap-3">
-          <button type="button" onclick="RetireWellApp.closeModal('uploadDocModal')" class="btn-outline-navy py-2 px-4 text-xs">
+        <div class="pt-2 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-3">
+          <button type="button" onclick="RetireWellApp.closeModal('uploadDocModal')" class="btn-outline-navy py-1.5 px-3 text-xs text-center justify-center">
             Cancel
           </button>
-          <button type="submit" class="btn-primary-gold py-2 px-5 text-xs font-bold">
+          <button type="submit" class="btn-primary-gold py-1.5 px-3.5 text-xs font-bold text-center justify-center">
             Upload File
           </button>
         </div>
@@ -1241,6 +1324,9 @@
     function toggleNotificationPanel() {
       const panel = document.getElementById('notifPanel');
       panel.classList.toggle('hidden');
+      if (!panel.classList.contains('hidden') && typeof toggleProfileDropdown === 'function') {
+        toggleProfileDropdown(false);
+      }
     }
 
     function renderNotifications() {
@@ -1321,6 +1407,27 @@
           </td>
         </tr>
       `).join('');
+
+      const mobileContainer = document.getElementById('statementsMobileCards');
+      if (mobileContainer) {
+        mobileContainer.innerHTML = stmts.map(s => `
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800 space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="font-mono font-bold text-xs text-teal-600">${s.id}</span>
+              <span class="text-[11px] text-slate-400">${s.statementDate}</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="font-semibold text-xs sm:text-sm text-slate-900 dark:text-white">${s.accountName}</span>
+              <span class="font-bold font-serif text-sm text-teal-700 dark:text-teal-400">$${s.endingBalance.toLocaleString()}</span>
+            </div>
+            <div class="text-[11px] text-slate-500">${s.period}</div>
+            <div class="flex items-center gap-2 pt-2 border-t border-slate-200/80 dark:border-slate-800">
+              <button onclick="openStatementModal('${s.id}')" class="btn-outline-navy flex-1 py-1.5 text-xs text-center">View</button>
+              <button onclick="downloadDemoStatement('${s.id}')" class="btn-primary-gold flex-1 py-1.5 text-xs font-bold text-center"><i class="bi bi-download"></i> PDF</button>
+            </div>
+          </div>
+        `).join('');
+      }
     }
 
     let currentStatementData = null;
@@ -1509,6 +1616,19 @@
     .sig-line { border-top: 1px solid #0f172a; width: 190px; padding-top: 3px; font-weight: 600; text-align: center; }
     .footer-note { text-align: center; font-size: 9.5px; color: #94a3b8; margin-top: 12px; line-height: 1.35; page-break-inside: avoid; break-inside: avoid; }
     
+    @media (max-width: 640px) {
+      body { padding: 8px !important; }
+      .statement-container { padding: 12px !important; }
+      .header { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .corp-details { text-align: left; }
+      .statement-meta { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .statement-meta .text-right { text-align: left; }
+      .grid-2 { grid-template-columns: 1fr; gap: 8px; }
+      .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 14px; }
+      .signature-row { flex-direction: column; gap: 14px; align-items: flex-start; }
+      .sig-line { width: 100%; max-width: 220px; text-align: left; }
+    }
+
     @media print {
       @page {
         size: letter portrait;
@@ -1581,6 +1701,7 @@
       </div>
     </div>
 
+    <div class="table-wrapper">
     <table>
       <thead>
         <tr>
@@ -1629,6 +1750,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
 
     <div class="guarantee-box">
       <strong>Fiduciary Standard of Care &amp; Principal Protection Certification</strong>
@@ -1869,6 +1991,28 @@
           </td>
         </tr>
       `).join('');
+
+      const mobileDocsContainer = document.getElementById('documentsMobileCards');
+      if (mobileDocsContainer) {
+        mobileDocsContainer.innerHTML = docs.map(d => `
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800 space-y-2.5">
+            <div class="flex items-start justify-between gap-2">
+              <div class="flex items-center gap-2 font-bold text-xs text-slate-900 dark:text-white">
+                <i class="bi bi-file-earmark-pdf-fill text-rose-600 text-base flex-shrink-0"></i>
+                <span class="break-words">${d.title}</span>
+              </div>
+              <span class="rw-badge-teal text-[9px] flex-shrink-0">${d.category}</span>
+            </div>
+            <div class="flex items-center justify-between text-[11px] text-slate-500">
+              <span>${d.account}</span>
+              <span>${d.dateAdded} (${d.size})</span>
+            </div>
+            <button onclick="downloadDemoDoc('${d.title}')" class="btn-outline-navy w-full py-1.5 text-xs">
+              <i class="bi bi-download"></i> Download Document
+            </button>
+          </div>
+        `).join('');
+      }
     }
 
     function openUploadDocModal() {
@@ -2143,12 +2287,42 @@
       document.getElementById('setConfirmPwd').value = '';
     }
 
-    function handleLogout() {
-      RetireWellDB.logout();
-      RetireWellApp.toast('Signed out of fiduciary session. Redirecting...', 'info', 1500);
-      setTimeout(() => {
-        window.location.href = 'login.html';
-      }, 800);
+    // Sync Logged-In User Information from Session / DB
+    function syncLoggedInUserUI() {
+      try {
+        const session = window.RetireWellDB ? window.RetireWellDB.getSession() : null;
+        const user = (session && session.user) || (window.RetireWellDB ? window.RetireWellDB.get('user') : null);
+        if (user && user.name) {
+          const userName = user.name;
+          const userEmail = user.email || 'user@gmail.com';
+          const userId = user.id ? String(user.id).toUpperCase().replace('USR_', 'USR-') : 'USR-882910';
+
+          const welcomeEl = document.getElementById('topBarUserWelcome');
+          if (welcomeEl) welcomeEl.textContent = `Welcome, ${userName} • ID #${userId}`;
+
+          const barNameEl = document.getElementById('topBarUserName');
+          if (barNameEl) barNameEl.textContent = userName;
+
+          const dropNameEl = document.getElementById('dropdownUserName');
+          if (dropNameEl) dropNameEl.textContent = userName;
+
+          const dropEmailEl = document.getElementById('dropdownUserEmail');
+          if (dropEmailEl) dropEmailEl.textContent = userEmail;
+
+          const initialEl = document.getElementById('dropdownUserInitial');
+          if (initialEl) {
+            const initials = userName.split(' ').map(n => n[0]).filter(Boolean).slice(0, 2).join('').toUpperCase();
+            initialEl.textContent = initials || 'RW';
+          }
+
+          const setProfileName = document.getElementById('setProfileName');
+          if (setProfileName && (!setProfileName.value || setProfileName.value === 'Robert Vance')) setProfileName.value = userName;
+          const setProfileEmail = document.getElementById('setProfileEmail');
+          if (setProfileEmail && (!setProfileEmail.value || setProfileEmail.value === 'user@gmail.com')) setProfileEmail.value = userEmail;
+        }
+      } catch (err) {
+        console.warn('[RetireWell] Could not sync user info:', err);
+      }
     }
 
     // Initialize Dashboard on load
@@ -2165,6 +2339,7 @@
 
       // 2. Safe rendering of widgets
       const initializers = [
+        ['UserInfo', syncLoggedInUserUI],
         ['Notifications', renderNotifications],
         ['Accounts', renderAccounts],
         ['Statements', renderStatements],
@@ -2180,6 +2355,17 @@
           if (typeof fn === 'function') fn();
         } catch (err) {
           console.warn(`[RetireWell Init] Error initializing ${name}:`, err);
+        }
+      });
+
+      // 3. Close Profile Dropdown on Click Outside
+      document.addEventListener('click', (e) => {
+        const pDropdown = document.getElementById('profileDropdown');
+        const pWrapper = document.getElementById('profileDropdownWrapper');
+        if (pDropdown && !pDropdown.classList.contains('hidden')) {
+          if (!pWrapper?.contains(e.target)) {
+            pDropdown.classList.add('hidden');
+          }
         }
       });
     });

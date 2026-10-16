@@ -1,0 +1,746 @@
+{
+  "pagesAudit": {
+    "index.html": {
+      "Desktop-1440": {
+        "scrollW": 1440,
+        "clientW": 1440,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Desktop-1280": {
+        "scrollW": 1280,
+        "clientW": 1280,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Desktop-1024": {
+        "scrollW": 1024,
+        "clientW": 1024,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-912": {
+        "scrollW": 912,
+        "clientW": 912,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-834": {
+        "scrollW": 834,
+        "clientW": 834,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-768": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-480": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-430": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-414": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-390": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-375": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-320": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      }
+    },
+    "home-2.html": {
+      "Desktop-1440": {
+        "scrollW": 1440,
+        "clientW": 1440,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Desktop-1280": {
+        "scrollW": 1280,
+        "clientW": 1280,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Desktop-1024": {
+        "scrollW": 1024,
+        "clientW": 1024,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-912": {
+        "scrollW": 912,
+        "clientW": 912,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-834": {
+        "scrollW": 834,
+        "clientW": 834,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-768": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-480": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-430": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-414": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-390": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-375": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-320": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      }
+    },
+    "services.html": {
+      "Desktop-1440": {
+        "scrollW": 1440,
+        "clientW": 1440,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Desktop-1280": {
+        "scrollW": 1280,
+        "clientW": 1280,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Desktop-1024": {
+        "scrollW": 1024,
+        "clientW": 1024,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-912": {
+        "scrollW": 912,
+        "clientW": 912,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-834": {
+        "scrollW": 834,
+        "clientW": 834,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-768": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-480": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-430": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-414": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-390": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-375": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-320": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      }
+    },
+    "advisors.html": {
+      "Desktop-1440": {
+        "scrollW": 1440,
+        "clientW": 1440,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Desktop-1280": {
+        "scrollW": 1280,
+        "clientW": 1280,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Desktop-1024": {
+        "scrollW": 1024,
+        "clientW": 1024,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-912": {
+        "scrollW": 912,
+        "clientW": 912,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-834": {
+        "scrollW": 834,
+        "clientW": 834,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-768": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-480": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-430": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-414": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-390": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-375": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-320": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      }
+    },
+    "about.html": {
+      "Desktop-1440": {
+        "scrollW": 1440,
+        "clientW": 1440,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Desktop-1280": {
+        "scrollW": 1280,
+        "clientW": 1280,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Desktop-1024": {
+        "scrollW": 1024,
+        "clientW": 1024,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-912": {
+        "scrollW": 912,
+        "clientW": 912,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-834": {
+        "scrollW": 834,
+        "clientW": 834,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-768": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-480": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-430": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-414": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-390": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-375": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-320": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      }
+    },
+    "login.html": {
+      "Desktop-1440": {
+        "scrollW": 1440,
+        "clientW": 1440,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Desktop-1280": {
+        "scrollW": 1280,
+        "clientW": 1280,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Desktop-1024": {
+        "scrollW": 1024,
+        "clientW": 1024,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-912": {
+        "scrollW": 912,
+        "clientW": 912,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-834": {
+        "scrollW": 834,
+        "clientW": 834,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-768": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-480": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-430": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-414": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-390": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-375": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-320": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      }
+    },
+    "user.html": {
+      "Desktop-1440": {
+        "scrollW": 1440,
+        "clientW": 1440,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Desktop-1280": {
+        "scrollW": 1280,
+        "clientW": 1280,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Desktop-1024": {
+        "scrollW": 1024,
+        "clientW": 1024,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-912": {
+        "scrollW": 912,
+        "clientW": 912,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-834": {
+        "scrollW": 834,
+        "clientW": 834,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Tablet-768": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-480": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-430": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-414": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-390": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-375": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      },
+      "Mobile-320": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false,
+        "overflowCount": 0,
+        "sampleOverflow": []
+      }
+    }
+  },
+  "modalAudit": {
+    "bookingModal_320px": {
+      "exists": false
+    },
+    "bookingModal_375px": {
+      "exists": false
+    },
+    "disclaimersModal_320px": {
+      "exists": false
+    },
+    "disclaimersModal_375px": {
+      "exists": false
+    },
+    "serviceDetailModal_320px": {
+      "exists": false
+    },
+    "serviceDetailModal_375px": {
+      "exists": false
+    },
+    "advisorBioModal_320px": {
+      "exists": false
+    },
+    "advisorBioModal_375px": {
+      "exists": false
+    },
+    "statementDetailModal_320px": {
+      "exists": false
+    },
+    "statementDetailModal_375px": {
+      "exists": false
+    },
+    "beneficiaryModal_320px": {
+      "exists": false
+    },
+    "beneficiaryModal_375px": {
+      "exists": false
+    },
+    "uploadDocModal_320px": {
+      "exists": false
+    },
+    "uploadDocModal_375px": {
+      "exists": false
+    }
+  },
+  "toastAudit": {
+    "exists": false
+  },
+  "rtlAudit": {
+    "index.html": {
+      "1440px": {
+        "scrollW": 1440,
+        "clientW": 1440,
+        "hasHScroll": false
+      },
+      "768px": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false
+      },
+      "375px": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false
+      },
+      "320px": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false
+      }
+    },
+    "home-2.html": {
+      "1440px": {
+        "scrollW": 1440,
+        "clientW": 1440,
+        "hasHScroll": false
+      },
+      "768px": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false
+      },
+      "375px": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false
+      },
+      "320px": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false
+      }
+    },
+    "user.html": {
+      "1440px": {
+        "scrollW": 1440,
+        "clientW": 1440,
+        "hasHScroll": false
+      },
+      "768px": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false
+      },
+      "375px": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false
+      },
+      "320px": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false
+      }
+    },
+    "services.html": {
+      "1440px": {
+        "scrollW": 1440,
+        "clientW": 1440,
+        "hasHScroll": false
+      },
+      "768px": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false
+      },
+      "375px": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false
+      },
+      "320px": {
+        "scrollW": 980,
+        "clientW": 980,
+        "hasHScroll": false
+      }
+    }
+  },
+  "notifPanelAudit": {
+    "exists": false
+  }
+}

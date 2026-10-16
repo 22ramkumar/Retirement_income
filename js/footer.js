@@ -154,14 +154,14 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
 
             <!-- Elevated VIP Card Box (rw-card-gold luxury styling) -->
-            <div class="rw-card rw-card-gold rounded-2xl p-5 shadow-lg space-y-3.5">
+            <div class="rw-card rw-card-gold rounded-2xl p-4 sm:p-5 shadow-lg space-y-3.5">
               <!-- Top Badges Row -->
               <div class="flex items-center justify-between gap-2">
                 <span class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-navy-800 border border-slate-200/80 dark:border-slate-700/80 text-[10px] font-bold text-slate-700 dark:text-slate-300 tracking-wider uppercase">
-                  Safe Stay Promise
+                  Strict Fiduciary Oath
                 </span>
                 <span class="rw-badge-gold text-[10px]">
-                  $25 Welcome Gift
+                  Complimentary Guide
                 </span>
               </div>
 
@@ -171,14 +171,14 @@ document.addEventListener("DOMContentLoaded", () => {
                   Join our VIP Community
                 </h4>
                 <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mt-1">
-                  Weekly vet wellness advice, holiday priority, and special member perks.
+                  Weekly fiduciary income insights, carrier rate alerts, and longevity wealth strategy.
                 </p>
               </div>
 
               <!-- Subscription Form -->
               <form onsubmit="event.preventDefault(); RetireWellApp.toast('Welcome to our VIP Community! Your welcome gift has been emailed.', 'success'); this.reset();" class="space-y-2.5">
                 <input type="email" required placeholder="Enter your email address..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/70 dark:bg-navy-950 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 transition">
-                <button type="submit" class="btn-primary-gold w-full py-2.5 px-4 rounded-xl text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-1.5 cursor-pointer">
+                <button type="submit" class="btn-primary-gold w-full py-2 px-3.5 rounded-lg text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-1.5 cursor-pointer">
                   <span>Subscribe Free</span>
                   <i class="bi bi-arrow-right text-xs"></i>
                 </button>
@@ -194,17 +194,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         </div>
 
-        <!-- Bottom Copyright & Links (Guaranteed Single Straight Line Layout) -->
-        <div class="pt-8 w-full flex flex-col lg:flex-row items-center justify-between text-xs text-slate-500 dark:text-slate-400 gap-4">
-          <p class="whitespace-nowrap text-center lg:text-left">
+        <!-- Bottom Copyright & Links -->
+        <div class="pt-8 w-full flex flex-col lg:flex-row items-center justify-between text-xs text-slate-500 dark:text-slate-400 gap-4 text-center lg:text-left">
+          <p class="lg:whitespace-nowrap max-w-full">
             © 2026 RetireWell Fiduciary Partners LLC. All rights reserved. Member FINRA / SIPC.
           </p>
-          <div class="flex items-center justify-center gap-3 sm:gap-5 whitespace-nowrap">
-            <button onclick="RetireWellApp.openDisclaimersModal()" class="whitespace-nowrap hover:text-slate-900 dark:hover:text-white transition cursor-pointer">Form CRS (Customer Relationship)</button>
+          <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 lg:whitespace-nowrap">
+            <button onclick="RetireWellApp.openDisclaimersModal()" class="hover:text-slate-900 dark:hover:text-white transition cursor-pointer">Form CRS (Customer Relationship)</button>
             <span class="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
-            <button onclick="RetireWellApp.openDisclaimersModal()" class="whitespace-nowrap hover:text-slate-900 dark:hover:text-white transition cursor-pointer">Privacy &amp; 256-Bit Security</button>
+            <button onclick="RetireWellApp.openDisclaimersModal()" class="hover:text-slate-900 dark:hover:text-white transition cursor-pointer">Privacy &amp; 256-Bit Security</button>
             <span class="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
-            <button onclick="RetireWellApp.openDisclaimersModal()" class="whitespace-nowrap hover:text-slate-900 dark:hover:text-white transition cursor-pointer">Terms of Advisory</button>
+            <button onclick="RetireWellApp.openDisclaimersModal()" class="hover:text-slate-900 dark:hover:text-white transition cursor-pointer">Terms of Advisory</button>
           </div>
         </div>
 
@@ -219,23 +219,23 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="rw-modal-dialog">
         
         <!-- Modal Header -->
-        <div class="p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-navy-950/50 rounded-t-2xl">
+        <div class="p-4 sm:p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-navy-950/50 rounded-t-2xl">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg border border-amber-500/20">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg border border-amber-500/20 flex-shrink-0">
               <i class="bi bi-calendar2-week"></i>
             </div>
             <div>
-              <h3 id="bookingModalTitle" class="text-lg font-bold font-serif text-slate-900 dark:text-white">Schedule Fiduciary Consultation</h3>
-              <p class="text-xs text-slate-500 dark:text-slate-400">Complimentary 45-minute retirement income & annuity blueprint</p>
+              <h3 id="bookingModalTitle" class="text-base sm:text-lg font-bold font-serif text-slate-900 dark:text-white leading-tight">Schedule Fiduciary Consultation</h3>
+              <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400">Complimentary 45-minute retirement income & annuity blueprint</p>
             </div>
           </div>
           <button onclick="RetireWellApp.closeModal('bookingModal')" class="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg transition" aria-label="Close dialog">
-            <i class="bi bi-x-lg text-lg"></i>
+            <i class="bi bi-x-lg text-base sm:text-lg"></i>
           </button>
         </div>
 
         <!-- Form Section -->
-        <div id="bookingFormSection" class="p-6">
+        <div id="bookingFormSection" class="p-4 sm:p-6">
           <form onsubmit="RetireWellApp.submitBooking(event)" class="space-y-4">
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -320,11 +320,11 @@ document.addEventListener("DOMContentLoaded", () => {
               <span><strong>Fiduciary Oath:</strong> No sales pressure, no proprietary quotas. You receive an objective, mathematical analysis of carrier options.</span>
             </div>
 
-            <div class="pt-2 flex items-center justify-end gap-3">
-              <button type="button" onclick="RetireWellApp.closeModal('bookingModal')" class="btn-outline-navy py-2.5 px-4 text-xs">
+            <div class="pt-2 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-3">
+              <button type="button" onclick="RetireWellApp.closeModal('bookingModal')" class="btn-outline-navy py-1.5 px-3.5 text-xs text-center justify-center">
                 Cancel
               </button>
-              <button type="submit" class="btn-primary-gold py-2.5 px-6 text-xs uppercase tracking-wider font-bold">
+              <button type="submit" class="btn-primary-gold py-1.5 px-4 text-xs uppercase tracking-wider font-bold text-center justify-center">
                 <i class="bi bi-check2-circle text-base"></i> Confirm Reservation
               </button>
             </div>
@@ -333,7 +333,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
 
         <!-- Success Section (Displayed after form submit) -->
-        <div id="bookingSuccessSection" class="p-8 text-center space-y-4 hidden">
+        <div id="bookingSuccessSection" class="p-5 sm:p-8 text-center space-y-4 hidden">
           <div class="w-16 h-16 rounded-full bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 mx-auto flex items-center justify-center text-3xl shadow-inner">
             <i class="bi bi-check-lg"></i>
           </div>
@@ -342,11 +342,11 @@ document.addEventListener("DOMContentLoaded", () => {
           <p id="bookingSummaryText" class="text-sm text-slate-600 dark:text-slate-300 max-w-md mx-auto leading-relaxed">
             Your appointment has been registered in the Fiduciary System. A secure calendar invite and preparatory checklist have been dispatched to your email.
           </p>
-          <div class="pt-4 flex items-center justify-center gap-3">
-            <a href="user.html" class="btn-secondary-teal text-xs py-2.5 px-5">
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a href="user.html" class="btn-secondary-teal text-xs py-1.5 px-4 w-full sm:w-auto text-center justify-center">
               <i class="bi bi-speedometer2"></i> View in Client Dashboard
             </a>
-            <button onclick="RetireWellApp.closeModal('bookingModal')" class="btn-outline-navy text-xs py-2.5 px-5">
+            <button onclick="RetireWellApp.closeModal('bookingModal')" class="btn-outline-navy text-xs py-1.5 px-4 w-full sm:w-auto text-center justify-center">
               Done
             </button>
           </div>
@@ -360,22 +360,22 @@ document.addEventListener("DOMContentLoaded", () => {
          ========================================================================= -->
     <div id="disclaimersModal" class="rw-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="disclaimersModalTitle">
       <div class="rw-modal-dialog max-w-2xl">
-        <div class="p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-navy-950/50 rounded-t-2xl">
+        <div class="p-4 sm:p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-navy-950/50 rounded-t-2xl">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center font-bold text-lg">
+            <div class="w-10 h-10 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center font-bold text-lg flex-shrink-0">
               <i class="bi bi-file-earmark-lock2-fill"></i>
             </div>
             <div>
-              <h3 id="disclaimersModalTitle" class="text-lg font-bold font-serif text-slate-900 dark:text-white">Fiduciary & Regulatory Disclosures</h3>
-              <p class="text-xs text-slate-500 dark:text-slate-400">SEC Registered Investment Adviser & National Carrier Brokerage</p>
+              <h3 id="disclaimersModalTitle" class="text-base sm:text-lg font-bold font-serif text-slate-900 dark:text-white leading-tight">Fiduciary & Regulatory Disclosures</h3>
+              <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400">SEC Registered Investment Adviser & National Carrier Brokerage</p>
             </div>
           </div>
           <button onclick="RetireWellApp.closeModal('disclaimersModal')" class="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg transition" aria-label="Close dialog">
-            <i class="bi bi-x-lg text-lg"></i>
+            <i class="bi bi-x-lg text-base sm:text-lg"></i>
           </button>
         </div>
 
-        <div class="p-6 space-y-4 text-xs text-slate-600 dark:text-slate-300 leading-relaxed max-h-[60vh] overflow-y-auto">
+        <div class="p-4 sm:p-6 space-y-4 text-xs text-slate-600 dark:text-slate-300 leading-relaxed max-h-[60vh] overflow-y-auto">
           <div>
             <h5 class="text-sm font-bold text-slate-900 dark:text-white mb-1">1. Fiduciary Standard of Care</h5>
             <p>RetireWell Advisory Group LLC operates under the Investment Advisers Act of 1940 as a Registered Investment Adviser (RIA). We owe a legal and ethical fiduciary duty to each client to act solely in their best interests, to disclose all material conflicts, and to maintain transparent compensation.</p>
@@ -402,8 +402,8 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
 
-        <div class="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-navy-950/50 flex justify-end rounded-b-2xl">
-          <button onclick="RetireWellApp.closeModal('disclaimersModal')" class="btn-primary-gold py-2 px-5 text-xs">
+        <div class="p-3.5 sm:p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-navy-950/50 flex justify-end rounded-b-2xl">
+          <button onclick="RetireWellApp.closeModal('disclaimersModal')" class="btn-primary-gold py-1.5 px-4 text-xs w-full sm:w-auto text-center justify-center">
             I Understand & Acknowledge
           </button>
         </div>

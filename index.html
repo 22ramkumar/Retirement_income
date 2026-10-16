@@ -16,48 +16,9 @@
   <link rel="alternate icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
 
-  <!-- Tailwind CSS & Bootstrap Icons -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Production Compiled Tailwind CSS & Bootstrap Icons -->
+  <link rel="stylesheet" href="css/tailwind.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  
-  <!-- Tailwind Config -->
-  <script>
-    tailwind.config = {
-      darkMode: ['class', '[data-theme="dark"]'],
-      theme: {
-        extend: {
-          colors: {
-            navy: {
-              950: '#070D1B',
-              900: '#0A192F',
-              800: '#112240',
-              700: '#1D3557'
-            },
-            teal: {
-              50: '#F0FDFA',
-              100: '#CCFBF1',
-              500: '#14B8A6',
-              600: '#0D9488',
-              700: '#0F766E',
-              800: '#115E59',
-              900: '#134E4A'
-            },
-            amber: {
-              50: '#FFFBEB',
-              100: '#FEF3C7',
-              500: '#F59E0B',
-              600: '#D97706',
-              700: '#B45309'
-            }
-          },
-          fontFamily: {
-            serif: ['Lora', 'Georgia', 'serif'],
-            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
 
   <!-- Custom Theme Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
@@ -70,69 +31,69 @@
   <!-- =========================================================================
        HERO SECTION: REASSURING RETIREMENT CONFIDENCE
        ========================================================================= -->
-  <section class="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden">
-    <!-- Hero Section Background: Retirement Wealth Growth & Stock Candlestick Chart -->
+  <section class="relative pt-6 pb-8 sm:pt-12 sm:pb-20 lg:pt-20 lg:pb-32 overflow-hidden">
+    <!-- Hero Section Background: Retirement Wealth & Money Stacks with Financial Analytics -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
-      <img src="images/hero-home1-coins-chart.png" 
-        alt="Retirement wealth growth with stacked coins, hand saving wealth, and financial growth candlestick chart" 
+      <img src="images/hero-home1-money.jpg" 
+        alt="Luxury retirement wealth management with stacked hundred dollar currency bills, golden coins, and financial portfolio growth charts" 
         class="w-full h-full object-cover object-center scale-105 filter brightness-[0.95] dark:brightness-[0.78] contrast-[1.03]">
       <!-- Refined ambient overlay for optimal readability in both light & dark themes -->
       <div class="absolute inset-0 bg-slate-950/20 dark:bg-navy-950/45 pointer-events-none"></div>
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 lg:gap-8 items-center">
         
         <!-- Hero Text & Value Proposition (7 cols) with Frosted Glass Legibility Card -->
-        <div class="lg:col-span-7 p-6 sm:p-8 lg:p-10 rounded-3xl rw-card-glass shadow-2xl space-y-6 relative overflow-hidden">
+        <div class="lg:col-span-7 p-4 sm:p-8 lg:p-10 rounded-2xl sm:rounded-3xl rw-card-glass shadow-2xl space-y-3.5 sm:space-y-6 relative overflow-hidden">
           
-          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/80 border border-teal-300 dark:border-teal-700 text-teal-800 dark:text-teal-300 text-xs font-bold tracking-wide shadow-sm">
-            <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+          <div class="inline-flex items-center flex-wrap sm:flex-nowrap gap-1.5 sm:gap-2.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/80 border border-teal-300 dark:border-teal-700 text-teal-800 dark:text-teal-300 text-[10px] sm:text-xs font-bold tracking-wide shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse flex-shrink-0"></span>
             <span>SEC-REGISTERED FIDUCIARY ADVISORY</span>
-            <span class="text-slate-300 dark:text-slate-700">|</span>
+            <span class="hidden sm:inline text-slate-300 dark:text-slate-700">|</span>
             <span class="text-amber-600 dark:text-amber-400 font-bold">100% INDEPENDENT</span>
           </div>
 
-          <div class="space-y-4">
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-serif text-slate-950 dark:text-white leading-[1.18] tracking-tight">
-              Retire With Confidence. <br>
+          <div class="space-y-2.5 sm:space-y-4">
+            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold font-serif text-slate-950 dark:text-white leading-tight sm:leading-[1.18] tracking-tight">
+              Retire With Confidence. <br class="hidden sm:inline">
               <span class="text-gradient-teal italic">Income That Lasts</span> As Long As You Do.
             </h1>
-            <p class="text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed max-w-2xl font-normal">
+            <p class="text-xs sm:text-base lg:text-lg text-slate-700 dark:text-slate-200 leading-relaxed max-w-2xl font-normal">
               Personalised annuity and guaranteed retirement income planning, built mathematically around your goals, your family, and your peace of mind.
             </p>
           </div>
 
           <!-- Hero CTAs: Centered Plan My Retirement Button -->
-          <div class="flex justify-center items-center pt-2">
+          <div class="flex justify-center items-center pt-1 sm:pt-2">
             <button onclick="RetireWellApp.openBookingModal('Comprehensive Retirement Income Plan')" 
-              class="btn-primary-gold text-base py-4 px-9 shadow-xl shadow-amber-600/30 font-bold text-center">
-              <i class="bi bi-calendar2-check-fill text-lg"></i>
+              class="btn-primary-gold text-xs sm:text-sm py-2 sm:py-2.5 px-4 sm:px-6 shadow-md shadow-amber-600/25 font-bold text-center">
+              <i class="bi bi-calendar2-check-fill text-sm sm:text-base"></i>
               <span>Plan My Retirement</span>
             </button>
           </div>
 
-          <!-- Fiduciary Trust Badges -->
-          <div class="pt-6 border-t border-slate-200/80 dark:border-slate-800 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-            <div class="p-2.5 sm:p-3 rounded-xl bg-teal-50/70 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800/80 flex items-center gap-2.5 shadow-sm">
-              <i class="bi bi-shield-check text-2xl text-teal-600 dark:text-teal-400 flex-shrink-0"></i>
-              <div>
-                <p class="text-xs font-bold text-slate-950 dark:text-white">Strict Fiduciary Oath</p>
-                <p class="text-[11px] text-slate-600 dark:text-slate-400">Legal duty to put you first</p>
+          <!-- Fiduciary Trust Badges (Compact 3-column row on mobile to save vertical height) -->
+          <div class="pt-3.5 sm:pt-6 border-t border-slate-200/80 dark:border-slate-800 grid grid-cols-3 gap-1.5 sm:gap-4">
+            <div class="p-2 sm:p-3 rounded-xl bg-teal-50/70 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800/80 flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-1 sm:gap-2.5 shadow-sm">
+              <i class="bi bi-shield-check text-lg sm:text-2xl text-teal-600 dark:text-teal-400 flex-shrink-0"></i>
+              <div class="min-w-0">
+                <p class="text-[11px] sm:text-xs font-bold text-slate-950 dark:text-white leading-tight">Fiduciary Oath</p>
+                <p class="text-[10px] sm:text-[11px] text-slate-600 dark:text-slate-400 hidden sm:block">Legal duty to put you first</p>
               </div>
             </div>
-            <div class="p-2.5 sm:p-3 rounded-xl bg-amber-50/70 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/80 flex items-center gap-2.5 shadow-sm">
-              <i class="bi bi-bank2 text-2xl text-amber-600 dark:text-amber-400 flex-shrink-0"></i>
-              <div>
-                <p class="text-xs font-bold text-slate-950 dark:text-white">A+ Rated Insurers</p>
-                <p class="text-[11px] text-slate-600 dark:text-slate-400">Top-tier institutional carriers</p>
+            <div class="p-2 sm:p-3 rounded-xl bg-amber-50/70 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/80 flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-1 sm:gap-2.5 shadow-sm">
+              <i class="bi bi-bank2 text-lg sm:text-2xl text-amber-600 dark:text-amber-400 flex-shrink-0"></i>
+              <div class="min-w-0">
+                <p class="text-[11px] sm:text-xs font-bold text-slate-950 dark:text-white leading-tight">A+ Insurers</p>
+                <p class="text-[10px] sm:text-[11px] text-slate-600 dark:text-slate-400 hidden sm:block">Top-tier carriers</p>
               </div>
             </div>
-            <div class="p-2.5 sm:p-3 rounded-xl bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800/80 flex items-center gap-2.5 shadow-sm">
-              <i class="bi bi-cash-stack text-2xl text-blue-600 dark:text-blue-400 flex-shrink-0"></i>
-              <div>
-                <p class="text-xs font-bold text-slate-950 dark:text-white">Zero Hidden Fees</p>
-                <p class="text-[11px] text-slate-600 dark:text-slate-400">100% transparent fee disclosure</p>
+            <div class="p-2 sm:p-3 rounded-xl bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800/80 flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-1 sm:gap-2.5 shadow-sm">
+              <i class="bi bi-cash-stack text-lg sm:text-2xl text-blue-600 dark:text-blue-400 flex-shrink-0"></i>
+              <div class="min-w-0">
+                <p class="text-[11px] sm:text-xs font-bold text-slate-950 dark:text-white leading-tight">Zero Hidden Fees</p>
+                <p class="text-[10px] sm:text-[11px] text-slate-600 dark:text-slate-400 hidden sm:block">100% transparent fee</p>
               </div>
             </div>
           </div>
@@ -142,8 +103,8 @@
         <!-- Hero Visual: Photographic Anchor & Floating Income Card (5 cols) -->
         <div class="lg:col-span-5 relative">
           <div class="relative mx-auto max-w-md lg:max-w-none">
-            <!-- Main Hero Visual Card Container with Pinterest Wealth Video (https://in.pinterest.com/pin/14214555070355018/) -->
-            <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-navy-800 bg-slate-900 aspect-[4/5] relative group">
+            <!-- Main Hero Visual Card Container with Pinterest Wealth Video (Aspect 16/10 on mobile, 4/5 on sm+) -->
+            <div class="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 sm:border-4 border-white dark:border-navy-800 bg-slate-900 aspect-[16/10] sm:aspect-[4/5] relative group">
               <!-- Background Ambient Video from Pinterest Pin (https://in.pinterest.com/pin/14214555070355018/) -->
               <video id="heroStoryVideo" 
                 class="w-full h-full object-cover object-center" 
@@ -162,8 +123,8 @@
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/20 pointer-events-none"></div>
 
               <!-- Top Left Badge: Lifetime Wealth & Live Play/Pause Toggle -->
-              <div class="absolute top-4 left-4 z-20 flex items-center gap-2">
-                <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-950/75 backdrop-blur-md border border-white/20 text-white text-[11px] font-bold shadow-lg">
+              <div class="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-20 flex items-center gap-2">
+                <div class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-slate-950/75 backdrop-blur-md border border-white/20 text-white text-[10px] sm:text-[11px] font-bold shadow-lg">
                   <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                   <span class="tracking-wide">LIFETIME WEALTH</span>
                 </div>
@@ -176,30 +137,32 @@
                 </button>
               </div>
 
-              <!-- Client Story Glassmorphic Card (Elevated to prevent bottom clipping and badge overlap) -->
-              <div class="absolute bottom-20 sm:bottom-22 left-4 right-4 sm:left-6 sm:right-6 p-4 rounded-2xl bg-slate-950/80 dark:bg-navy-950/85 backdrop-blur-md border border-white/15 text-white shadow-2xl z-10">
-                <div class="flex items-center justify-between gap-2 mb-2">
-                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-teal-500/20 text-teal-300 border border-teal-400/40">
-                    Client Story
-                  </span>
-                  <div class="flex text-amber-400 text-xs gap-0.5" aria-label="5 out of 5 stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  </div>
-                </div>
-                <p class="font-serif italic text-xs sm:text-sm text-slate-100 leading-relaxed">
-                  "Having a predictable $6,850 direct-deposited every single month changed how we sleep at night."
-                </p>
-                <p class="text-xs text-amber-300 font-bold mt-2 flex items-center justify-between flex-wrap gap-1">
-                  <span>— Robert & Margaret V.</span>
-                  <span class="text-[11px] text-slate-300 font-normal">Retired 2023</span>
-                </p>
-              </div>
             </div>
 
-            <!-- Floating Guaranteed Income Badge (Top Right) -->
-            <div class="rw-card rw-card-gold p-4 rounded-2xl shadow-2xl absolute -top-6 -right-4 sm:-right-6 max-w-[240px] bg-white/95 dark:bg-navy-900/95 backdrop-blur-md animate-fade-in z-20">
+            <!-- Client Story Testimonial Card (Positioned directly below video so video is completely unobstructed) -->
+            <div class="mt-2.5 sm:mt-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl rw-card-glass border border-slate-200/90 dark:border-white/15 bg-white/95 dark:bg-navy-900/95 backdrop-blur-md shadow-xl text-slate-900 dark:text-white">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold tracking-wider uppercase bg-teal-500/15 text-teal-700 dark:text-teal-300 border border-teal-500/30">
+                  <i class="bi bi-chat-quote-fill"></i>
+                  <span>Client Story</span>
+                </span>
+                <div class="flex text-amber-400 text-[11px] sm:text-xs gap-0.5" aria-label="5 out of 5 stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+              </div>
+              <p class="font-serif italic text-xs sm:text-sm text-slate-800 dark:text-slate-100 leading-relaxed">
+                "Having a predictable $6,850 direct-deposited every single month changed how we sleep at night."
+              </p>
+              <p class="text-[11px] sm:text-xs text-amber-600 dark:text-amber-400 font-bold mt-1.5 flex items-center justify-between flex-wrap gap-1">
+                <span>— Robert &amp; Margaret V.</span>
+                <span class="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-normal">Retired 2023</span>
+              </p>
+            </div>
+
+            <!-- Floating Guaranteed Income Badge (Top Right - Tablet & Desktop) -->
+            <div class="hidden sm:block rw-card rw-card-gold p-4 rounded-2xl shadow-2xl absolute -top-6 -right-6 max-w-[240px] bg-white/95 dark:bg-navy-900/95 backdrop-blur-md animate-fade-in z-20">
               <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl font-bold shadow-inner">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl font-bold shadow-inner flex-shrink-0">
                   <i class="bi bi-shield-fill-check"></i>
                 </div>
                 <div>
@@ -212,10 +175,10 @@
               </div>
             </div>
 
-            <!-- Floating Readiness Score Ring (Bottom Left) -->
-            <div class="rw-card rw-card-teal p-4 rounded-2xl shadow-2xl absolute -bottom-6 -left-4 sm:-left-6 max-w-[220px] bg-white/95 dark:bg-navy-900/95 backdrop-blur-md z-20">
+            <!-- Floating Readiness Score Ring (Left Side - Tablet & Desktop) -->
+            <div class="hidden sm:block rw-card rw-card-teal p-4 rounded-2xl shadow-2xl absolute top-1/2 -left-6 -translate-y-1/2 max-w-[220px] bg-white/95 dark:bg-navy-900/95 backdrop-blur-md z-20">
               <div class="flex items-center gap-3">
-                <div class="relative w-12 h-12 flex items-center justify-center">
+                <div class="relative w-12 h-12 flex-shrink-0 flex items-center justify-center">
                   <svg class="w-12 h-12 transform -rotate-90" viewBox="0 0 36 36">
                     <path class="text-slate-200 dark:text-slate-800" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
                     <path class="text-teal-500" stroke-dasharray="88, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
@@ -225,6 +188,38 @@
                 <div>
                   <p class="text-xs font-bold text-slate-900 dark:text-white">Retirement Score</p>
                   <p class="text-[10px] text-teal-600 dark:text-teal-400 font-semibold">Ready to Retire</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile Badge Cards (Rendered neatly in 2 columns below the video on mobile) -->
+            <div class="grid grid-cols-2 gap-2 mt-2 sm:hidden">
+              <div class="rw-card rw-card-gold p-2.5 rounded-xl shadow-md bg-white/95 dark:bg-navy-900/95 backdrop-blur-md">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-lg bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center text-sm font-bold flex-shrink-0">
+                    <i class="bi bi-shield-fill-check"></i>
+                  </div>
+                  <div class="min-w-0">
+                    <p class="text-[8px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider truncate">Lifetime Floor</p>
+                    <p class="text-xs font-bold font-serif text-slate-900 dark:text-white leading-tight">$4,800<span class="text-[8px] font-sans font-normal text-slate-500">/mo</span></p>
+                  </div>
+                </div>
+                <div class="mt-1 text-[8px] text-teal-700 dark:text-teal-400 font-semibold flex items-center gap-1 truncate">
+                  <i class="bi bi-lock-fill flex-shrink-0"></i> 100% Protection
+                </div>
+              </div>
+
+              <div class="rw-card rw-card-teal p-2.5 rounded-xl shadow-md bg-white/95 dark:bg-navy-900/95 backdrop-blur-md flex items-center gap-2">
+                <div class="relative w-8 h-8 flex-shrink-0 flex items-center justify-center">
+                  <svg class="w-8 h-8 transform -rotate-90" viewBox="0 0 36 36">
+                    <path class="text-slate-200 dark:text-slate-800" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="text-teal-500" stroke-dasharray="88, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                  </svg>
+                  <span class="absolute text-[9px] font-bold text-slate-900 dark:text-white">88%</span>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-[11px] font-bold text-slate-900 dark:text-white truncate">Retirement Score</p>
+                  <p class="text-[9px] text-teal-600 dark:text-teal-400 font-semibold truncate">Ready to Retire</p>
                 </div>
               </div>
             </div>
@@ -364,7 +359,7 @@
           </div>
 
           <!-- Estimator Output Cards (5 cols) -->
-          <div class="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-slate-900 to-navy-900 text-white space-y-6 shadow-xl relative overflow-hidden">
+          <div class="lg:col-span-5 p-4 sm:p-8 rounded-2xl bg-gradient-to-br from-slate-900 to-navy-900 text-white space-y-5 sm:space-y-6 shadow-xl relative overflow-hidden">
             <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-teal-500/10 rounded-full blur-2xl pointer-events-none"></div>
 
             <div>
@@ -372,37 +367,49 @@
               <h3 class="text-xl font-bold font-serif text-white mt-1">Projected Monthly Income</h3>
             </div>
 
-            <div class="space-y-4">
-              <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex justify-between items-center estimator-result-card">
+            <div class="space-y-3.5 sm:space-y-4">
+              <!-- Result 1: Total Nest Egg -->
+              <div class="p-3.5 sm:p-4 rounded-xl bg-white/5 border border-white/10 flex justify-between items-center estimator-result-card">
                 <div>
                   <p class="text-xs text-slate-400">Total Nest Egg at Retirement</p>
-                  <p id="homeResultPot" class="text-2xl font-bold font-serif text-white">$1,104,800</p>
+                  <p id="homeResultPot" class="text-xl sm:text-2xl font-bold font-serif text-white">$1,104,800</p>
                 </div>
-                <i class="bi bi-piggy-bank text-2xl text-teal-400"></i>
+                <div class="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-xl flex-shrink-0">
+                  <i class="bi bi-piggy-bank"></i>
+                </div>
               </div>
 
-              <div class="p-4 rounded-xl bg-teal-500/10 border border-teal-500/30 flex justify-between items-center">
+              <!-- Result 2: Guaranteed Annuity Floor (100% Inside Container & Zero Protrusion) -->
+              <div id="guaranteedFloorCard" class="p-3.5 sm:p-4 rounded-xl bg-teal-500/10 border border-teal-500/30 space-y-2.5 overflow-hidden">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="rw-badge-teal text-[10px] py-0.5 px-2.5 font-bold tracking-wide">
+                    <i class="bi bi-shield-fill-check"></i> LIFETIME GUARANTEE
+                  </span>
+                  <span class="text-[10px] text-teal-400 font-medium">100% Floor</span>
+                </div>
                 <div>
                   <p class="text-xs text-teal-300 font-medium">Guaranteed Annuity Floor</p>
-                  <p id="homeResultFloor" class="text-3xl font-bold font-serif text-teal-400">$4,850/mo</p>
-                </div>
-                <div class="text-right">
-                  <span class="rw-badge-teal text-[10px]">LIFETIME GUARANTEE</span>
-                  <p class="text-[10px] text-slate-400 mt-1">Protected from down markets</p>
+                  <div class="flex items-baseline justify-between flex-wrap gap-x-2 gap-y-1 mt-0.5">
+                    <p id="homeResultFloor" class="text-2xl sm:text-3xl font-bold font-serif text-teal-400 tracking-tight">$4,850/mo</p>
+                    <p class="text-[11px] text-slate-300 dark:text-slate-400">Protected from down markets</p>
+                  </div>
                 </div>
               </div>
 
-              <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex justify-between items-center estimator-result-card">
+              <!-- Result 3: Total Monthly (With SS Estimate) -->
+              <div class="p-3.5 sm:p-4 rounded-xl bg-white/5 border border-white/10 flex justify-between items-center estimator-result-card">
                 <div>
                   <p class="text-xs text-slate-400">Total Monthly (With SS Estimate)</p>
-                  <p id="homeResultIncome" class="text-2xl font-bold font-serif text-amber-400">$7,250/mo</p>
+                  <p id="homeResultIncome" class="text-xl sm:text-2xl font-bold font-serif text-amber-400">$7,250/mo</p>
                 </div>
-                <i class="bi bi-wallet2 text-2xl text-amber-400"></i>
+                <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl flex-shrink-0">
+                  <i class="bi bi-wallet2"></i>
+                </div>
               </div>
             </div>
 
             <button onclick="RetireWellApp.openBookingModal('Personalized Income Simulation Review')" 
-              class="btn-primary-gold w-full text-center py-3 text-xs uppercase tracking-wider font-bold">
+              class="btn-primary-gold w-full text-center py-2 px-3 text-[11px] sm:text-xs uppercase tracking-wider font-bold">
               <i class="bi bi-clipboard-data-fill"></i> Lock In Your Custom Blueprint
             </button>
 
@@ -780,7 +787,7 @@
               <div id="checklistProgressBar" class="h-full bg-teal-600 rounded-full transition-all duration-500" style="width: 67%;"></div>
             </div>
           </div>
-          <button onclick="RetireWellApp.openBookingModal('Checklist Gap Consultation')" class="btn-primary-gold text-xs py-2.5 px-5">
+          <button onclick="RetireWellApp.openBookingModal('Checklist Gap Consultation')" class="btn-primary-gold text-xs py-1.5 px-3.5">
             <i class="bi bi-shield-check"></i> Close Your Unchecked Gaps
           </button>
         </div>
@@ -838,7 +845,7 @@
           </div>
           <div class="p-6 pt-0 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between mt-4">
             <button onclick="RetireWellApp.openBookingModal('Consultation with David Vance', 'David Vance, CFP®, RICP®')" 
-              class="btn-primary-gold text-xs py-2.5 px-4 w-full">
+              class="btn-primary-gold text-xs py-1.5 px-3.5 w-full">
               Book With David
             </button>
           </div>
@@ -868,7 +875,7 @@
           </div>
           <div class="p-6 pt-0 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between mt-4">
             <button onclick="RetireWellApp.openBookingModal('Consultation with Elena Rostova', 'Elena Rostova, ChFC®, CLU®')" 
-              class="btn-primary-gold text-xs py-2.5 px-4 w-full">
+              class="btn-primary-gold text-xs py-1.5 px-3.5 w-full">
               Book With Elena
             </button>
           </div>
@@ -898,7 +905,7 @@
           </div>
           <div class="p-6 pt-0 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between mt-4">
             <button onclick="RetireWellApp.openBookingModal('Consultation with Marcus Sterling', 'Marcus Sterling, CFA, CFP®')" 
-              class="btn-primary-gold text-xs py-2.5 px-4 w-full">
+              class="btn-primary-gold text-xs py-1.5 px-3.5 w-full">
               Book With Marcus
             </button>
           </div>
@@ -1142,13 +1149,13 @@
       <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
         Schedule your 45-minute confidential consultation with a senior fiduciary partner. Receive an objective, side-by-side comparison of your annuity options.
       </p>
-      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
         <button onclick="RetireWellApp.openBookingModal('General Fiduciary Retirement Plan')" 
-          class="btn-primary-gold text-base py-3.5 px-8 shadow-xl">
-          <i class="bi bi-calendar2-check-fill text-lg"></i>
+          class="btn-primary-gold text-xs sm:text-sm py-2 sm:py-2.5 px-4 sm:px-5 shadow-md">
+          <i class="bi bi-calendar2-check-fill text-sm"></i>
           <span>Schedule My Free Consultation</span>
         </button>
-        <a href="services.html" class="btn-outline-navy text-base py-3.5 px-8">
+        <a href="services.html" class="btn-outline-navy text-xs sm:text-sm py-2 sm:py-2.5 px-4 sm:px-5">
           Explore Service Details
         </a>
       </div>

@@ -11,28 +11,9 @@
   <link rel="alternate icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
 
-  <!-- Tailwind CSS & Bootstrap Icons -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Production Compiled Tailwind CSS & Bootstrap Icons -->
+  <link rel="stylesheet" href="css/tailwind.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-  <script>
-    tailwind.config = {
-      darkMode: ['class', '[data-theme="dark"]'],
-      theme: {
-        extend: {
-          colors: {
-            navy: { 950: '#070D1B', 900: '#0A192F', 800: '#112240', 700: '#1D3557' },
-            teal: { 50: '#F0FDFA', 600: '#0D9488', 700: '#0F766E' },
-            amber: { 500: '#F59E0B', 600: '#D97706', 700: '#B45309' }
-          },
-          fontFamily: {
-            serif: ['Lora', 'Georgia', 'serif'],
-            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -42,39 +23,39 @@
   <div id="navbar"></div>
 
   <!-- Hero Banner -->
-  <section class="py-16 lg:py-24 bg-white dark:bg-navy-900 border-b border-slate-200 dark:border-slate-800">
+  <section class="py-10 sm:py-16 lg:py-24 bg-white dark:bg-navy-900 border-b border-slate-200 dark:border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
       <span class="rw-badge-teal">INSTITUTIONAL PRODUCT SPECTRUM</span>
-      <h1 class="text-4xl sm:text-5xl font-bold font-serif text-slate-900 dark:text-white">
-        Annuities & Retirement Income Planning
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-serif text-slate-900 dark:text-white leading-tight">
+        Annuities &amp; Retirement Income Planning
       </h1>
-      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+      <p class="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
         Objective fiduciary guidance across multi-year fixed guarantees, index cap accumulation, immediate pension alternatives, and tax-advantaged legacy structures.
       </p>
 
       <!-- Live Search & Filter Bar -->
-      <div class="max-w-2xl mx-auto pt-6">
+      <div class="max-w-2xl mx-auto pt-4 sm:pt-6">
         <div class="relative">
-          <i class="bi bi-search absolute left-4 top-3.5 text-slate-400 text-lg"></i>
+          <i class="bi bi-search absolute left-4 top-3.5 text-slate-400 text-base sm:text-lg"></i>
           <input type="text" id="serviceSearchInput" placeholder="Search annuities, rollovers, social security, riders..." 
-            class="rw-input pl-11 pr-4 py-3 rounded-2xl shadow-sm text-sm"
+            class="rw-input pl-11 pr-4 py-3 rounded-2xl shadow-sm text-xs sm:text-sm"
             oninput="filterServices()">
         </div>
       </div>
 
       <!-- Filter Tabs -->
-      <div class="flex flex-wrap items-center justify-center gap-2 pt-4" id="serviceFilterTabs">
-        <button onclick="setServiceCategory('all', this)" class="px-5 py-2 rounded-xl text-xs font-bold transition bg-teal-600 text-white shadow-sm filter-tab active">
+      <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-3 sm:pt-4" id="serviceFilterTabs">
+        <button onclick="setServiceCategory('all', this)" class="px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-bold transition bg-teal-600 text-white shadow-xs filter-tab active">
           All Services (12)
         </button>
-        <button onclick="setServiceCategory('annuities', this)" class="px-5 py-2 rounded-xl text-xs font-bold transition bg-slate-100 dark:bg-navy-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-navy-700 filter-tab">
+        <button onclick="setServiceCategory('annuities', this)" class="px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 dark:bg-navy-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-navy-700 filter-tab">
           Annuity Solutions (6)
         </button>
-        <button onclick="setServiceCategory('planning', this)" class="px-5 py-2 rounded-xl text-xs font-bold transition bg-slate-100 dark:bg-navy-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-navy-700 filter-tab">
-          Wealth & Planning (4)
+        <button onclick="setServiceCategory('planning', this)" class="px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 dark:bg-navy-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-navy-700 filter-tab">
+          Wealth &amp; Planning (4)
         </button>
-        <button onclick="setServiceCategory('protection', this)" class="px-5 py-2 rounded-xl text-xs font-bold transition bg-slate-100 dark:bg-navy-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-navy-700 filter-tab">
-          Protection & Legacy (2)
+        <button onclick="setServiceCategory('protection', this)" class="px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 dark:bg-navy-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-navy-700 filter-tab">
+          Protection &amp; Legacy (2)
         </button>
       </div>
 
@@ -82,7 +63,7 @@
   </section>
 
   <!-- 12 Service Cards Grid -->
-  <section class="py-16 lg:py-24">
+  <section class="py-10 sm:py-16 lg:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="servicesGrid">
@@ -114,10 +95,10 @@
             </div>
           </div>
           <div class="p-6 pt-0 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3">
-            <button onclick="openServiceDetailModal('fixed')" class="btn-outline-navy py-2 px-3 text-xs w-1/2 text-center">
+            <button onclick="openServiceDetailModal('fixed')" class="btn-outline-navy py-1.5 px-2.5 text-xs w-1/2 text-center">
               Learn More
             </button>
-            <button onclick="RetireWellApp.openBookingModal('Fixed Annuities (MYGA)')" class="btn-primary-gold py-2 px-3 text-xs w-1/2 text-center font-bold">
+            <button onclick="RetireWellApp.openBookingModal('Fixed Annuities (MYGA)')" class="btn-primary-gold py-1.5 px-2.5 text-xs w-1/2 text-center font-bold">
               Book Consult
             </button>
           </div>
@@ -496,7 +477,177 @@
         </p>
       </div>
 
-      <div class="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 shadow-md">
+      <!-- Mobile Responsive Comparison Cards (< 640px) -->
+      <div class="sm:hidden space-y-4">
+        <!-- MYGA Card -->
+        <div class="p-4 rounded-2xl bg-white dark:bg-navy-950 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-teal-600 font-sans text-xs uppercase font-bold tracking-wider">MYGA</span>
+              <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white">Fixed Multi-Year</h3>
+            </div>
+            <span class="text-[11px] px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-200 dark:border-emerald-800 flex items-center gap-1">
+              <i class="bi bi-shield-fill-check"></i> 100% Principal
+            </span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-xs pt-1 border-t border-slate-100 dark:border-slate-800/80">
+            <div>
+              <span class="text-slate-400 block text-[10px] uppercase font-semibold">Growth Engine</span>
+              <span class="font-bold text-slate-800 dark:text-slate-200">Fixed 5.2% - 5.8% APY</span>
+            </div>
+            <div>
+              <span class="text-slate-400 block text-[10px] uppercase font-semibold">Liquidity</span>
+              <span class="text-slate-700 dark:text-slate-300">10% free withdrawal/yr</span>
+            </div>
+          </div>
+          <div class="text-xs pt-1">
+            <span class="text-slate-400 block text-[10px] uppercase font-semibold">Lifetime Guarantee</span>
+            <span class="text-slate-700 dark:text-slate-300">Fixed interest rate guarantee</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-100 dark:border-slate-800 text-xs flex items-center justify-between">
+            <span class="text-[11px] text-slate-500">Best for: CD alternative, capital preservation</span>
+            <button onclick="openServiceDetailModal('fixed')" class="text-teal-600 dark:text-teal-400 font-bold text-xs hover:underline flex items-center gap-1">
+              Details <i class="bi bi-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- FIA Card -->
+        <div class="p-4 rounded-2xl bg-white dark:bg-navy-950 border border-teal-500/30 dark:border-teal-500/40 shadow-sm space-y-3 relative overflow-hidden">
+          <div class="absolute top-0 right-0 bg-teal-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-bl-lg uppercase">Most Popular</div>
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-amber-600 font-sans text-xs uppercase font-bold tracking-wider">FIA</span>
+              <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white">Fixed Indexed Annuity</h3>
+            </div>
+            <span class="text-[11px] px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-200 dark:border-emerald-800 flex items-center gap-1">
+              <i class="bi bi-shield-fill-check"></i> 0% Floor
+            </span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-xs pt-1 border-t border-slate-100 dark:border-slate-800/80">
+            <div>
+              <span class="text-slate-400 block text-[10px] uppercase font-semibold">Growth Engine</span>
+              <span class="font-bold text-slate-800 dark:text-slate-200">S&amp;P 500 Linked (Caps 6.5%-9%)</span>
+            </div>
+            <div>
+              <span class="text-slate-400 block text-[10px] uppercase font-semibold">Liquidity</span>
+              <span class="text-slate-700 dark:text-slate-300">10% free withdrawal/yr</span>
+            </div>
+          </div>
+          <div class="text-xs pt-1">
+            <span class="text-slate-400 block text-[10px] uppercase font-semibold">Lifetime Guarantee</span>
+            <span class="text-teal-600 dark:text-teal-400 font-bold">Optional Lifetime GLWB Rider</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-100 dark:border-slate-800 text-xs flex items-center justify-between">
+            <span class="text-[11px] text-slate-500">Best for: Market growth with zero crash risk</span>
+            <button onclick="openServiceDetailModal('indexed')" class="text-teal-600 dark:text-teal-400 font-bold text-xs hover:underline flex items-center gap-1">
+              Details <i class="bi bi-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- SPIA Card -->
+        <div class="p-4 rounded-2xl bg-white dark:bg-navy-950 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-blue-600 font-sans text-xs uppercase font-bold tracking-wider">SPIA</span>
+              <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white">Immediate Income</h3>
+            </div>
+            <span class="text-[11px] px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-200 dark:border-emerald-800 flex items-center gap-1">
+              <i class="bi bi-shield-fill-check"></i> Guaranteed
+            </span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-xs pt-1 border-t border-slate-100 dark:border-slate-800/80">
+            <div>
+              <span class="text-slate-400 block text-[10px] uppercase font-semibold">Growth Engine</span>
+              <span class="font-bold text-slate-800 dark:text-slate-200">Actuarial payout (6% - 8%)</span>
+            </div>
+            <div>
+              <span class="text-slate-400 block text-[10px] uppercase font-semibold">Liquidity</span>
+              <span class="text-slate-500">Monthly income stream</span>
+            </div>
+          </div>
+          <div class="text-xs pt-1">
+            <span class="text-slate-400 block text-[10px] uppercase font-semibold">Lifetime Guarantee</span>
+            <span class="text-teal-600 dark:text-teal-400 font-bold">Built-in lifetime monthly checks</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-100 dark:border-slate-800 text-xs flex items-center justify-between">
+            <span class="text-[11px] text-slate-500">Best for: Instant pension check starting month 1</span>
+            <button onclick="openServiceDetailModal('immediate')" class="text-teal-600 dark:text-teal-400 font-bold text-xs hover:underline flex items-center gap-1">
+              Details <i class="bi bi-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- DIA Card -->
+        <div class="p-4 rounded-2xl bg-white dark:bg-navy-950 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-purple-600 font-sans text-xs uppercase font-bold tracking-wider">DIA / QLAC</span>
+              <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white">Deferred Longevity</h3>
+            </div>
+            <span class="text-[11px] px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-200 dark:border-emerald-800 flex items-center gap-1">
+              <i class="bi bi-shield-fill-check"></i> Guaranteed
+            </span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-xs pt-1 border-t border-slate-100 dark:border-slate-800/80">
+            <div>
+              <span class="text-slate-400 block text-[10px] uppercase font-semibold">Growth Engine</span>
+              <span class="font-bold text-slate-800 dark:text-slate-200">Longevity multiplier</span>
+            </div>
+            <div>
+              <span class="text-slate-400 block text-[10px] uppercase font-semibold">Liquidity</span>
+              <span class="text-slate-500">Longevity shield</span>
+            </div>
+          </div>
+          <div class="text-xs pt-1">
+            <span class="text-slate-400 block text-[10px] uppercase font-semibold">Lifetime Guarantee</span>
+            <span class="text-teal-600 dark:text-teal-400 font-bold">High monthly cash flow at 75-85</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-100 dark:border-slate-800 text-xs flex items-center justify-between">
+            <span class="text-[11px] text-slate-500">Best for: Outliving assets, RMD tax deferral</span>
+            <button onclick="openServiceDetailModal('deferred')" class="text-teal-600 dark:text-teal-400 font-bold text-xs hover:underline flex items-center gap-1">
+              Details <i class="bi bi-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- RILA Card -->
+        <div class="p-4 rounded-2xl bg-white dark:bg-navy-950 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-indigo-600 font-sans text-xs uppercase font-bold tracking-wider">RILA</span>
+              <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white">Structured Buffered</h3>
+            </div>
+            <span class="text-[11px] px-2.5 py-1 rounded-full bg-amber-50 dark:bg-amber-950/80 text-amber-600 dark:text-amber-400 font-bold border border-amber-200 dark:border-amber-800 flex items-center gap-1">
+              <i class="bi bi-shield-check"></i> 10-20% Buffer
+            </span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-xs pt-1 border-t border-slate-100 dark:border-slate-800/80">
+            <div>
+              <span class="text-slate-400 block text-[10px] uppercase font-semibold">Growth Engine</span>
+              <span class="font-bold text-slate-800 dark:text-slate-200">Equity caps (12% - 18%)</span>
+            </div>
+            <div>
+              <span class="text-slate-400 block text-[10px] uppercase font-semibold">Liquidity</span>
+              <span class="text-slate-700 dark:text-slate-300">10% free withdrawal/yr</span>
+            </div>
+          </div>
+          <div class="text-xs pt-1">
+            <span class="text-slate-400 block text-[10px] uppercase font-semibold">Lifetime Guarantee</span>
+            <span class="text-slate-700 dark:text-slate-300">Optional living rider</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-100 dark:border-slate-800 text-xs flex items-center justify-between">
+            <span class="text-[11px] text-slate-500">Best for: Moderate risk tolerance with growth</span>
+            <button onclick="openServiceDetailModal('indexed')" class="text-teal-600 dark:text-teal-400 font-bold text-xs hover:underline flex items-center gap-1">
+              Details <i class="bi bi-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop & Tablet Side-by-Side Comparison Table (>= 640px) -->
+      <div class="hidden sm:block overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 shadow-md">
         <table class="w-full text-left text-xs sm:text-sm text-slate-700 dark:text-slate-300">
           <thead class="bg-slate-100 dark:bg-navy-950 text-slate-900 dark:text-white font-serif font-bold text-xs uppercase tracking-wider border-b border-slate-200 dark:border-slate-800">
             <tr>
@@ -580,25 +731,25 @@
   <!-- Service Detail Modal (Populated Dynamically) -->
   <div id="serviceDetailModal" class="rw-modal-backdrop" role="dialog" aria-modal="true">
     <div class="rw-modal-dialog max-w-2xl">
-      <div class="p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-navy-950/50 rounded-t-2xl">
+      <div class="p-4 sm:p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-navy-950/50 rounded-t-2xl">
         <div>
           <span id="detailBadge" class="rw-badge-teal text-[10px] mb-1">ANNUITY DETAIL</span>
-          <h3 id="detailTitle" class="text-xl font-bold font-serif text-slate-900 dark:text-white">Fixed Indexed Annuity (FIA)</h3>
+          <h3 id="detailTitle" class="text-lg sm:text-xl font-bold font-serif text-slate-900 dark:text-white leading-tight">Fixed Indexed Annuity (FIA)</h3>
         </div>
         <button onclick="RetireWellApp.closeModal('serviceDetailModal')" class="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg transition" aria-label="Close dialog">
-          <i class="bi bi-x-lg text-lg"></i>
+          <i class="bi bi-x-lg text-base sm:text-lg"></i>
         </button>
       </div>
 
-      <div class="p-6 space-y-5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed" id="detailBody">
+      <div class="p-4 sm:p-6 space-y-4 sm:space-y-5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed" id="detailBody">
         <!-- Injected via JavaScript -->
       </div>
 
-      <div class="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-navy-950/50 flex items-center justify-between rounded-b-2xl">
-        <button onclick="RetireWellApp.closeModal('serviceDetailModal')" class="btn-outline-navy py-2 px-4 text-xs">
+      <div class="p-3.5 sm:p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-navy-950/50 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-2.5 rounded-b-2xl">
+        <button onclick="RetireWellApp.closeModal('serviceDetailModal')" class="btn-outline-navy py-1.5 px-3.5 text-xs text-center justify-center">
           Close
         </button>
-        <button id="detailBookBtn" class="btn-primary-gold py-2 px-5 text-xs font-bold">
+        <button id="detailBookBtn" class="btn-primary-gold py-1.5 px-4 text-xs font-bold text-center justify-center">
           Book Consultation on This Service
         </button>
       </div>

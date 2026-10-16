@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>About Us &amp; Fiduciary Heritage - RetireWell</title>
-  <meta name="description" content="Learn about RetireWell's SEC-registered fiduciary heritage, 100% independent annuity architecture, and commitment to contractual lifetime income and principal protection.">
+  <meta name="description" content="Discover RetireWell's 28-year fiduciary heritage, legal duty of loyalty, 100% independent annuity architecture, and contractual lifetime income guarantees.">
 
   <!-- Open Graph -->
   <meta property="og:title" content="About Us &amp; Fiduciary Heritage - RetireWell">
@@ -16,28 +16,9 @@
   <link rel="alternate icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
 
-  <!-- Tailwind CSS & Bootstrap Icons -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Production Compiled Tailwind CSS & Bootstrap Icons -->
+  <link rel="stylesheet" href="css/tailwind.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-  <script>
-    tailwind.config = {
-      darkMode: ['class', '[data-theme="dark"]'],
-      theme: {
-        extend: {
-          colors: {
-            navy: { 950: '#070D1B', 900: '#0A192F', 800: '#112240', 700: '#1D3557' },
-            teal: { 50: '#F0FDFA', 600: '#0D9488', 700: '#0F766E' },
-            amber: { 500: '#F59E0B', 600: '#D97706', 700: '#B45309' }
-          },
-          fontFamily: {
-            serif: ['Lora', 'Georgia', 'serif'],
-            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -46,51 +27,55 @@
   <!-- Universal Header -->
   <div id="navbar"></div>
 
-  <!-- Hero Banner: Pure Luxury Fiduciary Heritage -->
-  <section class="relative py-20 lg:py-28 bg-white dark:bg-navy-900 border-b border-slate-200 dark:border-slate-800 overflow-hidden">
+  <!-- =========================================================================
+       1. HERO BANNER: PURE LUXURY FIDUCIARY HERITAGE
+       ========================================================================= -->
+  <section class="relative py-10 sm:py-16 lg:py-28 bg-white dark:bg-navy-900 border-b border-slate-200 dark:border-slate-800 overflow-hidden">
     <!-- Atmospheric Ambient Glows -->
     <div class="luxury-glow-teal -top-20 -left-20"></div>
-    <div class="luxury-glow-gold -bottom-20 -right-20"></div>
+    <div class="luxury-glow-gold -bottom-20 right-0"></div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4 sm:space-y-6">
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/80 border border-teal-300 dark:border-teal-700 text-teal-800 dark:text-teal-300 text-xs font-bold tracking-wide shadow-xs">
         <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
         <span>OUR FIDUCIARY HERITAGE &amp; MISSION</span>
       </div>
 
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-serif text-slate-900 dark:text-white max-w-4xl mx-auto leading-tight">
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold font-serif text-slate-900 dark:text-white max-w-4xl mx-auto leading-tight">
         Architects of Guaranteed <br>
         <span class="text-gradient-teal italic">Retirement Security</span> &amp; Peace of Mind.
       </h1>
 
-      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+      <p class="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
         Founded on an unwavering standard: your retirement savings should never be gambled in speculative markets. 
         We engineer contractually guaranteed income floors backed by the world's most sound financial institutions.
       </p>
 
       <!-- Key Trust Metrics Strip -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-8">
-        <div class="rw-card rw-card-teal p-5 rounded-2xl text-center shadow-xs">
-          <p class="text-2xl sm:text-3xl font-bold font-serif text-teal-600 dark:text-teal-400">$2.4B+</p>
-          <p class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-1">Guaranteed Capital</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto pt-6 sm:pt-8">
+        <div class="rw-card rw-card-teal p-3.5 sm:p-5 rounded-2xl text-center shadow-xs">
+          <p class="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-teal-600 dark:text-teal-400">$2.4B+</p>
+          <p class="text-[10px] sm:text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-1">Guaranteed Capital</p>
         </div>
-        <div class="rw-card rw-card-gold p-5 rounded-2xl text-center shadow-xs">
-          <p class="text-2xl sm:text-3xl font-bold font-serif text-amber-500 dark:text-amber-400">100%</p>
-          <p class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-1">Legal Fiduciary Oath</p>
+        <div class="rw-card rw-card-gold p-3.5 sm:p-5 rounded-2xl text-center shadow-xs">
+          <p class="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-amber-500 dark:text-amber-400">100%</p>
+          <p class="text-[10px] sm:text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-1">Legal Fiduciary Oath</p>
         </div>
-        <div class="rw-card rw-card-sapphire p-5 rounded-2xl text-center shadow-xs">
-          <p class="text-2xl sm:text-3xl font-bold font-serif text-blue-600 dark:text-blue-400">A+ / A++</p>
-          <p class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-1">Insurer Rating Floor</p>
+        <div class="rw-card rw-card-sapphire p-3.5 sm:p-5 rounded-2xl text-center shadow-xs">
+          <p class="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-blue-600 dark:text-blue-400">A+ / A++</p>
+          <p class="text-[10px] sm:text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-1">Insurer Rating Floor</p>
         </div>
-        <div class="rw-card rw-card-amethyst p-5 rounded-2xl text-center shadow-xs">
-          <p class="text-2xl sm:text-3xl font-bold font-serif text-purple-600 dark:text-purple-400">18,400+</p>
-          <p class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-1">Families Protected</p>
+        <div class="rw-card rw-card-amethyst p-3.5 sm:p-5 rounded-2xl text-center shadow-xs">
+          <p class="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-purple-600 dark:text-purple-400">18,400+</p>
+          <p class="text-[10px] sm:text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-1">Families Protected</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Story & Philosophy Section -->
+  <!-- =========================================================================
+       2. STORY & PHILOSOPHY SECTION
+       ========================================================================= -->
   <section class="py-20 lg:py-28 bg-slate-50 dark:bg-navy-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -112,13 +97,13 @@
             possessing A+ to A++ balance sheet ratings, we guarantee that no market downturn can ever reduce your monthly direct deposit.
           </p>
 
-          <div class="pt-4 flex flex-wrap items-center gap-4">
+          <div class="pt-4 flex flex-wrap items-center gap-3">
             <button onclick="RetireWellApp.openBookingModal('Fiduciary Advisory Consultation')" 
-              class="btn-primary-gold text-sm py-3 px-6 shadow-md cursor-pointer">
+              class="btn-primary-gold text-xs py-2 px-4 shadow-sm cursor-pointer">
               <i class="bi bi-calendar2-check-fill"></i>
               <span>Consult With A Fiduciary</span>
             </button>
-            <a href="services.html" class="btn-outline-navy text-sm py-3 px-6">
+            <a href="services.html" class="btn-outline-navy text-xs py-2 px-4">
               <span>Explore Annuity Solutions</span>
               <i class="bi bi-arrow-right"></i>
             </a>
@@ -134,7 +119,7 @@
               </div>
               <div>
                 <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white">The Fiduciary Compact</h3>
-                <p class="text-xs text-slate-500">Legal Duty of Complete Loyalty</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Legal Duty of Complete Loyalty</p>
               </div>
             </div>
 
@@ -163,8 +148,146 @@
     </div>
   </section>
 
-  <!-- The 4 Pillars of Guaranteed Wealth -->
-  <section class="py-20 lg:py-28 bg-white dark:bg-navy-900 border-t border-slate-200 dark:border-slate-800">
+  <!-- =========================================================================
+       3. NEW SECTION: LEGAL FIDUCIARY OATH VS CONVENTIONAL BROKERAGE
+       ========================================================================= -->
+  <section class="py-10 sm:py-16 lg:py-28 bg-white dark:bg-navy-900 border-t border-slate-200 dark:border-slate-800 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-16 space-y-3">
+        <span class="rw-badge-gold">THE FIDUCIARY STANDARD</span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-serif text-slate-900 dark:text-white leading-tight">
+          RetireWell Fiduciary vs. Traditional Brokerage
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+          Understand the crucial legal distinction between a sworn legal fiduciary and a commission-driven product broker.
+        </p>
+      </div>
+
+      <!-- Comparison Matrix -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
+        
+        <!-- RetireWell Fiduciary Column (Highlighted) -->
+        <div class="rw-card rw-card-teal p-4 sm:p-8 rounded-2xl sm:rounded-3xl relative shadow-xl border-2 border-teal-500/30">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 text-teal-700 dark:text-teal-300 text-xs font-bold mb-4">
+            <i class="bi bi-shield-check"></i>
+            <span>RETIREWELL FIDUCIARY STANDARD</span>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-bold font-serif text-slate-900 dark:text-white mb-2 leading-tight">Legal Duty of Absolute Loyalty</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+            Under the Investment Advisers Act of 1940, we are legally sworn to put your financial interests above our own at all times.
+          </p>
+
+          <div class="space-y-4 text-xs sm:text-sm">
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-teal-50/50 dark:bg-navy-950/40 border border-teal-100 dark:border-teal-900/40">
+              <i class="bi bi-check-circle-fill text-teal-600 text-lg flex-shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="text-slate-900 dark:text-white block">100% Open-Architecture Choice</strong>
+                <span class="text-slate-600 dark:text-slate-300">We shop over 40+ institutional carriers to find the highest contractual payout for your exact age.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-teal-50/50 dark:bg-navy-950/40 border border-teal-100 dark:border-teal-900/40">
+              <i class="bi bi-check-circle-fill text-teal-600 text-lg flex-shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="text-slate-900 dark:text-white block">Full SEC Form CRS &amp; ADV Transparency</strong>
+                <span class="text-slate-600 dark:text-slate-300">Every compensation dollar and spread is disclosed in plain English before you deposit a single cent.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-teal-50/50 dark:bg-navy-950/40 border border-teal-100 dark:border-teal-900/40">
+              <i class="bi bi-check-circle-fill text-teal-600 text-lg flex-shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="text-slate-900 dark:text-white block">Zero Downside Protection (0% Legal Floor)</strong>
+                <span class="text-slate-600 dark:text-slate-300">Your guaranteed income baseline cannot drop even if major indices suffer a 40% crash.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-teal-50/50 dark:bg-navy-950/40 border border-teal-100 dark:border-teal-900/40">
+              <i class="bi bi-check-circle-fill text-teal-600 text-lg flex-shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="text-slate-900 dark:text-white block">Personal CFP® &amp; RICP® Dedicated Counsel</strong>
+                <span class="text-slate-600 dark:text-slate-300">You work directly with a senior partner who reviews your tax ladders, Medicare brackets, and legacy goals.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Conventional Brokerage Column (Contrast) -->
+        <div class="rw-card p-4 sm:p-8 rounded-2xl sm:rounded-3xl relative shadow-md bg-slate-50/80 dark:bg-navy-950/60 border border-slate-200 dark:border-slate-800">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold mb-4">
+            <i class="bi bi-exclamation-triangle"></i>
+            <span>CONVENTIONAL BROKER-DEALER</span>
+          </div>
+          <h3 class="text-2xl font-bold font-serif text-slate-900 dark:text-white mb-2">"Suitability" Sales Standard</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">
+            Brokers and captive insurance agents are legally permitted to recommend products that earn them higher commissions.
+          </p>
+
+          <div class="space-y-4 text-xs sm:text-sm">
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-white/70 dark:bg-navy-900/50 border border-slate-200 dark:border-slate-800">
+              <i class="bi bi-x-circle-fill text-rose-500 text-lg flex-shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="text-slate-900 dark:text-white block">Captive Product Quotas</strong>
+                <span class="text-slate-500 dark:text-slate-400">Restricted to in-house mutual funds or proprietary insurance policies that reward the firm.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-white/70 dark:bg-navy-900/50 border border-slate-200 dark:border-slate-800">
+              <i class="bi bi-x-circle-fill text-rose-500 text-lg flex-shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="text-slate-900 dark:text-white block">Hidden Trailing Fees &amp; 12b-1 Loads</strong>
+                <span class="text-slate-500 dark:text-slate-400">1.25% to 2.50% annual fee drag quietly consumes your capital regardless of portfolio performance.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-white/70 dark:bg-navy-900/50 border border-slate-200 dark:border-slate-800">
+              <i class="bi bi-x-circle-fill text-rose-500 text-lg flex-shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="text-slate-900 dark:text-white block">Full Market Exposure in Retirement</strong>
+                <span class="text-slate-500 dark:text-slate-400">Clients are told to "stay the course" during severe crashes while their drawdown rate accelerates ruin.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-white/70 dark:bg-navy-900/50 border border-slate-200 dark:border-slate-800">
+              <i class="bi bi-x-circle-fill text-rose-500 text-lg flex-shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="text-slate-900 dark:text-white block">Call Center Advisors &amp; High Turnover</strong>
+                <span class="text-slate-500 dark:text-slate-400">Junior sales reps routed through 1-800 desks with zero long-term relationship commitment.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Fiduciary Pledge Box -->
+      <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-teal-500/10 via-amber-500/10 to-teal-500/10 border border-teal-500/30 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center text-3xl flex-shrink-0">
+            <i class="bi bi-patch-check-fill"></i>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold font-serif text-slate-900 dark:text-white">The RetireWell Fiduciary Oath</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 mt-1 max-w-2xl">
+              "We solemnly swear to practice undivided loyalty to each client, disclose all institutional arrangements, and never accept incentives that conflict with your guaranteed financial safety."
+            </p>
+          </div>
+        </div>
+        <button onclick="RetireWellApp.openBookingModal('Fiduciary Oath Consultation')" 
+          class="btn-primary-gold text-xs py-2 px-4 whitespace-nowrap cursor-pointer flex-shrink-0">
+          <i class="bi bi-shield-shaded mr-1"></i>
+          <span>Verify Our Fiduciary Registration</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. THE 4 PILLARS OF GUARANTEED WEALTH
+       ========================================================================= -->
+  <section class="py-20 lg:py-28 bg-slate-50 dark:bg-navy-950 border-t border-slate-200 dark:border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
@@ -239,8 +362,404 @@
     </div>
   </section>
 
-  <!-- Fiduciary Leadership Spotlight -->
-  <section class="py-20 lg:py-28 bg-slate-50 dark:bg-navy-950">
+  <!-- =========================================================================
+       5. NEW SECTION: 6 CORE GUIDING FIDUCIARY PRINCIPLES (JEWEL CARDS)
+       ========================================================================= -->
+  <section class="py-20 lg:py-28 bg-white dark:bg-navy-900 border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="rw-badge-teal">ETHICAL FOUNDATION</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-serif text-slate-900 dark:text-white">
+          Six Principles That Steer Every Dollar
+        </h2>
+        <p class="text-base text-slate-600 dark:text-slate-300">
+          These disciplines govern how we assess risk, audit institutional insurers, and structure client lifetime security.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Principle 1 -->
+        <div class="rw-card rw-card-gold p-7 rounded-2xl rw-card-hover-up shadow-md flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="w-12 h-12 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl font-bold">
+                <i class="bi bi-shield-shaded"></i>
+              </div>
+              <span class="text-xs font-mono font-bold text-amber-500">01</span>
+            </div>
+            <h3 class="text-lg font-bold font-serif text-slate-900 dark:text-white">Unconditional Duty of Care</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              We never take orders from insurance companies. If an annuity contract has punitive surrender schedules or unfavorable cap renewals, we reject it immediately.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 text-[11px] font-semibold text-amber-600 dark:text-amber-400">
+            Fiduciary Loyalty Mandate &rarr;
+          </div>
+        </div>
+
+        <!-- Principle 2 -->
+        <div class="rw-card rw-card-teal p-7 rounded-2xl rw-card-hover-up shadow-md flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="w-12 h-12 rounded-xl bg-teal-500/15 text-teal-600 dark:text-teal-400 flex items-center justify-center text-xl font-bold">
+                <i class="bi bi-calculator"></i>
+              </div>
+              <span class="text-xs font-mono font-bold text-teal-500">02</span>
+            </div>
+            <h3 class="text-lg font-bold font-serif text-slate-900 dark:text-white">Mathematical Certainty</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Hope is not an investment strategy. We replace fluctuating equity projections with contractually guaranteed monthly deposits backed by statutory capital reserves.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 text-[11px] font-semibold text-teal-600 dark:text-teal-400">
+            Actuarial Stress-Testing &rarr;
+          </div>
+        </div>
+
+        <!-- Principle 3 -->
+        <div class="rw-card rw-card-sapphire p-7 rounded-2xl rw-card-hover-up shadow-md flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="w-12 h-12 rounded-xl bg-blue-500/15 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl font-bold">
+                <i class="bi bi-diagram-3"></i>
+              </div>
+              <span class="text-xs font-mono font-bold text-blue-500">03</span>
+            </div>
+            <h3 class="text-lg font-bold font-serif text-slate-900 dark:text-white">100% Open Architecture</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              We maintain direct underwriting desks across 40+ national carriers. This allows us to negotiate the most favorable participation caps and bonus riders for your balance.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 text-[11px] font-semibold text-blue-600 dark:text-blue-400">
+            Carrier Neutrality &rarr;
+          </div>
+        </div>
+
+        <!-- Principle 4 -->
+        <div class="rw-card rw-card-amethyst p-7 rounded-2xl rw-card-hover-up shadow-md flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="w-12 h-12 rounded-xl bg-purple-500/15 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl font-bold">
+                <i class="bi bi-bank2"></i>
+              </div>
+              <span class="text-xs font-mono font-bold text-purple-500">04</span>
+            </div>
+            <h3 class="text-lg font-bold font-serif text-slate-900 dark:text-white">Institutional Solvency Floor</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Every recommended institution must maintain minimum A+ ratings from A.M. Best and S&P, holding dollar-for-dollar cash reserves exceeding statutory minimums.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 text-[11px] font-semibold text-purple-600 dark:text-purple-400">
+            A+ Balance Sheet Floor &rarr;
+          </div>
+        </div>
+
+        <!-- Principle 5 -->
+        <div class="rw-card rw-card-coral p-7 rounded-2xl rw-card-hover-up shadow-md flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="w-12 h-12 rounded-xl bg-rose-500/15 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xl font-bold">
+                <i class="bi bi-shield-plus"></i>
+              </div>
+              <span class="text-xs font-mono font-bold text-rose-500">05</span>
+            </div>
+            <h3 class="text-lg font-bold font-serif text-slate-900 dark:text-white">Active Longevity Defense</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Outliving your capital or suffering unexpected assisted living costs are the twin perils of retirement. Our plans include guaranteed income multipliers for chronic care.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 text-[11px] font-semibold text-rose-600 dark:text-rose-400">
+            Healthcare Multipliers &rarr;
+          </div>
+        </div>
+
+        <!-- Principle 6 -->
+        <div class="rw-card rw-card-teal p-7 rounded-2xl rw-card-hover-up shadow-md flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="w-12 h-12 rounded-xl bg-teal-500/15 text-teal-600 dark:text-teal-400 flex items-center justify-center text-xl font-bold">
+                <i class="bi bi-journal-check"></i>
+              </div>
+              <span class="text-xs font-mono font-bold text-teal-500">06</span>
+            </div>
+            <h3 class="text-lg font-bold font-serif text-slate-900 dark:text-white">Probate-Bypassing Legacy</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Your remaining principal does not vanish upon death. We configure named beneficiary structures that transfer accumulated balances to heirs without attorney fees or probate delay.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 text-[11px] font-semibold text-teal-600 dark:text-teal-400">
+            Dynasty Protection &rarr;
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. NEW SECTION: 28-YEAR HISTORICAL TIMELINE (1998 - 2026)
+       ========================================================================= -->
+  <section class="py-20 lg:py-28 bg-slate-50 dark:bg-navy-950 border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="rw-badge-gold">OUR HERITAGE &amp; JOURNEY</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-serif text-slate-900 dark:text-white">
+          28 Years of Protecting American Nest Eggs
+        </h2>
+        <p class="text-base text-slate-600 dark:text-slate-300">
+          From an independent advisory in Boston in 1998 to over $2.4 Billion in protected capital nationwide.
+        </p>
+      </div>
+
+      <!-- Timeline Container -->
+      <div class="relative max-w-4xl mx-auto">
+        <!-- Center vertical line -->
+        <div class="hidden md:block absolute left-1/2 top-4 bottom-4 w-0.5 bg-gradient-to-b from-teal-500 via-amber-500 to-teal-500 -translate-x-1/2 opacity-30"></div>
+
+        <div class="space-y-12">
+          
+          <!-- Milestone 1: 1998 -->
+          <div class="relative flex flex-col md:flex-row items-center gap-8">
+            <div class="md:w-1/2 text-left md:text-right">
+              <span class="inline-block px-3 py-1 rounded-full bg-teal-500/10 text-teal-700 dark:text-teal-300 text-xs font-bold mb-2">1998</span>
+              <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white">Founded on Beacon Hill, Boston</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+                David Vance departs Wall Street with a core conviction: retirement portfolios must be built upon guaranteed contractual floors, rather than speculative equity assumptions.
+              </p>
+            </div>
+            <!-- Center Dot -->
+            <div class="w-10 h-10 rounded-full bg-teal-600 text-white flex items-center justify-center text-sm font-bold shadow-lg ring-4 ring-white dark:ring-navy-900 flex-shrink-0 z-10">
+              <i class="bi bi-flag-fill text-xs"></i>
+            </div>
+            <div class="md:w-1/2 p-5 rounded-2xl rw-card rw-card-teal shadow-xs">
+              <span class="text-xs font-bold text-teal-700 dark:text-teal-300">Key Milestone</span>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">First 250 retired Massachusetts families protected with zero proprietary insurance ties.</p>
+            </div>
+          </div>
+
+          <!-- Milestone 2: 2008 -->
+          <div class="relative flex flex-col md:flex-row-reverse items-center gap-8">
+            <div class="md:w-1/2 text-left">
+              <span class="inline-block px-3 py-1 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-300 text-xs font-bold mb-2">2008</span>
+              <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white">Tested in the Great Financial Crisis</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+                As the S&P 500 plunged 57%, 100% of RetireWell annuity clients received every single dollar of promised monthly income without interruption or reduction.
+              </p>
+            </div>
+            <!-- Center Dot -->
+            <div class="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center text-sm font-bold shadow-lg ring-4 ring-white dark:ring-navy-900 flex-shrink-0 z-10">
+              <i class="bi bi-shield-fill-check text-xs"></i>
+            </div>
+            <div class="md:w-1/2 p-5 rounded-2xl rw-card rw-card-gold shadow-xs">
+              <span class="text-xs font-bold text-amber-600 dark:text-amber-400">$0 Capital Lost</span>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Proof of concept: contractual zero-downside floors shielded clients while brokerage investors faced devastation.</p>
+            </div>
+          </div>
+
+          <!-- Milestone 3: 2015 -->
+          <div class="relative flex flex-col md:flex-row items-center gap-8">
+            <div class="md:w-1/2 text-left md:text-right">
+              <span class="inline-block px-3 py-1 rounded-full bg-teal-500/10 text-teal-700 dark:text-teal-300 text-xs font-bold mb-2">2015</span>
+              <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white">40+ Carrier Open Architecture</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+                Pioneered direct institutional underwriting relationships with over 40 life insurance giants holding A.M. Best A+ and A++ financial ratings.
+              </p>
+            </div>
+            <!-- Center Dot -->
+            <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-bold shadow-lg ring-4 ring-white dark:ring-navy-900 flex-shrink-0 z-10">
+              <i class="bi bi-building-fill-check text-xs"></i>
+            </div>
+            <div class="md:w-1/2 p-5 rounded-2xl rw-card rw-card-sapphire shadow-xs">
+              <span class="text-xs font-bold text-blue-600 dark:text-blue-400">Institutional Access</span>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Clients gain institutional wholesale crediting rates typically unavailable to individual retail shoppers.</p>
+            </div>
+          </div>
+
+          <!-- Milestone 4: 2020 -->
+          <div class="relative flex flex-col md:flex-row-reverse items-center gap-8">
+            <div class="md:w-1/2 text-left">
+              <span class="inline-block px-3 py-1 rounded-full bg-purple-500/10 text-purple-700 dark:text-purple-300 text-xs font-bold mb-2">2020</span>
+              <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white">Surpassed $1.0 Billion in Protected Capital</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+                Achieved the milestone of $1B in guaranteed lifetime income contracts, serving over 10,000 households across 35 states during pandemic volatility.
+              </p>
+            </div>
+            <!-- Center Dot -->
+            <div class="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center text-sm font-bold shadow-lg ring-4 ring-white dark:ring-navy-900 flex-shrink-0 z-10">
+              <i class="bi bi-trophy-fill text-xs"></i>
+            </div>
+            <div class="md:w-1/2 p-5 rounded-2xl rw-card rw-card-amethyst shadow-xs">
+              <span class="text-xs font-bold text-purple-600 dark:text-purple-400">National Recognition</span>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Recognized by independent fiduciary roundtables for zero regulatory complaints and 99.4% retention.</p>
+            </div>
+          </div>
+
+          <!-- Milestone 5: 2024 -->
+          <div class="relative flex flex-col md:flex-row items-center gap-8">
+            <div class="md:w-1/2 text-left md:text-right">
+              <span class="inline-block px-3 py-1 rounded-full bg-teal-500/10 text-teal-700 dark:text-teal-300 text-xs font-bold mb-2">2024</span>
+              <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white">Launch of Digital Fiduciary Portal</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+                Debuted RetireWell's live digital portal, providing clients with 24/7 visibility into their guaranteed floor, indexed crediting caps, and beneficiary vaults.
+              </p>
+            </div>
+            <!-- Center Dot -->
+            <div class="w-10 h-10 rounded-full bg-teal-600 text-white flex items-center justify-center text-sm font-bold shadow-lg ring-4 ring-white dark:ring-navy-900 flex-shrink-0 z-10">
+              <i class="bi bi-laptop-fill text-xs"></i>
+            </div>
+            <div class="md:w-1/2 p-5 rounded-2xl rw-card rw-card-teal shadow-xs">
+              <span class="text-xs font-bold text-teal-700 dark:text-teal-300">Modern Accessibility</span>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Real-time Monte Carlo scenario modeling and encrypted advisor chat integrated for every client.</p>
+            </div>
+          </div>
+
+          <!-- Milestone 6: Today 2026 -->
+          <div class="relative flex flex-col md:flex-row-reverse items-center gap-8">
+            <div class="md:w-1/2 text-left">
+              <span class="inline-block px-3 py-1 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-300 text-xs font-bold mb-2">Today &amp; Beyond</span>
+              <h3 class="text-xl font-bold font-serif text-slate-900 dark:text-white">$2.4B+ Guaranteed Across All 50 States</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+                Now serving 18,400+ retirees nationwide with a full roster of credentialed CFP®, RICP®, and ChFC® fiduciary partners.
+              </p>
+            </div>
+            <!-- Center Dot -->
+            <div class="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center text-sm font-bold shadow-lg ring-4 ring-white dark:ring-navy-900 flex-shrink-0 z-10">
+              <i class="bi bi-stars text-xs"></i>
+            </div>
+            <div class="md:w-1/2 p-5 rounded-2xl rw-card rw-card-gold shadow-xs">
+              <span class="text-xs font-bold text-amber-600 dark:text-amber-400">Unbroken Trust</span>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Continuing to advocate for retirees against Wall Street risk with complete fiduciary integrity.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. NEW SECTION: MULTI-LAYER SAFETY ARCHITECTURE & CARRIER SOLVENCY
+       ========================================================================= -->
+  <section class="py-20 lg:py-28 bg-white dark:bg-navy-900 border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="rw-badge-teal">SAFETY &amp; SOLVENCY</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-serif text-slate-900 dark:text-white">
+          How Your Retirement Capital Is Legally Safeguarded
+        </h2>
+        <p class="text-base text-slate-600 dark:text-slate-300">
+          Why contractually guaranteed annuities backed by legal reserve requirements are among the safest vehicles in America.
+        </p>
+      </div>
+
+      <!-- 4-Tier Security Layers -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        
+        <div class="rw-card p-6 rounded-2xl border-t-4 border-teal-500 flex flex-col justify-between">
+          <div class="space-y-3">
+            <span class="text-xs font-bold font-mono text-teal-600">LAYER 01</span>
+            <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white">100%+ Legal Statutory Reserves</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              State insurance laws require carriers to hold at least $1.00 in high-grade cash and treasury bonds for every $1.00 of promised annuity obligations.
+            </p>
+          </div>
+          <div class="pt-4 text-[11px] text-teal-700 dark:text-teal-400 font-semibold">
+            Dollar-for-Dollar Mandate
+          </div>
+        </div>
+
+        <div class="rw-card p-6 rounded-2xl border-t-4 border-amber-500 flex flex-col justify-between">
+          <div class="space-y-3">
+            <span class="text-xs font-bold font-mono text-amber-500">LAYER 02</span>
+            <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white">Multi-Billion Capital Surplus</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Institutional carriers maintain substantial excess capital reserves above legal statutory minimums to absorb extreme systemic market stress.
+            </p>
+          </div>
+          <div class="pt-4 text-[11px] text-amber-600 dark:text-amber-400 font-semibold">
+            Risk-Based Capital &gt; 400%
+          </div>
+        </div>
+
+        <div class="rw-card p-6 rounded-2xl border-t-4 border-blue-500 flex flex-col justify-between">
+          <div class="space-y-3">
+            <span class="text-xs font-bold font-mono text-blue-500">LAYER 03</span>
+            <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white">State Guaranty Association</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Every U.S. state operates a Life &amp; Health Guaranty Association providing statutory safety net coverage (typically $250,000 to $500,000 per policyholder).
+            </p>
+          </div>
+          <div class="pt-4 text-[11px] text-blue-600 dark:text-blue-400 font-semibold">
+            50-State Statutory Net
+          </div>
+        </div>
+
+        <div class="rw-card p-6 rounded-2xl border-t-4 border-purple-500 flex flex-col justify-between">
+          <div class="space-y-3">
+            <span class="text-xs font-bold font-mono text-purple-500">LAYER 04</span>
+            <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white">Quarterly Fiduciary RBC Audits</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              RetireWell independently monitors credit ratings, Comdex rankings, and liquidity ratios across all partnered carriers every 90 days.
+            </p>
+          </div>
+          <div class="pt-4 text-[11px] text-purple-600 dark:text-purple-400 font-semibold">
+            Continuous Due Diligence
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Verified Institutional Carrier Partners Strip -->
+      <div class="p-8 rounded-3xl bg-slate-50 dark:bg-navy-950 border border-slate-200 dark:border-slate-800">
+        <p class="text-xs font-bold text-center uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-8">
+          Backed Solely By Institutional Carriers With A+ and A++ Rating Floors
+        </p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
+          <div class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800">
+            <i class="bi bi-shield-check text-2xl text-teal-600 mb-1 block"></i>
+            <p class="text-xs font-bold text-slate-900 dark:text-white">Summit Mutual Life</p>
+            <span class="text-[10px] text-teal-700 dark:text-teal-400 font-semibold">A.M. Best: A+ (Superior)</span>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800">
+            <i class="bi bi-building-check text-2xl text-teal-600 mb-1 block"></i>
+            <p class="text-xs font-bold text-slate-900 dark:text-white">Pacific Horizon Life</p>
+            <span class="text-[10px] text-teal-700 dark:text-teal-400 font-semibold">A.M. Best: A++ (Highest)</span>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800">
+            <i class="bi bi-safe text-2xl text-teal-600 mb-1 block"></i>
+            <p class="text-xs font-bold text-slate-900 dark:text-white">Keystone Annuity Corp</p>
+            <span class="text-[10px] text-teal-700 dark:text-teal-400 font-semibold">S&amp;P: AA+ (Very Strong)</span>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800">
+            <i class="bi bi-award text-2xl text-teal-600 mb-1 block"></i>
+            <p class="text-xs font-bold text-slate-900 dark:text-white">Guardian Apex Capital</p>
+            <span class="text-[10px] text-teal-700 dark:text-teal-400 font-semibold">Moody's: A1 (Strong)</span>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800">
+            <i class="bi bi-bank text-2xl text-teal-600 mb-1 block"></i>
+            <p class="text-xs font-bold text-slate-900 dark:text-white">Vanguard Heritage</p>
+            <span class="text-[10px] text-teal-700 dark:text-teal-400 font-semibold">Fitch: A+ (Superior)</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. FIDUCIARY LEADERSHIP SPOTLIGHT
+       ========================================================================= -->
+  <section class="py-20 lg:py-28 bg-slate-50 dark:bg-navy-950 border-t border-slate-200 dark:border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
@@ -270,7 +789,7 @@
               <div>
                 <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white">David Vance, CFP®, RICP®</h3>
                 <p class="text-xs text-teal-600 dark:text-teal-400 font-semibold">Managing Director &amp; Founder</p>
-                <p class="text-[11px] text-slate-500">22+ Years Institutional Experience</p>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400">24+ Years Institutional Experience</p>
               </div>
             </div>
             <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -278,7 +797,7 @@
             </p>
           </div>
           <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-            <span class="text-[11px] text-slate-500">Series 65 Fiduciary</span>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400">Series 65 Fiduciary</span>
             <span class="rw-badge-teal text-[10px]">Managing Partner</span>
           </div>
         </div>
@@ -288,11 +807,11 @@
           <div class="space-y-4">
             <div class="flex items-center gap-4">
               <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" 
-                alt="Sarah Jenkins" class="w-16 h-16 rounded-2xl object-cover ring-2 ring-amber-500/30">
+                alt="Elena Rostova" class="w-16 h-16 rounded-2xl object-cover ring-2 ring-amber-500/30">
               <div>
-                <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white">Sarah Jenkins, ChFC®, CLU®</h3>
+                <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white">Elena Rostova, ChFC®, CLU®</h3>
                 <p class="text-xs text-amber-600 dark:text-amber-400 font-semibold">Head of Annuity Analytics</p>
-                <p class="text-[11px] text-slate-500">18+ Years Actuarial Planning</p>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400">18+ Years Actuarial Planning</p>
               </div>
             </div>
             <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -300,7 +819,7 @@
             </p>
           </div>
           <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-            <span class="text-[11px] text-slate-500">Chartered Consultant</span>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400">Chartered Consultant</span>
             <span class="rw-badge-gold text-[10px]">Senior Partner</span>
           </div>
         </div>
@@ -314,7 +833,7 @@
               <div>
                 <h3 class="text-base font-bold font-serif text-slate-900 dark:text-white">Marcus Thorne, JD, CFP®</h3>
                 <p class="text-xs text-blue-600 dark:text-blue-400 font-semibold">Director of Wealth &amp; Estate</p>
-                <p class="text-[11px] text-slate-500">20+ Years Estate Jurisprudence</p>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400">20+ Years Estate Jurisprudence</p>
               </div>
             </div>
             <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -322,7 +841,7 @@
             </p>
           </div>
           <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-            <span class="text-[11px] text-slate-500">Bar Admitted &bull; CFP®</span>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400">Bar Admitted &bull; CFP®</span>
             <span class="rw-badge-sapphire text-[10px]">Senior Partner</span>
           </div>
         </div>
@@ -331,8 +850,273 @@
     </div>
   </section>
 
-  <!-- Bottom CTA: Plan My Retirement -->
+  <!-- =========================================================================
+       9. NEW SECTION: INTERACTIVE FIDUCIARY ADVANTAGE SIMULATOR
+       ========================================================================= -->
+  <section id="fiduciarySimulator" class="py-20 lg:py-28 bg-white dark:bg-navy-900 border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="rw-badge-gold">LIVE SIMULATOR</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-serif text-slate-900 dark:text-white">
+          Calculate Your Fiduciary Advantage
+        </h2>
+        <p class="text-base text-slate-600 dark:text-slate-300">
+          See how a guaranteed floor strategy eliminates management fee erosion and secures reliable monthly cash flow.
+        </p>
+      </div>
+
+      <div class="rw-card p-8 sm:p-12 rounded-3xl shadow-xl bg-slate-50 dark:bg-navy-950 border border-slate-200 dark:border-slate-800">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Left Controls -->
+          <div class="lg:col-span-6 space-y-8">
+            
+            <!-- Slider 1: Portfolio Size -->
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <label for="portfolioSlider" class="text-sm font-bold text-slate-900 dark:text-white">
+                  Retirement Capital to Safeguard
+                </label>
+                <span id="portfolioValueDisplay" class="text-base font-bold font-serif text-teal-600 dark:text-teal-400">
+                  $750,000
+                </span>
+              </div>
+              <input type="range" id="portfolioSlider" min="250000" max="3000000" step="25000" value="750000"
+                class="w-full accent-teal-600 cursor-pointer" oninput="updateSimulator()">
+              <div class="flex justify-between text-[11px] text-slate-400 font-mono">
+                <span>$250K</span>
+                <span>$1.5M</span>
+                <span>$3.0M</span>
+              </div>
+            </div>
+
+            <!-- Slider 2: Horizon -->
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <label for="horizonSlider" class="text-sm font-bold text-slate-900 dark:text-white">
+                  Planned Retirement Duration
+                </label>
+                <span id="horizonValueDisplay" class="text-base font-bold font-serif text-amber-500">
+                  20 Years
+                </span>
+              </div>
+              <input type="range" id="horizonSlider" min="10" max="30" step="1" value="20"
+                class="w-full accent-amber-500 cursor-pointer" oninput="updateSimulator()">
+              <div class="flex justify-between text-[11px] text-slate-400 font-mono">
+                <span>10 Years</span>
+                <span>20 Years</span>
+                <span>30 Years</span>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-300 flex items-start gap-3">
+              <i class="bi bi-info-circle-fill text-teal-600 text-base flex-shrink-0 mt-0.5"></i>
+              <span>
+                Calculations compare an institutional Fixed Indexed Annuity with lifetime withdrawal rider (GLWB) against standard Wall Street 1.25% annual AUM fee drag.
+              </span>
+            </div>
+
+          </div>
+
+          <!-- Right: Live Result Displays -->
+          <div class="lg:col-span-6 space-y-4">
+            
+            <!-- Result 1 -->
+            <div class="p-5 rounded-2xl bg-white dark:bg-navy-900 border border-teal-500/30 shadow-xs">
+              <span class="text-[11px] uppercase tracking-wider text-teal-600 dark:text-teal-400 font-bold block mb-1">
+                Contractual Monthly Lifetime Floor
+              </span>
+              <p id="monthlyIncomeOutput" class="text-3xl sm:text-4xl font-bold font-serif text-teal-600 dark:text-teal-400">
+                $3,875 / mo
+              </p>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Guaranteed direct deposit checks that never decrease, for life.</p>
+            </div>
+
+            <!-- Result 2 -->
+            <div class="p-5 rounded-2xl bg-white dark:bg-navy-900 border border-amber-500/30 shadow-xs">
+              <span class="text-[11px] uppercase tracking-wider text-amber-500 font-bold block mb-1">
+                Estimated Brokerage Fees Saved
+              </span>
+              <p id="feeSavingsOutput" class="text-2xl sm:text-3xl font-bold font-serif text-amber-500">
+                $187,500
+              </p>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Wealth preserved in your pocket instead of Wall Street 1.25% fee drag.</p>
+            </div>
+
+            <!-- Result 3 -->
+            <div class="p-5 rounded-2xl bg-white dark:bg-navy-900 border border-blue-500/30 shadow-xs">
+              <span class="text-[11px] uppercase tracking-wider text-blue-600 dark:text-blue-400 font-bold block mb-1">
+                Downside Crash Exposure
+              </span>
+              <p class="text-2xl font-bold font-serif text-blue-600 dark:text-blue-400">
+                $0 Lost (0% Legal Floor)
+              </p>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Contractual zero floor guarantees your capital is never reduced during bear markets.</p>
+            </div>
+
+            <!-- CTA inside simulator -->
+            <button onclick="RetireWellApp.openBookingModal('Fiduciary Simulator Custom Audit')" 
+              class="w-full btn-primary-gold text-xs py-2.5 rounded-lg shadow-md font-bold flex items-center justify-center gap-2 cursor-pointer mt-2">
+              <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+              <span>Get My Custom Fiduciary Blueprint</span>
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       10. NEW SECTION: ACCREDITATIONS & REGULATORY GOVERNANCE
+       ========================================================================= -->
+  <section class="py-16 lg:py-24 bg-slate-50 dark:bg-navy-950 border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <span class="rw-badge-teal">ACCREDITATIONS &amp; REGULATORY STANDARDS</span>
+        <h2 class="text-2xl sm:text-3xl font-bold font-serif text-slate-900 dark:text-white">
+          Recognized Standards of Fiduciary Excellence
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+          Adhering to the nation's most stringent financial ethics, fiduciary oaths, and consumer protections.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        
+        <div class="p-5 rounded-2xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 text-center shadow-xs">
+          <i class="bi bi-shield-lock text-3xl text-teal-600 mb-2 block"></i>
+          <h4 class="text-xs font-bold text-slate-900 dark:text-white">SEC Registered</h4>
+          <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1">Fiduciary Investment Adviser</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 text-center shadow-xs">
+          <i class="bi bi-mortarboard text-3xl text-amber-500 mb-2 block"></i>
+          <h4 class="text-xs font-bold text-slate-900 dark:text-white">CFP® Board</h4>
+          <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1">Ethical Fiduciary Standard</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 text-center shadow-xs">
+          <i class="bi bi-award text-3xl text-blue-600 mb-2 block"></i>
+          <h4 class="text-xs font-bold text-slate-900 dark:text-white">RICP® Certified</h4>
+          <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1">Retirement Income Certified</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 text-center shadow-xs">
+          <i class="bi bi-check2-circle text-3xl text-emerald-600 mb-2 block"></i>
+          <h4 class="text-xs font-bold text-slate-900 dark:text-white">BBB Accredited</h4>
+          <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1">A+ Trust Rating</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 text-center shadow-xs">
+          <i class="bi bi-card-checklist text-3xl text-purple-600 mb-2 block"></i>
+          <h4 class="text-xs font-bold text-slate-900 dark:text-white">NAIC Compliant</h4>
+          <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1">Best Interest Model Rule</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 text-center shadow-xs">
+          <i class="bi bi-newspaper text-3xl text-slate-700 dark:text-slate-300 mb-2 block"></i>
+          <h4 class="text-xs font-bold text-slate-900 dark:text-white">Media Authority</h4>
+          <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1">Featured in Forbes &amp; WSJ</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       11. NEW SECTION: ABOUT RETIREWELL FAQ (ACCORDION)
+       ========================================================================= -->
+  <section class="py-20 lg:py-28 bg-white dark:bg-navy-900 border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <span class="rw-badge-teal">ABOUT RETIREWELL</span>
+        <h2 class="text-3xl font-bold font-serif text-slate-900 dark:text-white">
+          Frequently Asked Questions About Our Advisory
+        </h2>
+        <p class="text-sm text-slate-600 dark:text-slate-300">
+          Honest, straightforward answers about how we operate, how we are compensated, and how we protect your life savings.
+        </p>
+      </div>
+
+      <div class="space-y-4" id="aboutFaqAccordion">
+        
+        <!-- FAQ 1 -->
+        <div class="rw-card rounded-2xl overflow-hidden shadow-xs">
+          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition cursor-pointer faq-accordion-btn">
+            <span class="font-serif text-base sm:text-lg">Are you truly an independent fiduciary, or do you work for insurance companies?</span>
+            <i class="bi bi-chevron-down text-teal-600 transition-transform flex-shrink-0"></i>
+          </button>
+          <div class="px-6 pb-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed hidden faq-answer">
+            RetireWell is a 100% independent fiduciary advisory registered under the SEC Investment Advisers Act of 1940. We have zero captive ties, sales quotas, or corporate obligations to any single insurance company. We evaluate contracts across 40+ institutional carriers to find the highest guaranteed income and lowest cost structure for your specific retirement profile.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="rw-card rounded-2xl overflow-hidden shadow-xs">
+          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition cursor-pointer faq-accordion-btn">
+            <span class="font-serif text-base sm:text-lg">How is RetireWell compensated? Will fees diminish my investment?</span>
+            <i class="bi bi-chevron-down text-teal-600 transition-transform flex-shrink-0"></i>
+          </button>
+          <div class="px-6 pb-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed hidden faq-answer">
+            Total transparency is legally mandated by our fiduciary oath. For pure wealth planning, we offer flat-fee and percentage-based fiduciary agreements clearly outlined in Form CRS. For institutional fixed annuity placements, compensation is funded directly by the carrier's underwriting pool, meaning 100% of your deposited money goes to work immediately with zero deductions from your account balance.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="rw-card rounded-2xl overflow-hidden shadow-xs">
+          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition cursor-pointer faq-accordion-btn">
+            <span class="font-serif text-base sm:text-lg">What happens if an insurance carrier goes out of business?</span>
+            <i class="bi bi-chevron-down text-teal-600 transition-transform flex-shrink-0"></i>
+          </button>
+          <div class="px-6 pb-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed hidden faq-answer">
+            First, RetireWell exclusively partners with top-tier carriers holding A+ or A++ financial ratings, backed by statutory capital reserves exceeding $1.00 per guaranteed dollar. Furthermore, every U.S. state operates a State Life and Health Insurance Guaranty Association providing statutory safety net coverage (typically $250,000 to $500,000 per policyholder).
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="rw-card rounded-2xl overflow-hidden shadow-xs">
+          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition cursor-pointer faq-accordion-btn">
+            <span class="font-serif text-base sm:text-lg">Can I keep my existing 401(k) or IRA accounts when working with RetireWell?</span>
+            <i class="bi bi-chevron-down text-teal-600 transition-transform flex-shrink-0"></i>
+          </button>
+          <div class="px-6 pb-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed hidden faq-answer">
+            Absolutely. We frequently help clients execute direct, tax-free trustee-to-trustee rollovers from employer 401(k)s, 403(b)s, and traditional IRAs into institutional guaranteed annuity contracts. You do not incur any early taxes or penalties, and your money preserves its tax-deferred accumulation status.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="rw-card rounded-2xl overflow-hidden shadow-xs">
+          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition cursor-pointer faq-accordion-btn">
+            <span class="font-serif text-base sm:text-lg">What is the process to get started with a Fiduciary Consultation?</span>
+            <i class="bi bi-chevron-down text-teal-600 transition-transform flex-shrink-0"></i>
+          </button>
+          <div class="px-6 pb-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed hidden faq-answer">
+            Getting started begins with a complimentary 45-minute video or phone consultation with a senior fiduciary partner. We audit your existing holdings, model your monthly living expenses, and show you side-by-side contractual quotes with zero obligation to proceed. You can schedule online in under 60 seconds.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       12. BOTTOM CTA: PLAN MY RETIREMENT
+       ========================================================================= -->
   <section class="py-20 bg-gradient-to-r from-slate-950 via-navy-950 to-slate-950 text-white relative overflow-hidden border-t border-white/10">
+    <!-- Ambient Orbs -->
+    <div class="luxury-glow-teal -top-20 -left-20 opacity-30"></div>
+    <div class="luxury-glow-gold -bottom-20 right-0 opacity-25"></div>
+
     <div class="max-w-4xl mx-auto px-4 text-center space-y-6 relative z-10">
       <span class="rw-badge-teal bg-teal-500/20 text-teal-300 border-teal-500/40">COMPLIMENTARY FIDUCIARY AUDIT</span>
       <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-serif tracking-tight">
@@ -342,13 +1126,13 @@
         Speak directly with a credentialed fiduciary advisor. We will audit your current portfolio, stress-test your floor, 
         and show you contractually guaranteed options with zero obligation.
       </p>
-      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
         <button onclick="RetireWellApp.openBookingModal('Comprehensive Retirement Income Plan')" 
-          class="btn-primary-gold text-base py-4 px-8 shadow-xl shadow-amber-600/30 cursor-pointer">
-          <i class="bi bi-calendar2-check-fill text-lg"></i>
+          class="btn-primary-gold text-xs sm:text-sm py-2 sm:py-2.5 px-4 sm:px-5 shadow-md shadow-amber-600/25 cursor-pointer">
+          <i class="bi bi-calendar2-check-fill text-sm sm:text-base"></i>
           <span>Schedule My Private Consultation</span>
         </button>
-        <a href="services.html" class="inline-flex items-center justify-center gap-2 font-semibold text-sm py-4 px-6 rounded-xl border border-white/20 bg-white/5 hover:bg-white/10 text-white transition backdrop-blur-sm">
+        <a href="services.html" class="inline-flex items-center justify-center gap-2 font-semibold text-xs py-2 sm:py-2.5 px-4 rounded-lg border border-white/20 bg-white/5 hover:bg-white/10 text-white transition backdrop-blur-sm">
           <span>Compare Annuity Products</span>
           <i class="bi bi-arrow-right"></i>
         </a>
@@ -364,5 +1148,66 @@
   <script src="js/navbar.js"></script>
   <script src="js/footer.js"></script>
   <script src="js/app.js"></script>
+
+  <!-- Interactive Scripts for About Page: Simulator & FAQ Accordion -->
+  <script>
+    // FAQ Accordion Toggle
+    function toggleFaq(btn) {
+      const card = btn.closest('.rw-card');
+      const answer = card ? card.querySelector('.faq-answer') : btn.nextElementSibling;
+      const icon = btn.querySelector('.bi-chevron-down');
+      if (!answer) return;
+
+      const isHidden = answer.classList.contains('hidden');
+      
+      // Close all other faqs in group
+      document.querySelectorAll('#aboutFaqAccordion .faq-answer').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('#aboutFaqAccordion .bi-chevron-down').forEach(el => el.classList.remove('rotate-180'));
+
+      if (isHidden) {
+        answer.classList.remove('hidden');
+        if (icon) icon.classList.add('rotate-180');
+      }
+    }
+
+    // Fiduciary Advantage Simulator
+    function updateSimulator() {
+      const capitalInput = document.getElementById('portfolioSlider');
+      const horizonInput = document.getElementById('horizonSlider');
+      if (!capitalInput || !horizonInput) return;
+
+      const capital = parseFloat(capitalInput.value);
+      const years = parseInt(horizonInput.value, 10);
+
+      // Display inputs
+      const capitalDisplay = document.getElementById('portfolioValueDisplay');
+      const horizonDisplay = document.getElementById('horizonValueDisplay');
+      if (capitalDisplay) capitalDisplay.textContent = '$' + capital.toLocaleString('en-US');
+      if (horizonDisplay) horizonDisplay.textContent = years + ' Years';
+
+      // Payout Rate calculation (typically 6.0% - 6.5% for GLWB floor income at age 62-65)
+      const annualIncome = capital * 0.062;
+      const monthlyIncome = Math.round(annualIncome / 12);
+
+      // Fee savings: 1.25% standard AUM brokerage drag over N years
+      // Conservative cumulative fee estimate = capital * 0.0125 * years
+      const feeSavings = Math.round(capital * 0.0125 * years);
+
+      const incomeOutput = document.getElementById('monthlyIncomeOutput');
+      const feeOutput = document.getElementById('feeSavingsOutput');
+
+      if (incomeOutput) {
+        incomeOutput.textContent = '$' + monthlyIncome.toLocaleString('en-US') + ' / mo';
+      }
+      if (feeOutput) {
+        feeOutput.textContent = '$' + feeSavings.toLocaleString('en-US');
+      }
+    }
+
+    // Initialize Simulator on Page Load
+    document.addEventListener('DOMContentLoaded', () => {
+      updateSimulator();
+    });
+  </script>
 </body>
 </html>

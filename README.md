@@ -76,6 +76,16 @@ retirewell/
    ```
 3. Navigate to `http://localhost:8000/index.html`.
 
+### 🛠️ Compiling Tailwind CSS for Production
+The project uses production-compiled Tailwind CSS (`css/tailwind.min.css`) to eliminate runtime CDN compilation and eliminate console warnings:
+```bash
+# Build minified production CSS:
+npm run build:css
+
+# Watch for CSS changes during development:
+npm run watch:css
+```
+
 ---
 
 ## 🎨 Color Palette & Typography
