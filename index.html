@@ -32,13 +32,13 @@
        HERO SECTION: REASSURING RETIREMENT CONFIDENCE
        ========================================================================= -->
   <section class="relative pt-6 pb-8 sm:pt-12 sm:pb-20 lg:pt-20 lg:pb-32 overflow-hidden">
-    <!-- Hero Section Background: Retirement Wealth & Money Stacks with Financial Analytics -->
+    <!-- Hero Section Background: Sunlit Retirement Wealth & Money Architecture -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
-      <img src="images/hero-home1-money.jpg" 
-        alt="Luxury retirement wealth management with stacked hundred dollar currency bills, golden coins, and financial portfolio growth charts" 
-        class="w-full h-full object-cover object-center scale-105 filter brightness-[0.95] dark:brightness-[0.78] contrast-[1.03]">
-      <!-- Refined ambient overlay for optimal readability in both light & dark themes -->
-      <div class="absolute inset-0 bg-slate-950/20 dark:bg-navy-950/45 pointer-events-none"></div>
+      <img src="images/hero-home1-light-money.jpg" 
+        alt="Sunlit modern luxury retirement wealth management penthouse with stacked currency notes, gleaming gold coins, and growth charts" 
+        class="w-full h-full object-cover object-center scale-105 filter brightness-[1.03] dark:brightness-[0.45] contrast-[1.02]">
+      <!-- Refined ambient overlay: subtle light tint in light mode, deep rich scrim in dark mode -->
+      <div class="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/25 dark:from-navy-950/80 dark:via-navy-950/70 dark:to-navy-950/85 pointer-events-none"></div>
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -103,40 +103,76 @@
         <!-- Hero Visual: Photographic Anchor & Floating Income Card (5 cols) -->
         <div class="lg:col-span-5 relative">
           <div class="relative mx-auto max-w-md lg:max-w-none">
-            <!-- Main Hero Visual Card Container with Pinterest Wealth Video (Aspect 16/10 on mobile, 4/5 on sm+) -->
-            <div class="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 sm:border-4 border-white dark:border-navy-800 bg-slate-900 aspect-[16/10] sm:aspect-[4/5] relative group">
-              <!-- Background Ambient Video from Pinterest Pin (https://in.pinterest.com/pin/14214555070355018/) -->
-              <video id="heroStoryVideo" 
-                class="w-full h-full object-cover object-center" 
-                autoplay 
-                muted 
-                loop 
-                playsinline 
-                preload="auto"
-                poster="images/pin-14214555070355018-poster.jpg">
-                <source src="videos/pin-14214555070355018.mp4" type="video/mp4">
-                <source src="https://v1.pinimg.com/videos/iht/expMp4/e5/d9/e2/e5d9e27b453af4260d55cffef1a81a05_540w.mp4" type="video/mp4">
-                <img src="images/pin-14214555070355018-poster.jpg" alt="Retirement wealth security celebration" class="w-full h-full object-cover object-center">
-              </video>
-              
-              <!-- Subtle Vignette / Gradient Overlay -->
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/20 pointer-events-none"></div>
+            <!-- Video Frame Anchor with Dedicated Floating Badges -->
+            <div class="relative">
+              <!-- Main Hero Visual Card Container with Pinterest Wealth Video (Aspect 16/10 on mobile, 4/5 on sm+) -->
+              <div class="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 sm:border-4 border-white dark:border-navy-800 bg-slate-900 aspect-[16/10] sm:aspect-[4/5] relative group">
+                <!-- Background Ambient Video from Pinterest Pin (https://in.pinterest.com/pin/14214555070355018/) -->
+                <video id="heroStoryVideo" 
+                  class="w-full h-full object-cover object-center" 
+                  autoplay 
+                  muted 
+                  loop 
+                  playsinline 
+                  preload="auto"
+                  poster="images/pin-14214555070355018-poster.jpg">
+                  <source src="videos/pin-14214555070355018.mp4" type="video/mp4">
+                  <source src="https://v1.pinimg.com/videos/iht/expMp4/e5/d9/e2/e5d9e27b453af4260d55cffef1a81a05_540w.mp4" type="video/mp4">
+                  <img src="images/pin-14214555070355018-poster.jpg" alt="Retirement wealth security celebration" class="w-full h-full object-cover object-center">
+                </video>
+                
+                <!-- Subtle Vignette / Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/20 pointer-events-none"></div>
 
-              <!-- Top Left Badge: Lifetime Wealth & Live Play/Pause Toggle -->
-              <div class="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-20 flex items-center gap-2">
-                <div class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-slate-950/75 backdrop-blur-md border border-white/20 text-white text-[10px] sm:text-[11px] font-bold shadow-lg">
-                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                  <span class="tracking-wide">LIFETIME WEALTH</span>
+                <!-- Top Left Badge: Lifetime Wealth & Live Play/Pause Toggle -->
+                <div class="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-20 flex items-center gap-2">
+                  <div class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-slate-950/75 backdrop-blur-md border border-white/20 text-white text-[10px] sm:text-[11px] font-bold shadow-lg">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="tracking-wide">LIFETIME WEALTH</span>
+                  </div>
+                  <button id="heroVideoToggleBtn" 
+                    onclick="toggleHeroVideoPlay()" 
+                    class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-950/75 hover:bg-slate-900 backdrop-blur-md border border-white/20 text-white flex items-center justify-center text-xs shadow-lg transition cursor-pointer" 
+                    title="Pause / Play Video"
+                    aria-label="Pause / Play Video">
+                    <i id="heroVideoPlayIcon" class="bi bi-pause-fill"></i>
+                  </button>
                 </div>
-                <button id="heroVideoToggleBtn" 
-                  onclick="toggleHeroVideoPlay()" 
-                  class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-950/75 hover:bg-slate-900 backdrop-blur-md border border-white/20 text-white flex items-center justify-center text-xs shadow-lg transition cursor-pointer" 
-                  title="Pause / Play Video"
-                  aria-label="Pause / Play Video">
-                  <i id="heroVideoPlayIcon" class="bi bi-pause-fill"></i>
-                </button>
+
               </div>
 
+              <!-- Floating Guaranteed Income Badge (Top Right - Tablet & Desktop) -->
+              <div class="hidden sm:block rw-card rw-card-gold hero-floating-badge-top p-4 rounded-2xl shadow-2xl max-w-[240px] bg-white/95 dark:bg-navy-900/95 backdrop-blur-md animate-fade-in z-20">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl font-bold shadow-inner flex-shrink-0">
+                    <i class="bi bi-shield-fill-check"></i>
+                  </div>
+                  <div>
+                    <p class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider">Lifetime Floor</p>
+                    <p class="text-lg font-bold font-serif text-slate-900 dark:text-white">$4,800 <span class="text-xs font-sans font-normal text-slate-500">/mo</span></p>
+                  </div>
+                </div>
+                <div class="mt-2 text-[10px] text-teal-700 dark:text-teal-400 font-semibold flex items-center gap-1">
+                  <i class="bi bi-lock-fill"></i> 100% Principal Protection
+                </div>
+              </div>
+
+              <!-- Floating Readiness Score Ring (Left Side - Tablet & Desktop) -->
+              <div class="hidden sm:block rw-card rw-card-teal hero-floating-badge-left p-4 rounded-2xl shadow-2xl max-w-[220px] bg-white/95 dark:bg-navy-900/95 backdrop-blur-md z-20">
+                <div class="flex items-center gap-3">
+                  <div class="relative w-12 h-12 flex-shrink-0 flex items-center justify-center">
+                    <svg class="w-12 h-12 transform -rotate-90" viewBox="0 0 36 36">
+                      <path class="text-slate-200 dark:text-slate-800" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                      <path class="text-teal-500" stroke-dasharray="88, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <span class="absolute text-xs font-bold text-slate-900 dark:text-white">88%</span>
+                  </div>
+                  <div>
+                    <p class="text-xs font-bold text-slate-900 dark:text-white">Retirement Score</p>
+                    <p class="text-[10px] text-teal-600 dark:text-teal-400 font-semibold">Ready to Retire</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!-- Client Story Testimonial Card (Positioned directly below video so video is completely unobstructed) -->
@@ -157,39 +193,6 @@
                 <span>— Robert &amp; Margaret V.</span>
                 <span class="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-normal">Retired 2023</span>
               </p>
-            </div>
-
-            <!-- Floating Guaranteed Income Badge (Top Right - Tablet & Desktop) -->
-            <div class="hidden sm:block rw-card rw-card-gold p-4 rounded-2xl shadow-2xl absolute -top-6 -right-6 max-w-[240px] bg-white/95 dark:bg-navy-900/95 backdrop-blur-md animate-fade-in z-20">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl font-bold shadow-inner flex-shrink-0">
-                  <i class="bi bi-shield-fill-check"></i>
-                </div>
-                <div>
-                  <p class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider">Lifetime Floor</p>
-                  <p class="text-lg font-bold font-serif text-slate-900 dark:text-white">$4,800 <span class="text-xs font-sans font-normal text-slate-500">/mo</span></p>
-                </div>
-              </div>
-              <div class="mt-2 text-[10px] text-teal-700 dark:text-teal-400 font-semibold flex items-center gap-1">
-                <i class="bi bi-lock-fill"></i> 100% Principal Protection
-              </div>
-            </div>
-
-            <!-- Floating Readiness Score Ring (Left Side - Tablet & Desktop) -->
-            <div class="hidden sm:block rw-card rw-card-teal p-4 rounded-2xl shadow-2xl absolute top-1/2 -left-6 -translate-y-1/2 max-w-[220px] bg-white/95 dark:bg-navy-900/95 backdrop-blur-md z-20">
-              <div class="flex items-center gap-3">
-                <div class="relative w-12 h-12 flex-shrink-0 flex items-center justify-center">
-                  <svg class="w-12 h-12 transform -rotate-90" viewBox="0 0 36 36">
-                    <path class="text-slate-200 dark:text-slate-800" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                    <path class="text-teal-500" stroke-dasharray="88, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  </svg>
-                  <span class="absolute text-xs font-bold text-slate-900 dark:text-white">88%</span>
-                </div>
-                <div>
-                  <p class="text-xs font-bold text-slate-900 dark:text-white">Retirement Score</p>
-                  <p class="text-[10px] text-teal-600 dark:text-teal-400 font-semibold">Ready to Retire</p>
-                </div>
-              </div>
             </div>
 
             <!-- Mobile Badge Cards (Rendered neatly in 2 columns below the video on mobile) -->

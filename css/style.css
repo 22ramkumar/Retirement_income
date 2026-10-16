@@ -437,6 +437,39 @@ input, select, textarea, button {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
   position: relative;
 }
+.rw-card.absolute,
+.rw-card.hero-floating-badge-top,
+.rw-card.hero-floating-badge-left {
+  position: absolute !important;
+}
+
+/* Hero Floating Badges Anchor Positioning */
+.hero-floating-badge-top {
+  position: absolute !important;
+  top: -1.5rem;
+  right: -1.5rem;
+  left: auto;
+}
+
+.hero-floating-badge-left {
+  position: absolute !important;
+  top: 50%;
+  left: -1.5rem;
+  right: auto;
+  transform: translateY(-50%);
+}
+
+/* RTL Support for Hero Floating Badges */
+[dir="rtl"] .hero-floating-badge-top {
+  right: auto !important;
+  left: -1.5rem !important;
+}
+
+[dir="rtl"] .hero-floating-badge-left {
+  left: auto !important;
+  right: -1.5rem !important;
+  transform: translateY(-50%) !important;
+}
 .rw-card:hover {
   border-color: rgba(13, 148, 136, 0.35);
   box-shadow: 0 16px 36px -8px rgba(10, 25, 47, 0.12), inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
