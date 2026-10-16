@@ -439,7 +439,8 @@ input, select, textarea, button {
 }
 .rw-card.absolute,
 .rw-card.hero-floating-badge-top,
-.rw-card.hero-floating-badge-left {
+.rw-card.hero-floating-badge-left,
+.rw-card.hero-floating-badge-bottom-left {
   position: absolute !important;
 }
 
@@ -451,12 +452,15 @@ input, select, textarea, button {
   left: auto;
 }
 
+/* Bottom Corner Positioning for Retirement Score Badge */
+.hero-floating-badge-bottom-left,
 .hero-floating-badge-left {
   position: absolute !important;
-  top: 50%;
-  left: -1.5rem;
-  right: auto;
-  transform: translateY(-50%);
+  top: auto !important;
+  bottom: 2rem !important;
+  left: -1.5rem !important;
+  right: auto !important;
+  transform: none !important;
 }
 
 /* RTL Support for Hero Floating Badges */
@@ -465,10 +469,11 @@ input, select, textarea, button {
   left: -1.5rem !important;
 }
 
+[dir="rtl"] .hero-floating-badge-bottom-left,
 [dir="rtl"] .hero-floating-badge-left {
   left: auto !important;
   right: -1.5rem !important;
-  transform: translateY(-50%) !important;
+  transform: none !important;
 }
 .rw-card:hover {
   border-color: rgba(13, 148, 136, 0.35);
