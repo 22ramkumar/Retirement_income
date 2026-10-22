@@ -36,14 +36,6 @@
       <i class="bi bi-arrow-left text-sm"></i>
       <span>Back to RetireWell</span>
     </a>
-    <div class="flex items-center gap-2">
-      <button onclick="RetireWellApp.toggleTheme()" class="w-9 h-9 rounded-xl border border-white/15 bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition backdrop-blur-sm cursor-pointer" title="Toggle theme">
-        <i class="bi bi-moon-stars-fill theme-toggle-icon text-sm"></i>
-      </button>
-      <button onclick="RetireWellApp.toggleRTL()" class="h-9 px-2.5 rounded-xl border border-white/15 bg-white/10 hover:bg-white/20 flex items-center justify-center text-xs font-bold text-white transition backdrop-blur-sm cursor-pointer" title="Toggle RTL layout">
-        ⇄ RTL
-      </button>
-    </div>
   </header>
 
   <!-- Main Login Section -->
@@ -74,9 +66,6 @@
           <button id="tabBtnRegister" onclick="switchAuthTab('register')" class="flex-1 pb-3 text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-white transition">
             Register Client
           </button>
-          <button id="tabBtnForgot" onclick="switchAuthTab('forgot')" class="flex-1 pb-3 text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-white transition text-xs">
-            Recovery
-          </button>
         </div>
 
         <!-- 1. LOGIN FORM -->
@@ -90,10 +79,7 @@
           </div>
 
           <div>
-            <div class="flex items-center justify-between mb-1">
-              <label for="loginPassword" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">Password</label>
-              <button type="button" onclick="switchAuthTab('forgot')" class="text-xs text-teal-600 hover:underline">Forgot?</button>
-            </div>
+            <label for="loginPassword" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Password</label>
             <div class="relative">
               <span class="absolute left-3 top-2.5 text-slate-400"><i class="bi bi-shield-lock"></i></span>
               <input type="password" id="loginPassword" required class="rw-input pl-9 pr-10 text-sm" placeholder="••••••••">
@@ -168,28 +154,6 @@
           </button>
         </form>
 
-        <!-- 3. FORGOT PASSWORD FORM -->
-        <form id="formForgot" onsubmit="handleForgotSubmit(event)" class="space-y-4 hidden">
-          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-            Enter your registered fiduciary email. We will dispatch a 2FA temporary verification code to your email and registered mobile device.
-          </p>
-
-          <div>
-            <label for="forgotEmail" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Registered Email</label>
-            <input type="email" id="forgotEmail" required class="rw-input text-sm" placeholder="client@example.com">
-          </div>
-
-          <button type="submit" class="btn-primary-gold w-full py-2 px-3 text-xs font-bold uppercase tracking-wider shadow-md">
-            <span>Send Security Reset Token</span>
-            <i class="bi bi-shield-check"></i>
-          </button>
-
-          <div class="text-center pt-2">
-            <button type="button" onclick="switchAuthTab('login')" class="text-xs text-teal-600 font-semibold hover:underline">
-              ← Return to Sign In
-            </button>
-          </div>
-        </form>
 
       </div>
 
@@ -246,18 +210,16 @@
     function switchAuthTab(tab) {
       const fLogin = document.getElementById('formLogin');
       const fReg = document.getElementById('formRegister');
-      const fForgot = document.getElementById('formForgot');
       const bLogin = document.getElementById('tabBtnLogin');
       const bReg = document.getElementById('tabBtnRegister');
-      const bForgot = document.getElementById('tabBtnForgot');
+
+      if (!fLogin || !fReg || !bLogin || !bReg) return;
 
       fLogin.classList.add('hidden');
       fReg.classList.add('hidden');
-      fForgot.classList.add('hidden');
 
       bLogin.className = 'flex-1 pb-3 text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-white transition';
       bReg.className = 'flex-1 pb-3 text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-white transition';
-      bForgot.className = 'flex-1 pb-3 text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-white transition text-xs';
 
       if (tab === 'login') {
         fLogin.classList.remove('hidden');
@@ -265,9 +227,6 @@
       } else if (tab === 'register') {
         fReg.classList.remove('hidden');
         bReg.className = 'flex-1 pb-3 text-center border-b-2 border-teal-600 text-teal-600 font-bold transition';
-      } else if (tab === 'forgot') {
-        fForgot.classList.remove('hidden');
-        bForgot.className = 'flex-1 pb-3 text-center border-b-2 border-teal-600 text-teal-600 font-bold transition text-xs';
       }
     }
 
@@ -318,14 +277,6 @@
       }
     }
 
-    function handleForgotSubmit(e) {
-      e.preventDefault();
-      const email = document.getElementById('forgotEmail').value;
-      RetireWellApp.toast(`Security token generated for ${email}. Check your inbox for reset instructions.`, 'info', 4000);
-      setTimeout(() => {
-        switchAuthTab('login');
-      }, 1500);
-    }
 
     document.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
