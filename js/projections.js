@@ -232,12 +232,35 @@ const RetireWellProjections = {
     }
   },
 
+  // Homepage Widget Strategy State & Handler
+  currentHomeStrategy: 'hybrid',
+
+  setHomeStrategy(strat) {
+    this.currentHomeStrategy = strat;
+    const buttons = document.querySelectorAll('.home-strategy-btn');
+    buttons.forEach(btn => {
+      const isSelected = btn.dataset.strategy === strat;
+      if (isSelected) {
+        btn.className = 'home-strategy-btn p-3 rounded-xl border text-left transition-all text-xs border-amber-500 bg-amber-500/10 text-amber-900 dark:text-amber-200 ring-1 ring-amber-500 shadow-sm';
+        const titleSpan = btn.querySelector('.strategy-title');
+        if (titleSpan) titleSpan.className = 'strategy-title font-bold text-amber-700 dark:text-amber-400';
+      } else {
+        btn.className = 'home-strategy-btn p-3 rounded-xl border text-left transition-all text-xs border-slate-200 dark:border-slate-800 hover:border-amber-500/50 bg-slate-50/50 dark:bg-navy-950/40 text-slate-700 dark:text-slate-300';
+        const titleSpan = btn.querySelector('.strategy-title');
+        if (titleSpan) titleSpan.className = 'strategy-title font-bold text-slate-800 dark:text-white';
+      }
+    });
+    this.updateHomeWidget();
+  },
+
   // Mini Widget on Homepage
   updateHomeWidget() {
     const ageInput = document.getElementById("homeCurrentAge");
     const retAgeInput = document.getElementById("homeRetireAge");
     const savingsInput = document.getElementById("homeSavings");
     const contribInput = document.getElementById("homeMonthlyContrib");
+    const desiredIncomeInput = document.getElementById("homeDesiredIncome");
+    const ssInput = document.getElementById("homeSSBenefit");
 
     if (!ageInput || !retAgeInput || !savingsInput || !contribInput) return;
 
@@ -245,24 +268,49 @@ const RetireWellProjections = {
     const retirementAge = parseInt(retAgeInput.value) || 65;
     const currentSavings = parseFloat(savingsInput.value) || 500000;
     const monthlyContribution = parseFloat(contribInput.value) || 1200;
+    const desiredMonthlyIncome = desiredIncomeInput ? (parseFloat(desiredIncomeInput.value) || 5500) : 5500;
+    const ssMonthlyBenefit = ssInput ? (parseFloat(ssInput.value) || 2400) : 2400;
 
-    const res = this.calculate({
-      currentAge,
-      retirementAge,
-      currentSavings,
-      monthlyContribution,
-      annualReturn: 6.2,
-      inflation: 2.5,
-      desiredMonthlyIncome: 5500
-    });
+    // Strategy parameters
+    let annualReturn = 6.2;
+    let floorPortion = 0.60;
+    let strategyCap = "6.2% Index Cap";
+    if (this.currentHomeStrategy === 'conservative') {
+      annualReturn = 5.5;
+      floorPortion = 0.90;
+      strategyCap = "5.5% Fixed Guaranteed Cap";
+    } else if (this.currentHomeStrategy === 'growth') {
+      annualReturn = 7.2;
+      floorPortion = 0.45;
+      strategyCap = "7.8% S&P Dynamic Cap";
+    }
+
+    const yearsToRetire = Math.max(1, retirementAge - currentAge);
+    const monthsToRetire = yearsToRetire * 12;
+    const monthlyRate = (annualReturn / 100) / 12;
+
+    let futureValue = currentSavings * Math.pow(1 + monthlyRate, monthsToRetire);
+    if (monthlyRate > 0) {
+      futureValue += monthlyContribution * ((Math.pow(1 + monthlyRate, monthsToRetire) - 1) / monthlyRate);
+    } else {
+      futureValue += monthlyContribution * monthsToRetire;
+    }
+
+    const annuityPayoutRate = 0.062 + (Math.max(0, retirementAge - 60) * 0.0018);
+    const guaranteedAnnuityMonthly = (futureValue * floorPortion * annuityPayoutRate) / 12 + (futureValue * (1 - floorPortion) * 0.038) / 12;
+    const totalProjectedMonthly = guaranteedAnnuityMonthly + ssMonthlyBenefit;
 
     const outPot = document.getElementById("homeResultPot");
     const outIncome = document.getElementById("homeResultIncome");
     const outFloor = document.getElementById("homeResultFloor");
+    const horizonEl = document.getElementById("homeHorizonLabel");
+    const capEl = document.getElementById("homeCapLabel");
 
-    if (outPot) outPot.textContent = "$" + res.totalPotAtRetirement.toLocaleString();
-    if (outIncome) outIncome.textContent = "$" + res.totalProjectedMonthly.toLocaleString() + "/mo";
-    if (outFloor) outFloor.textContent = "$" + res.guaranteedAnnuityMonthly.toLocaleString() + "/mo";
+    if (outPot) outPot.textContent = "$" + Math.round(futureValue).toLocaleString("en-US");
+    if (outIncome) outIncome.textContent = "$" + Math.round(totalProjectedMonthly).toLocaleString("en-US") + "/mo";
+    if (outFloor) outFloor.textContent = "$" + Math.round(guaranteedAnnuityMonthly).toLocaleString("en-US") + "/mo";
+    if (horizonEl) horizonEl.textContent = `${yearsToRetire}-Yr Deferral Horizon`;
+    if (capEl) capEl.textContent = strategyCap;
   },
 
   // Save current scenario to LocalStorage

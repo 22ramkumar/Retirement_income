@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-theme="light">
+<html lang="en" dir="ltr" data-theme="light" class="h-full overflow-hidden" style="overflow: hidden !important; height: 100% !important; overscroll-behavior: none !important;">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -17,173 +17,232 @@
 
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col justify-between transition-colors duration-300 antialiased relative overflow-x-hidden">
+<body class="bg-slate-50 dark:bg-navy-950 text-slate-800 dark:text-slate-100 h-full w-full flex flex-col transition-colors duration-300 antialiased relative overflow-hidden selection:bg-teal-500 selection:text-white" style="overflow: hidden !important; height: 100vh !important; overscroll-behavior: none !important;">
 
-  <!-- Client Portal Background (Retirement Planning Charts, Calculator & Analytics) -->
+  <!-- Sunlit Retirement Wealth Penthouse Background (Exact match to Homepage) -->
   <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
-    <img src="images/login-bg-retirement-plan.jpg?v=20261014" 
-      alt="Retirement financial planning analytics, calculator, glasses, and growth charts" 
-      class="w-full h-full object-cover object-center scale-105">
+    <img src="images/hero-home1-light-money.jpg?v=20261023" 
+      alt="Sunlit modern luxury retirement wealth management penthouse with stacked currency notes, gleaming gold coins, and growth charts" 
+      class="w-full h-full object-cover object-center filter brightness-[1.05] contrast-[1.02] saturate-[1.02] dark:brightness-[0.45] scale-105 transition-all duration-300">
     
-    <!-- Cinematic Glass Contrast Overlay (Reveals Background Charts with Crisp Card Legibility) -->
-    <div class="absolute inset-0 bg-slate-950/35 dark:bg-navy-950/55 backdrop-blur-[1.5px] transition-colors duration-300"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-slate-950/45 pointer-events-none"></div>
+    <!-- Refined Ambient Overlay: Subtle light tint in light mode, deep rich scrim in dark mode (Identical to Homepage) -->
+    <div class="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/25 dark:from-navy-950/80 dark:via-navy-950/70 dark:to-navy-950/85 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.4)_0%,_transparent_75%)] dark:bg-[radial-gradient(ellipse_at_center,_rgba(7,13,27,0.75)_0%,_transparent_80%)] pointer-events-none"></div>
   </div>
 
-  <!-- Client Portal Clean Bar (Website Header Removed) -->
-  <header class="w-full py-4 px-4 sm:px-8 flex items-center justify-between border-b border-white/10 dark:border-slate-800/80 bg-slate-950/40 dark:bg-navy-950/60 backdrop-blur-md z-10 relative">
-    <a href="index.html" class="inline-flex items-center gap-2 text-xs font-semibold text-white/90 hover:text-teal-400 transition" aria-label="Return to RetireWell Homepage">
-      <i class="bi bi-arrow-left text-sm"></i>
-      <span>Back to RetireWell</span>
-    </a>
+  <!-- Ambient Radiant Glow Elements -->
+  <div class="luxury-glow-teal -top-20 -left-20 pointer-events-none opacity-80"></div>
+  <div class="luxury-glow-gold top-1/2 -right-20 pointer-events-none opacity-70"></div>
+
+  <!-- Client Portal Clean Luminous Bar -->
+  <header class="w-full py-2.5 px-4 sm:px-8 flex items-center justify-between border-b border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-navy-950/80 backdrop-blur-md z-20 relative flex-shrink-0 shadow-2xs">
+    <div class="flex items-center gap-3">
+      <a href="index.html" class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-teal-600 dark:hover:text-teal-400 transition group py-1 px-2.5 sm:px-3 rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-800/60 border border-slate-200/70 dark:border-slate-800/60 shadow-2xs" aria-label="Return to RetireWell Homepage">
+        <i class="bi bi-arrow-left text-sm group-hover:-translate-x-0.5 transition-transform"></i>
+        <span>Back to RetireWell</span>
+      </a>
+    </div>
+
+    <div class="flex items-center gap-2 sm:gap-2.5">
+      <button type="button" onclick="RetireWellApp.toggleTheme()" class="w-8 h-8 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white/80 dark:bg-navy-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center text-slate-700 dark:text-slate-200 shadow-2xs transition cursor-pointer" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
+        <i class="bi bi-moon-stars-fill text-xs theme-toggle-icon"></i>
+      </button>
+      <button type="button" onclick="RetireWellApp.toggleRTL()" class="rtl-toggle-btn h-8 px-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white/80 dark:bg-navy-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center gap-1 text-[11px] font-bold text-slate-700 dark:text-slate-200 shadow-2xs transition cursor-pointer" title="Toggle RTL Layout" aria-label="Toggle RTL">
+        <i class="bi bi-arrow-left-right text-xs"></i>
+        <span class="rtl-label">RTL</span>
+      </button>
+    </div>
   </header>
 
   <!-- Main Login Section -->
-  <main class="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 z-10 relative">
-    <div class="max-w-md w-full space-y-6">
+  <main class="flex-1 min-h-0 flex items-center justify-center p-3 sm:p-4 z-10 relative overflow-hidden">
+    <div class="rw-login-card-container my-auto">
       
-      <!-- Top Brand Badge -->
-      <div class="text-center space-y-2">
-        <div class="inline-flex w-16 h-16 rounded-2xl bg-white dark:bg-navy-900 border border-white/30 dark:border-slate-800 p-1.5 items-center justify-center shadow-2xl shadow-teal-500/20 overflow-hidden ring-4 ring-white/10">
-          <img src="images/brand-logo.png" alt="RetireWell Logo" class="w-full h-full object-contain">
-        </div>
-        <h1 class="text-2xl sm:text-3xl font-bold font-serif text-white tracking-tight drop-shadow-md">
-          Secure Client Portal
-        </h1>
-        <p class="text-xs sm:text-sm text-slate-200 dark:text-slate-300 drop-shadow-xs font-medium">
-          Access your annuity portfolios, projections, and fiduciary vault
-        </p>
-      </div>
-
-      <!-- Auth Card Container with Tabs (Floating Frosted Glass Vault) -->
-      <div class="rw-card rw-card-gold p-4 sm:p-8 rounded-2xl sm:rounded-3xl shadow-2xl bg-white/95 dark:bg-navy-900/90 backdrop-blur-xl border border-white/80 dark:border-slate-800">
+      <!-- Unified Standard Auth Card -->
+      <div class="rw-card rw-card-gold p-5 sm:p-6 rounded-2xl sm:rounded-3xl shadow-2xl shadow-teal-950/15 dark:shadow-black/60 bg-white/95 dark:bg-navy-900/95 backdrop-blur-xl border border-slate-200/90 dark:border-slate-800 relative">
         
-        <!-- Tab Switches -->
-        <div class="flex border-b border-slate-200 dark:border-slate-800 mb-6 text-sm font-semibold">
-          <button id="tabBtnLogin" onclick="switchAuthTab('login')" class="flex-1 pb-3 text-center border-b-2 border-teal-600 text-teal-600 font-bold transition">
-            Sign In
-          </button>
-          <button id="tabBtnRegister" onclick="switchAuthTab('register')" class="flex-1 pb-3 text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-white transition">
-            Register Client
-          </button>
+        <!-- Brand Header inside Card -->
+        <div class="text-center mb-3 space-y-1.5">
+          <div class="inline-flex w-12 h-12 rounded-xl bg-white dark:bg-navy-800 border border-amber-300/80 dark:border-slate-700 p-1.5 items-center justify-center shadow-md shadow-amber-500/15 ring-2 ring-amber-400/20 group hover:scale-105 transition-transform">
+            <img src="images/brand-logo.png" alt="RetireWell Logo" class="w-full h-full object-contain">
+          </div>
+          <div>
+            <h1 class="text-xl sm:text-2xl font-bold font-serif text-slate-900 dark:text-white tracking-tight leading-snug" id="authCardTitle">
+              Sign In to Client Vault
+            </h1>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium" id="authCardSubtitle">
+              Access your retirement portfolio &amp; annuity projections
+            </p>
+          </div>
+        </div>
+
+        <!-- Active Session Banner (if logged in, allows 1-click jump to dashboard without forced redirect) -->
+        <div id="alreadyLoggedInBanner" class="hidden mb-2.5 py-1.5 px-3 rounded-lg bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-[11px] text-teal-900 dark:text-teal-200 flex items-center justify-between">
+          <span class="flex items-center gap-1.5">
+            <i class="bi bi-person-check-fill text-teal-600"></i>
+            <span>Signed in as <strong id="loggedInUserName">User</strong></span>
+          </span>
+          <a href="user.html" class="font-bold underline text-teal-700 dark:text-teal-300 hover:text-teal-900">Dashboard →</a>
         </div>
 
         <!-- 1. LOGIN FORM -->
-        <form id="formLogin" onsubmit="handleLoginSubmit(event)" class="space-y-4">
+        <form id="formLogin" onsubmit="handleLoginSubmit(event)" class="space-y-2.5">
+          <!-- Demo Account Quick Autofill Helper -->
+          <div class="py-1 px-2.5 rounded-lg bg-teal-50/80 dark:bg-teal-950/50 border border-teal-200/80 dark:border-teal-800/60 flex items-center justify-between text-xs">
+            <div class="flex items-center gap-1.5 text-teal-900 dark:text-teal-200">
+              <i class="bi bi-key-fill text-teal-600 dark:text-teal-400 text-xs"></i>
+              <span class="font-medium text-[11px] sm:text-xs">Demo: <strong class="font-bold">user@gmail.com</strong> / <strong class="font-bold">1234</strong></span>
+            </div>
+            <button type="button" onclick="fillDemoCredentials()" class="text-[11px] font-bold text-teal-700 dark:text-teal-300 hover:text-teal-900 dark:hover:text-white underline cursor-pointer ml-2">
+              Auto Fill
+            </button>
+          </div>
+
           <div>
-            <label for="loginEmail" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Email Address</label>
+            <label for="loginEmail" class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-0.5">Email Address</label>
             <div class="relative">
-              <span class="absolute left-3 top-2.5 text-slate-400"><i class="bi bi-envelope"></i></span>
-              <input type="email" id="loginEmail" required class="rw-input pl-9 text-sm" placeholder="client@example.com">
+              <span class="absolute left-3 top-2 text-slate-400 text-sm"><i class="bi bi-envelope"></i></span>
+              <input type="email" id="loginEmail" required class="rw-input pl-9 text-xs sm:text-sm py-1.5" placeholder="client@example.com">
             </div>
           </div>
 
           <div>
-            <label for="loginPassword" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Password</label>
+            <div class="flex items-center justify-between mb-0.5">
+              <label for="loginPassword" class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">Password</label>
+              <button type="button" id="tabBtnForgot" onclick="switchAuthTab('forgot')" class="text-[11px] font-medium text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 hover:underline cursor-pointer">
+                Forgot password?
+              </button>
+            </div>
             <div class="relative">
-              <span class="absolute left-3 top-2.5 text-slate-400"><i class="bi bi-shield-lock"></i></span>
-              <input type="password" id="loginPassword" required class="rw-input pl-9 pr-10 text-sm" placeholder="••••••••">
+              <span class="absolute left-3 top-2 text-slate-400 text-sm"><i class="bi bi-shield-lock"></i></span>
+              <input type="password" id="loginPassword" required class="rw-input pl-9 pr-10 text-xs sm:text-sm py-1.5" placeholder="••••••••">
               <button type="button" onclick="togglePasswordVisibility('loginPassword', this)" 
-                class="absolute right-3 top-2.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" title="Toggle password view">
+                class="absolute right-3 top-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" title="Toggle password view">
                 <i class="bi bi-eye"></i>
               </button>
             </div>
           </div>
 
-          <div class="flex items-center justify-between text-xs">
-            <label class="flex items-center gap-2 text-slate-600 dark:text-slate-300 cursor-pointer">
+          <div class="flex items-center justify-between text-xs pt-0.5">
+            <label class="flex items-center gap-1.5 text-slate-600 dark:text-slate-300 cursor-pointer text-[11px]">
               <input type="checkbox" id="rememberMe" checked class="rounded text-teal-600 focus:ring-teal-500">
               <span>Remember this device</span>
             </label>
-            <span class="text-slate-400"><i class="bi bi-lock-fill"></i> TLS 1.3 Active</span>
+            <span class="text-teal-700 dark:text-teal-400 font-medium flex items-center gap-1 text-[11px]"><i class="bi bi-lock-fill"></i> TLS 1.3 Active</span>
           </div>
 
-          <button type="submit" id="loginSubmitBtn" class="btn-primary-gold w-full py-2 px-3 text-xs font-bold uppercase tracking-wider shadow-md">
-            <span>Sign In to Dashboard</span>
+          <button type="submit" id="loginSubmitBtn" class="btn-primary-gold w-full py-2.5 px-4 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-md shadow-amber-600/25">
+            <span>Sign In to Client Vault</span>
             <i class="bi bi-arrow-right"></i>
           </button>
+
+          <!-- Register Link -->
+          <div class="pt-2 mt-1 border-t border-slate-200/80 dark:border-slate-800 text-center text-xs text-slate-600 dark:text-slate-400">
+            <span>Don't have a client vault?</span>
+            <button type="button" id="tabBtnRegister" onclick="switchAuthTab('register')" class="font-bold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 hover:underline ml-1 cursor-pointer">
+              Sign Up / Register
+            </button>
+          </div>
         </form>
 
         <!-- 2. REGISTER FORM -->
-        <form id="formRegister" onsubmit="handleRegisterSubmit(event)" class="space-y-4 hidden">
+        <form id="formRegister" onsubmit="handleRegisterSubmit(event)" class="space-y-2.5 hidden">
           <div>
-            <label for="regName" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Full Name</label>
-            <input type="text" id="regName" required class="rw-input text-sm" placeholder="e.g. Robert Vance"
+            <label for="regName" class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-0.5">Full Name</label>
+            <input type="text" id="regName" required class="rw-input text-xs sm:text-sm py-1.5" placeholder="e.g. Robert Vance"
               pattern="[A-Za-z .'-]+" title="Please enter alphabets only"
               onkeydown="RetireWellApp.filterNameKey(event)"
               oninput="RetireWellApp.allowAlphabetsOnly(this)">
           </div>
 
           <div>
-            <label for="regEmail" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Email Address</label>
-            <input type="email" id="regEmail" required class="rw-input text-sm" placeholder="client@example.com">
+            <label for="regEmail" class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-0.5">Email Address</label>
+            <input type="email" id="regEmail" required class="rw-input text-xs sm:text-sm py-1.5" placeholder="client@example.com">
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
             <div>
-              <label for="regPhone" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Phone</label>
-              <input type="tel" id="regPhone" required class="rw-input text-sm" placeholder="(617) 555-0199"
+              <label for="regPhone" class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-0.5">Phone</label>
+              <input type="tel" id="regPhone" required class="rw-input text-xs sm:text-sm py-1.5" placeholder="(617) 555-0199"
                 pattern="[0-9+() -]+" title="Please enter numbers only"
                 onkeydown="RetireWellApp.filterPhoneKey(event)"
                 oninput="RetireWellApp.allowNumbersOnly(this)">
             </div>
             <div>
-              <label for="regTargetAge" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Target Age</label>
-              <input type="number" id="regTargetAge" min="50" max="80" value="63" class="rw-input text-sm">
+              <label for="regTargetAge" class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-0.5">Target Age</label>
+              <input type="number" id="regTargetAge" min="50" max="80" value="63" class="rw-input text-xs sm:text-sm py-1.5">
             </div>
           </div>
 
           <div>
-            <label for="regPassword" class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Create Password</label>
+            <label for="regPassword" class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-0.5">Create Password</label>
             <div class="relative">
-              <input type="password" id="regPassword" required minlength="6" class="rw-input pr-10 text-sm" placeholder="Minimum 6 characters">
-              <button type="button" onclick="togglePasswordVisibility('regPassword', this)" class="absolute right-3 top-2.5 text-slate-400">
+              <input type="password" id="regPassword" required minlength="6" class="rw-input pr-10 text-xs sm:text-sm py-1.5" placeholder="Minimum 6 characters">
+              <button type="button" onclick="togglePasswordVisibility('regPassword', this)" class="absolute right-3 top-2 text-slate-400">
                 <i class="bi bi-eye"></i>
               </button>
             </div>
           </div>
 
-          <label class="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-400 cursor-pointer">
+          <label class="flex items-start gap-1.5 text-[11px] text-slate-600 dark:text-slate-400 cursor-pointer">
             <input type="checkbox" required class="mt-0.5 rounded text-teal-600">
-            <span>I acknowledge the SEC Form CRS and Fiduciary Terms of Advisory.</span>
+            <span>I acknowledge the SEC Form CRS and Fiduciary Terms.</span>
           </label>
 
-          <button type="submit" class="btn-primary-gold w-full py-2 px-3 text-xs font-bold uppercase tracking-wider shadow-md">
+          <button type="submit" class="btn-primary-gold w-full py-2.5 px-4 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-md shadow-amber-600/25">
             <span>Create Client Vault</span>
             <i class="bi bi-check2-circle"></i>
           </button>
+
+          <!-- Sign In Link -->
+          <div class="pt-2 mt-1 border-t border-slate-200/80 dark:border-slate-800 text-center text-xs text-slate-600 dark:text-slate-400">
+            <span>Already have a client account?</span>
+            <button type="button" id="tabBtnLogin" onclick="switchAuthTab('login')" class="font-bold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 hover:underline ml-1 cursor-pointer">
+              Sign In
+            </button>
+          </div>
         </form>
 
+        <!-- 3. FORGOT PASSWORD FORM -->
+        <form id="formForgot" onsubmit="handleForgotSubmit(event)" class="space-y-2.5 hidden">
+          <p class="text-xs text-slate-600 dark:text-slate-400">
+            Enter your registered email to receive a secure recovery token.
+          </p>
+          <div>
+            <label for="forgotEmail" class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-0.5">Email Address</label>
+            <div class="relative">
+              <span class="absolute left-3 top-2 text-slate-400 text-sm"><i class="bi bi-envelope"></i></span>
+              <input type="email" id="forgotEmail" required class="rw-input pl-9 text-xs sm:text-sm py-1.5" placeholder="client@example.com">
+            </div>
+          </div>
+          <button type="submit" class="btn-primary-gold w-full py-2.5 px-4 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-md shadow-amber-600/25">
+            <span>Send Recovery Link</span>
+            <i class="bi bi-send"></i>
+          </button>
+          <div class="pt-2 mt-1 border-t border-slate-200/80 dark:border-slate-800 text-center text-xs text-slate-600 dark:text-slate-400">
+            <span>Remembered your password?</span>
+            <button type="button" onclick="switchAuthTab('login')" class="font-bold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 hover:underline ml-1 cursor-pointer">
+              Sign In
+            </button>
+          </div>
+        </form>
 
-      </div>
-
-      <!-- Security Trust Bar -->
-      <div class="p-4 rounded-2xl bg-slate-900/60 dark:bg-navy-900/80 backdrop-blur-md border border-white/15 dark:border-slate-800 text-[11px] text-slate-300 dark:text-slate-400 space-y-2 shadow-lg">
-        <div class="flex items-center justify-between">
-          <span class="flex items-center gap-1.5 text-teal-400 font-semibold"><i class="bi bi-shield-fill-check"></i> AES 256-Bit Financial Vault</span>
-          <span class="text-slate-300">SOC 2 Type II Certified</span>
+        <!-- Integrated Bottom Security Seal -->
+        <div class="mt-3.5 pt-2.5 border-t border-slate-200/70 dark:border-slate-800/70 flex items-center justify-between text-[10px] sm:text-[10.5px] text-slate-500 dark:text-slate-400">
+          <span class="flex items-center gap-1 font-semibold text-teal-700 dark:text-teal-400">
+            <i class="bi bi-shield-lock-fill"></i>
+            <span>256-Bit SSL</span>
+          </span>
+          <span>•</span>
+          <span class="font-medium">SEC Fiduciary Standard</span>
+          <span>•</span>
+          <span class="font-medium">SOC 2 Type II</span>
         </div>
-        <p class="text-[10px] text-slate-300/80 dark:text-slate-400 leading-tight">
-          Session security auto-locks after 15 minutes of inactivity to protect sensitive annuity balance data and beneficiary social security records.
-        </p>
+
       </div>
 
     </div>
   </main>
-
-  <!-- Client Portal Minimal Footer (Website Footer Removed) -->
-  <footer class="py-6 px-4 text-center text-xs text-slate-300 dark:text-slate-400 border-t border-white/10 dark:border-slate-800/60 bg-slate-950/50 backdrop-blur-md z-10 relative">
-    <div class="flex items-center justify-center gap-4 mb-1.5 text-[11px] text-slate-300 dark:text-slate-400">
-      <a href="index.html" class="hover:text-teal-400 transition">Home</a>
-      <span>•</span>
-      <a href="services.html" class="hover:text-teal-400 transition">Annuities &amp; Services</a>
-      <span>•</span>
-      <a href="advisors.html" class="hover:text-teal-400 transition">Advisors</a>
-      <span>•</span>
-      <button type="button" onclick="RetireWellApp.openDisclaimersModal()" class="hover:text-teal-400 transition cursor-pointer">Regulatory Disclosures</button>
-    </div>
-    <p>© 2026 RetireWell Advisory Group, LLC. All rights reserved. • 256-Bit SSL Encrypted Session</p>
-  </footer>
 
   <div id="footer"></div>
 
@@ -207,29 +266,58 @@
       }
     }
 
-    function switchAuthTab(tab) {
-      const fLogin = document.getElementById('formLogin');
-      const fReg = document.getElementById('formRegister');
-      const bLogin = document.getElementById('tabBtnLogin');
-      const bReg = document.getElementById('tabBtnRegister');
-
-      if (!fLogin || !fReg || !bLogin || !bReg) return;
-
-      fLogin.classList.add('hidden');
-      fReg.classList.add('hidden');
-
-      bLogin.className = 'flex-1 pb-3 text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-white transition';
-      bReg.className = 'flex-1 pb-3 text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-white transition';
-
-      if (tab === 'login') {
-        fLogin.classList.remove('hidden');
-        bLogin.className = 'flex-1 pb-3 text-center border-b-2 border-teal-600 text-teal-600 font-bold transition';
-      } else if (tab === 'register') {
-        fReg.classList.remove('hidden');
-        bReg.className = 'flex-1 pb-3 text-center border-b-2 border-teal-600 text-teal-600 font-bold transition';
+    function fillDemoCredentials() {
+      const emailInput = document.getElementById('loginEmail');
+      const pwdInput = document.getElementById('loginPassword');
+      if (emailInput && pwdInput) {
+        emailInput.value = 'user@gmail.com';
+        pwdInput.value = '1234';
+        if (window.RetireWellApp && window.RetireWellApp.toast) {
+          RetireWellApp.toast('Demo credentials auto-filled: user@gmail.com / 1234', 'info', 2000);
+        }
       }
     }
 
+    function switchAuthTab(tab) {
+      const fLogin = document.getElementById('formLogin');
+      const fReg = document.getElementById('formRegister');
+      const fForgot = document.getElementById('formForgot');
+      const titleEl = document.getElementById('authCardTitle');
+      const subTitleEl = document.getElementById('authCardSubtitle');
+
+      if (!fLogin || !fReg) return;
+
+      if (tab === 'login') {
+        fReg.classList.add('hidden');
+        if (fForgot) fForgot.classList.add('hidden');
+        fLogin.classList.remove('hidden');
+        if (titleEl) titleEl.textContent = 'Sign In to Client Vault';
+        if (subTitleEl) subTitleEl.textContent = 'Enter your credentials to access your retirement portfolio';
+      } else if (tab === 'register') {
+        fLogin.classList.add('hidden');
+        if (fForgot) fForgot.classList.add('hidden');
+        fReg.classList.remove('hidden');
+        if (titleEl) titleEl.textContent = 'Register Client Vault';
+        if (subTitleEl) subTitleEl.textContent = 'Complete the form below to open your fiduciary account';
+      } else if (tab === 'forgot') {
+        fLogin.classList.add('hidden');
+        fReg.classList.add('hidden');
+        if (fForgot) fForgot.classList.remove('hidden');
+        if (titleEl) titleEl.textContent = 'Password Recovery';
+        if (subTitleEl) subTitleEl.textContent = 'Reset your secure fiduciary vault credentials';
+      }
+    }
+
+    function handleForgotSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('forgotEmail').value;
+      if (window.RetireWellApp && window.RetireWellApp.toast) {
+        RetireWellApp.toast(`Security token generated for ${email}. Check your inbox for reset instructions.`, 'info', 4000);
+      }
+      setTimeout(() => {
+        switchAuthTab('login');
+      }, 1500);
+    }
 
     function handleLoginSubmit(e) {
       e.preventDefault();
@@ -277,7 +365,6 @@
       }
     }
 
-
     document.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
       const hash = window.location.hash.toLowerCase();
@@ -291,9 +378,15 @@
         window.RetireWellDB.logout();
         return;
       }
-      // If already logged in and didn't specify ?switch=true, redirect straight to user dashboard
-      if (!urlParams.get('switch') && window.RetireWellDB && window.RetireWellDB.getSession()) {
-        window.location.replace('user.html');
+      // If logged in, display active session notification bar without forced redirect
+      if (window.RetireWellDB && window.RetireWellDB.getSession()) {
+        const session = window.RetireWellDB.getSession();
+        const banner = document.getElementById('alreadyLoggedInBanner');
+        const userEl = document.getElementById('loggedInUserName');
+        if (banner && userEl && session.name) {
+          userEl.textContent = session.name;
+          banner.classList.remove('hidden');
+        }
       }
     });
   </script>

@@ -24,11 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
           <!-- Column 1: Brand & Social Media (lg:col-span-3) -->
           <div class="lg:col-span-3 space-y-4">
             <div class="flex items-center gap-3">
-              <div class="w-11 h-11 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 p-1 flex items-center justify-center shadow-xs overflow-hidden flex-shrink-0">
+              <div class="w-11 h-11 rounded-xl bg-amber-500/10 dark:bg-amber-500/15 border border-amber-500/30 dark:border-amber-500/40 p-1 flex items-center justify-center shadow-xs overflow-hidden flex-shrink-0">
                 <img src="images/brand-logo.png" alt="RetireWell Logo" class="w-full h-full object-contain">
               </div>
               <div>
-                <span class="font-serif font-bold text-xl text-slate-900 dark:text-white tracking-tight block leading-tight">Retire<span class="text-teal-600 dark:text-teal-400">Well</span></span>
+                <span class="font-serif font-bold text-xl text-slate-900 dark:text-white tracking-tight block leading-tight">Retire<span class="text-amber-600 dark:text-amber-400">Well</span></span>
                 <span class="text-[9.5px] uppercase font-bold tracking-wider text-slate-500 dark:text-slate-400 block">Fiduciary &amp; Annuity Advisory</span>
               </div>
             </div>
@@ -37,16 +37,16 @@ document.addEventListener("DOMContentLoaded", () => {
             </p>
             <!-- Social Media Rounded Square Icon Buttons -->
             <div class="pt-1 flex items-center gap-2.5">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:border-teal-500 shadow-2xs transition" title="Instagram">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 hover:border-amber-500 shadow-2xs transition" title="Instagram">
                 <i class="bi bi-instagram text-sm"></i>
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:border-teal-500 shadow-2xs transition" title="Facebook">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 hover:border-amber-500 shadow-2xs transition" title="Facebook">
                 <i class="bi bi-facebook text-sm"></i>
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:border-teal-500 shadow-2xs transition" title="TikTok / X">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 hover:border-amber-500 shadow-2xs transition" title="TikTok / X">
                 <i class="bi bi-twitter-x text-sm"></i>
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:border-teal-500 shadow-2xs transition" title="YouTube">
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 hover:border-amber-500 shadow-2xs transition" title="YouTube">
                 <i class="bi bi-youtube text-sm"></i>
               </a>
             </div>
@@ -60,31 +60,31 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             <ul class="space-y-3 text-xs text-slate-600 dark:text-slate-400">
               <li>
-                <a href="index.html" class="hover:text-teal-600 dark:hover:text-teal-400 transition flex items-center gap-2">
+                <a href="index.html" class="hover:text-amber-600 dark:hover:text-amber-400 transition flex items-center gap-2">
                   <span class="text-slate-400 text-xs font-semibold">›</span>
                   <span>Home</span>
                 </a>
               </li>
               <li>
-                <a href="about.html" class="hover:text-teal-600 dark:hover:text-teal-400 transition flex items-center gap-2">
+                <a href="about.html" class="hover:text-amber-600 dark:hover:text-amber-400 transition flex items-center gap-2">
                   <span class="text-slate-400 text-xs font-semibold">›</span>
                   <span>About</span>
                 </a>
               </li>
               <li>
-                <a href="services.html" class="hover:text-teal-600 dark:hover:text-teal-400 transition flex items-center gap-2">
+                <a href="services.html" class="hover:text-amber-600 dark:hover:text-amber-400 transition flex items-center gap-2">
                   <span class="text-slate-400 text-xs font-semibold">›</span>
                   <span>Services</span>
                 </a>
               </li>
               <li>
-                <a href="advisors.html" class="hover:text-teal-600 dark:hover:text-teal-400 transition flex items-center gap-2">
+                <a href="advisors.html" class="hover:text-amber-600 dark:hover:text-amber-400 transition flex items-center gap-2">
                   <span class="text-slate-400 text-xs font-semibold">›</span>
                   <span>Packages</span>
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)" onclick="RetireWellApp.openBookingModal('General Consultation')" class="hover:text-teal-600 dark:hover:text-teal-400 transition flex items-center gap-2">
+                <a href="javascript:void(0)" onclick="RetireWellApp.openBookingModal('General Consultation')" class="hover:text-amber-600 dark:hover:text-amber-400 transition flex items-center gap-2">
                   <span class="text-slate-400 text-xs font-semibold">›</span>
                   <span>Contact</span>
                 </a>
@@ -95,17 +95,17 @@ document.addEventListener("DOMContentLoaded", () => {
           <!-- Column 3: Contact Info (lg:col-span-3) -->
           <div class="lg:col-span-3 space-y-4">
             <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-teal-500 flex-shrink-0"></span>
+              <span class="w-2 h-2 rounded-full bg-amber-500 flex-shrink-0"></span>
               <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">Contact Info</h4>
             </div>
             <div class="space-y-3.5 text-xs">
               <!-- Phone -->
               <div class="flex items-start gap-3">
-                <div class="w-9 h-9 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-teal-600 dark:text-teal-400 flex-shrink-0 shadow-2xs mt-0.5">
+                <div class="w-9 h-9 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-amber-600 dark:text-amber-400 flex-shrink-0 shadow-2xs mt-0.5">
                   <i class="bi bi-telephone-fill text-xs"></i>
                 </div>
                 <div>
-                  <a href="tel:5557297428" class="font-bold text-slate-800 dark:text-slate-200 hover:text-teal-600 dark:hover:text-teal-400 transition block leading-tight">
+                  <a href="tel:5557297428" class="font-bold text-slate-800 dark:text-slate-200 hover:text-amber-600 dark:hover:text-amber-400 transition block leading-tight">
                     (555) 729–7428
                   </a>
                   <span class="text-[11px] text-slate-500 dark:text-slate-400 block mt-0.5">
@@ -116,11 +116,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
               <!-- Email -->
               <div class="flex items-start gap-3">
-                <div class="w-9 h-9 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-teal-600 dark:text-teal-400 flex-shrink-0 shadow-2xs mt-0.5">
+                <div class="w-9 h-9 rounded-xl bg-slate-50 dark:bg-navy-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-amber-600 dark:text-amber-400 flex-shrink-0 shadow-2xs mt-0.5">
                   <i class="bi bi-envelope-fill text-xs"></i>
                 </div>
                 <div>
-                  <a href="mailto:concierge@retirewell.com" class="font-bold text-slate-800 dark:text-slate-200 hover:text-teal-600 dark:hover:text-teal-400 transition block leading-tight">
+                  <a href="mailto:concierge@retirewell.com" class="font-bold text-slate-800 dark:text-slate-200 hover:text-amber-600 dark:hover:text-amber-400 transition block leading-tight">
                     concierge@retirewell.com
                   </a>
                   <span class="text-[11px] text-slate-500 dark:text-slate-400 block mt-0.5">
@@ -153,41 +153,31 @@ document.addEventListener("DOMContentLoaded", () => {
               <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">VIP Community</h4>
             </div>
 
-            <!-- Elevated VIP Card Box (rw-card-gold luxury styling) -->
-            <div class="rw-card rw-card-gold rounded-2xl p-4 sm:p-5 shadow-lg space-y-3.5">
-              <!-- Top Badges Row -->
-              <div class="flex items-center justify-between gap-2">
-                <span class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-navy-800 border border-slate-200/80 dark:border-slate-700/80 text-[10px] font-bold text-slate-700 dark:text-slate-300 tracking-wider uppercase">
-                  Strict Fiduciary Oath
-                </span>
-                <span class="rw-badge-gold text-[10px]">
-                  Complimentary Guide
-                </span>
-              </div>
-
+            <!-- Elevated VIP Card Box (Compact styling matching Contact Info size) -->
+            <div class="rw-card rw-card-gold rounded-2xl p-4 shadow-sm space-y-2.5">
               <!-- Title & Description -->
               <div>
-                <h4 class="text-sm font-bold font-serif text-slate-900 dark:text-white leading-snug">
+                <h4 class="text-sm font-bold font-serif text-slate-900 dark:text-white leading-tight">
                   Join our VIP Community
                 </h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mt-1">
-                  Weekly fiduciary income insights, carrier rate alerts, and longevity wealth strategy.
+                <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed mt-1">
+                  Weekly fiduciary income insights, carrier rate alerts, and longevity strategy.
                 </p>
               </div>
 
-              <!-- Subscription Form -->
-              <form onsubmit="event.preventDefault(); RetireWellApp.toast('Welcome to our VIP Community! Your welcome gift has been emailed.', 'success'); this.reset();" class="space-y-2.5">
-                <input type="email" required placeholder="Enter your email address..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/70 dark:bg-navy-950 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 transition">
-                <button type="submit" class="btn-primary-gold w-full py-2 px-3.5 rounded-lg text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-1.5 cursor-pointer">
-                  <span>Subscribe Free</span>
+              <!-- Compact Subscription Form (Inline Input + Button) -->
+              <form onsubmit="event.preventDefault(); RetireWellApp.toast('Welcome to our VIP Community! Your welcome gift has been emailed.', 'success'); this.reset();" class="flex items-center gap-2">
+                <input type="email" required placeholder="Enter email address..." class="flex-1 min-w-0 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/70 dark:bg-navy-950 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 transition">
+                <button type="submit" class="btn-primary-gold py-2 px-3.5 rounded-xl text-white font-bold text-xs shadow-xs transition flex items-center justify-center gap-1 cursor-pointer flex-shrink-0">
+                  <span>Subscribe</span>
                   <i class="bi bi-arrow-right text-xs"></i>
                 </button>
               </form>
 
               <!-- Privacy Reassurance Note -->
-              <div class="flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400 pt-0.5">
-                <i class="bi bi-shield-check text-slate-500 dark:text-slate-400 text-xs"></i>
-                <span>We cherish your privacy. Zero spam.</span>
+              <div class="flex items-center gap-1.5 text-[10.5px] text-slate-500 dark:text-slate-400">
+                <i class="bi bi-shield-check text-amber-600 dark:text-amber-400 text-xs"></i>
+                <span>Strict fiduciary privacy. Zero spam.</span>
               </div>
             </div>
           </div>
@@ -315,8 +305,8 @@ document.addEventListener("DOMContentLoaded", () => {
               <textarea id="bookingNotes" rows="2" class="rw-input" placeholder="e.g. Planning to retire in 4 years, want to lock in a guaranteed $5,000/mo income floor..."></textarea>
             </div>
 
-            <div class="p-3 bg-teal-50 dark:bg-teal-950/30 rounded-xl border border-teal-500/20 text-xs text-teal-800 dark:text-teal-300 flex items-start gap-2">
-              <i class="bi bi-shield-check text-base text-teal-600 flex-shrink-0 mt-0.5"></i>
+            <div class="p-3 bg-amber-50 dark:bg-amber-950/30 rounded-xl border border-amber-500/20 text-xs text-amber-800 dark:text-amber-300 flex items-start gap-2">
+              <i class="bi bi-shield-check text-base text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5"></i>
               <span><strong>Fiduciary Oath:</strong> No sales pressure, no proprietary quotas. You receive an objective, mathematical analysis of carrier options.</span>
             </div>
 
@@ -334,16 +324,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- Success Section (Displayed after form submit) -->
         <div id="bookingSuccessSection" class="p-5 sm:p-8 text-center space-y-4 hidden">
-          <div class="w-16 h-16 rounded-full bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 mx-auto flex items-center justify-center text-3xl shadow-inner">
+          <div class="w-16 h-16 rounded-full bg-amber-100 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 mx-auto flex items-center justify-center text-3xl shadow-inner">
             <i class="bi bi-check-lg"></i>
           </div>
           <h4 class="text-xl font-bold font-serif text-slate-900 dark:text-white">Consultation Confirmed</h4>
-          <p class="text-xs text-slate-500 uppercase tracking-widest font-mono">Reference Code: <span id="bookingRefCode" class="font-bold text-teal-600 dark:text-teal-400">RW-2026-8824</span></p>
+          <p class="text-xs text-slate-500 uppercase tracking-widest font-mono">Reference Code: <span id="bookingRefCode" class="font-bold text-amber-600 dark:text-amber-400">RW-2026-8824</span></p>
           <p id="bookingSummaryText" class="text-sm text-slate-600 dark:text-slate-300 max-w-md mx-auto leading-relaxed">
             Your appointment has been registered in the Fiduciary System. A secure calendar invite and preparatory checklist have been dispatched to your email.
           </p>
           <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a href="user.html" class="btn-secondary-teal text-xs py-1.5 px-4 w-full sm:w-auto text-center justify-center">
+            <a href="user.html" class="btn-primary-gold text-xs py-1.5 px-4 w-full sm:w-auto text-center justify-center">
               <i class="bi bi-speedometer2"></i> View in Client Dashboard
             </a>
             <button onclick="RetireWellApp.closeModal('bookingModal')" class="btn-outline-navy text-xs py-1.5 px-4 w-full sm:w-auto text-center justify-center">

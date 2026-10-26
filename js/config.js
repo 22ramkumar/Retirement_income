@@ -36,12 +36,12 @@ const RETIREWELL_CONFIG = {
       familyGathering: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1200&q=80" // Multi-generational family
     },
     advisors: {
-      davidVance: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80", // Senior Male Executive Advisor
-      elenaRostova: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80", // Professional Female Advisor
-      marcusSterling: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80", // Friendly Experienced Wealth Manager
-      sarahJenkins: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=600&q=80", // Accomplished Female Planner
-      raymondScott: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80", // Experienced Estate Specialist
-      miriamPatel: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80" // Senior Analytical Director
+      davidVance: "images/advisor-david-vance.jpg", // Senior Male Executive Advisor
+      elenaRostova: "images/advisor-elena-rostova.jpg", // Professional Female Advisor
+      marcusSterling: "images/advisor-marcus-sterling.jpg", // Friendly Experienced Wealth Manager
+      sarahJenkins: "images/advisor-sarah-jenkins.jpg", // Accomplished Female Planner
+      raymondScott: "images/advisor-raymond-scott.jpg", // Experienced Estate Specialist
+      miriamPatel: "images/advisor-miriam-patel.jpg" // Senior Analytical Director
     },
     lifestyle: {
       travel: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
